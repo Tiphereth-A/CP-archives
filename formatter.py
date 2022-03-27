@@ -80,11 +80,11 @@ def remove_non_ext_files(src: str):
     """remove files with no extension name"""
 
     @wrapper(get_all_files(src))
-    def _remove_non_ext_and_empty_files(filepath: str, filename: str) -> None:
+    def _remove_non_ext_files(filepath: str, filename: str) -> None:
         if len(filename.split('.')) == 1:
             os.remove(os.path.join(filepath, filename))
 
-    return _remove_non_ext_and_empty_files
+    return _remove_non_ext_files
 
 
 @cli.command('rnf')
@@ -93,11 +93,11 @@ def remove_empty_files(src: str):
     """remove empty files"""
 
     @wrapper(get_all_files(src))
-    def _remove_non_ext_and_empty_files(filepath: str, filename: str) -> None:
+    def _remove_empty_files(filepath: str, filename: str) -> None:
         if not os.path.getsize(os.path.join(filepath, filename)):
             os.remove(os.path.join(filepath, filename))
 
-    return _remove_non_ext_and_empty_files
+    return _remove_empty_files
 
 
 @cli.command('cb')
