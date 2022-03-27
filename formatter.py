@@ -173,7 +173,7 @@ def rename_all_files(src: str):
         cnt: int = 0
         for filename in filenames:
             pre_name = os.path.join(filepath, filename)
-            new_name = os.path.join(filepath, rf"{cnt}_{random.randint(0, 2147483648)}.{filename.split('.')[-1]}")
+            new_name = os.path.join(filepath, rf"{cnt}_{random.randint(0, 2147483648)}.{get_extname(filename)}")
             os.rename(pre_name, new_name)
             cnt += 1
 
