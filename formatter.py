@@ -110,8 +110,8 @@ def remove_blanks(src: str):
         with open(os.path.join(filepath, filename), 'r', encoding='utf8') as f:
             code = '\n'.join(filter(bool, f.readlines()))
 
-        code = re.sub(r'^\n+', '', code)
         code = re.sub(r'\s+\n', '\n', code)
+        code = re.sub(r'^\n+', '', code)
 
         with open(os.path.join(filepath, filename), 'w', encoding='utf8') as f:
             f.write(code)
