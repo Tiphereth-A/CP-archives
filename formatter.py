@@ -21,14 +21,14 @@ basicConfig(
 
 def get_filemap(src: str) -> List[Tuple[str, List[str]]]:
     filemap = []
-    for filepath, dirnames, filenames in os.walk(src):
+    for filepath, _, filenames in os.walk(src):
         filemap.append((filepath, filenames))
     return filemap
 
 
 def get_all_files(src: str) -> List[Tuple[str, str]]:
     files = []
-    for filepath, dirnames, filenames in os.walk(src):
+    for filepath, _, filenames in os.walk(src):
         for filename in filenames:
             files.append((filepath, filename))
     return files
