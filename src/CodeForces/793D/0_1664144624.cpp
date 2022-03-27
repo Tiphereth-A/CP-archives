@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+using namespace std;
+using i64 = int64_t;
+using u64 = uint64_t;
+using i128 = __int128_t;
+using u128 = __uint128_t;
+using f32 = float;
+using f64 = double;
+using pii = pair<int, int>;
+#define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
+#define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
+#define _ins(a) std::inserter((a), (a).begin())
+#define _all(a) (a).begin(), (a).end()
+#define _set_nul(a) memset(a, 0, sizeof(a))
+#define _set_inf(a) memset(a, 0x3f, sizeof(a))
+#define _set_nul_n(a, n) memset(a, 0, sizeof(a[0]) * (n))
+#define _set_inf_n(a, n) memset(a, 0x3f, sizeof(a[0]) * (n))
+template <class T>
+bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+const uint32_t OFFSET = 5;
+const uint32_t N = 80 + OFFSET;
+const int INF = 0x3f3f3f3f;
+int f[2][N][N];
+int g[N][N];
+inline void solve() {
+    _set_inf(g);
+    int n, k, m;
+    cin >> n >> k >> m;
+    _for(i, 1, m, x, y, w) {
+        cin >> x >> y >> w;
+        chkmin(g[x][y], w);
+    }
+    _set_inf(f[0]);
+    _for(i, 1, n) f[0][i][0] = f[0][i][n + 1] = 0;
+    _for(cnt, 1, k, now = 0) {
+        now ^= 1;
+        _set_inf(f[now]);
+        _for(l, 0, n + 1, _) _for(r, l, n + 1) _for(to, l + 1, r - 1) {
+            _ = min(f[now ^ 1][l][r] + g[l][to], f[now ^ 1][r][l] + g[r][to]);
+            chkmin(f[now][to][r], _);
+            chkmin(f[now][to][l], _);
+        }
+    }
+    int ans = INF;
+    _for(l, 0, n + 1) _for(r, 0, n + 1) chkmin(ans, min(f[~k & 1][l][r], f[~k & 1][r][l]));
+    cout << (ans == INF ? -1 : ans);
+}
+int main() {
+#ifdef _LOCAL_
+    auto _CLOCK_ST = std::chrono::steady_clock::now();
+#endif
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+#ifdef MULTI_CASES
+    int _t;
+    cin >> _t;
+    while (_t--)
+#endif
+        solve();
+#ifdef _LOCAL_
+    std::cerr << "\n---\n"
+              << "Time used: " << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - _CLOCK_ST).count() << " ms" << std::endl;
+#endif
+    return 0;
+}

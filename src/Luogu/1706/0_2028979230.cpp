@@ -1,0 +1,28 @@
+#include <algorithm>
+#include <cstdio>
+#include <ctime>
+#include <iostream>
+using std::cin;
+using std::cout;
+const int frac[] = {0, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
+int num[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+int n;
+int main() {
+#ifndef ONLINE_JUDGE
+    freopen("D:\\code\\IO\\in.in", "r", stdin);
+    freopen("D:\\code\\IO\\out.out", "w", stdout);
+    clock_t c1 = clock();
+#endif
+    cin >> n;
+    for (int i = 1; i <= frac[n]; ++i) {
+        for (int j = 1; j <= n; ++j)
+            printf("%5d", num[j]);
+        puts("");
+        std::next_permutation(num + 1, num + n + 1);
+    }
+#ifndef ONLINE_JUDGE
+    std::cerr << "\n---\n"
+              << "Time:" << clock() - c1 << std::endl;
+#endif
+    return 0;
+}
