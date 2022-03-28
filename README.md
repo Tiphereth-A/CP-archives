@@ -10,4 +10,6 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/Tiphereth-A/CP-archives?style=social)
 
 
+![](https://img.shields.io/badge/work-on--my--computer-success)
+
 My code about Competitive Programming in daily practice
