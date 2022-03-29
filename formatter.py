@@ -229,7 +229,7 @@ def remove_empty_folder(src: str):
 
 @cli.command('n')
 @click.option('--src', '-s', type=str, help='src folder', default='src')
-@click.option('--random-max-int', '-m', help='maximum of rand', type=int, default=2147483647)
+@click.option('--max-int', '-m', help='maximum of rand', type=int, default=2147483647)
 def rename_all_files(src: str, max_int: int):
     """rename all files"""
 
