@@ -3,7 +3,8 @@
 using namespace std;
 struct Node {
     double x, y;
-    Node(double _x = 0, double _y = 0) : x(_x), y(_y) {}
+    Node(double _x = 0, double _y = 0):
+        x(_x), y(_y) {}
 };
 int main() {
     Node a, b, c, d;

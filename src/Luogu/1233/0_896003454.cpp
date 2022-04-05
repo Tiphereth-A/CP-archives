@@ -11,7 +11,7 @@ do {
         ;
 } while (0) struct node {
     int l, w;
-    bool operator<(const node& b) const { return (l == b.l) ? (w > b.w) : (l > b.l); }
+    bool operator<(const node &b) const { return (l == b.l) ? (w > b.w) : (l > b.l); }
 } a[N];
 int n, f[N], ans;
 int main() {

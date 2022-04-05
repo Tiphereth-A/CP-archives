@@ -4,7 +4,7 @@
 #include <vector>
 typedef long long i64;
 const int dx[3] = {2, 3, 5};
-std::priority_queue<i64, std::vector<i64>, std::greater<i64> > q;
+std::priority_queue<i64, std::vector<i64>, std::greater<i64>> q;
 std::set<i64> s;
 int main() {
     q.push(1);

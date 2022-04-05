@@ -5,7 +5,7 @@
 const double EPS = 1E-8;
 int n;
 double a[105][105];
-inline void Swap(double& a, double& b) {
+inline void Swap(double &a, double &b) {
     double tmp = a;
     a = b;
     b = tmp;

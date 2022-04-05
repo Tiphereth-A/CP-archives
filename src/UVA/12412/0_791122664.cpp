@@ -26,8 +26,8 @@ struct Student {
 } stu[1000];
 map<string, int> sidTable;
 int Student::Cnt = 1;
-bool CmpScore(const Student& a, const Student& b) { return a.TotScore > b.TotScore; }
-bool CmpInputID(const Student& a, const Student& b) { return a.InputID < b.InputID; }
+bool CmpScore(const Student &a, const Student &b) { return a.TotScore > b.TotScore; }
+bool CmpInputID(const Student &a, const Student &b) { return a.InputID < b.InputID; }
 il void PrintMenu() {
     printf(
         "Welcome to Student Performance Management System (SPMS).\n\n"
@@ -51,7 +51,7 @@ il void Add() {
                 "Please enter the SID, CID, name and four scores. Enter 0 to finish.\n");
             continue;
         }
-        Student* now = &stu[Student::Cnt];
+        Student *now = &stu[Student::Cnt];
         sidTable[sid] = Student::Cnt;
         now->SID = sid;
         now->Name = name;
@@ -75,7 +75,7 @@ il void Remove() {
         REP2(i, 1, Student::Cnt) {
             if (stu[i].Name == p || stu[i].SID == p) {
                 ++cnt;
-                Student* now = &stu[i];
+                Student *now = &stu[i];
                 sidTable[now->SID] = 0;
                 now->SID = "";
                 now->Name = "";
@@ -101,7 +101,7 @@ il void Query() {
         if (p == "0") return;
         REP1(i, 1, Student::Cnt) {
             if (stu[i].Name == p || stu[i].SID == p) {
-                Student* now = &stu[i];
+                Student *now = &stu[i];
                 cout << now->Rank << " " << now->SID << " " << now->CID << " " << now->Name << " " << now->Ch << " " << now->Ma << " " << now->En << " " << now->Pr << " " << now->TotScore << " " << fixed << setprecision(2) << now->AveScore << endl;
             }
         }
@@ -119,7 +119,7 @@ il void ShowStatistics() {
     if (cid == 0) {
         REP1(i, 1, Student::Cnt) {
             int passCnt = 0;
-            Student* now = &stu[i];
+            Student *now = &stu[i];
             if (now->CID) {
                 ++StuCnt;
                 if (now->Ch >= 60) {
@@ -192,7 +192,7 @@ il void ShowStatistics() {
     } else {
         REP1(i, 1, Student::Cnt) {
             int passCnt = 0;
-            Student* now = &stu[i];
+            Student *now = &stu[i];
             if (now->CID == cid) {
                 ++StuCnt;
                 if (now->Ch >= 60) {

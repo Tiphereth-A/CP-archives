@@ -58,19 +58,19 @@ typedef long double ldb;
 #define tpn typename
 #endif
 template <tpn A>
-inline A Max(const A& x, const A& y) {
+inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
 template <tpn A>
-inline A Min(const A& x, const A& y) {
+inline A Min(const A &x, const A &y) {
     return x < y ? x : y;
 }
 template <tpn A>
-inline void Swap(A& x, A& y) {
+inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;
 }
 template <tpn A>
-inline A Abs(const A& x) {
+inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 #define M 310

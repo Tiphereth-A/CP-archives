@@ -12,7 +12,7 @@ struct BigInt {
     BigInt(int num) {
         *this = num;
     }
-    BigInt(const char* num) {
+    BigInt(const char *num) {
         *this = num;
     }
     BigInt operator=(int num) {
@@ -30,12 +30,12 @@ struct BigInt {
     void clean() {
         while (len > 1 && !s[len - 1]) len--;
     }
-    BigInt operator=(const char* num) {
+    BigInt operator=(const char *num) {
         len = strlen(num);
         for (int i = 0; i < len; i++) s[i] = num[len - i - 1] - '0';
         return *this;
     }
-    BigInt operator+(const BigInt& b) const {
+    BigInt operator+(const BigInt &b) const {
         BigInt c;
         c.len = 0;
         for (int i = 0, g = 0; g || i < max(len, b.len); i++) {
@@ -47,7 +47,7 @@ struct BigInt {
         }
         return c;
     }
-    BigInt operator*(const BigInt& b) {
+    BigInt operator*(const BigInt &b) {
         BigInt c;
         c.len = len + b.len;
         for (int i = 0; i < len; i++)
@@ -60,7 +60,7 @@ struct BigInt {
         c.clean();
         return c;
     }
-    BigInt operator-(const BigInt& b) {
+    BigInt operator-(const BigInt &b) {
         BigInt c;
         c.len = 0;
         for (int i = 0, g = 0; i < len; i++) {
@@ -78,7 +78,7 @@ struct BigInt {
         return c;
     }
 };
-ostream& operator<<(ostream& out, const BigInt& x) {
+ostream &operator<<(ostream &out, const BigInt &x) {
     out << x.str();
     return out;
 }

@@ -2,7 +2,7 @@
 using namespace std;
 struct node {
     int h, w;
-    bool operator<(const node& other) const { return w == other.w ? h < other.h : w < other.w; }
+    bool operator<(const node &other) const { return w == other.w ? h < other.h : w < other.w; }
 } a[10];
 bool judge() {
     if (a[0].h != a[1].h || a[0].w != a[1].w) return false;

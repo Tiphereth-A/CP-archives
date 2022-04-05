@@ -8,7 +8,7 @@ char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf;
 int p, p3 = -1;
 inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++; }
 template <typename T>
-inline void read(T& x) {
+inline void read(T &x) {
     x = 0;
     char ch = getc();
     while (!isdigit(ch)) {
@@ -27,7 +27,7 @@ inline void print(T x) {
     do { buf2[++p3] = a[p]; } while (--p);
 }
 inline void putchar(char a) { buf2[++p3] = a; }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 const int N = 1e6 + 5;

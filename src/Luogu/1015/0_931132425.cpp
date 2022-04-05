@@ -25,7 +25,7 @@ struct num {
     int n[M];
 } s1;
 int ans, m;
-il void scan(num& a) {
+il void scan(num &a) {
     a.n[0] = 0;
     char c = getchar();
     if (isalpha(c)) c = toupper(c);
@@ -42,13 +42,13 @@ il void scan(num& a) {
         if (isalpha(c)) c = toupper(c);
     }
 }
-il num rev(num& a) {
+il num rev(num &a) {
     num x;
     x.n[0] = a.n[0];
     fp(i, 1, a.n[0]) x.n[i] = a.n[a.n[0] - i + 1];
     return x;
 }
-il void nplus(num& a, num b) {
+il void nplus(num &a, num b) {
     int s = max(a.n[0], b.n[0]), c = 0;
     a.n[0] = s;
     fp(i, 1, s) {

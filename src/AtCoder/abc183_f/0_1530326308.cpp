@@ -10,7 +10,7 @@ void merge(int x, int y) {
     y = find(y);
     if (x == y) return;
     if (sz[x] > sz[y]) swap(x, y);
-    for (const auto& i : m[x]) m[y][i.first] += m[x][i.first];
+    for (const auto &i : m[x]) m[y][i.first] += m[x][i.first];
     sz[y] += sz[x];
     fa[x] = y;
 }

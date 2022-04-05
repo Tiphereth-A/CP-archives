@@ -25,7 +25,7 @@ const int N = 1e4 + 5;
 int n, k;
 struct node {
     int l, time;
-    bool operator<(const node& oth) const { return l > oth.l; }
+    bool operator<(const node &oth) const { return l > oth.l; }
 } task[N];
 int f[N];
 int main() {

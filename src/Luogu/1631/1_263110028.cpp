@@ -11,7 +11,7 @@ inline void out() {
     oS = obuff;
 }
 template <class Type>
-inline void read(Type& x) {
+inline void read(Type &x) {
     Type y = 1;
     for (c = gc(); (c > '9' || c < '0') && c != '-'; c = gc())
         ;
@@ -33,7 +33,7 @@ inline void print(Type x, char text = '\n') {
     *oS++ = text;
     out();
 }
-} // namespace fastIO
+}  // namespace fastIO
 using namespace fastIO;
 std::priority_queue<int> q;
 int a[N], b[N], ans[N];

@@ -9,7 +9,7 @@ for (a -= '0'; (ch = getchar()) >= '0' && ch <= '9'; a = a * 10 + ch - '0')
     ;
 }
 while (0)
-    priority_queue<int, vector<int>, greater<int> > q;
+    priority_queue<int, vector<int>, greater<int>> q;
 int n, a, b;
 int main() {
     gi(n);

@@ -2,7 +2,7 @@
 #define _for(i, l, r) for (register int i = (l); i <= (r); ++i)
 typedef long long i64;
 template <typename A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     A neg = 1;
     do {
@@ -18,7 +18,7 @@ inline void read(A& x) {
     x *= neg;
 }
 template <typename A, typename B>
-inline void read(A& a, B& b) {
+inline void read(A &a, B &b) {
     read(a), read(b);
 }
 const int N = 1e7 + 5;

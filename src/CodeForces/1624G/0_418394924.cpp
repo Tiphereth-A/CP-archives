@@ -26,7 +26,8 @@ int main() {
             _for(i, 1, n) fa[i] = i;
             int _ = n;
             ans ^= (1 << i);
-            _for(i, 1, m) if ((get<2>(e[i]) | ans) == ans && merge(get<0>(e[i]), get<1>(e[i])))-- _;
+            _for(i, 1, m)
+                if ((get<2>(e[i]) | ans) == ans && merge(get<0>(e[i]), get<1>(e[i]))) --_;
             ans ^= ((int)(_ != 1) << i);
         }
         cout << ans << '\n';

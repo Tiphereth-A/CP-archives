@@ -25,7 +25,8 @@ constexpr long long safe_mod(long long x, long long m) {
 struct barrett {
     unsigned int _m;
     unsigned long long im;
-    barrett(unsigned int m) : _m(m), im((unsigned long long)(-1) / m + 1) {}
+    barrett(unsigned int m):
+        _m(m), im((unsigned long long)(-1) / m + 1) {}
     unsigned int umod() const { return _m; }
     unsigned int mul(unsigned int a, unsigned int b) const {
         unsigned long long z = a;
@@ -200,14 +201,14 @@ using is_unsigned_int_t = std::enable_if_t<is_unsigned_int<T>::value>;
 template <class T>
 using to_unsigned_t = typename to_unsigned<T>::type;
 struct modint_base {};
-struct static_modint_base : modint_base {};
+struct static_modint_base: modint_base {};
 template <class T>
 using is_modint = std::is_base_of<modint_base, T>;
 template <class T>
 using is_modint_t = std::enable_if_t<is_modint<T>::value>;
-} // namespace internal
-template <int m, std::enable_if_t<(1 <= m)>* = nullptr>
-struct static_modint : internal::static_modint_base {
+}  // namespace internal
+template <int m, std::enable_if_t<(1 <= m)> * = nullptr>
+struct static_modint: internal::static_modint_base {
     using mint = static_modint;
 
   public:
@@ -217,24 +218,25 @@ struct static_modint : internal::static_modint_base {
         x._v = v;
         return x;
     }
-    static_modint() : _v(0) {}
-    template <class T, internal::is_signed_int_t<T>* = nullptr>
+    static_modint():
+        _v(0) {}
+    template <class T, internal::is_signed_int_t<T> * = nullptr>
     static_modint(T v) {
         long long x = (long long)(v % (long long)(umod()));
         if (x < 0) x += umod();
         _v = (unsigned int)(x);
     }
-    template <class T, internal::is_unsigned_int_t<T>* = nullptr>
+    template <class T, internal::is_unsigned_int_t<T> * = nullptr>
     static_modint(T v) {
         _v = (unsigned int)(v % umod());
     }
     unsigned int val() const { return _v; }
-    mint& operator++() {
+    mint &operator++() {
         _v++;
         if (_v == umod()) _v = 0;
         return *this;
     }
-    mint& operator--() {
+    mint &operator--() {
         if (_v == 0) _v = umod();
         _v--;
         return *this;
@@ -249,23 +251,23 @@ struct static_modint : internal::static_modint_base {
         --*this;
         return result;
     }
-    mint& operator+=(const mint& rhs) {
+    mint &operator+=(const mint &rhs) {
         _v += rhs._v;
         if (_v >= umod()) _v -= umod();
         return *this;
     }
-    mint& operator-=(const mint& rhs) {
+    mint &operator-=(const mint &rhs) {
         _v -= rhs._v;
         if (_v >= umod()) _v += umod();
         return *this;
     }
-    mint& operator*=(const mint& rhs) {
+    mint &operator*=(const mint &rhs) {
         unsigned long long z = _v;
         z *= rhs._v;
         _v = (unsigned int)(z % umod());
         return *this;
     }
-    mint& operator/=(const mint& rhs) { return *this = *this * rhs.inv(); }
+    mint &operator/=(const mint &rhs) { return *this = *this * rhs.inv(); }
     mint operator+() const { return *this; }
     mint operator-() const { return mint() - *this; }
     mint pow(long long n) const {
@@ -288,22 +290,22 @@ struct static_modint : internal::static_modint_base {
             return eg.second;
         }
     }
-    friend mint operator+(const mint& lhs, const mint& rhs) {
+    friend mint operator+(const mint &lhs, const mint &rhs) {
         return mint(lhs) += rhs;
     }
-    friend mint operator-(const mint& lhs, const mint& rhs) {
+    friend mint operator-(const mint &lhs, const mint &rhs) {
         return mint(lhs) -= rhs;
     }
-    friend mint operator*(const mint& lhs, const mint& rhs) {
+    friend mint operator*(const mint &lhs, const mint &rhs) {
         return mint(lhs) *= rhs;
     }
-    friend mint operator/(const mint& lhs, const mint& rhs) {
+    friend mint operator/(const mint &lhs, const mint &rhs) {
         return mint(lhs) /= rhs;
     }
-    friend bool operator==(const mint& lhs, const mint& rhs) {
+    friend bool operator==(const mint &lhs, const mint &rhs) {
         return lhs._v == rhs._v;
     }
-    friend bool operator!=(const mint& lhs, const mint& rhs) {
+    friend bool operator!=(const mint &lhs, const mint &rhs) {
         return lhs._v != rhs._v;
     }
 
@@ -313,7 +315,7 @@ struct static_modint : internal::static_modint_base {
     static constexpr bool prime = internal::is_prime<m>;
 };
 template <int id>
-struct dynamic_modint : internal::modint_base {
+struct dynamic_modint: internal::modint_base {
     using mint = dynamic_modint;
 
   public:
@@ -327,24 +329,25 @@ struct dynamic_modint : internal::modint_base {
         x._v = v;
         return x;
     }
-    dynamic_modint() : _v(0) {}
-    template <class T, internal::is_signed_int_t<T>* = nullptr>
+    dynamic_modint():
+        _v(0) {}
+    template <class T, internal::is_signed_int_t<T> * = nullptr>
     dynamic_modint(T v) {
         long long x = (long long)(v % (long long)(mod()));
         if (x < 0) x += mod();
         _v = (unsigned int)(x);
     }
-    template <class T, internal::is_unsigned_int_t<T>* = nullptr>
+    template <class T, internal::is_unsigned_int_t<T> * = nullptr>
     dynamic_modint(T v) {
         _v = (unsigned int)(v % mod());
     }
     unsigned int val() const { return _v; }
-    mint& operator++() {
+    mint &operator++() {
         _v++;
         if (_v == umod()) _v = 0;
         return *this;
     }
-    mint& operator--() {
+    mint &operator--() {
         if (_v == 0) _v = umod();
         _v--;
         return *this;
@@ -359,21 +362,21 @@ struct dynamic_modint : internal::modint_base {
         --*this;
         return result;
     }
-    mint& operator+=(const mint& rhs) {
+    mint &operator+=(const mint &rhs) {
         _v += rhs._v;
         if (_v >= umod()) _v -= umod();
         return *this;
     }
-    mint& operator-=(const mint& rhs) {
+    mint &operator-=(const mint &rhs) {
         _v += mod() - rhs._v;
         if (_v >= umod()) _v -= umod();
         return *this;
     }
-    mint& operator*=(const mint& rhs) {
+    mint &operator*=(const mint &rhs) {
         _v = bt.mul(_v, rhs._v);
         return *this;
     }
-    mint& operator/=(const mint& rhs) { return *this = *this * rhs.inv(); }
+    mint &operator/=(const mint &rhs) { return *this = *this * rhs.inv(); }
     mint operator+() const { return *this; }
     mint operator-() const { return mint() - *this; }
     mint pow(long long n) const {
@@ -391,22 +394,22 @@ struct dynamic_modint : internal::modint_base {
         assert(eg.first == 1);
         return eg.second;
     }
-    friend mint operator+(const mint& lhs, const mint& rhs) {
+    friend mint operator+(const mint &lhs, const mint &rhs) {
         return mint(lhs) += rhs;
     }
-    friend mint operator-(const mint& lhs, const mint& rhs) {
+    friend mint operator-(const mint &lhs, const mint &rhs) {
         return mint(lhs) -= rhs;
     }
-    friend mint operator*(const mint& lhs, const mint& rhs) {
+    friend mint operator*(const mint &lhs, const mint &rhs) {
         return mint(lhs) *= rhs;
     }
-    friend mint operator/(const mint& lhs, const mint& rhs) {
+    friend mint operator/(const mint &lhs, const mint &rhs) {
         return mint(lhs) /= rhs;
     }
-    friend bool operator==(const mint& lhs, const mint& rhs) {
+    friend bool operator==(const mint &lhs, const mint &rhs) {
         return lhs._v == rhs._v;
     }
-    friend bool operator!=(const mint& lhs, const mint& rhs) {
+    friend bool operator!=(const mint &lhs, const mint &rhs) {
         return lhs._v != rhs._v;
     }
 
@@ -426,13 +429,13 @@ using is_static_modint = std::is_base_of<internal::static_modint_base, T>;
 template <class T>
 using is_static_modint_t = std::enable_if_t<is_static_modint<T>::value>;
 template <class>
-struct is_dynamic_modint : public std::false_type {};
+struct is_dynamic_modint: public std::false_type {};
 template <int id>
-struct is_dynamic_modint<dynamic_modint<id>> : public std::true_type {};
+struct is_dynamic_modint<dynamic_modint<id>>: public std::true_type {};
 template <class T>
 using is_dynamic_modint_t = std::enable_if_t<is_dynamic_modint<T>::value>;
-template <class mint, internal::is_static_modint_t<mint>* = nullptr>
-void butterfly(std::vector<mint>& a) {
+template <class mint, internal::is_static_modint_t<mint> * = nullptr>
+void butterfly(std::vector<mint> &a) {
     static constexpr int g = internal::primitive_root<mint::mod()>;
     int n = int(a.size());
     int h = internal::ceil_pow2(n);
@@ -470,8 +473,8 @@ void butterfly(std::vector<mint>& a) {
         }
     }
 }
-template <class mint, internal::is_static_modint_t<mint>* = nullptr>
-void butterfly_inv(std::vector<mint>& a) {
+template <class mint, internal::is_static_modint_t<mint> * = nullptr>
+void butterfly_inv(std::vector<mint> &a) {
     static constexpr int g = internal::primitive_root<mint::mod()>;
     int n = int(a.size());
     int h = internal::ceil_pow2(n);
@@ -511,8 +514,8 @@ void butterfly_inv(std::vector<mint>& a) {
         }
     }
 }
-} // namespace internal
-template <class mint, internal::is_static_modint_t<mint>* = nullptr>
+}  // namespace internal
+template <class mint, internal::is_static_modint_t<mint> * = nullptr>
 std::vector<mint> convolution(std::vector<mint> a, std::vector<mint> b) {
     int n = int(a.size()), m = int(b.size());
     if (!n || !m) return {};
@@ -545,8 +548,8 @@ std::vector<mint> convolution(std::vector<mint> a, std::vector<mint> b) {
 }
 template <unsigned int mod = 998244353,
           class T,
-          std::enable_if_t<internal::is_integral<T>::value>* = nullptr>
-std::vector<T> convolution(const std::vector<T>& a, const std::vector<T>& b) {
+          std::enable_if_t<internal::is_integral<T>::value> * = nullptr>
+std::vector<T> convolution(const std::vector<T> &a, const std::vector<T> &b) {
     int n = int(a.size()), m = int(b.size());
     if (!n || !m) return {};
     using mint = static_modint<mod>;
@@ -564,8 +567,8 @@ std::vector<T> convolution(const std::vector<T>& a, const std::vector<T>& b) {
     }
     return c;
 }
-std::vector<long long> convolution_ll(const std::vector<long long>& a,
-                                      const std::vector<long long>& b) {
+std::vector<long long> convolution_ll(const std::vector<long long> &a,
+                                      const std::vector<long long> &b) {
     int n = int(a.size()), m = int(b.size());
     if (!n || !m) return {};
     static constexpr unsigned long long MOD1 = 754974721;
@@ -600,10 +603,10 @@ std::vector<long long> convolution_ll(const std::vector<long long>& a,
     }
     return c;
 }
-} // namespace atcoder
+}  // namespace atcoder
 using namespace atcoder;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
-#define _foreach_cref(i, container) for (const auto& i : container)
+#define _foreach_cref(i, container) for (const auto &i : container)
 int main() {
     int n, m;
     cin >> n >> m;

@@ -5,7 +5,8 @@ const uint32_t OFFSET = 5;
 const uint32_t N = 5e5 + OFFSET, M = 1e6 + OFFSET;
 struct Edge {
     int to, next;
-    Edge(int _to = 0, int _next = 0) : to(_to), next(_next) {}
+    Edge(int _to = 0, int _next = 0):
+        to(_to), next(_next) {}
 } e[N * 2];
 int head[N], cnt_edge;
 void addEdge(int x, int y) {
@@ -14,7 +15,8 @@ void addEdge(int x, int y) {
 }
 struct QEdge {
     int from, to, next, lca;
-    QEdge(int _from = 0, int _to = 0, int _next = 0) : from(_from), to(_to), next(_next), lca(-1) {}
+    QEdge(int _from = 0, int _to = 0, int _next = 0):
+        from(_from), to(_to), next(_next), lca(-1) {}
 } qe[M];
 int qhead[N], cnt_qedge;
 void addQEdge(int x, int y) {
@@ -52,7 +54,7 @@ int main() {
     }
     tarjan(r);
     _for(i, 1, m) {
-        QEdge& q = qe[i * 2];
+        QEdge &q = qe[i * 2];
         cout << q.lca << '\n';
     }
     return 0;

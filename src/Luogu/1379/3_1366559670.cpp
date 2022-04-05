@@ -8,7 +8,8 @@ bool exist[400005];
 struct node {
     State seq;
     int dis, id;
-    node() : seq({0}), dis(0), id(0) {}
+    node():
+        seq({0}), dis(0), id(0) {}
     int hash() {
         if (id)
             return id;
@@ -23,12 +24,12 @@ struct node {
     }
 } end;
 std::queue<node> state_all;
-inline void swap(int& a, int& b) { a ^= b ^= a ^= b; }
+inline void swap(int &a, int &b) { a ^= b ^= a ^= b; }
 inline int bfs() {
     while (!state_all.empty()) {
         node now_state = state_all.front();
         state_all.pop();
-        State& now = now_state.seq;
+        State &now = now_state.seq;
         if (!memcmp(now, _end, sizeof(_end)))
             return now_state.dis;
         int z;
@@ -37,7 +38,7 @@ inline int bfs() {
         int x = z % 3, y = z / 3;
         for (int i = 0; i < 4; ++i) {
             node next_state;
-            State& next = next_state.seq;
+            State &next = next_state.seq;
             int xx = x + dx[i], yy = y + dy[i];
             if (xx < 0 || xx > 2 || yy < 0 || yy > 2)
                 continue;

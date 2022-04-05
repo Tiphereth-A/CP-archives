@@ -4,7 +4,7 @@
 namespace FastIO {
 void read() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     x = 0;
     char ch = getchar();
     while (!isdigit(ch)) {
@@ -16,7 +16,7 @@ inline void read(T& x, T2&... oth) {
     }
     read(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::read;
 const int M = 200 + 1, N = 2e5 + 2;
 int max(int x, int y) {

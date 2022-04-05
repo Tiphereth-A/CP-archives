@@ -8,7 +8,8 @@ i64 calc(i64 l, i64 r) {
     if (l < 1 || r < 1 || l > r) return 0;
     if (l == r) return min(a[l], 1);
     i64 mina = a[l], idx = l;
-    _for(i, l + 1, r) if (a[i] < mina) mina = a[idx = i];
+    _for(i, l + 1, r)
+        if (a[i] < mina) mina = a[idx = i];
     _for(i, l, r) a[i] -= mina;
     i64 resl = calc(l, idx - 1), resr = calc(idx + 1, r);
     return min(r - l + 1, resl + resr + mina);

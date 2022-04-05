@@ -54,7 +54,7 @@ int main() {
     int m;
     gi(m);
     for (register int i = 1; i <= m; ++i) {
-        data* tmp = &q[i];
+        data *tmp = &q[i];
         gi((*tmp).l);
         gi((*tmp).r);
         (*tmp).id = i;
@@ -62,7 +62,7 @@ int main() {
     std::sort(q + 1, q + m + 1, cmp1);
     int l = 1;
     for (register int i = 1; i <= m; ++i) {
-        data* t1 = &q[i];
+        data *t1 = &q[i];
         while (l < (*t1).l) {
             int t2 = nex[l];
             if (t2)

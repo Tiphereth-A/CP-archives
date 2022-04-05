@@ -51,9 +51,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 2e3 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -64,7 +64,8 @@ const db PI = acos(-1.0);
 struct Edge {
     i64 w;
     int to, next;
-    Edge(i64 _w = 0, int _to = 0, int _next = 0) : w(_w), to(_to), next(_next) {}
+    Edge(i64 _w = 0, int _to = 0, int _next = 0):
+        w(_w), to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int x, int y, i64 w = 1) {

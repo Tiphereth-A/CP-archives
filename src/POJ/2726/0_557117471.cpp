@@ -4,7 +4,7 @@
 using namespace std;
 struct node {
     int x, y;
-    bool operator<(const node& rhs) const { return x == rhs.x ? y < rhs.y : x < rhs.x; }
+    bool operator<(const node &rhs) const { return x == rhs.x ? y < rhs.y : x < rhs.x; }
 } a[10005];
 int main() {
     int n;

@@ -10,7 +10,7 @@ class Hash_substr {
     std::vector<unsigned long long> hash, p;
 
   public:
-    Hash_substr(const std::string& _str) {
+    Hash_substr(const std::string &_str) {
         hash.push_back(0);
         p.push_back(1);
         for (char ch : _str) {

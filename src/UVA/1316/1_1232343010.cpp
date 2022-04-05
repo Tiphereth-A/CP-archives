@@ -8,11 +8,11 @@ using std::endl;
 const int N = 1e4 + 5;
 struct node {
     int price, date;
-    bool operator<(const node& other) const { return date < other.date; }
+    bool operator<(const node &other) const { return date < other.date; }
 } p[N];
 struct a {
     int value;
-    bool operator<(const a& other) const { return value > other.value; }
+    bool operator<(const a &other) const { return value > other.value; }
 };
 std::priority_queue<a> queue;
 int main() {

@@ -15,9 +15,11 @@ int main() {
         cin >> n >> k;
         string str;
         cin >> str;
-        _for(i, 0, 2) _for(j, 1, n) cnt[i][j] = cnt[i][j - 1] + (str[j - 1] != s[(i + j - 1) % 3]);
+        _for(i, 0, 2)
+            _for(j, 1, n) cnt[i][j] = cnt[i][j - 1] + (str[j - 1] != s[(i + j - 1) % 3]);
         int ans = n;
-        _for(i, 0, 2) _for(j, k, n) ans = min(ans, cnt[i][j] - cnt[i][j - k]);
+        _for(i, 0, 2)
+            _for(j, k, n) ans = min(ans, cnt[i][j] - cnt[i][j - k]);
         cout << ans << '\n';
     }
     return 0;

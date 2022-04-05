@@ -5,7 +5,7 @@ using namespace std;
 struct node {
     string name;
     int solve, sans[15], grade;
-    bool operator<(const node& rhs) const { return grade == rhs.grade ? name < rhs.name : grade > rhs.grade; }
+    bool operator<(const node &rhs) const { return grade == rhs.grade ? name < rhs.name : grade > rhs.grade; }
 } s[1005];
 int pgrade[15] = {0};
 int main() {

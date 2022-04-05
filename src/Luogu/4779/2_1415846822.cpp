@@ -3,7 +3,7 @@
 #include <climits>
 #include <cstdio>
 template <typename T>
-inline void read(T& t) {
+inline void read(T &t) {
     int f = 0, c = getchar();
     t = 0;
     while (!isdigit(c)) f |= c == '-', c = getchar();
@@ -11,7 +11,7 @@ inline void read(T& t) {
     if (f) t = -t;
 }
 template <typename T, typename... Args>
-inline void read(T& t, Args&... args) {
+inline void read(T &t, Args &...args) {
     read(t);
     read(args...);
 }

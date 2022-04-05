@@ -5,29 +5,32 @@ const double eps = 1e-10, PI = acos(-1), PI2 = PI * 2;
 inline int8_t sgn(double d) { return d < -eps ? -1 : (d > eps); }
 struct Vector {
     double x, y, angle;
-    inline Vector(double x = 0, double y = 0) : x(x), y(y), angle(atan2(y, x)) {}
+    inline Vector(double x = 0, double y = 0):
+        x(x), y(y), angle(atan2(y, x)) {}
     inline double operator*(void) { return sqrt(x * x + y * y); }
-    inline double operator^(const Vector& v) const { return x * v.y - y * v.x; }
+    inline double operator^(const Vector &v) const { return x * v.y - y * v.x; }
 };
 struct Point {
     double x, y;
-    inline Point(double x = 0, double y = 0) : x(x), y(y) {}
-    inline Vector operator-(const Point& p) const { return Vector(x - p.x, y - p.y); }
+    inline Point(double x = 0, double y = 0):
+        x(x), y(y) {}
+    inline Vector operator-(const Point &p) const { return Vector(x - p.x, y - p.y); }
 };
 const Point origin;
 struct Circle {
     Point p;
     double r;
-    Circle(double _x = 0, double _y = 0, double _r = 0) : p(_x, _y), r(_r) {}
-    inline bool contains(const Circle& cir) const { return sgn(r - cir.r - *(cir.p - p)) != -1; }
+    Circle(double _x = 0, double _y = 0, double _r = 0):
+        p(_x, _y), r(_r) {}
+    inline bool contains(const Circle &cir) const { return sgn(r - cir.r - *(cir.p - p)) != -1; }
     inline Point rotate(double d) const { return Point(p.x + r * cos(d), p.y + r * sin(d)); }
     inline double make_size(double st, double ed) const { return ((rotate(st) - origin) ^ (rotate(ed) - origin)) / 2; }
 };
-inline void mod2pi(double& d) {
+inline void mod2pi(double &d) {
     while (d > PI2) d -= PI2;
     while (d < 0) d += PI2;
 }
-inline bool is_cross(const Circle& a, const Circle& b, double& d1, double& d2) {
+inline bool is_cross(const Circle &a, const Circle &b, double &d1, double &d2) {
     double d = *(a.p - b.p);
     if (sgn(d - a.r - b.r) != -1) return false;
     double alpha = acos((a.r * a.r + d * d - b.r * b.r) / (a.r * d * 2));

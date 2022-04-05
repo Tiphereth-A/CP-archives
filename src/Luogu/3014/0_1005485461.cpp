@@ -39,7 +39,7 @@ size_t main(size_t n, const size_t a[]) {
     for (size_t i = 1; i <= n; ++i) ret = (ret + p[i] * frac[n - i] % MOD) % MOD;
     return ret;
 }
-} // namespace Cantor_expansion
+}  // namespace Cantor_expansion
 namespace reverse_Cantor_expansion {
 using std::size_t;
 const size_t N = 25;
@@ -98,7 +98,7 @@ void main(size_t num, size_t a[], size_t n) {
     }
     for (size_t i = 1; i <= n; ++i) tr.remove(a[i] = tr.kth_num(p[i] + 1));
 }
-} // namespace reverse_Cantor_expansion
+}  // namespace reverse_Cantor_expansion
 const size_t N = 1e6 + 5;
 size_t n, q;
 size_t a[N];

@@ -49,9 +49,9 @@ using pii = pair<int, int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 5e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -66,7 +66,7 @@ inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21,
 inline void flush() { fwrite(buf2, 1, p3 + 1, stdout), p3 = -1; }
 inline void read() {}
 template <class T>
-inline void read(T& x) {
+inline void read(T &x) {
     int f = x = 0;
     char ch = getc();
     while (!isdigit(ch)) {
@@ -77,7 +77,7 @@ inline void read(T& x) {
     if (f) x = -x;
 }
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     read(x);
     read(oth...);
 }
@@ -94,7 +94,7 @@ inline void print(T x, T2... oth) {
     print(x);
     print(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 #define MULTI_CASES

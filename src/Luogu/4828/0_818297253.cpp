@@ -14,15 +14,15 @@ typedef unsigned int u32;
 typedef unsigned long long u64;
 typedef long long i64;
 template <tpn A>
-inline void Swap(A& x, A& y) {
+inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;
 }
 template <tpn A>
-A Gcd(const A& x, const A& y) {
+A Gcd(const A &x, const A &y) {
     return y ? Gcd(y, x % y) : x;
 }
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     do { c = getchar(); } while ((c < '0' || c > '9'));
     x = 0;
@@ -32,7 +32,7 @@ inline void read(A& x) {
     } while (c >= '0' && c <= '9');
 }
 template <tpn A, tpn B>
-inline void read(A& a, B& b) { read(a), read(b); }
+inline void read(A &a, B &b) { read(a), read(b); }
 #define N 1000005
 #define M 2005
 const int MOD = 998244353;

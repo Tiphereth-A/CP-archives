@@ -15,7 +15,7 @@ inline void out() {
     oS = obuff;
 }
 template <class Type>
-inline void read(Type& x) {
+inline void read(Type &x) {
     Type y = 1;
     for (c = gc(); (c > '9' || c < '0') && c != '-'; c = gc())
         ;
@@ -37,7 +37,7 @@ inline void print(Type x, char text = '\n') {
     *oS++ = text;
     out();
 }
-} // namespace fastIO
+}  // namespace fastIO
 i128 k, mod;
 std::map<i128, int> set;
 il i128 qpow(i128 a, i128 b) {

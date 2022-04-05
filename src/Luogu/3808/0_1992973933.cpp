@@ -51,9 +51,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1e6 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -74,13 +74,13 @@ class ACAM {
     ACAM_t data[_N];
     _T e[_N];
     void _insert_end(std::size_t p, std::size_t x) { ++e[p]; }
-    void _query_mid(_T& res, std::size_t p) {
+    void _query_mid(_T &res, std::size_t p) {
         for (std::size_t i = p; i && ~e[i]; i = data[i].fail) {
             res += e[i];
             e[i] = -1;
         }
     };
-    void _query_end(_T& res){};
+    void _query_end(_T &res){};
 
   public:
     ACAM() {
@@ -91,7 +91,7 @@ class ACAM {
         cnt_nodes = builded = 0;
         memset(data, 0, sizeof(data));
     }
-    void insert(const std::string& str, std::size_t x = 0) {
+    void insert(const std::string &str, std::size_t x = 0) {
         std::size_t p = 0;
         for (std::size_t i = 0, c; i < str.size(); ++i) {
             if (!data[p].alpha[c = str[i] - _str_begin]) data[p].alpha[c] = ++cnt_nodes;
@@ -118,7 +118,7 @@ class ACAM {
         }
         builded = true;
     }
-    _T query(const std::string& str) {
+    _T query(const std::string &str) {
         if (!builded) build();
         std::size_t p = 0;
         _T res = 0;

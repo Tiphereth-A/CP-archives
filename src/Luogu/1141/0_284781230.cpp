@@ -21,7 +21,8 @@ void dfs(int x, int y) {
 }
 int main() {
     scanf("%d %d", &n, &m);
-    _for(i, 1, n) _for(j, 1, n) scanf("%1d", &map[i][j]);
+    _for(i, 1, n)
+        _for(j, 1, n) scanf("%1d", &map[i][j]);
     _for(i, 1, m) {
         ans = 0;
         int x, y;

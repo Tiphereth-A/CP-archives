@@ -4,7 +4,7 @@ using namespace std;
 struct Node {
     string name;
     int num, score;
-    bool operator<(const Node& rhs) const { return num == rhs.num ? score < rhs.score : num > rhs.num; }
+    bool operator<(const Node &rhs) const { return num == rhs.num ? score < rhs.score : num > rhs.num; }
 } _[205];
 int main() {
     int n;
@@ -25,7 +25,7 @@ int main() {
         _[i].num = num;
         _[i].score = score;
     }
-    Node* ans = _;
+    Node *ans = _;
     for (int i = 1; i < n; ++i)
         if (!(*ans < _[i])) ans = &_[i];
     cout << ans->name << " " << ans->num << " " << ans->score << endl;

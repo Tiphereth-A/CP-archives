@@ -54,9 +54,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1 << 8, M = N * N + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -68,10 +68,11 @@ bool g[N][N];
 char ans[M];
 int n;
 void dfs(int now) {
-    _for(i, 0, N - 1) if (g[now][i]) {
-        g[now][i] = g[i][now] = 0;
-        dfs(i);
-    }
+    _for(i, 0, N - 1)
+        if (g[now][i]) {
+            g[now][i] = g[i][now] = 0;
+            dfs(i);
+        }
     ans[n--] = now;
 }
 int d[N];
@@ -91,12 +92,15 @@ int main() {
         ++d[y];
     }
     int cnt = 0, start = 0;
-    _for(i, 0, N - 1) if (d[i] & 1) {
-        ++cnt;
-        if (!start) start = i;
-    }
+    _for(i, 0, N - 1)
+        if (d[i] & 1) {
+            ++cnt;
+            if (!start) start = i;
+        }
     if (cnt && cnt != 2) _run_exit(cout << "No Solution\n");
-    if (!start) _for(i, 0, N - 1) if (d[i]) _run_break(start = i);
+    if (!start)
+        _for(i, 0, N - 1)
+            if (d[i]) _run_break(start = i);
     dfs(start);
     cout << ans << '\n';
 FINISHED:

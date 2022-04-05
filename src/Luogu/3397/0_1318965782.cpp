@@ -11,7 +11,9 @@ int main() {
     cin >> n >> m;
     _for(k, 1, m, x1, x2, y1, y2) {
         cin >> x1 >> y1 >> x2 >> y2;
-        _for(i, x1, x2) _for(j, y1, y2)++ t[i][j];
+        _for(i, x1, x2)
+            _for(j, y1, y2) ++t[i][j];
     }
-    _for(i, 1, n) _for(j, 1, n) cout << t[i][j] << " \n"[j == n];
+    _for(i, 1, n)
+        _for(j, 1, n) cout << t[i][j] << " \n"[j == n];
 }

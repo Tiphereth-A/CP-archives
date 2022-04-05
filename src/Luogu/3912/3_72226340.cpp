@@ -10,7 +10,7 @@ il int getc() {
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++;
 }
 template <typename T>
-il void read(T& x) {
+il void read(T &x) {
     x = 0;
     while (ch = getc(), !isdigit(ch))
         ;
@@ -29,7 +29,7 @@ il void print(T x) {
     } while (--p);
     fwrite(buf2, 1, p3 + 1, stdout), p3 = -1;
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 bool a[100000001], *pos = a + 2;

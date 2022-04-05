@@ -2,7 +2,7 @@
 #include <cstdio>
 struct Node {
     double j, f, p;
-    bool operator<(const Node& oth) const { return p > oth.p; }
+    bool operator<(const Node &oth) const { return p > oth.p; }
 } a[1005];
 int main() {
     int m, n;

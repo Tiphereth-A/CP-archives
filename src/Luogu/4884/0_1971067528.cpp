@@ -68,19 +68,19 @@ typedef long double ldb;
 #define tpn typename
 #endif
 template <tpn A>
-inline A Max(const A& x, const A& y) {
+inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
 template <tpn A>
-inline A Min(const A& x, const A& y) {
+inline A Min(const A &x, const A &y) {
     return x < y ? x : y;
 }
 template <tpn A>
-inline void Swap(A& x, A& y) {
+inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;
 }
 template <tpn A>
-inline A Abs(const A& x) {
+inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 #ifdef __FASTIO__
@@ -119,7 +119,7 @@ inline void out() {
     oS = obuff;
 }
 template <class Type>
-inline void read(Type& x) {
+inline void read(Type &x) {
     Type y = 1;
     for (c = gc(); (c > '9' || c < '0') && c != '-'; c = gc())
         ;
@@ -141,7 +141,7 @@ inline void print(Type x, char text = '\n') {
     *oS++ = text;
     out();
 }
-} // namespace fastIO
+}  // namespace fastIO
 #endif
 #endif
 #define M 310

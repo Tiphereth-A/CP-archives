@@ -30,7 +30,7 @@ inline void addEdge(int u, int v, int val) {
 }
 struct node {
     int val, num;
-    friend bool operator<(const node& a, const node& b) { return a.val > b.val; }
+    friend bool operator<(const node &a, const node &b) { return a.val > b.val; }
 } f, ff;
 int d[M];
 bool vis[M];

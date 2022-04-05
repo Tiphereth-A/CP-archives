@@ -39,7 +39,7 @@ inline int getc() {
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -91,7 +91,7 @@ inline void print_h(T x, char h) {
 inline void putchar(char a) {
     buf2[++p3] = a;
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::print_h;
 using FastIO::read;
@@ -106,7 +106,7 @@ int f[N][N];
 struct Food {
     int v, m, cal;
 } a[M];
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("D:\\code\\IO\\in.in", "r", stdin);
     freopen("D:\\code\\IO\\out.out", "w", stdout);
@@ -115,12 +115,12 @@ int main(int argc, char const* argv[]) {
     read(V, Mass, n);
     _for(i, 1, n) read(a[i].v, a[i].m, a[i].cal);
     _for(i, 1, n) _fd(j, V, 0) {
-        if (j >= a[i].v)
-            _fd(k, Mass, 0) {
-                if (k >= a[i].m)
-                    f[j][k] = std::max(f[j][k], f[j - a[i].v][k - a[i].m] + a[i].cal);
-            }
-    }
+            if (j >= a[i].v)
+                _fd(k, Mass, 0) {
+                    if (k >= a[i].m)
+                        f[j][k] = std::max(f[j][k], f[j - a[i].v][k - a[i].m] + a[i].cal);
+                }
+        }
     print(f[V][Mass]);
 ex:
     FastIO::flush();

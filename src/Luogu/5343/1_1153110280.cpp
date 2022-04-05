@@ -4,15 +4,15 @@
 const int md = 1e9 + 7;
 typedef long long LL;
 int b[105];
-inline void upd(int& a) { a += a >> 31 & md; }
+inline void upd(int &a) { a += a >> 31 & md; }
 struct mat {
     int a[100][100];
-    inline void operator*=(const mat& b) {
+    inline void operator*=(const mat &b) {
         int c[100][100];
         memset(c, 0, sizeof c);
         for (int i = 0; i < 100; ++i)
             for (int j = 0; j < 100; ++j) {
-                int& tmp = c[i][j];
+                int &tmp = c[i][j];
                 for (int k = 0; k < 100; k += 4)
                     tmp = (tmp + (LL)a[i][k] * b.a[k][j] + (LL)a[i][k + 1] * b.a[k + 1][j] + (LL)a[i][k + 2] * b.a[k + 2][j] + (LL)a[i][k + 3] * b.a[k + 3][j]) % md;
             }
@@ -21,7 +21,7 @@ struct mat {
 } a, c;
 LL n;
 int na, nb, dp[105];
-inline void pow(mat a, LL b, mat& ret) {
+inline void pow(mat a, LL b, mat &ret) {
     for (; b; b >>= 1, a *= a)
         if (b & 1) ret *= a;
 }

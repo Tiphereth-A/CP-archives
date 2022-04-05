@@ -11,35 +11,30 @@ using i64 = int64_t;
 #define _all(a) (a).begin(), (a).end()
 
 const array<array<i64, 10>, 10> dp([]() {
-
     array<array<i64, 10>, 10> dp;
 
     fill(_all(dp[0]), 1);
 
     _for(i, 1, 9) fill(_all(dp[i]), 0);
 
-    _for(i, 1, 9) _for(j, 0, 9) _for(k, 0, 9) {
+    _for(i, 1, 9)
+        _for(j, 0, 9)
+            _for(k, 0, 9) {
+                if (abs(j - k) < 2) continue;
 
-        if (abs(j - k) < 2) continue;
-
-        dp[i][j] += dp[i - 1][k];
-
-    }
+                dp[i][j] += dp[i - 1][k];
+            }
 
     return dp;
-
 }());
 
 auto f = [](int x) -> i64 {
-
     vector<int> digit;
 
     while (x) {
-
         digit.push_back(x % 10);
 
         x /= 10;
-
     }
 
     i64 ret = 0;
@@ -49,29 +44,24 @@ auto f = [](int x) -> i64 {
     ret += accumulate(dp[digit.size() - 1].begin() + 1, dp[digit.size() - 1].begin() + digit.back(), 0);
 
     _rfor(i, (int)digit.size() - 2, 0) {
-
-        _for(j, 0, digit[i] - 1) if (abs(j - digit[i + 1]) >= 2) ret += dp[i][j];
+        _for(j, 0, digit[i] - 1)
+            if (abs(j - digit[i + 1]) >= 2) ret += dp[i][j];
 
         if (abs(digit[i + 1] - digit[i]) < 2) break;
-
     }
 
     return ret;
-
 };
 
 inline auto solve() -> void {
-
     int l, r;
 
     cin >> l >> r;
 
     cout << f(r + 1) - f(l);
-
 }
 
 int main() {
-
 #ifdef _LOCAL_
 
     auto _CLOCK_ST = std::chrono::steady_clock::now();
@@ -95,5 +85,4 @@ int main() {
 #endif
 
     return 0;
-
 }

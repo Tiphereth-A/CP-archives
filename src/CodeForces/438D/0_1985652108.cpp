@@ -51,9 +51,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 5e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -66,7 +66,7 @@ class SegTree {
   private:
     struct Node {
         _T sum, max, lazy;
-        Node operator+=(const Node& oth) {
+        Node operator+=(const Node &oth) {
             sum += oth.sum;
             lazy += oth.lazy;
             return *this;
@@ -132,10 +132,12 @@ class SegTree {
     }
 
   public:
-    SegTree(std::size_t _n = 0) : n(_n) {
+    SegTree(std::size_t _n = 0):
+        n(_n) {
         if (_clear) memset(t, 0, sizeof t);
     }
-    SegTree(_T Data[], std::size_t _n = 0) : n(_n) {
+    SegTree(_T Data[], std::size_t _n = 0):
+        n(_n) {
         if (_clear) memset(t, 0, sizeof t);
         _init(Data, 1, 1, n);
     }

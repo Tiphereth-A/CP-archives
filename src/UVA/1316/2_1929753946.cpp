@@ -8,7 +8,7 @@ using std::endl;
 const int N = 1e4 + 5;
 struct node {
     int price, date;
-    bool operator<(const node& other) const { return date < other.date; }
+    bool operator<(const node &other) const { return date < other.date; }
 } p[N];
 int main() {
     int n;

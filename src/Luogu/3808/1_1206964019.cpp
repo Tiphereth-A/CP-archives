@@ -14,8 +14,8 @@ class _ACAM_Base {
     ACAM_t data[_N];
     _T e[_N];
     virtual void _insert_end(std::size_t p, std::size_t x) = 0;
-    virtual void _query_mid(_T& res, std::size_t p) = 0;
-    virtual void _query_end(_T& res) {}
+    virtual void _query_mid(_T &res, std::size_t p) = 0;
+    virtual void _query_end(_T &res) {}
 
   public:
     _ACAM_Base() {
@@ -26,7 +26,7 @@ class _ACAM_Base {
         cnt_nodes = builded = 0;
         memset(data, 0, sizeof(data));
     }
-    void insert(const std::string& str, std::size_t x = 0) {
+    void insert(const std::string &str, std::size_t x = 0) {
         std::size_t p = 0;
         for (std::size_t i = 0, c; i < str.size(); ++i) {
             if (!data[p].alpha[c = str[i] - _str_begin]) data[p].alpha[c] = ++cnt_nodes;
@@ -53,7 +53,7 @@ class _ACAM_Base {
         }
         builded = true;
     }
-    _T query(const std::string& str) {
+    _T query(const std::string &str) {
         if (!builded) build();
         std::size_t p = 0;
         _T res = 0;
@@ -63,17 +63,17 @@ class _ACAM_Base {
     }
 };
 template <typename _T = std::ptrdiff_t, const char _str_begin = 'a', const char _str_end = 'z' + 1, const std::size_t _N = N, const bool _clear = false>
-class ACAM : public _ACAM_Base<_T, _str_begin, _str_end, _N, _clear> {
+class ACAM: public _ACAM_Base<_T, _str_begin, _str_end, _N, _clear> {
   protected:
     _T e[_N];
     void _insert_end(std::size_t p, std::size_t x) { ++e[p]; }
-    void _query_mid(_T& res, std::size_t p) {
+    void _query_mid(_T &res, std::size_t p) {
         for (std::size_t i = p; i && ~e[i]; i = this->data[i].fail) {
             res += e[i];
             e[i] = -1;
         }
     };
-    void _query_end(_T& res){};
+    void _query_end(_T &res){};
 
   public:
     ACAM() {
@@ -85,7 +85,7 @@ class ACAM : public _ACAM_Base<_T, _str_begin, _str_end, _N, _clear> {
         memset(e, 0, sizeof(e));
     }
 };
-} // namespace AC_automaton
+}  // namespace AC_automaton
 using AC_automaton::ACAM;
 ACAM<> acam;
 int main() {

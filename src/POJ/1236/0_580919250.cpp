@@ -5,12 +5,13 @@ using namespace std;
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _for_graph(head, e, i, now) for (int i = head[now], to = e[i].to; i; to = e[i = e[i].next].to)
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 100 + OFFSET, M = 1e4 + OFFSET;
 struct Edge {
     int to, next;
-    Edge(int _to = 0, int _next = 0) : to(_to), next(_next) {}
+    Edge(int _to = 0, int _next = 0):
+        to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int x, int y) {
@@ -47,13 +48,15 @@ int main() {
     int n;
     scanf("%d", &n);
     int x;
-    _for(i, 1, n) while (scanf("%d", &x), x) addEdge(i, x);
-    _for(i, 1, n) if (!dfn[i]) tarjan(i);
+    _for(i, 1, n)
+        while (scanf("%d", &x), x) addEdge(i, x);
+    _for(i, 1, n)
+        if (!dfn[i]) tarjan(i);
     _for(i, 1, n) _for_graph(head, e, j, i) {
-        if (scc_id[to] == scc_id[i]) continue;
-        ++in[scc_id[to]];
-        ++out[scc_id[i]];
-    }
+            if (scc_id[to] == scc_id[i]) continue;
+            ++in[scc_id[to]];
+            ++out[scc_id[i]];
+        }
     int cnt_in = 0, cnt_out = 0;
     _for(i, 1, cnt_scc) {
         cnt_in += !in[i];

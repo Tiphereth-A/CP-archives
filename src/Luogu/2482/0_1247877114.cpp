@@ -33,7 +33,7 @@ void debug() {
     _rep(i, card_group_head, card_group_rear) std::cerr << card_group[i] << ' ';
     std::cerr << '\n';
 }
-} // namespace Card
+}  // namespace Card
 using Card::card_group;
 using Card::card_group_head;
 using Card::card_group_rear;
@@ -71,7 +71,7 @@ void debug() {
     _fp(i, 1, n) std::cerr << semi_enemys[i] << ' ';
     std::cerr << '\n';
 }
-} // namespace Relation
+}  // namespace Relation
 using Relation::allys;
 using Relation::enemys;
 using Relation::hostility;
@@ -88,7 +88,7 @@ void debug() {
     _fp(i, 1, FP_cnt) std::cerr << FP_list[i] << ' ';
     std::cerr << '\n';
 }
-} // namespace Identity_list
+}  // namespace Identity_list
 using Identity_list::FP_cnt;
 using Identity_list::FP_list;
 using Identity_list::MP_pos;
@@ -113,7 +113,7 @@ bool game_over() {
     return pigs[MP_pos].dead;
 }
 void get_cards(int now_player, int step) {
-    Pig* now = &pigs[now_player];
+    Pig *now = &pigs[now_player];
     _fp(i, 1, step) {
         now->cards[now->cards_rear] = card_group[card_group_head < card_group_rear ? card_group_head : (card_group_rear - 1)];
         ++now->cards_rear;
@@ -121,13 +121,13 @@ void get_cards(int now_player, int step) {
     }
 }
 int find_card(int now_player, char card) {
-    Pig* now = &pigs[now_player];
+    Pig *now = &pigs[now_player];
     int head_now = now->cards_head, rear_now = now->cards_rear;
     _rep(i, head_now, rear_now) if (now->cards[i] == card) return i;
     return -1;
 }
 void clr_card(int now_player, int pos) {
-    Pig* now = &pigs[now_player];
+    Pig *now = &pigs[now_player];
     now->cards[pos] = '\0';
     if (pos == now->cards_head)
         while (now->cards_head < now->cards_rear && now->cards[now->cards_head] == '\0')
@@ -186,7 +186,7 @@ void print_result() {
         cout << '\n';
     }
 }
-} // namespace basic_action
+}  // namespace basic_action
 using namespace basic_action;
 void use_k(int now_player, int from_player) {
     Pig *now = &pigs[now_player], *from = &pigs[from_player];
@@ -218,7 +218,7 @@ bool use_j(int now_player, int from_player, int target_player, bool state = true
     return !state;
 }
 bool use_f(int now_player, int from_player) {
-    Pig* from = &pigs[from_player];
+    Pig *from = &pigs[from_player];
     if ((allys[now_player] || enemys[now_player]) && use_j(from_player, from_player, now_player))
         return 0;
     if (pigs[now_player].identity == 'Z' && pigs[from_player].identity == 'M') {
@@ -249,7 +249,7 @@ bool use_f(int now_player, int from_player) {
 void use_nw(int from_player, char card) {
     char card_will_be_used = ((card == 'N') ? 'K' : 'D');
     for (int i = pigs[from_player].next_player; i != from_player; i = pigs[i].next_player) {
-        Pig* now = &pigs[i];
+        Pig *now = &pigs[i];
         int pos = -1;
         if ((allys[i] || enemys[i]) && use_j(from_player, from_player, i))
             continue;
@@ -266,7 +266,7 @@ void use_nw(int from_player, char card) {
     }
 }
 void action(int now_player) {
-    Pig* now = &pigs[now_player];
+    Pig *now = &pigs[now_player];
     int head_now = now->cards_head;
     int target_pos = now->next_player;
     bool used_K = 0;
@@ -376,7 +376,7 @@ void debug() {
     Identity_list::debug();
     std::cerr << "\n===================\n";
 }
-} // namespace main_action
+}  // namespace main_action
 using namespace main_action;
 int main() {
 #ifndef ONLINE_JUDGE

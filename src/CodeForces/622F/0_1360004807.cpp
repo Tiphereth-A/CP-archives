@@ -5,7 +5,7 @@ const int OFS = 5;
 const int N = 1e6 + OFS, MOD = 1e9 + 7;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 #define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
-constexpr i64 qpow(i64 a, i64 b = MOD - 2, const i64& mod = MOD) {
+constexpr i64 qpow(i64 a, i64 b = MOD - 2, const i64 &mod = MOD) {
     i64 res(1);
     for (; b; b >>= 1, (a *= a) %= mod)
         if (b & 1) (res *= a) %= mod;

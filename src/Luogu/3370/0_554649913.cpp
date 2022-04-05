@@ -8,14 +8,14 @@ typedef unsigned int uint;
 struct trie {
     bool val;
     uint index;
-    trie* nxt[16];
+    trie *nxt[16];
     il trie() { val = index = 0; }
-}* t = new trie();
+} *t = new trie();
 uint tab[16] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768};
 const uint key = 127;
 int ans;
 il void push(uint code) {
-    trie** s = &t;
+    trie **s = &t;
     while (code) {
         short nxt = code & 15;
         if (!(((*s)->index) & tab[nxt])) {

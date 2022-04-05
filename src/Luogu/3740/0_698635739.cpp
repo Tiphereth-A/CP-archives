@@ -14,7 +14,7 @@ inline int getc() {
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -49,7 +49,7 @@ inline void print(T x, T2... oth) {
     buf2[++p3] = hh;
     print(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 const int M = 1e3 + 5;

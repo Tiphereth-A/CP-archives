@@ -30,7 +30,7 @@ struct bign {
     bign(int num) {
         *this = num;
     }
-    bign(const char* num) {
+    bign(const char *num) {
         *this = num;
     }
     bign operator=(int num) {
@@ -51,13 +51,13 @@ struct bign {
         while (len > 1 && !s[len - 1])
             len--;
     }
-    bign operator=(const char* num) {
+    bign operator=(const char *num) {
         len = strlen(num);
         for (int i = 0; i < len; i++)
             s[i] = num[len - i - 1] - '0';
         return *this;
     }
-    bign operator+(const bign& b) const {
+    bign operator+(const bign &b) const {
         bign c;
         c.len = 0;
         for (int i = 0, g = 0; g || i < max(len, b.len); i++) {
@@ -71,7 +71,7 @@ struct bign {
         }
         return c;
     }
-    bign operator*(const bign& b) {
+    bign operator*(const bign &b) {
         bign c;
         c.len = len + b.len;
         for (int i = 0; i < len; i++)
@@ -84,7 +84,7 @@ struct bign {
         c.clean();
         return c;
     }
-    bign operator-(const bign& b) {
+    bign operator-(const bign &b) {
         bign c;
         c.len = 0;
         for (int i = 0, g = 0; i < len; i++) {
@@ -102,7 +102,7 @@ struct bign {
         c.clean();
         return c;
     }
-    bool operator<(const bign& b) const {
+    bool operator<(const bign &b) const {
         if (len != b.len)
             return len < b.len;
         for (int i = len - 1; i >= 0; i--)
@@ -110,27 +110,27 @@ struct bign {
                 return s[i] < b.s[i];
         return false;
     }
-    bool operator>(const bign& b) const {
+    bool operator>(const bign &b) const {
         return b < *this;
     }
-    bool operator<=(const bign& b) {
+    bool operator<=(const bign &b) {
         return !(b > *this);
     }
-    bool operator==(const bign& b) {
+    bool operator==(const bign &b) {
         return !(b < *this) && !(*this < b);
     }
-    bign operator+=(const bign& b) {
+    bign operator+=(const bign &b) {
         *this = *this + b;
         return *this;
     }
 };
-istream& operator>>(istream& in, bign& x) {
+istream &operator>>(istream &in, bign &x) {
     string s;
     in >> s;
     x = s.c_str();
     return in;
 }
-ostream& operator<<(ostream& out, const bign& x) {
+ostream &operator<<(ostream &out, const bign &x) {
     out << x.str();
     return out;
 }

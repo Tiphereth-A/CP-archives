@@ -4,8 +4,8 @@ using i64 = long long;
 using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 template <class T>
-inline bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
-bool operator<(const pii& lhs, const pii& rhs) { return lhs.first < rhs.first; }
+inline bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
+bool operator<(const pii &lhs, const pii &rhs) { return lhs.first < rhs.first; }
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -20,7 +20,7 @@ int main() {
     i64 ans = 0;
     vector<pii> s;
     s.emplace_back(0, 0);
-    for (const auto& i : v) {
+    for (const auto &i : v) {
         if (s.size() == 1) {
             s.push_back(i);
             continue;

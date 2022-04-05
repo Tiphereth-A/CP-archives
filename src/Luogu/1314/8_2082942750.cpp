@@ -9,7 +9,7 @@ inline char gc() {
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
 }
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     do {
         c = gc();
@@ -21,11 +21,11 @@ inline void read(A& x) {
     } while (isdigit(c));
 }
 template <tpn A, tpn B>
-inline void read(A& a, B& b) {
+inline void read(A &a, B &b) {
     read(a), read(b);
 }
 template <tpn A, tpn B, tpn C>
-inline void read(A& a, B& b, C& c) {
+inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
 int Max(int x, int y) {

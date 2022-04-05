@@ -51,9 +51,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1e3 + OFFSET, M = 2e6 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -64,7 +64,7 @@ const db PI = acos(-1.0);
 struct Edge {
     double w;
     int from, to;
-    bool operator<(const Edge& other) const { return w < other.w; }
+    bool operator<(const Edge &other) const { return w < other.w; }
 } e[M];
 int cnt_edge;
 void addEdge(int x, int y, double w = 1) { e[++cnt_edge] = {w, x, y}; }
@@ -103,15 +103,16 @@ int main() {
         scanf("%d%d", &x, &y);
         merge(x, y);
     }
-    _for(i, 1, n) _for(j, 1, n) {
-        if (find(i) == find(j)) {
-            addEdge(i, j, 0);
-            addEdge(j, i, 0);
-        } else {
-            addEdge(i, j, dis(i, j));
-            addEdge(j, i, dis(i, j));
+    _for(i, 1, n)
+        _for(j, 1, n) {
+            if (find(i) == find(j)) {
+                addEdge(i, j, 0);
+                addEdge(j, i, 0);
+            } else {
+                addEdge(i, j, dis(i, j));
+                addEdge(j, i, dis(i, j));
+            }
         }
-    }
     printf("%.2lf", kruskal(n));
 FINISHED:
 #ifndef ONLINE_JUDGE

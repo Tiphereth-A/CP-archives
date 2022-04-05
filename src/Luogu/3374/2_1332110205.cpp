@@ -15,7 +15,7 @@ i64 query(int pos) {
         ans += a[i];
     return ans;
 }
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     scanf("%d%d", &n, &m);
     i64 tmp;
     _for(i, 1, n) {

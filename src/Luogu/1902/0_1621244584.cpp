@@ -9,7 +9,7 @@ inline int getc() {
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -61,7 +61,7 @@ inline void print_h(T x, char h) {
 inline void putchar(char a) {
     buf2[++p3] = a;
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::print_h;
 using FastIO::read;
@@ -88,13 +88,14 @@ bool dfs(int x, int y, int dmg, int max_dmg) {
     }
     return false;
 }
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     read(n, m);
     int l = 0, r = -1, mid;
-    _for(i, 1, n) _for(j, 1, m) {
-        read(map[i][j]);
-        r = max(r, map[i][j]);
-    }
+    _for(i, 1, n)
+        _for(j, 1, m) {
+            read(map[i][j]);
+            r = max(r, map[i][j]);
+        }
     int ans = r;
     while (l <= r) {
         mid = (r - l) / 2 + l;

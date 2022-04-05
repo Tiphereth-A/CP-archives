@@ -3,8 +3,8 @@ using namespace std;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 #define _rfor(i, r, l, vals...) for (decltype(r - l) i = (r), ##vals; i >= (l); --i)
 #define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto& i : container)
-#define _foreach_cref(i, container) for (const auto& i : container)
+#define _foreach_ref(i, container) for (auto &i : container)
+#define _foreach_cref(i, container) for (const auto &i : container)
 #define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
 #define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 using data_t = uint32_t;
@@ -62,7 +62,7 @@ int main() {
         cin >> l >> r;
         q.emplace_back(l, r, i);
     }
-    sort(q.begin(), q.end(), [](const query_type& lhs, const query_type& rhs) { return get<1>(lhs) < get<1>(rhs); });
+    sort(q.begin(), q.end(), [](const query_type &lhs, const query_type &rhs) { return get<1>(lhs) < get<1>(rhs); });
     data_t now_idx = 1;
     _foreach_cref(i, q) {
         while (now_idx <= get<1>(i)) {

@@ -51,9 +51,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1e4 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -82,16 +82,19 @@ int main() {
     while (!q.empty()) {
         int now = q.front();
         q.pop();
-        _for(i, 1, n) if (!vis[i] && g[i][now]) {
-            q.push(i);
-            vis[i] = 1;
-        }
+        _for(i, 1, n)
+            if (!vis[i] && g[i][now]) {
+                q.push(i);
+                vis[i] = 1;
+            }
     }
     if (!vis[x]) _run_exit(puts("-1"));
-    _for(i, 1, n) if (vis[i]) {
-        valid[i] = 1;
-        _for(j, 1, n) if (g[i][j] && !vis[j]) _run_break(valid[i] = 0);
-    }
+    _for(i, 1, n)
+        if (vis[i]) {
+            valid[i] = 1;
+            _for(j, 1, n)
+                if (g[i][j] && !vis[j]) _run_break(valid[i] = 0);
+        }
     if (!valid[x]) _run_exit(puts("-1"));
     queue<pii> q2;
     q2.emplace(x, 0);
@@ -99,7 +102,8 @@ int main() {
         pii now = q2.front();
         q2.pop();
         if (now.first == y) _run_exit(printf("%d", now.second));
-        _for(i, 1, n) if (g[now.first][i] && valid[i] && !d[i]) q2.emplace(i, d[i] = now.second + 1);
+        _for(i, 1, n)
+            if (g[now.first][i] && valid[i] && !d[i]) q2.emplace(i, d[i] = now.second + 1);
     }
     puts("-1");
 FINISHED:

@@ -13,13 +13,14 @@ void dfs(int x, int y) {
 int main() {
     int x = 0, y = 0;
     scanf("%d", &n);
-    _for(i, 1, n) _for(j, 1, n) {
-        scanf("%d", &f[i][j]);
-        if (f[i][j] && x == 0) {
-            x = i + 1;
-            y = j + 1;
+    _for(i, 1, n)
+        _for(j, 1, n) {
+            scanf("%d", &f[i][j]);
+            if (f[i][j] && x == 0) {
+                x = i + 1;
+                y = j + 1;
+            }
         }
-    }
     dfs(x, y);
     _for(i, 1, n) {
         _for(j, 1, n)

@@ -49,9 +49,9 @@ using pii = pair<int, int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 5e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -64,11 +64,12 @@ void solve() {
     int n, m;
     cin >> n >> m;
     int a, b;
-    _rfor(i, int(ceil(sqrt(n))), 1) if (n % i == 0) {
-        a = i;
-        b = n / i;
-        break;
-    }
+    _rfor(i, int(ceil(sqrt(n))), 1)
+        if (n % i == 0) {
+            a = i;
+            b = n / i;
+            break;
+        }
     cout << ((a + b) * 2 + 4 <= m ? "Good" : "Miss") << '\n';
 }
 int main() {

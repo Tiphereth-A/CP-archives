@@ -6,7 +6,7 @@
 #include <string>
 #define tpn typename
 template <tpn A>
-inline A Abs(const A& x) {
+inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 using namespace std;

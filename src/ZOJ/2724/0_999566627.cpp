@@ -4,7 +4,7 @@ using namespace std;
 struct Node {
     string name;
     int parameter, priority, id;
-    bool operator<(const Node& oth) const { return priority == oth.priority ? id > oth.id : priority > oth.priority; }
+    bool operator<(const Node &oth) const { return priority == oth.priority ? id > oth.id : priority > oth.priority; }
 };
 priority_queue<Node> pq;
 int main() {

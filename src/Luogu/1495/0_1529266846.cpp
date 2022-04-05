@@ -3,7 +3,7 @@ using namespace std;
 typedef long long i64;
 const int N = 15;
 i64 a[N], b[N];
-i64 exgcd(i64 a, i64 b, i64& x, i64& y) {
+i64 exgcd(i64 a, i64 b, i64 &x, i64 &y) {
     if (b == 0) {
         x = 1;
         y = 0;

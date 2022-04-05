@@ -5,7 +5,8 @@ using data_type = int;
 using idx_type = long long;
 struct Factor3 {
     data_type a, b, c;
-    Factor3(const data_type& _a = 0, const data_type& _b = 0, const data_type& _c = 0) : a(_a), b(_b), c(_c) {}
+    Factor3(const data_type &_a = 0, const data_type &_b = 0, const data_type &_c = 0):
+        a(_a), b(_b), c(_c) {}
 };
 const idx_type OFFSET = 5;
 const idx_type N = 1e6 + OFFSET, SQRT_N = 1e3;
@@ -48,7 +49,7 @@ inline data_type main(data_type x, data_type y) {
     }
     return ans;
 }
-} // namespace Qgcd
+}  // namespace Qgcd
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 const int N = 5e3 + 5, MOD = 998244353;
 int a[N], b[N];

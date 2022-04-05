@@ -4,19 +4,19 @@
 #define tpn typename
 typedef long long i64;
 template <tpn A>
-inline A Max(const A& x, const A& y) {
+inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
 template <tpn A>
-inline A Min(const A& x, const A& y) {
+inline A Min(const A &x, const A &y) {
     return x < y ? x : y;
 }
 template <tpn A>
-inline A Abs(const A& x) {
+inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     do {
         c = getchar();
@@ -28,11 +28,11 @@ inline void read(A& x) {
     } while (isdigit(c));
 }
 template <tpn A, tpn B>
-inline void read(A& a, B& b) {
+inline void read(A &a, B &b) {
     read(a), read(b);
 }
 template <tpn A, tpn B, tpn C>
-inline void read(A& a, B& b, C& c) {
+inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
 #define N 200005

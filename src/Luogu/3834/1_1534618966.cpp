@@ -38,7 +38,7 @@ inline void print(int x) {
     } while (--p);
     buf2[++p3] = hh;
 }
-} // namespace FastIO
+}  // namespace FastIO
 #define read() FastIO::read()
 #define print(x) FastIO::print(x)
 #include <algorithm>
@@ -51,7 +51,7 @@ struct Node {
     int l, r, sum;
 } hjt[maxn * 40];
 int cnt, root[maxn];
-void insert(int l, int r, int pre, int& now, int p) {
+void insert(int l, int r, int pre, int &now, int p) {
     hjt[++cnt] = hjt[pre];
     now = cnt;
     hjt[now].sum++;
@@ -71,7 +71,7 @@ int query(int l, int r, int L, int R, int k) {
     else
         return query(m + 1, r, hjt[L].r, hjt[R].r, k - tmp);
 }
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("in.in", "r", stdin);
     freopen("out.out", "w", stdout);

@@ -37,7 +37,7 @@ size_t main(size_t n, const size_t a[]) {
     for (size_t i = 1; i <= n; ++i) ret = (ret + p[i] * frac[n - i] % MOD) % MOD;
     return ret;
 }
-} // namespace Cantor_expansion
+}  // namespace Cantor_expansion
 const size_t N = 1e6 + 5;
 size_t n, a[N];
 int main() {

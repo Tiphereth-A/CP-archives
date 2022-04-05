@@ -27,7 +27,8 @@ int main() {
         int ans = 0;
         _for(i, 1, k) {
             int pos = 0;
-            _for(j, 1, n - 1) if (h[j] < h[j + 1]) _run_break(pos = j);
+            _for(j, 1, n - 1)
+                if (h[j] < h[j + 1]) _run_break(pos = j);
             if (!pos) _run_break(ans = -1);
             ++h[ans = pos];
         }

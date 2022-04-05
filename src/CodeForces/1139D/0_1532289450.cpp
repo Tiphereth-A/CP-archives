@@ -17,7 +17,7 @@ void init_prime(int p, int n = N - 1) {
             mu[i * prime[j]] = -mu[i];
         }
     }
-    _for(i, 2, n)(mu[i] += mu[i - 1]) %= p;
+    _for(i, 2, n) (mu[i] += mu[i - 1]) %= p;
 }
 i64 inv(i64 a, i64 mod) {
     i64 res = 1, b = mod - 2;

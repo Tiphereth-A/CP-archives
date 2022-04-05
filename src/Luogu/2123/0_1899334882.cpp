@@ -4,9 +4,9 @@
 #define tpn typename
 typedef long long i64;
 template <tpn A>
-inline A Max(const A& x, const A& y) { return x > y ? x : y; }
+inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <tpn A>
-inline A Min(const A& x, const A& y) { return x < y ? x : y; }
+inline A Min(const A &x, const A &y) { return x < y ? x : y; }
 const int N = 2e4 + 5;
 struct node {
     i64 a, b, index;

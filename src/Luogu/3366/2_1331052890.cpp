@@ -31,23 +31,23 @@ typedef unsigned long long ull;
 typedef double db;
 typedef long double ldb;
 template <tpn A>
-inline A Max(const A& x, const A& y) {
+inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
 template <tpn A>
-inline A Min(const A& x, const A& y) {
+inline A Min(const A &x, const A &y) {
     return x < y ? x : y;
 }
 template <tpn A>
-inline void Swap(A& x, A& y) {
+inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;
 }
 template <tpn A>
-inline A Abs(const A& x) {
+inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     A neg = 1;
     do {
@@ -62,19 +62,19 @@ inline void read(A& x) {
     x *= neg;
 }
 template <tpn A, tpn B>
-inline void read(A& a, B& b) {
+inline void read(A &a, B &b) {
     read(a), read(b);
 }
 template <tpn A, tpn B, tpn C>
-inline void read(A& a, B& b, C& c) {
+inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
 template <tpn A, tpn B, tpn C, tpn D>
-inline void read(A& a, B& b, C& c, D& d) {
+inline void read(A &a, B &b, C &c, D &d) {
     read(a), read(b), read(c), read(d);
 }
 int g[N][N], ans, minn, v2[N];
-priority_queue<int, vector<int>, greater<int> > pq;
+priority_queue<int, vector<int>, greater<int>> pq;
 bool v1[N];
 int main() {
     int n, m;

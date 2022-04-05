@@ -10,7 +10,7 @@ void main() {
     for (auto i : vb) cout << (i ? '1' : '0');
     cout << '\n';
 }
-} // namespace Subtask_1
+}  // namespace Subtask_1
 namespace Subtask_2 {
 void main() {
     string a("0"), b("1"), c;
@@ -21,7 +21,7 @@ void main() {
     }
     cout << a << '\n';
 }
-} // namespace Subtask_2
+}  // namespace Subtask_2
 namespace Subtask_3 {
 const int n = 12;
 const int m = 177147;
@@ -48,7 +48,7 @@ void main() {
     reverse(ans.begin(), ans.end());
     cout << ans << '\n';
 }
-} // namespace Subtask_3
+}  // namespace Subtask_3
 namespace Subtask_4 {
 const int p = 104857601, n = 131072, n2 = n * 2;
 int inv[n2 + 1];
@@ -63,7 +63,7 @@ void main() {
     for (auto i : v) cout << i << '\n';
     for (auto it = v.rbegin() + 1; it != v.rend(); ++it) cout << *it << '\n';
 }
-} // namespace Subtask_4
+}  // namespace Subtask_4
 namespace Subtask_5 {
 const int p = 104857601, n = 131072, n2 = n * 2;
 int inv[n2 + 1];
@@ -77,7 +77,7 @@ void main() {
     cout << n << '\n';
     for (int i = 0; i <= n; ++i) cout << (i % 2 ? p - v[i] : v[i]) << '\n';
 }
-} // namespace Subtask_5
+}  // namespace Subtask_5
 namespace Subtask_6 {
 const int p = 104857601, a = 23333333, b = 33333333;
 inline constexpr int64_t qpow(int64_t a, int64_t b) {
@@ -97,7 +97,7 @@ void main() {
          << res << '\n';
     for (int i = 1; i <= n; ++i) cout << (res = res * inv_a % p * b % p * (n - i + 1) % p * inv[i] % p) << '\n';
 }
-} // namespace Subtask_6
+}  // namespace Subtask_6
 namespace Subtask_7 {
 const int n = 100000, m = 100000, q = 200000;
 int dsu[n + 1];
@@ -114,13 +114,14 @@ void main() {
         cout << (find(x) == find(y) ? "0\n" : "2139062143\n");
     }
 }
-} // namespace Subtask_7
+}  // namespace Subtask_7
 namespace Subtask_8 {
 const int n = 100000, m = 99999, q = 200000;
 const int lbn = log2(n);
 struct Edge {
     int w, to, next;
-    Edge(int _w = 0, int _to = 0, int _next = 0) : w(_w), to(_to), next(_next) {}
+    Edge(int _w = 0, int _to = 0, int _next = 0):
+        w(_w), to(_to), next(_next) {}
 } e[2 * m + 1];
 int head[n + 1], cnt_edge;
 void addEdge(int x, int y, int w = 1) {
@@ -171,13 +172,14 @@ void main() {
     }
 }
 #undef _for_graph
-} // namespace Subtask_8
+}  // namespace Subtask_8
 namespace Subtask_9 {
 const int n = 50000, m = 100000, q = 200000;
 const int lbn = log2(n);
 struct Edge {
     int w, to, next;
-    Edge(int _w = 0, int _to = 0, int _next = 0) : w(_w), to(_to), next(_next) {}
+    Edge(int _w = 0, int _to = 0, int _next = 0):
+        w(_w), to(_to), next(_next) {}
 } e[2 * m + 1];
 int head[n + 1], cnt_edge;
 void addEdge(int x, int y, int w = 1) {
@@ -220,7 +222,7 @@ int get_res(int x, int y) {
 }
 struct Node {
     int x, y, w;
-    bool operator<(const Node& rhs) const { return w < rhs.w; }
+    bool operator<(const Node &rhs) const { return w < rhs.w; }
 } data[m];
 void main() {
     for (int i = 1; i <= n; ++i) dsu[i] = i;
@@ -244,14 +246,14 @@ void main() {
     }
 }
 #undef _for_graph
-} // namespace Subtask_9
+}  // namespace Subtask_9
 namespace Subtask_10 {
 void main() {
     cout << "Your program should output itself here.\n"
             "Sounds very difficult, yeah?\n"
             "Anyway, good luck!\n";
 }
-} // namespace Subtask_10
+}  // namespace Subtask_10
 #define _run_return(expressions) return (expressions), 0
 int main() {
     ios::sync_with_stdio(false);

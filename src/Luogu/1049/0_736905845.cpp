@@ -9,7 +9,7 @@ int main() {
     scanf("%d%d", &V, &n);
     _for(i, 1, n) scanf("%d", &v[i]);
     _for(i, 1, n) _fp(j, V, 0) if (j - v[i] >= 0) f[j] =
-        max(f[j], f[j - v[i]] + v[i]);
+                      max(f[j], f[j - v[i]] + v[i]);
     int ans = 0;
     _for(i, 1, V) ans = max(ans, f[i]);
     printf("%d", V - ans);

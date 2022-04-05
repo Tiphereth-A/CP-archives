@@ -3,7 +3,7 @@ using namespace std;
 const int M = 5e5 + 5, N = 2e5 + 5;
 struct Edge {
     int w, from, to;
-    bool operator<(const Edge& other) const { return w < other.w; }
+    bool operator<(const Edge &other) const { return w < other.w; }
 } e[M];
 int cnt_edge;
 void addEdge(int x, int y, int w = 1) { e[++cnt_edge] = {w, x, y}; }
@@ -39,7 +39,7 @@ int main() {
     }
     try {
         printf("%lld", kruskal(n, k));
-    } catch (const char* str) { puts(str); }
+    } catch (const char *str) { puts(str); }
 #ifndef ONLINE_JUDGE
     std::cerr
         << "\n---\n"

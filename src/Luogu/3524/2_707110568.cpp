@@ -4,7 +4,7 @@ const int N = 3e3 + 5;
 bool g[N][N];
 struct node {
     int in, id;
-    bool operator<(const node& rhs) const { return in > rhs.in; }
+    bool operator<(const node &rhs) const { return in > rhs.in; }
 } deg[N];
 int ans[N];
 int main() {
@@ -20,7 +20,7 @@ int main() {
     sort(deg + 1, deg + n + 1);
     std::mt19937 g(time(0));
     shuffle(deg + 1, deg + n / 3 * 2 + 1, g);
-    sort(deg + 1, deg + n / 3 + 1, [](const node& a, const node& b) { return a.id < b.id; });
+    sort(deg + 1, deg + n / 3 + 1, [](const node &a, const node &b) { return a.id < b.id; });
     for (int i = 1; i <= n / 3; ++i) printf("%d%c", deg[i].id, " \n"[i == n / 3]);
     return 0;
 }

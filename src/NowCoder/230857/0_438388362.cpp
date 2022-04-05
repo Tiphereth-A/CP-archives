@@ -4,7 +4,8 @@ using i64 = int64_t;
 const int N = 4e3 + 5, M = 1e4 + 5;
 struct Edge {
     int to, next;
-    Edge(int _to = 0, int _next = 0) : to(_to), next(_next) {}
+    Edge(int _to = 0, int _next = 0):
+        to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int x, int y) {
@@ -22,13 +23,14 @@ void dfs(int now, int fa) {
     _for_graph(i, now) {
         if (to == fa) continue;
         dfs(to, now);
-        _rfor(j, sz[now] / 2, 0) _for(t, 0, sz[to] / 2) {
-            if (t) {
-                (dp[now][j + t][0] += (dp[to][t][0] + dp[to][t][1]) * dp[now][j][0]) %= mod;
-                (dp[now][j + t][1] += (dp[to][t][0] + dp[to][t][1]) * dp[now][j][1]) %= mod;
+        _rfor(j, sz[now] / 2, 0)
+            _for(t, 0, sz[to] / 2) {
+                if (t) {
+                    (dp[now][j + t][0] += (dp[to][t][0] + dp[to][t][1]) * dp[now][j][0]) %= mod;
+                    (dp[now][j + t][1] += (dp[to][t][0] + dp[to][t][1]) * dp[now][j][1]) %= mod;
+                }
+                (dp[now][j + t + 1][1] += dp[to][t][0] * dp[now][j][0]) %= mod;
             }
-            (dp[now][j + t + 1][1] += dp[to][t][0] * dp[now][j][0]) %= mod;
-        }
         sz[now] += sz[to];
     }
 }

@@ -6,7 +6,7 @@ data_type sf[N];
 unordered_map<data_type, data_type> sum_f;
 data_type prime[P], prime2[P], prime3[P], cnt;
 bool vis[N];
-inline void init(const data_type& p, const data_type& n = N - 1) {
+inline void init(const data_type &p, const data_type &n = N - 1) {
     sf[1] = 1;
     for (data_type i = 2; i <= n; ++i) {
         if (!vis[i]) {
@@ -23,21 +23,21 @@ inline void init(const data_type& p, const data_type& n = N - 1) {
     }
     for (data_type i = 2; i <= n; ++i) (sf[i] += sf[i - 1]) %= p;
 }
-inline constexpr data_type g(data_type n, const data_type& p) {
+inline constexpr data_type g(data_type n, const data_type &p) {
     n %= p;
     return n * n % p;
 }
-inline constexpr data_type inv3(const data_type& p) { return (p + p * (p % 3 == 1) + 1) / 3; };
-inline constexpr data_type sum_g(data_type n, const data_type& p) {
+inline constexpr data_type inv3(const data_type &p) { return (p + p * (p % 3 == 1) + 1) / 3; };
+inline constexpr data_type sum_g(data_type n, const data_type &p) {
     n %= p;
     return n * (n + 1) / 2 % p * (2 * n + 1) % p * inv3(p) % p;
 }
-inline constexpr data_type sum_conv_g_f(data_type n, const data_type& p) {
+inline constexpr data_type sum_conv_g_f(data_type n, const data_type &p) {
     n %= p;
     data_type _ = n * (n + 1) / 2 % p;
     return _ * _ % p;
 }
-data_type get_sum_f_mul_g1(const data_type& n, const data_type& p) {
+data_type get_sum_f_mul_g1(const data_type &n, const data_type &p) {
     if (n < N) return sf[n];
     if (sum_f[n]) return sum_f[n];
     data_type ans = sum_conv_g_f(n, p);

@@ -2,13 +2,13 @@
 using namespace std;
 using i64 = int64_t;
 using u64 = uint64_t;
-template <std::size_t _N = 64, std::enable_if_t<0 < _N && _N <= 64>* = nullptr>
+template <std::size_t _N = 64, std::enable_if_t<0 < _N && _N <= 64> * = nullptr>
 class Xor_base {
   public:
     using self = Xor_base<_N>;
     using data_type = std::uint64_t;
-    using iterator = data_type*;
-    using const_iterator = data_type*;
+    using iterator = data_type *;
+    using const_iterator = data_type *;
     using reverse_iterator = std::reverse_iterator<iterator>;
     using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
@@ -17,24 +17,25 @@ class Xor_base {
 
   public:
     constexpr Xor_base() noexcept { this->clear(); }
-    explicit Xor_base(std::initializer_list<data_type>&& _list) noexcept : Xor_base() {
-        for (auto&& i : std::move(_list)) this->insert(i);
+    explicit Xor_base(std::initializer_list<data_type> &&_list) noexcept:
+        Xor_base() {
+        for (auto &&i : std::move(_list)) this->insert(i);
     }
     inline constexpr void clear() noexcept { memset(this->base, 0, sizeof(this->base)); }
     inline constexpr std::size_t get_len() const noexcept { return _N; }
-    inline constexpr data_type& data(std::size_t index) noexcept { return this->base[index]; }
-    inline constexpr data_type& data(std::size_t index) const noexcept { return const_cast<self* const>(this)->base[index]; }
+    inline constexpr data_type &data(std::size_t index) noexcept { return this->base[index]; }
+    inline constexpr data_type &data(std::size_t index) const noexcept { return const_cast<self * const>(this)->base[index]; }
     inline constexpr data_type operator[](std::size_t index) noexcept { return this->data(index); }
-    inline constexpr data_type operator[](std::size_t index) const noexcept { return const_cast<self* const>(this)->data(index); }
+    inline constexpr data_type operator[](std::size_t index) const noexcept { return const_cast<self * const>(this)->data(index); }
     inline constexpr iterator begin() noexcept { return this->base; }
-    inline constexpr const_iterator begin() const noexcept { return const_cast<data_type* const>(this->base); }
+    inline constexpr const_iterator begin() const noexcept { return const_cast<data_type * const>(this->base); }
     inline constexpr iterator end() noexcept { return this->begin() + _N; }
     inline constexpr const_iterator end() const noexcept { return this->begin() + _N; }
     inline reverse_iterator rbegin() noexcept { return reverse_iterator(this->end()); }
     inline const_reverse_iterator rbegin() const noexcept { return const_reverse_iterator(this->end()); }
     inline reverse_iterator rend() noexcept { return reverse_iterator(this->begin()); }
     inline const_reverse_iterator rend() const noexcept { return const_reverse_iterator(this->begin()); }
-    inline constexpr self& insert(data_type x) noexcept {
+    inline constexpr self &insert(data_type x) noexcept {
         for (std::size_t i = _N - 1; ~i; --i) {
             if (!(x & (1ull << i))) continue;
             if (this->data(i))
@@ -52,7 +53,7 @@ class Xor_base {
     }
     inline constexpr data_type max_span() const noexcept {
         data_type ret(0);
-        for (const auto& i : this->base) ret ^= i;
+        for (const auto &i : this->base) ret ^= i;
         return ret;
     }
 };

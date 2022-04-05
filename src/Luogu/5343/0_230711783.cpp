@@ -33,13 +33,13 @@ typedef __int128 i128;
 typedef double db;
 typedef long double ldb;
 template <tpn A>
-inline A Max(const A& x, const A& y) { return x > y ? x : y; }
+inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <tpn A>
-inline A Min(const A& x, const A& y) { return x < y ? x : y; }
+inline A Min(const A &x, const A &y) { return x < y ? x : y; }
 template <tpn A>
-inline void Swap(A& x, A& y) { x ^= y ^= x ^= y; }
+inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 template <tpn A>
-inline A Abs(const A& x) { return x > 0 ? x : -x; }
+inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <tpn A>
 inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
 #endif
@@ -50,7 +50,7 @@ inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21,
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -75,7 +75,7 @@ inline void print(T x, T2... oth) {
     buf2[++p3] = hh;
     print(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 #define read FastIO::read
 #define print FastIO::print
 #define INF_I32 0x7FFFFFFF
@@ -89,11 +89,11 @@ std::bitset<N> b1, b2;
 int cnt, arr[N];
 struct mat {
     int num[N][N];
-    inline void operator*=(const mat& a) {
+    inline void operator*=(const mat &a) {
         int c[N][N];
         _mem(c);
         _rep(i, 1, N) _rep(j, 1, N) {
-            int& tmp = c[i][j];
+            int &tmp = c[i][j];
             _rep(k, 1, N)
                 tmp = ((i64)num[i][k] * a.num[k][j] + tmp) % MOD;
         }
@@ -102,22 +102,22 @@ struct mat {
 } a;
 struct col_vector {
     int num[N];
-    inline void operator*=(const mat& a) {
+    inline void operator*=(const mat &a) {
         int c[N];
         _mem(c);
         _rep(i, 1, N) {
-            int& tmp1 = c[i];
-            const int* tmp2 = a.num[i];
+            int &tmp1 = c[i];
+            const int *tmp2 = a.num[i];
             _rep(j, 1, N) tmp1 = ((i64)num[j] * tmp2[j] + tmp1) % MOD;
         }
         memcpy(num, c, sizeof(num));
     }
 } dp;
-inline void pow(mat a, i64 b, col_vector& ret) {
+inline void pow(mat a, i64 b, col_vector &ret) {
     for (; b; b >>= 1, a *= a)
         if (b & 1) ret *= a;
 }
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("D:\\code\\IO\\in.in", "r", stdin);
     freopen("D:\\code\\IO\\out.out", "w", stdout);
@@ -136,7 +136,7 @@ int main(int argc, char const* argv[]) {
         b2[p] = 1;
     }
     b1 &= b2;
-    int* tmp = a.num[100];
+    int *tmp = a.num[100];
     _rep(i, 1, N) {
         if (b1[i]) {
             tmp[101 - i] = dp.num[i] = 1;

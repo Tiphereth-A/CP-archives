@@ -12,7 +12,7 @@ inline void flush() {
     fwrite(buf2, 1, p3 + 1, stdout), p3 = -1;
 }
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -43,14 +43,14 @@ inline void print(T x, T2... oth) {
     buf2[++p3] = hh;
     print(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 #define read FastIO::read
 #define print FastIO::print
 const int maxn = 1e4 + 5;
 int fa[maxn];
 int find(int x) { return fa[x] == x ? x : fa[x] = find(fa[fa[fa[fa[fa[fa[fa[fa[x]]]]]]]]); }
 inline void merge(int x, int y) { fa[find(x)] = find(y); }
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("in.in", "r", stdin);
     freopen("out.out", "w", stdout);

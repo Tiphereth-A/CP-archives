@@ -36,16 +36,19 @@ int main() {
     dfs(1, 0);
     int p = 0;
     i64 max_p = 0;
-    _for(i, 1, n) if (dis[i] > max_p) max_p = dis[p = i];
+    _for(i, 1, n)
+        if (dis[i] > max_p) max_p = dis[p = i];
     _set_nul(dis);
     dfs(p, 0);
     int q = max_p = 0;
-    _for(i, 1, n) if (dis[i] > max_p) max_p = dis[q = i];
+    _for(i, 1, n)
+        if (dis[i] > max_p) max_p = dis[q = i];
     memcpy(dis2, dis, sizeof(dis2));
     _set_nul(dis);
     dfs(q, 0);
     i64 ans = max_p;
-    _for(i, 1, n) if (ans < max_p + min(dis[i], dis2[i])) ans = max_p + min(dis[i], dis2[i]);
+    _for(i, 1, n)
+        if (ans < max_p + min(dis[i], dis2[i])) ans = max_p + min(dis[i], dis2[i]);
     printf("%lld", ans);
     return 0;
 }

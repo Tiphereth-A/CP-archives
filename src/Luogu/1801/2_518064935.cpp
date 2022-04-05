@@ -10,25 +10,25 @@ struct node {
         n = t;
     }
 } * h;
-void insert(node* p, int x) {
+void insert(node *p, int x) {
     p->w++;
     if (x < p->n) {
         if (p->left)
             insert(p->left, x);
         else {
-            node* q = new node(x);
+            node *q = new node(x);
             p->left = q;
         }
     } else {
         if (p->right)
             insert(p->right, x);
         else {
-            node* q = new node(x);
+            node *q = new node(x);
             p->right = q;
         }
     }
 }
-void find(node* p, int v) {
+void find(node *p, int v) {
     if (p->left && p->right) {
         if (p->left->w >= v)
             find(p->left, v);

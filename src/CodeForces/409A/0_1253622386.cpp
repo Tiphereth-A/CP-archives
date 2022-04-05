@@ -23,7 +23,7 @@
 using namespace std;
 string s1, s2, a1, a2;
 int cnt[3];
-il int cmp(string& a, string& b) {
+il int cmp(string &a, string &b) {
     if (a == "[]") {
         if (b == "()")
             return 1;

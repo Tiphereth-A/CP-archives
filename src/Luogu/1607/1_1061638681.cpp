@@ -9,7 +9,7 @@ const int N = 5e5 + 5;
 int k, n, c;
 struct node {
     int m, l, r;
-    bool operator<(const node& other) const {
+    bool operator<(const node &other) const {
         return r == other.r ? l > other.l : r < other.r;
     }
 } line[N];

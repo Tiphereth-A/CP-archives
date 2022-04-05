@@ -7,7 +7,7 @@ struct LinearBasis {
     LinearBasis() {
         std::fill(a, a + 63 + 1, 0);
     }
-    LinearBasis(long long* x, int n) {
+    LinearBasis(long long *x, int n) {
         build(x, n);
     }
     void insert(long long t) {
@@ -26,7 +26,7 @@ struct LinearBasis {
             }
         }
     }
-    void build(long long* x, int n) {
+    void build(long long *x, int n) {
         std::fill(a, a + 63 + 1, 0);
         for (int i = 1; i <= n; i++) {
             insert(x[i]);
@@ -37,10 +37,10 @@ struct LinearBasis {
         for (int i = 0; i <= 63; i++) res ^= a[i];
         return res;
     }
-    void mergeFrom(const LinearBasis& other) {
+    void mergeFrom(const LinearBasis &other) {
         for (int i = 0; i <= 63; i++) insert(other.a[i]);
     }
-    static LinearBasis merge(const LinearBasis& a, const LinearBasis& b) {
+    static LinearBasis merge(const LinearBasis &a, const LinearBasis &b) {
         LinearBasis res = a;
         for (int i = 0; i <= 63; i++) res.insert(b.a[i]);
         return res;

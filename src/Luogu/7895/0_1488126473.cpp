@@ -27,8 +27,10 @@ const int N = 5e5 + OFFSET;
 int d[N];
 int is_chrysanthemun(int n) {
     int root = 0, maxd = 0;
-    _for(i, 1, n) if (d[i] > maxd) maxd = d[root = i];
-    _for(i, 1, n) if (i != root && d[i] > 2) return 0;
+    _for(i, 1, n)
+        if (d[i] > maxd) maxd = d[root = i];
+    _for(i, 1, n)
+        if (i != root && d[i] > 2) return 0;
     return root;
 }
 void solve() {
@@ -50,30 +52,33 @@ void solve() {
             _del;
             if (cnt_leaves == 3) _ans(0);
             int a = 0, b = 0;
-            _for(i, 1, n) if (d[i] > 1)(a ? b : a) = i;
+            _for(i, 1, n)
+                if (d[i] > 1) (a ? b : a) = i;
             _dis(a, b);
             _read_and_exit;
         }
         if (cnt_leaves == 2) {
             int a = 0, b = 0;
-            _for(i, 1, n) if (d[i] == 1)(a ? b : a) = i;
+            _for(i, 1, n)
+                if (d[i] == 1) (a ? b : a) = i;
             _dis(a, b);
             _read_and_exit;
         }
         if (int root = is_chrysanthemun(n); root && cnt_leaves <= (141 - __) * 2) {
             int a = 0, b = 0;
             int ans = 0;
-            _for(i, 1, n, _) if (d[i] == 1) {
-                if (a) {
-                    b = i;
-                    _dis(a, b);
-                    cin >> _;
-                    ans += _;
-                    a = b = 0;
-                    continue;
+            _for(i, 1, n, _)
+                if (d[i] == 1) {
+                    if (a) {
+                        b = i;
+                        _dis(a, b);
+                        cin >> _;
+                        ans += _;
+                        a = b = 0;
+                        continue;
+                    }
+                    a = i;
                 }
-                a = i;
-            }
             if (a) {
                 _dis(root, a);
                 int _;

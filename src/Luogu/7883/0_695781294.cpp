@@ -6,7 +6,7 @@ char buf[1 << 21], *p1 = buf, *p2 = buf;
 inline char getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++; }
 inline void read() {}
 template <class T>
-inline void read(T& x) {
+inline void read(T &x) {
     int f = x = 0;
     char ch = getc();
     while (!isdigit(ch)) {
@@ -17,19 +17,19 @@ inline void read(T& x) {
     if (f) x = -x;
 }
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     read(x);
     read(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::read;
 const i64 INF = 1e18;
 const int M = 4e5 + 1;
 struct Node {
     i64 x, y;
 } a[M], b[M];
-bool less_x(const Node& a, const Node& b) { return a.x < b.x; }
-bool less_y(const Node& a, const Node& b) { return a.y < b.y; }
+bool less_x(const Node &a, const Node &b) { return a.x < b.x; }
+bool less_y(const Node &a, const Node &b) { return a.y < b.y; }
 inline i64 work(int l, int r) {
     if (l == r) return INF;
     int mid = (l + r) >> 1, now = 0;

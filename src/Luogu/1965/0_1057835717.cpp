@@ -2,7 +2,7 @@
 #define tpn typename
 typedef long long ll;
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     A neg = 1;
     do {
@@ -17,7 +17,7 @@ inline void read(A& x) {
     x *= neg;
 }
 template <tpn A, tpn B, tpn C, tpn D>
-inline void read(A& a, B& b, C& c, D& d) {
+inline void read(A &a, B &b, C &c, D &d) {
     read(a), read(b), read(c), read(d);
 }
 ll n, m, k, x;

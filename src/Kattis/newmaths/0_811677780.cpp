@@ -14,7 +14,7 @@ const int table1[10][10] = {{+0, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 char n[35];
 int a[35], ans[35] = {10};
 int len, k;
-bool check(int* a) {
+bool check(int *a) {
     for (int i = 0, _; i < len; ++i) {
         _ = 0;
         for (int j = 0; j <= i; ++j) {

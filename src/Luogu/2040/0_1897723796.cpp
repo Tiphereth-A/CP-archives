@@ -29,7 +29,7 @@ struct node {
 };
 std::queue<node> q;
 bool in_queue[512];
-void push_state_in_queue(const node& now) {
+void push_state_in_queue(const node &now) {
     for (int tmp, i = 0; i < 9; ++i) {
         tmp = now.state ^ d[i];
         if (in_queue[tmp])

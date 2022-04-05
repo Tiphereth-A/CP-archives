@@ -5,10 +5,10 @@
 using namespace std;
 string str;
 int n;
-il int max(int& a, int& b) {
+il int max(int &a, int &b) {
     return (a > b) ? a : b;
 }
-il int min(int& a, int& b) {
+il int min(int &a, int &b) {
     return (a < b) ? a : b;
 }
 il int fnd(int x) {
@@ -37,7 +37,7 @@ int main() {
     str = str + str + str;
     int ans = -1;
     for (rg int i = n; i < (n << 1); ++i) {
-        char* tmp = &str[i];
+        char *tmp = &str[i];
         if (*tmp == *(tmp + 1))
             continue;
         if (*tmp == 'w') {

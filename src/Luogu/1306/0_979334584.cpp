@@ -9,7 +9,7 @@ class matrix {
 #define _for_row(i) for (std::size_t i = 0; i < row; ++i)
 #define _for_col(i) for (std::size_t i = 0; i < col; ++i)
 #define _for_each(i, j) _for_row(i) _for_col(j)
-#define _perfect(Tp) template <typename Tp, std::enable_if_t<std::is_convertible_v<self, Tp>>* = nullptr>
+#define _perfect(Tp) template <typename Tp, std::enable_if_t<std::is_convertible_v<self, Tp>> * = nullptr>
 #define _forward_self std::forward<self>
   public:
     using self = matrix<Tp, row, col>;
@@ -19,20 +19,20 @@ class matrix {
 
   public:
     matrix() = default;
-    matrix(const self& rhs) { _for_each(i, j) this->mat[i][j] = rhs.data(i, j); }
-    self& operator=(const self& rhs) {
+    matrix(const self &rhs) { _for_each(i, j) this->mat[i][j] = rhs.data(i, j); }
+    self &operator=(const self &rhs) {
         _for_each(i, j) this->mat[i][j] = rhs.data(i, j);
         return *this;
     }
-    inline Tp& data(const size_t& r, const size_t& c) const { return *(Tp* const)&(this->mat[r][c]); }
-    inline Tp& data(const size_t& r, const size_t& c) { return this->mat[r][c]; }
+    inline Tp &data(const size_t &r, const size_t &c) const { return *(Tp * const)&(this->mat[r][c]); }
+    inline Tp &data(const size_t &r, const size_t &c) { return this->mat[r][c]; }
     matrix<Tp, col, row> trans() {
         matrix<Tp, col, row> ret;
         _for_each(i, j) ret.data(j, i) = this->mat[i][j];
         return ret;
     }
     template <std::size_t row2>
-    matrix<Tp, row, row2> operator*(const matrix<Tp, col, row2>& rhs) {
+    matrix<Tp, row, row2> operator*(const matrix<Tp, col, row2> &rhs) {
         matrix<Tp, row, row2> ret;
         _for_row(i) _for_col(k) for (std::size_t j = 0; j < row2; ++j)
             ret.data(i, j) = ret.data(i, j) + this->mat[i][k] * rhs.data(k, j);
@@ -53,24 +53,26 @@ class mod_i64 {
     i64 num;
 
   public:
-    mod_i64(const i64& _num = 0) : num(_num % mod) {}
-    mod_i64(const self& rhs) : num(rhs.num) {}
-    self& operator=(const i64& _num) {
+    mod_i64(const i64 &_num = 0):
+        num(_num % mod) {}
+    mod_i64(const self &rhs):
+        num(rhs.num) {}
+    self &operator=(const i64 &_num) {
         this->num = _num % mod;
         return *this;
     }
-    self& operator=(const self& rhs) {
+    self &operator=(const self &rhs) {
         this->num = rhs.num;
         return *this;
     }
-    inline self calc(const self& rhs, std::function<i64(i64, i64)>&& op) { return self(op(this->num, rhs.num) % mod); }
-    inline self calc_raw(const self& rhs, std::function<i64(i64, i64)>&& op) { return self(op(this->num, rhs.num)); }
-    inline i64& data() const { return *(i64* const)&(this->num); }
-    inline i64& data() { return this->num; }
-    self operator+(const self& rhs) { return this->calc(rhs, std::plus<i64>()); }
-    self operator-(const self& rhs) { return this->calc(rhs, std::minus<i64>()); }
-    self operator*(const self& rhs) { return this->calc(rhs, std::multiplies<i64>()); }
-    self operator/(const self& rhs) { return this->calc(rhs, std::divides<i64>()); }
+    inline self calc(const self &rhs, std::function<i64(i64, i64)> &&op) { return self(op(this->num, rhs.num) % mod); }
+    inline self calc_raw(const self &rhs, std::function<i64(i64, i64)> &&op) { return self(op(this->num, rhs.num)); }
+    inline i64 &data() const { return *(i64 * const)&(this->num); }
+    inline i64 &data() { return this->num; }
+    self operator+(const self &rhs) { return this->calc(rhs, std::plus<i64>()); }
+    self operator-(const self &rhs) { return this->calc(rhs, std::minus<i64>()); }
+    self operator*(const self &rhs) { return this->calc(rhs, std::multiplies<i64>()); }
+    self operator/(const self &rhs) { return this->calc(rhs, std::divides<i64>()); }
 };
 #define MULTI_CASES
 matrix<mod_i64<>, 2ull, 2ull> fib_trans, e;
@@ -89,7 +91,7 @@ matrix<Tp, row, row> qpow(matrix<Tp, row, row> a, i64 b) {
     return res;
 }
 template <std::size_t mod>
-ostream& operator<<(ostream& os, const mod_i64<mod>& x) {
+ostream &operator<<(ostream &os, const mod_i64<mod> &x) {
     os << x.data();
     return os;
 }

@@ -13,13 +13,13 @@ const int_t mod = (int_t)1e9 + 7;
 template <typename ValType>
 class Matrix;
 template <typename T>
-ostream& operator<<(ostream& os, const Matrix<T>& mat);
+ostream &operator<<(ostream &os, const Matrix<T> &mat);
 template <typename T>
-istream& operator>>(istream& os, const Matrix<T>& mat);
+istream &operator>>(istream &os, const Matrix<T> &mat);
 template <typename ValType>
 class Matrix {
   private:
-    ValType* data;
+    ValType *data;
     int_t row;
     int_t col;
     int_t size;
@@ -29,11 +29,13 @@ class Matrix {
     ~Matrix() {
         delete[] data;
     }
-    Matrix(const Matrix<ValType>& other) : row(other.row), col(other.col), size(other.size), num(other.num) {
+    Matrix(const Matrix<ValType> &other):
+        row(other.row), col(other.col), size(other.size), num(other.num) {
         data = new ValType[other.num];
         memcpy(data, other.data, other.size);
     }
-    Matrix(int_t r, int_t c) : row(r), col(c) {
+    Matrix(int_t r, int_t c):
+        row(r), col(c) {
         this->row = r;
         this->col = c;
         num = (row + 1) * (col + 1);
@@ -41,10 +43,10 @@ class Matrix {
         size = sizeof(ValType) * num;
         memset(data, 0, size);
     }
-    ValType& at(int_t r, int_t c) {
+    ValType &at(int_t r, int_t c) {
         return data[c + r * col];
     }
-    Matrix<ValType> operator*(Matrix<ValType>& mat) throw(const char*) {
+    Matrix<ValType> operator*(Matrix<ValType> &mat) throw(const char *) {
         if (this->col != mat.row) throw "Column number of matrix1 doesn't equals that in matrix2";
         Matrix<ValType> result(this->row, mat.col);
         for (int_t i = 1; i <= this->row; i++) {
@@ -64,7 +66,7 @@ class Matrix {
     int_t getRow() const {
         return row;
     }
-    Matrix<ValType>& operator=(const Matrix<ValType>& other) {
+    Matrix<ValType> &operator=(const Matrix<ValType> &other) {
         this->col = other.col;
         this->num = other.num;
         this->row = other.row;
@@ -72,11 +74,11 @@ class Matrix {
         this->data = new ValType[num];
         memcpy(data, other.data, size);
     }
-    friend ostream& operator<<<>(ostream& os, const Matrix<ValType>& mat);
-    friend istream& operator>><>(istream& os, const Matrix<ValType>& mat);
+    friend ostream &operator<< <>(ostream &os, const Matrix<ValType> &mat);
+    friend istream &operator>><>(istream &os, const Matrix<ValType> &mat);
 };
 template <typename ValType>
-ostream& operator<<(ostream& os, Matrix<ValType>& mat) {
+ostream &operator<<(ostream &os, Matrix<ValType> &mat) {
     for (int_t i = 1; i <= mat.getRow(); i++) {
         for (int_t j = 1; j <= mat.getCol(); j++) {
             os << mat.at(i, j) % mod << " ";
@@ -86,7 +88,7 @@ ostream& operator<<(ostream& os, Matrix<ValType>& mat) {
     return os;
 }
 template <typename ValType>
-istream& operator>>(istream& is, Matrix<ValType>& mat) {
+istream &operator>>(istream &is, Matrix<ValType> &mat) {
     for (int_t i = 1; i <= mat.getRow(); i++) {
         for (int_t j = 1; j <= mat.getCol(); j++) {
             is >> mat.at(i, j);

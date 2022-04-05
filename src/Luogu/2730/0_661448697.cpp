@@ -13,13 +13,13 @@ struct SEQ {
         father = Father;
         oper = Oper;
     }
-    SEQ operator=(SEQ& a) {
+    SEQ operator=(SEQ &a) {
         memcpy(seq, a.seq, sizeof(a.seq));
         oper = a.oper;
         step = a.step;
         return *this;
     }
-    bool operator==(SEQ& a) {
+    bool operator==(SEQ &a) {
         return this->get_state() == a.get_state();
     }
     int get_state() {
@@ -32,7 +32,7 @@ struct SEQ {
         }
         return state_ID;
     }
-    void operA(const SEQ& a) {
+    void operA(const SEQ &a) {
         seq[1] = a.seq[8];
         seq[2] = a.seq[7];
         seq[3] = a.seq[6];
@@ -44,7 +44,7 @@ struct SEQ {
         step = a.step + 1;
         oper = 'A';
     }
-    void operB(const SEQ& a) {
+    void operB(const SEQ &a) {
         seq[1] = a.seq[4];
         seq[2] = a.seq[1];
         seq[3] = a.seq[2];
@@ -56,7 +56,7 @@ struct SEQ {
         step = a.step + 1;
         oper = 'B';
     }
-    void operC(const SEQ& a) {
+    void operC(const SEQ &a) {
         seq[1] = a.seq[1];
         seq[2] = a.seq[7];
         seq[3] = a.seq[2];
@@ -84,7 +84,7 @@ void print(int ID) {
     for (; s[ID].father; ID = s[ID].father) ans[++len] = s[ID].oper;
     for (int i = len; i; --i) putchar(ans[i]);
 }
-void insert_state(int now, SEQ& tmp_state) {
+void insert_state(int now, SEQ &tmp_state) {
     if (!state_existed[tmp_state.get_state()]) {
         state_existed[tmp_state.get_state()] = true;
         s[++state_cnt] = tmp_state;
@@ -98,7 +98,7 @@ int bfs() {
     tmp_state.clr();
     while (1) {
         int now = q.front();
-        SEQ& now_state = s[now];
+        SEQ &now_state = s[now];
         if (now_state == end) return now;
         q.pop();
         for (int i = 1; i <= 3; ++i) {

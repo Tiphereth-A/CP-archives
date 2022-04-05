@@ -20,7 +20,7 @@ inline void merge(int u, int v) {
     par[p] += par[q];
     par[q] = p;
 }
-}; // namespace union_find
+};  // namespace union_find
 int n, m;
 namespace two_edge_connect {
 int low[N], dfn[N], dfc;
@@ -51,7 +51,7 @@ void init() {
         if (dfn[i] == 0) dfs(i, 0);
 }
 inline bool isbridge(int u, int v) { return bel[u] != bel[v]; }
-}; // namespace two_edge_connect
+};  // namespace two_edge_connect
 namespace three_edge_connect {
 using two_edge_connect::isbridge;
 using union_find::find;
@@ -59,7 +59,7 @@ using union_find::merge;
 int low[N], dfn[N], end[N], dfc;
 int deg[N];
 inline bool insubtree(int u, int v) { return (dfn[u] <= dfn[v] && dfn[v] <= end[u]); }
-inline void absorb(vector<int>& path, int u, int w = 0) {
+inline void absorb(vector<int> &path, int u, int w = 0) {
     while (path.empty() == false) {
         int v = path.back();
         if (w > 0 && insubtree(v, w) == false) break;
@@ -68,7 +68,7 @@ inline void absorb(vector<int>& path, int u, int w = 0) {
         merge(u, v);
     }
 }
-void dfs(int u, int fa, vector<int>& pu) {
+void dfs(int u, int fa, vector<int> &pu) {
     low[u] = dfn[u] = ++dfc;
     _for_graph(head, e, i, u) {
         if (u == v || isbridge(u, v) == true) continue;
@@ -116,7 +116,7 @@ vector<vector<int>> get_all() {
         if (!res[i].empty()) ans.push_back(res[i]);
     return ans;
 }
-}; // namespace three_edge_connect
+};  // namespace three_edge_connect
 void init() {
     cin >> n >> m;
     for (int i = 1, u, v; i <= m; ++i) {
@@ -131,7 +131,7 @@ void solve() {
     vector<vector<int>> ans(get_all());
     for (auto it = ans.begin(); it != ans.end(); ++it)
         sort(it->begin(), it->end());
-    sort(ans.begin(), ans.end(), [](const auto& lhs, const auto& rhs) { return lhs.front() < rhs.front(); });
+    sort(ans.begin(), ans.end(), [](const auto &lhs, const auto &rhs) { return lhs.front() < rhs.front(); });
     cout << ans.size() << '\n';
     for (auto it1 = ans.begin(); it1 != ans.end(); ++it1)
         for (auto it = it1->begin(); it != it1->end(); ++it)

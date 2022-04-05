@@ -17,7 +17,7 @@ inline int getc() {
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -69,7 +69,7 @@ inline void print_h(T x, char h) {
 inline void putchar(char a) {
     buf2[++p3] = a;
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 const int INF_I32 = 0x3f3f3f3f;
@@ -77,7 +77,7 @@ const int N = 5e5 + 5;
 int k, n, c;
 struct node {
     int m, l, r;
-    bool operator<(const node& other) const {
+    bool operator<(const node &other) const {
         return r == other.r ? l > other.l : r < other.r;
     }
 } line[N];

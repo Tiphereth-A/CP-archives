@@ -33,13 +33,13 @@ typedef __int128 i128;
 typedef double db;
 typedef long double ldb;
 template <tpn A>
-inline A Max(const A& x, const A& y) { return x > y ? x : y; }
+inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <tpn A>
-inline A Min(const A& x, const A& y) { return x < y ? x : y; }
+inline A Min(const A &x, const A &y) { return x < y ? x : y; }
 template <tpn A>
-inline void Swap(A& x, A& y) { x ^= y ^= x ^= y; }
+inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 template <tpn A>
-inline A Abs(const A& x) { return x > 0 ? x : -x; }
+inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <tpn A>
 inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
 #endif
@@ -50,7 +50,7 @@ inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21,
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -75,7 +75,7 @@ inline void print(T x, T2... oth) {
     buf2[++p3] = hh;
     print(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 #define read FastIO::read
 #define print FastIO::print
 #define INF_I32 0x7FFFFFFF
@@ -93,7 +93,7 @@ struct Persistable_Segment_Tree {
     } tr[N * 20];
 #define PRE tr[pre]
 #define NOW tr[now]
-    void init(int l, int r, int& now) {
+    void init(int l, int r, int &now) {
         now = ++cnt_node;
         if (l == r) {
             tr[now].n = a[l];
@@ -103,7 +103,7 @@ struct Persistable_Segment_Tree {
         init(l, mid, NOW.l);
         init(mid + 1, r, NOW.r);
     }
-    void modify(int l, int r, int& now, int pre, int pos, int k) {
+    void modify(int l, int r, int &now, int pre, int pos, int k) {
         tr[now = ++cnt_node] = PRE;
         if (l == r) {
             NOW.n = k;
@@ -124,7 +124,7 @@ struct Persistable_Segment_Tree {
             return query(NOW.r, mid + 1, r, pos);
     }
 } T;
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("D:\\code\\IO\\in.in", "r", stdin);
     freopen("D:\\code\\IO\\out.out", "w", stdout);

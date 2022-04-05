@@ -13,7 +13,7 @@ using std::cout;
 using std::endl;
 const int frac[] = {1, 1, 2, 6, 24};
 char oper[3];
-long long dfs(int total_num, long long* __num) {
+long long dfs(int total_num, long long *__num) {
     if (total_num == 1)
         return *__num;
     long long num[total_num];

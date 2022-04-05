@@ -9,7 +9,8 @@ const int OFFSET = 5;
 const int N = 1e3 + OFFSET, M = 2e3 + OFFSET, K = 21;
 struct Edge {
     int w, to, next;
-    Edge(int _w = 0, int _to = 0, int _next = 0) : w(_w), to(_to), next(_next) {}
+    Edge(int _w = 0, int _to = 0, int _next = 0):
+        w(_w), to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 int in[N], out[N];
@@ -27,7 +28,8 @@ bool find(int x, int y) {
 int seq[N], cnt_seq;
 int topo(int n) {
     queue<int> q;
-    _for(i, 1, n) if (!in[i]) q.push(i);
+    _for(i, 1, n)
+        if (!in[i]) q.push(i);
     bool flag = 0;
     while (!q.empty()) {
         if (q.size() > 1) flag = 1;

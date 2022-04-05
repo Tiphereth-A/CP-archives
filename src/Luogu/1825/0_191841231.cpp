@@ -34,17 +34,17 @@ _map_t __map[N][M];
 _step_t __step[N][M];
 struct Point {
     _point_t x, y;
-    Point operator=(const Point& other) {
+    Point operator=(const Point &other) {
         x = other.x;
         y = other.y;
         return *this;
     }
-    Point operator+=(const Point& other) {
+    Point operator+=(const Point &other) {
         x += other.x;
         y += other.y;
         return *this;
     }
-    bool operator==(const Point& other) const {
+    bool operator==(const Point &other) const {
         return x == other.x && y == other.y;
     }
     _state_t get_state() const {
@@ -62,12 +62,12 @@ struct Point {
 struct Node {
     Point p;
     _step_t step;
-    Node operator+=(const Node& other) {
+    Node operator+=(const Node &other) {
         p += other.p;
         step += other.step;
         return *this;
     }
-    Node operator+(const Node& other) const {
+    Node operator+(const Node &other) const {
         Node tmp = *this;
         return tmp += other;
     }
@@ -151,7 +151,7 @@ inline void bfs() {
         }
     }
 }
-} // namespace BFS
+}  // namespace BFS
 using BFS::bfs;
 int main() {
 #ifndef ONLINE_JUDGE

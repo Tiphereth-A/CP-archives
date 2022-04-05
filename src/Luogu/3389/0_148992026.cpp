@@ -10,11 +10,14 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
     cin >> n;
-    _for(i, 1, n) _for(j, 1, n + 1) cin >> a[i][j];
+    _for(i, 1, n)
+        _for(j, 1, n + 1) cin >> a[i][j];
     _for(i, 1, n) {
         int m = i;
-        _for(j, i, n) if (abs(a[j][i] - a[m][i]) <= EPS) m = j;
-        if (m != i) _for(j, 1, n + 1) swap(a[m][j], a[i][j]);
+        _for(j, i, n)
+            if (abs(a[j][i] - a[m][i]) <= EPS) m = j;
+        if (m != i)
+            _for(j, 1, n + 1) swap(a[m][j], a[i][j]);
         if (abs(a[i][i]) <= EPS) {
             cout << "No Solution\n";
             return 0;

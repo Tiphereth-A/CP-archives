@@ -7,9 +7,9 @@ using u128 = __uint128_t;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 #define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
 #define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto& i : container)
-#define _foreach_cref(i, container) for (const auto& i : container)
-#define _foreach_rref(i, container) for (auto&& i : container)
+#define _foreach_ref(i, container) for (auto &i : container)
+#define _foreach_cref(i, container) for (const auto &i : container)
+#define _foreach_rref(i, container) for (auto &&i : container)
 #define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
 #define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 #define _for_graph(head, e, i, now) for (int i = head[now], to = e[i].to; i; to = e[i = e[i].next].to)
@@ -32,22 +32,22 @@ struct Mat {
         data[1][1] = d;
     }
     template <typename Up>
-    constexpr Mat& operator=(Up&& rhs) noexcept {
+    constexpr Mat &operator=(Up &&rhs) noexcept {
         (*this)(0, 0) = forward<Mat>(rhs)(0, 0);
         (*this)(0, 1) = forward<Mat>(rhs)(0, 1);
         (*this)(1, 0) = forward<Mat>(rhs)(1, 0);
         (*this)(1, 1) = forward<Mat>(rhs)(1, 1);
         return *this;
     }
-    inline constexpr u128& operator()(size_t x, size_t y) noexcept { return this->data[x][y]; }
-    Mat operator*(Mat& rhs) noexcept {
+    inline constexpr u128 &operator()(size_t x, size_t y) noexcept { return this->data[x][y]; }
+    Mat operator*(Mat &rhs) noexcept {
         return Mat(((*this)(0, 0) * rhs(0, 0) % p + (*this)(0, 1) * rhs(1, 0) % p) % p,
                    ((*this)(0, 0) * rhs(0, 1) % p + (*this)(0, 1) * rhs(1, 1) % p) % p,
                    ((*this)(1, 0) * rhs(0, 0) % p + (*this)(1, 1) * rhs(1, 0) % p) % p,
                    ((*this)(1, 0) * rhs(0, 1) % p + (*this)(1, 1) * rhs(1, 1) % p) % p);
     }
 };
-inline constexpr uint64_t dec2uint_mod(const char* const num, const uint64_t mod = UINT64_MAX) {
+inline constexpr uint64_t dec2uint_mod(const char * const num, const uint64_t mod = UINT64_MAX) {
     size_t len = strlen(num);
     u128 ans = 0;
     for (auto pch = num; pch < num + len;) (((ans *= 10) %= mod) += *(pch++) & 0x0F) %= mod;

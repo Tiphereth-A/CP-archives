@@ -14,14 +14,14 @@ int main() {
             a[j] = x % 2;
             x /= 2;
         }
-        _for(j, 1, 8) if (b != a[j]) {
-            if (b != 2) cout << cnt + 128 * b << ' ';
-            b = a[j];
-            cnt = 1;
-        }
-        else {
-            ++cnt;
-        }
+        _for(j, 1, 8)
+            if (b != a[j]) {
+                if (b != 2) cout << cnt + 128 * b << ' ';
+                b = a[j];
+                cnt = 1;
+            } else {
+                ++cnt;
+            }
     }
     cout << cnt + 128 * b << ' ';
     return 0;

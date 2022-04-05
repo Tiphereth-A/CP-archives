@@ -35,10 +35,11 @@ int main() {
         _for(i, 1, m) cin >> c[i];
         int tot = 0;
         _for(i, 1, n) vis[b[i]] = i;
-        _for(i, 1, n) if (b[i] != a[i]) {
-            tot += cnt[b[i]].empty();
-            cnt[b[i]].push_back(i);
-        }
+        _for(i, 1, n)
+            if (b[i] != a[i]) {
+                tot += cnt[b[i]].empty();
+                cnt[b[i]].push_back(i);
+            }
         int pre = 0;
         _rfor(i, m, 1) {
             if (!cnt[c[i]].empty()) _run_continue(pre = ans[i] = cnt[c[i]].back(); cnt[c[i]].pop_back(); tot -= cnt[c[i]].empty());

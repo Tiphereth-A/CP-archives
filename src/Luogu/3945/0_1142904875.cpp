@@ -18,7 +18,8 @@
 using namespace std;
 struct point {
     double x, y, z;
-    point(double x = 0.0, double y = 0.0, double z = 0.0) : x(x), y(y), z(z) {}
+    point(double x = 0.0, double y = 0.0, double z = 0.0):
+        x(x), y(y), z(z) {}
     void read() {
         scanf("%lf%lf%lf", &x, &y, &z);
     }
@@ -27,16 +28,16 @@ struct point {
     }
 } p[maxn], v[maxn];
 double m[maxn];
-void operator+=(point& a, const point& b) {
+void operator+=(point &a, const point &b) {
     a.x += b.x, a.y += b.y, a.z += b.z;
 }
-point operator-(const point& a, const point& b) {
+point operator-(const point &a, const point &b) {
     return (point){a.x - b.x, a.y - b.y, a.z - b.z};
 }
-point operator*(point& a, double b) {
+point operator*(point &a, double b) {
     return (point){a.x * b, a.y * b, a.z * b};
 }
-double dis(const point& a) {
+double dis(const point &a) {
     return sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
 }
 int main() {

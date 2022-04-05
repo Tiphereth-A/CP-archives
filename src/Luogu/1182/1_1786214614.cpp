@@ -9,7 +9,7 @@ inline i64 getc() {
 }
 void read() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     i64 f = 0;
     x = 0;
     char ch = getc();
@@ -43,7 +43,7 @@ inline void print(T x) {
     } while (--p);
     buf2[++p3] = hh;
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 const i64 N = 1e5 + 5;

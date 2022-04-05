@@ -5,7 +5,7 @@ const int N = 1e6 + 5, M = 2e6 + 5, MOD = 1e9 + 7;
 struct Edge {
     i64 w;
     int from, to, next;
-    bool operator<(const Edge& other) const { return w > other.w; }
+    bool operator<(const Edge &other) const { return w > other.w; }
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int x, int y, i64 w = 0) {

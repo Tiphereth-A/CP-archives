@@ -5,7 +5,8 @@ const int mod = 998244353;
 const int N = 4e3 + 5, M = 1e4 + 5;
 struct Edge {
     int to, next;
-    Edge(int _to = 0, int _next = 0) : to(_to), next(_next) {}
+    Edge(int _to = 0, int _next = 0):
+        to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int x, int y) {

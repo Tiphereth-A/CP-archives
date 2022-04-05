@@ -5,7 +5,7 @@
 using namespace std;
 int n;
 vector<int> vec[35];
-void fd(int a, int& p, int& h) {
+void fd(int a, int &p, int &h) {
     for (p = 0; p < n; ++p)
         for (h = 0; h < vec[p].size(); ++h)
             if (vec[p][h] == a) return;

@@ -11,7 +11,7 @@ il char gc() {
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
 }
 template <tpn A>
-il void read(A& x) {
+il void read(A &x) {
     char c;
     do {
         c = getchar();
@@ -23,21 +23,21 @@ il void read(A& x) {
     } while (c >= '0' && c <= '9');
 }
 template <tpn A, tpn B>
-il void read(A& a, B& b) {
+il void read(A &a, B &b) {
     read(a);
     read(b);
 }
 template <tpn A, tpn B, tpn C>
-il void read(A& a, B& b, C& c) {
+il void read(A &a, B &b, C &c) {
     read(a);
     read(b);
     read(c);
 }
 u64 n, m, c1[MAXN], c2[MAXN], num[MAXN];
-void il add(u64* r, u64 pos, const u64& v) {
+void il add(u64 *r, u64 pos, const u64 &v) {
     for (; pos <= n; pos += lowbit(pos)) r[pos] += v;
 }
-u64 il query(u64* r, u64 pos) {
+u64 il query(u64 *r, u64 pos) {
     u64 ans(0);
     for (; pos; pos -= lowbit(pos)) ans += r[pos];
     return ans;

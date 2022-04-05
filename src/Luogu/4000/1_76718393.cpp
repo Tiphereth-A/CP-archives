@@ -7,9 +7,9 @@ using u128 = __uint128_t;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 #define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
 #define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto& i : container)
-#define _foreach_cref(i, container) for (const auto& i : container)
-#define _foreach_rref(i, container) for (auto&& i : container)
+#define _foreach_ref(i, container) for (auto &i : container)
+#define _foreach_cref(i, container) for (const auto &i : container)
+#define _foreach_rref(i, container) for (auto &&i : container)
 #define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
 #define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 #define _for_graph(head, e, i, now) for (int i = head[now], to = e[i].to; i; to = e[i = e[i].next].to)
@@ -32,27 +32,27 @@ struct Mat {
         data[1][1] = d;
     }
     template <typename Up>
-    constexpr Mat& operator=(Up&& rhs) noexcept {
+    constexpr Mat &operator=(Up &&rhs) noexcept {
         (*this)(0, 0) = forward<Mat>(rhs)(0, 0);
         (*this)(0, 1) = forward<Mat>(rhs)(0, 1);
         (*this)(1, 0) = forward<Mat>(rhs)(1, 0);
         (*this)(1, 1) = forward<Mat>(rhs)(1, 1);
         return *this;
     }
-    inline constexpr u128& operator()(size_t x, size_t y) noexcept { return this->data[x][y]; }
-    Mat operator*(Mat& rhs) noexcept {
+    inline constexpr u128 &operator()(size_t x, size_t y) noexcept { return this->data[x][y]; }
+    Mat operator*(Mat &rhs) noexcept {
         return Mat(((*this)(0, 0) * rhs(0, 0) % p + (*this)(0, 1) * rhs(1, 0) % p) % p,
                    ((*this)(0, 0) * rhs(0, 1) % p + (*this)(0, 1) * rhs(1, 1) % p) % p,
                    ((*this)(1, 0) * rhs(0, 0) % p + (*this)(1, 1) * rhs(1, 0) % p) % p,
                    ((*this)(1, 0) * rhs(0, 1) % p + (*this)(1, 1) * rhs(1, 1) % p) % p);
     }
 };
-inline constexpr uint64_t dec2uint_mod(const char* const num, const u128 mod) {
+inline constexpr uint64_t dec2uint_mod(const char * const num, const u128 mod) {
     size_t len = strlen(num);
     if (len == 0) return 0;
     u128 ans = 0;
     for (size_t i = 0; i + 8 <= len; i += 8) {
-        uint64_t res = *((uint64_t*)(num + i));
+        uint64_t res = *((uint64_t *)(num + i));
         res = (res & 0x0F0F0F0F0F0F0F0F) * 2561 >> 8;
         res = (res & 0x00FF00FF00FF00FF) * 6553601 >> 16;
         res = (res & 0x0000FFFF0000FFFF) * 42949672960001 >> 32;

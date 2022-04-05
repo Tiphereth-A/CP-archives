@@ -7,7 +7,8 @@ const int OFFSET = 5;
 const int N = 1e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 struct Edge {
     int to, next;
-    Edge(int _to = 0, int _next = 0) : to(_to), next(_next) {}
+    Edge(int _to = 0, int _next = 0):
+        to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int x, int y) {

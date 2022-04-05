@@ -51,9 +51,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1e6 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -94,7 +94,8 @@ int main() {
     }
     dfs(1);
     int ans = 0;
-    _for(i, 1, n) if (chk(son[i].l, son[i].r)) ans = max(ans, sz[i]);
+    _for(i, 1, n)
+        if (chk(son[i].l, son[i].r)) ans = max(ans, sz[i]);
     printf("%d", ans);
 FINISHED:
 #ifndef ONLINE_JUDGE

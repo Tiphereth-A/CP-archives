@@ -6,7 +6,7 @@ typedef long long i64;
 const int MOD = 99999997;
 struct node {
     int num, id;
-    bool operator<(const node& a) const { return this->num < a.num; }
+    bool operator<(const node &a) const { return this->num < a.num; }
 } fst[N], snd[N];
 int n, a[N], b[N];
 i64 ans;

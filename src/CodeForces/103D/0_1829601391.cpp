@@ -24,7 +24,7 @@ int main() {
         }
         q[++cnt] = {k, t, i};
     }
-    sort(q + 1, q + cnt + 1, [](const Node& lhs, const Node& rhs) { return lhs.k < rhs.k; });
+    sort(q + 1, q + cnt + 1, [](const Node &lhs, const Node &rhs) { return lhs.k < rhs.k; });
     _for(i, 1ll, cnt, now_k) {
         now_k = q[i].k;
         memset(block, 0, sizeof(block));

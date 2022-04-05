@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long i64;
-i64 exgcd(i64 a, i64 b, i64& x, i64& y) {
+i64 exgcd(i64 a, i64 b, i64 &x, i64 &y) {
     if (b == 0) {
         x = 1;
         y = 0;

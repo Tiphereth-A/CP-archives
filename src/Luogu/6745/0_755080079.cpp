@@ -9,7 +9,7 @@ inline int getc() {
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     x = 0;
     char ch = getc();
     while (!isdigit(ch)) {
@@ -42,7 +42,7 @@ inline void putchar(char a) {
     if (p3 > 1 << 20)
         flush();
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 int main() {

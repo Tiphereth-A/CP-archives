@@ -51,20 +51,21 @@ int main() {
     n = read();
     m = read();
     char c;
-    _for(i, 1, n * 2 + 1) _for(j, 1, m * 2 + 2) {
-        c = getchar();
-        if (c != '+' && c != '-' && c != '|' && c != '\n')
-            j[i[map]] = 1;
-        if (c == 's') {
-            sx = i;
-            sy = j;
-            j[i[map]] = 0;
+    _for(i, 1, n * 2 + 1)
+        _for(j, 1, m * 2 + 2) {
+            c = getchar();
+            if (c != '+' && c != '-' && c != '|' && c != '\n')
+                j[i[map]] = 1;
+            if (c == 's') {
+                sx = i;
+                sy = j;
+                j[i[map]] = 0;
+            }
+            if (c == 'e') {
+                ex = i;
+                ey = j;
+            }
         }
-        if (c == 'e') {
-            ex = i;
-            ey = j;
-        }
-    }
     q.push({sx, sy, 0});
     bfs();
     printf("%d", ans);

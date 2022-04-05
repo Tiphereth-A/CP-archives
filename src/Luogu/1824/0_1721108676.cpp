@@ -28,7 +28,7 @@ inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21,
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -76,7 +76,7 @@ inline void print_h(T x, char h) {
     buf2[++p3] = h;
 }
 inline void putchar(char a) { buf2[++p3] = a; }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::print_h;
 using FastIO::read;

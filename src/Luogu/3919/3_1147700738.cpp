@@ -8,7 +8,7 @@ struct Node {
     int l, r, val;
 } hjt[maxn * 40];
 int cnt, root[maxn];
-void build(int l, int r, int& k) {
+void build(int l, int r, int &k) {
     k = ++cnt;
     if (l == r) {
         hjt[k].val = a[l];
@@ -18,7 +18,7 @@ void build(int l, int r, int& k) {
     build(l, m, hjt[k].l);
     build(m + 1, r, hjt[k].r);
 }
-void modify(int l, int r, int pre, int& now, int p, int z) {
+void modify(int l, int r, int pre, int &now, int p, int z) {
     hjt[now = ++cnt] = hjt[pre];
     if (l == r) {
         hjt[now].val = z;
@@ -38,7 +38,7 @@ int query(int l, int r, int ver, int p) {
     else
         return query(m + 1, r, hjt[ver].r, p);
 }
-signed main(signed argc, char const* argv[]) {
+signed main(signed argc, char const *argv[]) {
     clock_t c1 = clock();
 #ifdef LOCAL
     freopen("in.in", "r", stdin);

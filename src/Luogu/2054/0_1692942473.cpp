@@ -9,7 +9,7 @@ T qpow(__int128_t a, T b, T mod) {
     return res;
 }
 template <typename T = i64>
-T exgcd(T a, T b, T& x, T& y) {
+T exgcd(T a, T b, T &x, T &y) {
     if (b == 0) {
         x = 1;
         y = 0;

@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef vector<char> bint;
-inline bint add(const bint& x, const bint& y) {
+inline bint add(const bint &x, const bint &y) {
     bint z(max((short)x.size(), (short)y.size()) + 1);
     z[0] = 0;
     for (decltype(z.size()) i = 0; i < z.size() - 1; ++i) {

@@ -14,7 +14,7 @@ while (0)
         int l, w;
     } a[N];
 int n, f[N], ans;
-bool cmp(node& a, node& b) { return (a.l == b.l) ? (a.w > b.w) : (a.l > b.l); }
+bool cmp(node &a, node &b) { return (a.l == b.l) ? (a.w > b.w) : (a.l > b.l); }
 int main() {
     gi(n);
     fp(i, 1, n) {

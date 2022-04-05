@@ -11,12 +11,13 @@ using namespace std;
         continue;                  \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1e4 + OFFSET, M = 1e5 + OFFSET;
 struct Edge {
     int to, next;
-    Edge(int _to = 0, int _next = 0) : to(_to), next(_next) {}
+    Edge(int _to = 0, int _next = 0):
+        to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 int out[N];
@@ -57,17 +58,20 @@ int main() {
         scanf("%d%d", &x, &y);
         addEdge(head, x, y);
     }
-    _for(i, 1, n) if (!dfn[i]) tarjan(i);
-    _for(i, 1, m) if (cnt_scc == 1) _run_exit(printf("%d", scc_size[1]));
+    _for(i, 1, n)
+        if (!dfn[i]) tarjan(i);
+    _for(i, 1, m)
+        if (cnt_scc == 1) _run_exit(printf("%d", scc_size[1]));
     _for(i, 1, n) _for_graph(head, e, j, i) {
-        if (scc_id[i] == scc_id[to]) continue;
-        ++out[scc_id[i]];
-    }
+            if (scc_id[i] == scc_id[to]) continue;
+            ++out[scc_id[i]];
+        }
     int ans = 0;
-    _for(i, 1, cnt_scc) if (!out[i]) {
-        if (!ans) _run_continue(ans = i);
-        if (ans != i) _run_exit(puts("0"));
-    }
+    _for(i, 1, cnt_scc)
+        if (!out[i]) {
+            if (!ans) _run_continue(ans = i);
+            if (ans != i) _run_exit(puts("0"));
+        }
     printf("%d", scc_size[ans]);
     return 0;
 }

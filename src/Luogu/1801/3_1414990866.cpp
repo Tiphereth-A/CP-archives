@@ -4,12 +4,12 @@
 #define N 200005
 #define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
 #define tpn typename
-std::priority_queue<int, std::vector<int>, std::greater<int> > h_max;
+std::priority_queue<int, std::vector<int>, std::greater<int>> h_max;
 std::priority_queue<int> h_min;
 int n, m;
 int a[N];
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     A neg = 1;
     do { c = getchar(); } while ((c < '0' || c > '9') && c != '-');

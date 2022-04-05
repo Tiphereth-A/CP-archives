@@ -13,7 +13,7 @@ il char gc() {
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
 }
 template <tpn A>
-il void read(A& x) {
+il void read(A &x) {
     char c;
     do {
         c = getchar();
@@ -25,25 +25,25 @@ il void read(A& x) {
     } while (c >= '0' && c <= '9');
 }
 template <tpn A, tpn B>
-il void read(A& a, B& b) {
+il void read(A &a, B &b) {
     read(a), read(b);
 }
 template <tpn A, tpn B, tpn C>
-il void read(A& a, B& b, C& c) {
+il void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
 u64 sum[MAXN << 2], add[MAXN << 2], a[MAXN];
-il void PushUp(const u64& rt) {
+il void PushUp(const u64 &rt) {
     sum[rt] = sum[ls] + sum[rs];
 }
-il void PushDown(const u64& rt, const u64& ln, const u64& rn) {
+il void PushDown(const u64 &rt, const u64 &ln, const u64 &rn) {
     add[ls] += add[rt];
     sum[ls] += add[rt] * ln;
     add[rs] += add[rt];
     sum[rs] += add[rt] * rn;
     add[rt] = 0;
 }
-void Build(const u64& l, const u64& r, const u64& rt) {
+void Build(const u64 &l, const u64 &r, const u64 &rt) {
     if (l == r) {
         sum[rt] = a[l];
         return;
@@ -53,7 +53,7 @@ void Build(const u64& l, const u64& r, const u64& rt) {
     Build(m + 1, r, rs);
     PushUp(rt);
 }
-void Update(const u64& L, const u64& R, const u64& c, const u64& l, const u64& r, const u64& rt) {
+void Update(const u64 &L, const u64 &R, const u64 &c, const u64 &l, const u64 &r, const u64 &rt) {
     if (L <= l && r <= R) {
         sum[rt] += c * (r - l + 1);
         add[rt] += c;
@@ -67,7 +67,7 @@ void Update(const u64& L, const u64& R, const u64& c, const u64& l, const u64& r
         Update(L, R, c, m + 1, r, rs);
     PushUp(rt);
 }
-u64 Query(const u64& L, const u64& R, const u64& l, const u64& r, const u64& rt) {
+u64 Query(const u64 &L, const u64 &R, const u64 &l, const u64 &r, const u64 &rt) {
     u64 ans = 0;
     if (L <= l && r <= R)
         return sum[rt];

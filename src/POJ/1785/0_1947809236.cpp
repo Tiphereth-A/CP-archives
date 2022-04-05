@@ -5,7 +5,7 @@ const int N = 5e4 + 5;
 struct Node {
     char name[15];
     int w;
-    bool operator<(const Node& other) const { return strcmp(name, other.name) < 0; }
+    bool operator<(const Node &other) const { return strcmp(name, other.name) < 0; }
 } tree[N];
 struct ST {
     int w, idx;

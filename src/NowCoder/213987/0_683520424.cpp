@@ -17,7 +17,7 @@ bool dfs(i128 ans = 0, int sum = 0, int dep = 0) {
         if ((ans * 10 + i) % (dep + 1) == 0) f |= dfs(ans * 10 + i, sum + num_stick[i], dep + 1);
     return f;
 }
-ostream& operator<<(ostream& os, i128 n) {
+ostream &operator<<(ostream &os, i128 n) {
     if (n < 0) {
         os << '-';
         n = -n;

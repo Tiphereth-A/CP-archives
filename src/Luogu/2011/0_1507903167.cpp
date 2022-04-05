@@ -11,8 +11,10 @@ double a[N][N];
 void gauss(int n) {
     _for(i, 0, n, m) {
         m = i;
-        _for(j, 0, n) if (_double_equ(a[j][i], a[m][i])) m = j;
-        if (m != i) _for(j, 0, n + 1) swap(a[m][j], a[i][j]);
+        _for(j, 0, n)
+            if (_double_equ(a[j][i], a[m][i])) m = j;
+        if (m != i)
+            _for(j, 0, n + 1) swap(a[m][j], a[i][j]);
         _for(j, i + 1, n) {
             double tmp = a[j][i] / a[i][i];
             _for(k, i, n + 1) a[j][k] -= a[i][k] * tmp;
@@ -26,7 +28,8 @@ void gauss(int n) {
 double u[N];
 struct Edge {
     double w, to, next;
-    Edge(double _w = 0, int _to = 0, int _next = 0) : w(_w), to(_to), next(_next) {}
+    Edge(double _w = 0, int _to = 0, int _next = 0):
+        w(_w), to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 int in[N], out[N];

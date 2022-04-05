@@ -14,7 +14,7 @@ inline int getc() {
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -66,13 +66,13 @@ inline void print_h(T x, char h) {
 inline void putchar(char a) {
     buf2[++p3] = a;
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 const int N = 2e5 + 5;
 struct edge {
     int x, y1, y2, state;
-    bool operator<(const edge& other) const { return x < other.x; }
+    bool operator<(const edge &other) const { return x < other.x; }
 } e[N << 1];
 int y[N << 1];
 struct sgt {
@@ -113,7 +113,7 @@ void modify(int len_p, int p = 1) {
         modify(len_p, _now.rch);
     push_up(p);
 }
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("D:\\code\\IO\\in.in", "r", stdin);
     freopen("D:\\code\\IO\\out.out", "w", stdout);

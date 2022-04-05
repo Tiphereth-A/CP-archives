@@ -7,7 +7,7 @@
 #define _lowbit(x) (1 << __builtin_ctz(x))
 typedef long long i64;
 template <tpn A>
-inline void Swap(A& x, A& y) { x ^= y ^= x ^= y; }
+inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 const int N = 1e5 + 5;
 int n, m;
 i64 a[N], tree[N << 2], fa[N];

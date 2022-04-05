@@ -5,11 +5,11 @@
 #define fd(i, r, l) for (register int i = (r); i >= (l); --i)
 #define tpn typename
 template <tpn A>
-inline A Max(const A& x, const A& y) {
+inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     A neg = 1;
     do {

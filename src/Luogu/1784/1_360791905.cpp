@@ -16,7 +16,7 @@ void dfs(int x, int y) {
         if (x == 9 && y == 9) print();
         (y == 9) ? dfs(x + 1, 1) : dfs(x, y + 1);
     } else {
-        int* tmpg = &g[x][y];
+        int *tmpg = &g[x][y];
         bool *tmpln = &ln[x][1], *tmpcol = &col[y][1], *tmpz = &zon[getz(x, y)][1];
         for (int i = 1; i <= 9; ++i, ++tmpln, ++tmpcol, ++tmpz) {
             if (*tmpln || *tmpcol || *tmpz)

@@ -1,8 +1,8 @@
 #include <cctype>
 #include <cstdio>
 #include <cstring>
-const char* rev = "A   3  HIL JM O   2TUVWXY51SE Z  8 ";
-const char* msg[] =
+const char *rev = "A   3  HIL JM O   2TUVWXY51SE Z  8 ";
+const char *msg[] =
     {"not a palindrome", "a regular palindrome", "a mirrored string", "a mirrored palindrome"};
 char s[50];
 inline char re(char ch) {

@@ -4,7 +4,7 @@
 const int N = 1005;
 struct book {
     int h, w;
-    bool operator<(book& a) { return this->h < a.h; }
+    bool operator<(book &a) { return this->h < a.h; }
 } b[N];
 int n, k, ans = 0x3f3f3f3f;
 int f[N][N];

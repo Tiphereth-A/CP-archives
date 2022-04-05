@@ -27,10 +27,11 @@ int main() {
     _for(i, 1, m) b[i] = b[i - 1] + min(a[i] - a[i - 1], u);
     l = b[m] + u;
     _for(i, 1, m) vis[b[i]] = 1;
-    _for(i, 1, l) _for(j, s, t) {
-        if (i - j < 0) continue;
-        f[i] = min(f[i], f[i - j] + vis[i]);
-    }
+    _for(i, 1, l)
+        _for(j, s, t) {
+            if (i - j < 0) continue;
+            f[i] = min(f[i], f[i - j] + vis[i]);
+        }
     int ans = INT32_MAX;
     _for(i, 0, u) ans = min(ans, f[b[m] + i]);
     cout << ans;

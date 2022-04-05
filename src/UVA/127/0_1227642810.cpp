@@ -9,7 +9,7 @@ const char q[] = {'C', 'D', 'H', 'S'};
 struct Node {
     int suit, rk;
     Node() {}
-    Node(const char* str) {
+    Node(const char *str) {
         suit = strchr(q, str[1]) - q;
         switch (str[0]) {
             case 'A': rk = 1; break;
@@ -22,7 +22,7 @@ struct Node {
                 break;
         }
     }
-    bool operator==(const Node& rhs) const { return suit == rhs.suit || rk == rhs.rk; }
+    bool operator==(const Node &rhs) const { return suit == rhs.suit || rk == rhs.rk; }
 };
 char str[10];
 int main() {

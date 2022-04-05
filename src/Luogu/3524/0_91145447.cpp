@@ -15,7 +15,7 @@ const int N = 3e3 + 5;
 bool g[N][N];
 struct node {
     int in, id;
-    bool operator<(const node& rhs) const { return in == rhs.in ? id < rhs.id : in > rhs.in; }
+    bool operator<(const node &rhs) const { return in == rhs.in ? id < rhs.id : in > rhs.in; }
 } deg[N];
 int n, m;
 int ans[N];

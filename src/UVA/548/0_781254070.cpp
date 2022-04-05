@@ -5,7 +5,7 @@ const int N = 1e5 + 5;
 int inOrder[N], postOrder[N], n;
 int minw, ans;
 int Min(int a, int b) { return a < b ? a : b; }
-bool read(int* a) {
+bool read(int *a) {
     std::string s;
     if (!std::getline(std::cin, s)) return false;
     std::stringstream ss(s);

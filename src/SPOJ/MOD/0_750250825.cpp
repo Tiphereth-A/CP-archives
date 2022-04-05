@@ -12,7 +12,7 @@ template <tpn A>
 A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 namespace fastIO {
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     A neg = 1;
     do {
@@ -27,18 +27,18 @@ inline void read(A& x) {
     x *= neg;
 }
 template <tpn A, tpn B>
-inline void read(A& a, B& b) {
+inline void read(A &a, B &b) {
     read(a), read(b);
 }
 template <tpn A, tpn B, tpn C>
-inline void read(A& a, B& b, C& c) {
+inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
 template <tpn A, tpn B, tpn C, tpn D>
-inline void read(A& a, B& b, C& c, D& d) {
+inline void read(A &a, B &b, C &c, D &d) {
     read(a), read(b), read(c), read(d);
 }
-} // namespace fastIO
+}  // namespace fastIO
 std::map<int, int> set;
 il int qpow(i64 a, i64 b, int mod) {
     int ans = 1;

@@ -10,7 +10,7 @@
 using namespace std;
 string str[101], o;
 int t, l;
-il int getint(int& x, string c) {
+il int getint(int &x, string c) {
     int res = 0, l = c.size();
     while ((c[x] < '0' || c[x] > '9') && x < l) {
         if (c[x] == 'n') {

@@ -8,7 +8,7 @@
 #define gc getchar
 #define tpn typename
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     A neg = 1;
     do {
@@ -24,7 +24,7 @@ inline void read(A& x) {
     x *= neg;
 }
 template <tpn A, tpn B, tpn C>
-inline void read(A& a, B& b, C& c) {
+inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
 const int M = 500005;
@@ -37,7 +37,7 @@ struct edge {
 } e[M];
 struct node {
     int p, val;
-    bool friend operator<(const node& a, const node& b) {
+    bool friend operator<(const node &a, const node &b) {
         return a.val > b.val;
     }
 };

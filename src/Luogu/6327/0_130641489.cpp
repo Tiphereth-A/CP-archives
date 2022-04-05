@@ -8,7 +8,7 @@ int getc() {
 }
 void read() {}
 template <typename T, typename... T2>
-void read(T& x, T2&... oth) {
+void read(T &x, T2 &...oth) {
     x = 0;
     char ch;
     while (!isdigit(ch = getc()))
@@ -19,7 +19,7 @@ void read(T& x, T2&... oth) {
     }
     read(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::read;
 const int N = 2e5 + 5;
 i64 a[N];
@@ -30,14 +30,15 @@ class Segtree {
 #define _mid(l, r) ((l) + (((r) - (l)) >> 1))
     struct Node {
         double n_sin, n_cos;
-        Node(double _sin = 0, double _cos = 0) : n_sin(_sin), n_cos(_cos) {}
-        Node operator+(const Node& oth) const {
+        Node(double _sin = 0, double _cos = 0):
+            n_sin(_sin), n_cos(_cos) {}
+        Node operator+(const Node &oth) const {
             Node _(*this);
             _.n_sin += oth.n_sin;
             _.n_cos += oth.n_cos;
             return _;
         }
-        Node& operator+=(i64 x) {
+        Node &operator+=(i64 x) {
             double _sin = this->n_sin, _cos = this->n_cos;
             this->n_sin = _sin * std::cos(x) + _cos * std::sin(x);
             this->n_cos = _cos * std::cos(x) - _sin * std::sin(x);

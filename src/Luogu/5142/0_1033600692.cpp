@@ -12,14 +12,15 @@ class Segtree {
 #define _mid(l, r) (((l) + (r)) >> 1)
     struct Node {
         data_type a, a_sqr;
-        Node(data_type _a = 0, data_type _a_sqr = 0) : a(_a), a_sqr(_a_sqr) {}
-        Node operator+(const Node& oth) const {
+        Node(data_type _a = 0, data_type _a_sqr = 0):
+            a(_a), a_sqr(_a_sqr) {}
+        Node operator+(const Node &oth) const {
             Node _(*this);
             _.a += oth.a;
             _.a_sqr += oth.a_sqr;
             return _;
         }
-        Node& operator%=(const i64& mod) {
+        Node &operator%=(const i64 &mod) {
             this->a %= mod;
             this->a_sqr %= mod;
             return *this;

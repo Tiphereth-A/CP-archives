@@ -3,7 +3,7 @@ const int N = 8e4 + 5;
 typedef long long i64;
 #define tpn typename
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     A neg = 1;
     do {
@@ -19,11 +19,11 @@ inline void read(A& x) {
     x *= neg;
 }
 template <tpn A, tpn B>
-inline void read(A& a, B& b) {
+inline void read(A &a, B &b) {
     read(a), read(b);
 }
 template <tpn A, tpn B, tpn C, tpn D, tpn E>
-inline void read(A& a, B& b, C& c, D& d, E& e) {
+inline void read(A &a, B &b, C &c, D &d, E &e) {
     read(a), read(b), read(c), read(d), read(e);
 }
 int n, opt, mod, min, max;

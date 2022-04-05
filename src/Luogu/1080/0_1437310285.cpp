@@ -37,7 +37,7 @@ bool cmp(node a, node b) {
 il void mul(int m) {
     fp(i, 1, ans.len) ans.num[i] *= m;
     fp(i, 1, ans.len) {
-        ll* tmp = ans.num + i;
+        ll *tmp = ans.num + i;
         if (*tmp >= D) {
             *(tmp + 1) += *tmp / D;
             *tmp %= D;

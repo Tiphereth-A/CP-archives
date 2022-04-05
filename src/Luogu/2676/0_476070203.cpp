@@ -3,7 +3,7 @@
 #define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
 #define tpn typename
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     A neg = 1;
     do {
@@ -18,7 +18,7 @@ inline void read(A& x) {
     x *= neg;
 }
 template <tpn A, tpn B>
-inline void read(A& a, B& b) {
+inline void read(A &a, B &b) {
     read(a), read(b);
 }
 const int M = 200005;

@@ -1,15 +1,15 @@
 #include <cstdio>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 template <typename A>
-A Abs(const A& x) {
+A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 template <typename A>
-A Gcd(const A& x, const A& y) {
+A Gcd(const A &x, const A &y) {
     return y ? Gcd(y, x % y) : x;
 }
 template <typename A>
-void read(A& x) {
+void read(A &x) {
     char c;
     A neg = 1;
     do {

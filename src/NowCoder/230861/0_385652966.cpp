@@ -6,7 +6,8 @@ const int N = 1e5 + 5, M = 4e5 + 5;
 struct Edge {
     int64_t w;
     int to, next;
-    Edge(int64_t _w = 0, int _to = 0, int _next = 0) : w(_w), to(_to), next(_next) {}
+    Edge(int64_t _w = 0, int _to = 0, int _next = 0):
+        w(_w), to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int x, int y, int64_t w = 1) {

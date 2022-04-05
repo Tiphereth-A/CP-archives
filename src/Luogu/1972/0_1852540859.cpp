@@ -16,7 +16,7 @@ inline int getc() {
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -68,7 +68,7 @@ inline void print_h(T x, char h) {
 inline void putchar(char a) {
     buf2[++p3] = a;
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 typedef long long i64;
@@ -89,7 +89,7 @@ i64 query(int pos) {
         ans += tr[pos];
     return ans;
 }
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("D:\\code\\IO\\in.in", "r", stdin);
     freopen("D:\\code\\IO\\out.out", "w", stdout);
@@ -102,7 +102,7 @@ int main(int argc, char const* argv[]) {
         read(q[i].l, q[i].r);
         q[i].id = i;
     }
-    std::sort(q + 1, q + m + 1, [](const node& a, const node& b) { return a.r < b.r; });
+    std::sort(q + 1, q + m + 1, [](const node &a, const node &b) { return a.r < b.r; });
     int now_r = 0, tmp = 0;
     _for(i, 1, m) {
         if (q[i].r > now_r) {
@@ -116,7 +116,7 @@ int main(int argc, char const* argv[]) {
         }
         q[i].ans = tmp - query(q[i].l - 1);
     }
-    std::sort(q + 1, q + m + 1, [](const node& a, const node& b) { return a.id < b.id; });
+    std::sort(q + 1, q + m + 1, [](const node &a, const node &b) { return a.id < b.id; });
     _for(i, 1, m) print(q[i].ans);
 ex:
     FastIO::flush();

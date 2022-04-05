@@ -7,7 +7,7 @@ const int OFFSET = 5;
 const int N = 1e4 + OFFSET;
 const u64 p = 1e4;
 u64 s[N];
-u64 qpow(u64 a, u64 b, const u64& mod = p) {
+u64 qpow(u64 a, u64 b, const u64 &mod = p) {
     u64 res(1);
     for (; b; b >>= 1, (a *= a) %= mod)
         if (b & 1) (res *= a) %= mod;

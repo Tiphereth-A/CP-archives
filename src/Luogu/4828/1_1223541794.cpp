@@ -42,15 +42,15 @@ typedef __int128 i128;
 typedef double db;
 typedef long double ldb;
 template <tpn A>
-inline void Swap(A& x, A& y) {
+inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;
 }
 template <tpn A>
-A Gcd(const A& x, const A& y) {
+A Gcd(const A &x, const A &y) {
     return y ? Gcd(y, x % y) : x;
 }
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     do { c = getchar(); } while ((c < '0' || c > '9'));
     x = 0;
@@ -60,11 +60,11 @@ inline void read(A& x) {
     } while (c >= '0' && c <= '9');
 }
 template <tpn A, tpn B>
-inline void read(A& a, B& b) { read(a), read(b); }
+inline void read(A &a, B &b) { read(a), read(b); }
 template <tpn A, tpn B, tpn C>
-inline void read(A& a, B& b, C& c) { read(a), read(b), read(c); }
+inline void read(A &a, B &b, C &c) { read(a), read(b), read(c); }
 template <tpn A, tpn B, tpn C, tpn D>
-inline void read(A& a, B& b, C& c, D& d) { read(a), read(b), read(c), read(d); }
+inline void read(A &a, B &b, C &c, D &d) { read(a), read(b), read(c), read(d); }
 int Max(int a, int b) { return a > b ? a : b; }
 int Min(int a, int b) { return a < b ? a : b; }
 int Abs(int a) { return a > 0 ? a : -a; }

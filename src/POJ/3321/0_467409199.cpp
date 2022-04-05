@@ -5,7 +5,8 @@ const int OFFSET = 5;
 const int N = 1e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 struct Edge {
     int to, next;
-    Edge(int _to = 0, int _next = 0) : to(_to), next(_next) {}
+    Edge(int _to = 0, int _next = 0):
+        to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int x, int y) {
@@ -15,7 +16,7 @@ void addEdge(int x, int y) {
 bool empty[N];
 int start[N], end[N];
 int size[N];
-void dfs(int now, int f, int& cnt) {
+void dfs(int now, int f, int &cnt) {
     start[now] = ++cnt;
     size[now] = 1;
     for (int i = head[now], to; i; i = e[i].next) {

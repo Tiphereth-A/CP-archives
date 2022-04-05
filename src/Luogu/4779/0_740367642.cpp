@@ -45,7 +45,7 @@ struct edge {
 } e[M];
 struct node {
     int u, val;
-    bool operator<(const node& a) const {
+    bool operator<(const node &a) const {
         return val > a.val;
     }
 };

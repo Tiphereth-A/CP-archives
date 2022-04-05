@@ -19,13 +19,13 @@ i64 x[N], y[N], z[N];
 i64 mx[N] = {1}, inv[N];
 pii coeff[N];
 i64 ans[N];
-pii operator*(const pii& lhs, i64 rhs) {
+pii operator*(const pii &lhs, i64 rhs) {
     pii ret(lhs);
     (ret.first *= rhs) %= MOD;
     (ret.second *= rhs) %= MOD;
     return ret;
 }
-pii operator+(const pii& lhs, const pii& rhs) {
+pii operator+(const pii &lhs, const pii &rhs) {
     return pii((lhs.first + rhs.first) % MOD, (lhs.second + rhs.second) % MOD);
 }
 void solve() {
@@ -35,7 +35,7 @@ void solve() {
     _for(i, 1, n) mx[i] = mx[i - 1] * x[i] % MOD;
     inv[n] = inverse(mx[n]);
     _rfor(i, n, 1) inv[i - 1] = inv[i] * x[i] % MOD;
-    _for(i, 1, n)(inv[i] *= mx[i - 1]) %= MOD;
+    _for(i, 1, n) (inv[i] *= mx[i - 1]) %= MOD;
     _for(i, 1, n) coeff[i] = {MOD - y[i], z[i]};
     coeff[1] = coeff[1] * inv[1];
     _for(i, 2, n) coeff[i] = (coeff[i - 1] * y[i] + coeff[i]) * inv[i];

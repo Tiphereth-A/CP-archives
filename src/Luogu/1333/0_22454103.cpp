@@ -51,9 +51,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 5e5 + OFFSET, M = 5e5 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -69,7 +69,8 @@ void merge(int x, int y) { fa[find(x)] = find(y); }
 int deg[N];
 bool judge(int n) {
     int _ = 0;
-    _for(i, 1, n) if ((_ += deg[i] % 2) > 2) return 0;
+    _for(i, 1, n)
+        if ((_ += deg[i] % 2) > 2) return 0;
     return 1;
 }
 int main() {

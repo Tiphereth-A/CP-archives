@@ -92,7 +92,7 @@ int query(int p, int l, int r, int L, int R) {
         (ans += query(p << 1 | 1, mid + 1, r, L, R)) %= mod;
     return ans % mod;
 }
-} // namespace seg_tree
+}  // namespace seg_tree
 using namespace seg_tree;
 void update2(int x, int y, int k) {
     while (top[x] != top[y]) {

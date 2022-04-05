@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 using namespace std;
-bool solve(int* exp) {
+bool solve(int *exp) {
     char s[30];
     cin >> s;
     if (s[0] == 'E')

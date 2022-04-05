@@ -14,7 +14,7 @@ int cnt_sgt = 1;
 struct edge {
     int x, y1, y2;
     int state;
-    bool operator<(const edge& oth) const { return x < oth.x; }
+    bool operator<(const edge &oth) const { return x < oth.x; }
 } line[N];
 int v[N];
 unsigned long long ans;

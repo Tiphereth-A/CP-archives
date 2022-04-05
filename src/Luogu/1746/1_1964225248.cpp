@@ -4,7 +4,7 @@ const int diff[][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 const int N = 1e3 + 5;
 struct node {
     int x, y, step;
-    bool operator==(const node& other) const { return x == other.x && y == other.y; }
+    bool operator==(const node &other) const { return x == other.x && y == other.y; }
 } start, ended;
 queue<node> q;
 int maps[N][N];

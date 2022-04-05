@@ -69,19 +69,19 @@ typedef long double ldb;
 #define tpn typename
 #endif
 template <tpn A>
-inline A Max(const A& x, const A& y) {
+inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
 template <tpn A>
-inline A Min(const A& x, const A& y) {
+inline A Min(const A &x, const A &y) {
     return x < y ? x : y;
 }
 template <tpn A>
-inline void Swap(A& x, A& y) {
+inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;
 }
 template <tpn A>
-inline A Abs(const A& x) {
+inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 #define M 310
@@ -90,7 +90,7 @@ inline A Abs(const A& x) {
 const int N = 1e6 + 5;
 map<char, string> morse;
 map<string, string> dict;
-int cmp(const string& a, const string& b) {
+int cmp(const string &a, const string &b) {
     if (a == b) return 0;
     if (a.size() > b.size()) {
         if (b == a.substr(0, b.size())) return a.size() - b.size();
@@ -98,7 +98,7 @@ int cmp(const string& a, const string& b) {
         return b.size() - a.size();
     return INF;
 }
-string solve(const string& str) {
+string solve(const string &str) {
     string ans = "";
     int lMin = INF;
     for (map<string, string>::iterator it = dict.begin(); it != dict.end(); ++it) {

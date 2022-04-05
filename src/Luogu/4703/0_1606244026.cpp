@@ -7,7 +7,8 @@ pair<double, double> a[11];
 int n;
 double l, _l;
 inline bool check(double x, double y) {
-    _for(i, 1, n) if (sqrt((a[i].first - x) * (a[i].first - x) + (a[i].second - y) * (a[i].second - y)) < _l) return false;
+    _for(i, 1, n)
+        if (sqrt((a[i].first - x) * (a[i].first - x) + (a[i].second - y) * (a[i].second - y)) < _l) return false;
     return true;
 }
 int main() {

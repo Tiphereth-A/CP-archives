@@ -7,7 +7,7 @@
 #define Mid int m = ((r - l) >> 1) + l
 typedef long long ll;
 template <tpn A>
-inline void read(A& x) {
+inline void read(A &x) {
     char c;
     A neg = 1;
     do {
@@ -22,11 +22,11 @@ inline void read(A& x) {
     x *= neg;
 }
 template <tpn A, tpn B>
-inline void read(A& a, B& b) {
+inline void read(A &a, B &b) {
     read(a), read(b);
 }
 template <tpn A, tpn B, tpn C>
-inline void read(A& a, B& b, C& c) {
+inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
 #define MAXN 1000005

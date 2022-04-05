@@ -8,14 +8,14 @@ struct point_type {
     using data_type = Tp;
     using self = point_type<Tp>;
     Tp x, y;
-    static bool less_x(const self& lhs, const self& rhs) { return lhs.x < rhs.x; }
-    static bool less_y(const self& lhs, const self& rhs) { return lhs.y < rhs.y; }
-    friend inline constexpr data_type dis_sqr(const self& lhs, const self& rhs) { return (rhs.x - lhs.x) * (rhs.x - lhs.x) + (rhs.y - lhs.y) * (rhs.y - lhs.y); }
+    static bool less_x(const self &lhs, const self &rhs) { return lhs.x < rhs.x; }
+    static bool less_y(const self &lhs, const self &rhs) { return lhs.y < rhs.y; }
+    friend inline constexpr data_type dis_sqr(const self &lhs, const self &rhs) { return (rhs.x - lhs.x) * (rhs.x - lhs.x) + (rhs.y - lhs.y) * (rhs.y - lhs.y); }
 };
 using data_t = i64;
 using vec = vector<point_type<data_t>>;
 vec points;
-void mcp_dis_sqr(const vec::iterator l, const vec::iterator r, data_t& dis) {
+void mcp_dis_sqr(const vec::iterator l, const vec::iterator r, data_t &dis) {
     if (r - l <= 1) return;
     auto mid = l + (r - l) / 2;
     data_t mid_x = mid->x;

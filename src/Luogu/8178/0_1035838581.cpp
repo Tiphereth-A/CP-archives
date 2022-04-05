@@ -8,7 +8,7 @@ const uint32_t OFFSET = 5;
 const uint32_t N = 1e3 + OFFSET;
 #define MULTI_CASES
 template <typename T = i64>
-T exgcd(T a, T b, T& x, T& y) {
+T exgcd(T a, T b, T &x, T &y) {
     if (b == 0) {
         x = 1;
         y = 0;
@@ -19,7 +19,7 @@ T exgcd(T a, T b, T& x, T& y) {
     return res;
 }
 template <typename Tp = i64>
-inline constexpr Tp inv(Tp a, const Tp& mod) {
+inline constexpr Tp inv(Tp a, const Tp &mod) {
     Tp res(1), b = mod - 2;
     for (; b; b >>= 1, (a *= a) %= mod)
         if (b & 1) (res *= a) %= mod;
@@ -28,8 +28,8 @@ inline constexpr Tp inv(Tp a, const Tp& mod) {
 i64 a[N], b[N], p[N];
 struct Equs {
     i64 b, p;
-    bool operator<(const Equs& rhs) const { return p == rhs.p ? b < rhs.b : p < rhs.p; }
-    bool operator==(const Equs& rhs) const { return b == rhs.b && p == rhs.p; }
+    bool operator<(const Equs &rhs) const { return p == rhs.p ? b < rhs.b : p < rhs.p; }
+    bool operator==(const Equs &rhs) const { return b == rhs.b && p == rhs.p; }
 } q[N];
 inline void solve() {
     int k;
@@ -59,10 +59,11 @@ inline void solve() {
         return;
     }
     sort(q, q + cnt);
-    _for(i, 1, cnt - 1) if (q[i].p == q[i - 1].p && q[i].b != q[i - 1].b) {
-        cout << "No\n";
-        return;
-    }
+    _for(i, 1, cnt - 1)
+        if (q[i].p == q[i - 1].p && q[i].b != q[i - 1].b) {
+            cout << "No\n";
+            return;
+        }
     cout << "Yes\n";
 }
 int main() {

@@ -10,8 +10,11 @@ int main() {
             scanf("%d", &a);
             sum[i][j] = a + sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1];
         }
-    _for(1, n) _for(2, n) _for(3, i1) _for(4, i2)
-        ans = max(ans, sum[i1][i2] - sum[i3 - 1][i2] - sum[i1][i4 - 1] + sum[i3 - 1][i4 - 1]);
+    _for(1, n)
+        _for(2, n)
+            _for(3, i1)
+                _for(4, i2)
+                    ans = max(ans, sum[i1][i2] - sum[i3 - 1][i2] - sum[i1][i4 - 1] + sum[i3 - 1][i4 - 1]);
     printf("%d", ans);
     return 0;
 }

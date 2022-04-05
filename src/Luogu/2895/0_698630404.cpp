@@ -31,21 +31,21 @@ int n;
 _state_t __state[N][N];
 struct Point {
     _point_t x, y;
-    Point operator=(const Point& other) {
+    Point operator=(const Point &other) {
         x = other.x;
         y = other.y;
         return *this;
     }
-    Point operator+=(const Point& other) {
+    Point operator+=(const Point &other) {
         x += other.x;
         y += other.y;
         return *this;
     }
-    Point operator+(const Point& other) const {
+    Point operator+(const Point &other) const {
         Point tmp = *this;
         return tmp += other;
     }
-    bool operator==(const Point& other) const {
+    bool operator==(const Point &other) const {
         return x == other.x && y == other.y;
     }
     _state_t get_state() const {
@@ -62,12 +62,12 @@ struct Point {
 struct Node {
     Point p;
     _step_t time;
-    Node operator+=(const Node& other) {
+    Node operator+=(const Node &other) {
         p += other.p;
         time += other.time;
         return *this;
     }
-    Node operator+(const Node& other) const {
+    Node operator+(const Node &other) const {
         Node tmp = *this;
         return tmp += other;
     }
@@ -142,7 +142,7 @@ inline void bfs() {
     }
     printf("-1");
 }
-} // namespace BFS
+}  // namespace BFS
 using BFS::bfs;
 int main() {
 #ifndef ONLINE_JUDGE

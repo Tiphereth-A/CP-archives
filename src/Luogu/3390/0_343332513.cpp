@@ -8,7 +8,7 @@ struct Mtx {
     ll m[101][101];
 } a, b;
 ll n, p;
-inline Mtx Mul(const Mtx& x, const Mtx& y) {
+inline Mtx Mul(const Mtx &x, const Mtx &y) {
     Mtx c;
     memset(c.m, 0, sizeof(c.m));
     fp(i, 1, n) fp(j, 1, n) fp(k, 1, n) {

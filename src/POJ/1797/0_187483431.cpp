@@ -12,15 +12,17 @@ const int N = 1e4 + OFFSET, M = 1e5 + OFFSET, K = 15;
 struct Edge {
     long long w;
     int from, to;
-    Edge(long long _w = 0, int _from = 0, int _to = 0) : w(_w), from(_from), to(_to) {}
-    bool operator<(const Edge& other) const { return w > other.w; }
+    Edge(long long _w = 0, int _from = 0, int _to = 0):
+        w(_w), from(_from), to(_to) {}
+    bool operator<(const Edge &other) const { return w > other.w; }
 } e[M];
 int cnt_edge;
 void addEdge(int x, int y, long long w = 1) { e[++cnt_edge] = Edge(w, x, y); }
 struct Tree {
     long long w;
     int to, next;
-    Tree(long long _w = 0, int _to = 0, int _next = 0) : w(_w), to(_to), next(_next) {}
+    Tree(long long _w = 0, int _to = 0, int _next = 0):
+        w(_w), to(_to), next(_next) {}
 } e_tr[M];
 int head[N], cnt_tree;
 void add_treeEdge(int x, int y, long long w = 1) {
@@ -68,11 +70,12 @@ long long lca(int x, int y) {
             x = f[i][x];
         }
     if (x == y) return ret;
-    _rfor(i, K - 1, 0) if (f[i][x] != f[i][y]) {
-        ret = min(ret, min(minw[i][x], minw[i][y]));
-        x = f[i][x];
-        y = f[i][y];
-    }
+    _rfor(i, K - 1, 0)
+        if (f[i][x] != f[i][y]) {
+            ret = min(ret, min(minw[i][x], minw[i][y]));
+            x = f[i][x];
+            y = f[i][y];
+        }
     return min(ret, min(minw[0][x], minw[0][y]));
 }
 int main() {
@@ -88,16 +91,18 @@ int main() {
             addEdge(y, x, z);
         }
         kruskal(n);
-        _for(i, 1, n) if (!vis[i]) {
-            dep[i] = 1;
-            f[0][i] = i;
-            minw[0][i] = _I64_MAX;
-            dfs(i);
-        }
-        _for(i, 1, K - 1) _for(x, 1, n) {
-            f[i][x] = f[i - 1][f[i - 1][x]];
-            minw[i][x] = min(minw[i - 1][x], minw[i - 1][f[i - 1][x]]);
-        }
+        _for(i, 1, n)
+            if (!vis[i]) {
+                dep[i] = 1;
+                f[0][i] = i;
+                minw[0][i] = _I64_MAX;
+                dfs(i);
+            }
+        _for(i, 1, K - 1)
+            _for(x, 1, n) {
+                f[i][x] = f[i - 1][f[i - 1][x]];
+                minw[i][x] = min(minw[i - 1][x], minw[i - 1][f[i - 1][x]]);
+            }
         printf("Scenario #%d:\n%lld\n", _k, lca(1, n));
     __end_kase:;
         cnt_edge = cnt_tree = 0;

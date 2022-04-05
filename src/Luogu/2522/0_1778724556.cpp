@@ -10,7 +10,7 @@ int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin)
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-void read(T& x, T2&... oth) {
+void read(T &x, T2 &...oth) {
     x = 0;
     char ch = getc();
     while (!isdigit(ch)) {
@@ -36,7 +36,7 @@ void print(T x, T2... oth) {
     buf2[++p3] = hh;
     print(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 const int N = 5e4 + 5;

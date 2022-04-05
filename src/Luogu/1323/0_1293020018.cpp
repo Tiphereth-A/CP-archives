@@ -13,7 +13,7 @@
 #define il inline
 #define maxn 30010;
 using namespace std;
-priority_queue<int, vector<int>, greater<int> > q;
+priority_queue<int, vector<int>, greater<int>> q;
 string ans, s1;
 int k, m, i;
 int main() {

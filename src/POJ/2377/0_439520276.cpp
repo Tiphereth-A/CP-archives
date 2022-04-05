@@ -7,8 +7,9 @@ const int N = 2e3 + OFFSET, M = 4e4 + OFFSET;
 struct Edge {
     long long w;
     int from, to;
-    Edge(long long _w = 0, int _from = 0, int _to = 0) : w(_w), from(_from), to(_to) {}
-    bool operator<(const Edge& other) const { return w > other.w; }
+    Edge(long long _w = 0, int _from = 0, int _to = 0):
+        w(_w), from(_from), to(_to) {}
+    bool operator<(const Edge &other) const { return w > other.w; }
 } e[M];
 int cnt_edge;
 void addEdge(int x, int y, long long w = 1) { e[++cnt_edge] = Edge(w, x, y); }

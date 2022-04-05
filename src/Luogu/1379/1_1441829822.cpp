@@ -22,10 +22,10 @@ struct STATE {
         return id;
     }
 } state_all[1000005], end;
-void swap(int& a, int& b) { a ^= b ^= a ^= b; }
+void swap(int &a, int &b) { a ^= b ^= a ^= b; }
 int bfs() {
     while (front < rear) {
-        State& now = state_all[front].seq;
+        State &now = state_all[front].seq;
         if (!memcmp(now, _end, sizeof(_end)))
             return state_all[front].dist;
         int z;
@@ -34,7 +34,7 @@ int bfs() {
         int x = z % 3, y = z / 3;
         for (int i = 0; i < 4; ++i) {
             state_all[rear].id = 0;
-            State& next = state_all[rear].seq;
+            State &next = state_all[rear].seq;
             int nx = x + dx[i], ny = y + dy[i];
             if (nx < 0 || nx > 2 || ny < 0 || ny > 2)
                 continue;

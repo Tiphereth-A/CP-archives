@@ -2,7 +2,7 @@
 using namespace std;
 using i64 = long long;
 namespace ModInteger {
-#define _TRAITS(expression, __...) std::enable_if_t<expression, ##__>* = nullptr
+#define _TRAITS(expression, __...) std::enable_if_t<expression, ##__> * = nullptr
 template <typename Tp>
 class mod_integer {
   public:
@@ -18,67 +18,69 @@ class mod_integer {
     mod_t mod;
 
   public:
-    mod_integer(const data_t& _num, const mod_t& _mod) noexcept : num(_num), mod(_mod) {}
-    template <typename Up, _TRAITS(std::is_convertible<Up, self&>::value)>
-    mod_integer(Up&& rhs) noexcept : num(std::forward<self>(rhs).data()), mod(std::forward<self>(rhs).get_mod()) {}
-    inline self& operator=(const data_t& num) noexcept {
+    mod_integer(const data_t &_num, const mod_t &_mod) noexcept:
+        num(_num), mod(_mod) {}
+    template <typename Up, _TRAITS(std::is_convertible<Up, self &>::value)>
+    mod_integer(Up &&rhs) noexcept:
+        num(std::forward<self>(rhs).data()), mod(std::forward<self>(rhs).get_mod()) {}
+    inline self &operator=(const data_t &num) noexcept {
         this->data() = num;
         return *this;
     }
-    template <typename Up, _TRAITS(std::is_convertible<Up, self&>::value)>
-    inline self& operator=(Up&& rhs) noexcept {
+    template <typename Up, _TRAITS(std::is_convertible<Up, self &>::value)>
+    inline self &operator=(Up &&rhs) noexcept {
         this->data() = std::forward<self>(rhs).data();
         this->mod = std::forward<self>(rhs).get_mod();
         return *this;
     }
     operator data_t() { return this->data(); }
-    inline constexpr self& no_check_mod() {
+    inline constexpr self &no_check_mod() {
         this->num %= this->get_mod();
         return *this;
     }
-    inline constexpr self& safe_mod() {
+    inline constexpr self &safe_mod() {
         if (this->no_check_mod().data() < 0) this->num += this->get_mod();
         return *this;
     }
-    inline constexpr data_t& data() noexcept { return this->num; }
-    inline constexpr data_t& data() const noexcept { return const_cast<self* const>(this)->num; }
+    inline constexpr data_t &data() noexcept { return this->num; }
+    inline constexpr data_t &data() const noexcept { return const_cast<self * const>(this)->num; }
     inline constexpr mod_t get_mod() const noexcept { return mod; }
     template <typename Unary>
-    inline constexpr self& transform_unary_raw(Unary&& op) {
+    inline constexpr self &transform_unary_raw(Unary &&op) {
         this->data() = op(this->data());
         return *this;
     }
     template <typename Unary>
-    inline constexpr self& transform_unary(Unary&& op) { return this->transform_unary_raw(std::move(op)).safe_mod(); }
+    inline constexpr self &transform_unary(Unary &&op) { return this->transform_unary_raw(std::move(op)).safe_mod(); }
     template <typename Binary>
-    inline constexpr self& transform_binary_raw(const self& rhs, Binary&& op) {
+    inline constexpr self &transform_binary_raw(const self &rhs, Binary &&op) {
         this->data() = op(this->data(), rhs.data());
         return *this;
     }
     template <typename Binary>
-    inline constexpr self& transform_binary(const self& rhs, Binary&& op) { return this->transform_binary_raw(rhs, std::move(op)).safe_mod(); }
+    inline constexpr self &transform_binary(const self &rhs, Binary &&op) { return this->transform_binary_raw(rhs, std::move(op)).safe_mod(); }
     self operator-() { return self(this->get_mod() - this->data(), this->get_mod()); }
-    self& operator+=(const self& rhs) { return this->transform_binary(rhs, std::plus<data_t>()); }
-    self& operator-=(const self& rhs) { return this->transform_binary(rhs, std::minus<data_t>()); }
-    self& operator*=(const self& rhs) { return this->transform_binary(rhs, std::multiplies<data_t>()); }
-    friend self operator+(const self& lhs, const self& rhs) { return self(lhs) += rhs; }
-    friend self operator-(const self& lhs, const self& rhs) { return self(lhs) -= rhs; }
-    friend self operator*(const self& lhs, const self& rhs) { return self(lhs) *= rhs; }
-    friend bool operator==(const self& lhs, const self& rhs) { return lhs.data() == rhs.data(); }
-    friend std::istream& operator>>(std::istream& is, self& x) {
+    self &operator+=(const self &rhs) { return this->transform_binary(rhs, std::plus<data_t>()); }
+    self &operator-=(const self &rhs) { return this->transform_binary(rhs, std::minus<data_t>()); }
+    self &operator*=(const self &rhs) { return this->transform_binary(rhs, std::multiplies<data_t>()); }
+    friend self operator+(const self &lhs, const self &rhs) { return self(lhs) += rhs; }
+    friend self operator-(const self &lhs, const self &rhs) { return self(lhs) -= rhs; }
+    friend self operator*(const self &lhs, const self &rhs) { return self(lhs) *= rhs; }
+    friend bool operator==(const self &lhs, const self &rhs) { return lhs.data() == rhs.data(); }
+    friend std::istream &operator>>(std::istream &is, self &x) {
         is >> x.data();
         return is;
     }
-    friend std::ostream& operator<<(std::ostream& os, const self& x) {
+    friend std::ostream &operator<<(std::ostream &os, const self &x) {
         os << x.data();
         return os;
     }
 };
 #undef _TRAITS
-} // namespace ModInteger
+}  // namespace ModInteger
 using ModInteger::mod_integer;
 namespace Matrix {
-#define _TRAITS(expression, __...) std::enable_if_t<expression, ##__>* = nullptr
+#define _TRAITS(expression, __...) std::enable_if_t<expression, ##__> * = nullptr
 #define _CONVERTIBLE(Tp, Up) std::is_convertible<Tp, Up>::value
 template <class Tp, class Equal = std::equal_to<Tp>>
 class matrix {
@@ -96,30 +98,35 @@ class matrix {
     Equal equ;
 
   public:
-    matrix(const std::size_t& _row, const std::size_t& _col, const Equal& _equal = Equal()) : row(_row), col(_col), mat(_row, std::vector<data_t>(_col)), equ(_equal) {}
+    matrix(const std::size_t &_row, const std::size_t &_col, const Equal &_equal = Equal()):
+        row(_row), col(_col), mat(_row, std::vector<data_t>(_col)), equ(_equal) {}
     template <typename Up, _TRAITS(_CONVERTIBLE(Up, data_t))>
-    matrix(const std::size_t& _row, const std::size_t& _col, Up&& scalar, const Equal& _equal = Equal()) : row(_row), col(_col), mat(_row, std::vector<data_t>(_col, scalar)), equ(_equal) {}
-    template <typename Up, _TRAITS(_CONVERTIBLE(Up, self&))>
-    matrix(Up&& rhs) : row(std::forward<self>(rhs).get_row()), col(std::forward<self>(rhs).get_col()), mat(row), equ(std::forward<self>(rhs).equ) { _for_row(i) this->mat[i] = std::forward<self>(rhs).mat[i]; }
+    matrix(const std::size_t &_row, const std::size_t &_col, Up &&scalar, const Equal &_equal = Equal()):
+        row(_row), col(_col), mat(_row, std::vector<data_t>(_col, scalar)), equ(_equal) {}
+    template <typename Up, _TRAITS(_CONVERTIBLE(Up, self &))>
+    matrix(Up &&rhs):
+        row(std::forward<self>(rhs).get_row()), col(std::forward<self>(rhs).get_col()), mat(row), equ(std::forward<self>(rhs).equ) { _for_row(i) this->mat[i] = std::forward<self>(rhs).mat[i]; }
     template <typename Up, _TRAITS(_CONVERTIBLE(Up, self))>
-    self& operator=(Up&& rhs) {
+    self &operator=(Up &&rhs) {
         _for_row(i) this->mat[i] = std::forward<self>(rhs).mat[i];
         return *this;
     }
-    inline constexpr const std::size_t& get_row() const { return this->row; }
-    inline constexpr const std::size_t& get_col() const { return this->col; }
-    inline constexpr data_t& data(const size_t& r, const size_t& c) const { return const_cast<self* const>(this)->mat[r][c]; }
-    inline constexpr data_t& data(const size_t& r, const size_t& c) { return this->mat[r][c]; }
-    inline constexpr friend std::ptrdiff_t gauss_half(self& now) {
+    inline constexpr const std::size_t &get_row() const { return this->row; }
+    inline constexpr const std::size_t &get_col() const { return this->col; }
+    inline constexpr data_t &data(const size_t &r, const size_t &c) const { return const_cast<self * const>(this)->mat[r][c]; }
+    inline constexpr data_t &data(const size_t &r, const size_t &c) { return this->mat[r][c]; }
+    inline constexpr friend std::ptrdiff_t gauss_half(self &now) {
         bool neg = false;
         _for(i, 0, now.get_row(), now_row = 0) {
             now_row = i;
-            _for(j, i, now.get_row()) if (now.data(j, i) > 0) {
-                now_row = j;
-                break;
-            }
+            _for(j, i, now.get_row())
+                if (now.data(j, i) > 0) {
+                    now_row = j;
+                    break;
+                }
             if (now.equ(now.data(now_row, i), data_t(0, now.data(0, 0).get_mod()))) return 0;
-            _for(j, now_row + 1, now.get_row()) if (now.data(j, i) > 0 && now.data(j, i) < now.data(now_row, i)) now_row = j;
+            _for(j, now_row + 1, now.get_row())
+                if (now.data(j, i) > 0 && now.data(j, i) < now.data(now_row, i)) now_row = j;
             if (now_row != i) {
                 std::swap(now.mat[now_row], now.mat[i]);
                 neg ^= true;
@@ -146,15 +153,17 @@ class matrix {
         _for_row(i) ans *= this->data(i, i);
         return ans;
     }
-    friend std::istream& operator>>(std::istream& is, self& x) {
-        _for(i, 0, x.get_row()) _for(j, 0, x.get_col()) is >> x.data(i, j);
+    friend std::istream &operator>>(std::istream &is, self &x) {
+        _for(i, 0, x.get_row())
+            _for(j, 0, x.get_col()) is >> x.data(i, j);
         return is;
     }
-    friend std::ostream& operator<<(std::ostream& os, const self& x) {
-        _for(i, 0, x.get_row()) _for(j, 0, x.get_col()) {
-            os << x.data(i, j);
-            if (i + 1 < x.get_row() || j + 1 < x.get_col()) os << (j + 1 == x.get_col() ? '\n' : ' ');
-        }
+    friend std::ostream &operator<<(std::ostream &os, const self &x) {
+        _for(i, 0, x.get_row())
+            _for(j, 0, x.get_col()) {
+                os << x.data(i, j);
+                if (i + 1 < x.get_row() || j + 1 < x.get_col()) os << (j + 1 == x.get_col() ? '\n' : ' ');
+            }
         return os;
     }
 #undef _for
@@ -165,7 +174,7 @@ class matrix {
 };
 #undef _TRAITS
 #undef _CONVERTIBLE
-} // namespace Matrix
+}  // namespace Matrix
 using Matrix::matrix;
 int main() {
     ios::sync_with_stdio(false);

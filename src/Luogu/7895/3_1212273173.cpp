@@ -38,14 +38,16 @@ int main() {
         if (n == 1) _ans(0);
         if (cnt_leaves == 2) {
             int a = 0;
-            _for(i, 1, n) if (d[i] == 1) {
-                if (a) _dis_ans(a, i);
-                a = i;
-            }
+            _for(i, 1, n)
+                if (d[i] == 1) {
+                    if (a) _dis_ans(a, i);
+                    a = i;
+                }
         }
         if (cnt_leaves * 2 + __ < 142) {
             vector<pii> _;
-            _for(i, 1, n) if (d[i] == 1) _.emplace_back(dfn(i), i);
+            _for(i, 1, n)
+                if (d[i] == 1) _.emplace_back(dfn(i), i);
             sort(_all(_));
             int ans = 0;
             for (auto it = _.begin(); it != _.end(); ++it) ans += dis(it->second, (it + 1) == _.end() ? _.front().second : (it + 1)->second);

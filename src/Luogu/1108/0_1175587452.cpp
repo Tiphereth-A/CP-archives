@@ -5,7 +5,7 @@ int main() {
     scanf("%d", &n);
     for (register int i = 1; i <= n; ++i) {
         scanf("%d", p + i);
-        int* tmp = &f[i];
+        int *tmp = &f[i];
         for (register int j = 1; j < i; ++j)
             if (p[i] < p[j]) (*tmp) = max((*tmp), f[j] + 1);
         if (!(*tmp)) ++(*tmp);

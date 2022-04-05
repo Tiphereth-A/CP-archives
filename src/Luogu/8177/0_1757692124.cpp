@@ -11,9 +11,9 @@ using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 #define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
 #define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto& i : container)
-#define _foreach_cref(i, container) for (const auto& i : container)
-#define _foreach_rref(i, container) for (auto&& i : container)
+#define _foreach_ref(i, container) for (auto &i : container)
+#define _foreach_cref(i, container) for (const auto &i : container)
+#define _foreach_rref(i, container) for (auto &&i : container)
 #define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
 #define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 #define _for_graph(head, e, i, now) for (int i = head[now], to = e[i].to; i; to = e[i = e[i].next].to)
@@ -56,9 +56,9 @@ using pii = pair<int, int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const uint32_t OFFSET = 5;
 const uint32_t N = 5e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const uint32_t MOD = 1e9 + 7;

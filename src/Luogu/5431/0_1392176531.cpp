@@ -9,7 +9,7 @@ inline int getc() {
 }
 void read() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     x = 0;
     char ch = getc();
     while (!isdigit(ch)) {
@@ -35,7 +35,7 @@ inline void print(T x) {
         buf2[++p3] = a[p];
     } while (--p);
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 const int N = 5e6 + 5;

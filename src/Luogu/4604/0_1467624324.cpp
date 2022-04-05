@@ -38,7 +38,7 @@ using u64 = uint64_t;
             }                                                                                                                 \
         }                                                                                                                     \
     }
-inline void output_arr(u32* a, u32&& size) {
+inline void output_arr(u32 *a, u32 &&size) {
     register u32 ret = size;
     for (register u32 x = 23333333, *_ = a + (size >> 2), *i = a; i < _; ++i) {
         ret ^= *i + x;
@@ -47,7 +47,7 @@ inline void output_arr(u32* a, u32&& size) {
     cout << ret << '\n';
 }
 namespace task1 {
-using data_type = u32*;
+using data_type = u32 *;
 using data_type2 = u32[256];
 data_type2 cnt0, cnt8, cnt16, cnt24;
 data_type a, b;
@@ -69,22 +69,22 @@ inline void main() {
         cnt16[i] += cnt16[i - 1];
         cnt24[i] += cnt24[i - 1];
     }
-    for (u32* i = a + n; --i >= a;) b[--cnt0[*i & 255]] = *i;
-    for (u32* i = b + n; --i >= b;) a[--cnt8[*i >> 8 & 255]] = *i;
-    for (u32* i = a + n; --i >= a;) b[--cnt16[*i >> 16 & 255]] = *i;
-    for (u32* i = b + n; --i >= b;) a[--cnt24[*i >> 24 & 255]] = *i;
+    for (u32 *i = a + n; --i >= a;) b[--cnt0[*i & 255]] = *i;
+    for (u32 *i = b + n; --i >= b;) a[--cnt8[*i >> 8 & 255]] = *i;
+    for (u32 *i = a + n; --i >= a;) b[--cnt16[*i >> 16 & 255]] = *i;
+    for (u32 *i = b + n; --i >= b;) a[--cnt24[*i >> 24 & 255]] = *i;
     output_arr(a, n << 2);
     free(a);
     free(b);
 }
-} // namespace task1
+}  // namespace task1
 namespace task2 {
 #define _popcntll __builtin_popcountll
 using data_type = i64[64][14063];
-using str_type = char*;
-using query_type = i32*;
+using str_type = char *;
+using query_type = i32 *;
 data_type f1, f2;
-inline void set(data_type& f, u32&& idx) {
+inline void set(data_type &f, u32 &&idx) {
     if (idx < 64)
         for (u32 i = 0; i <= idx; ++i) *f[i] |= 1ull << idx - i;
     else
@@ -102,7 +102,7 @@ void main() {
     q_y = (query_type)malloc(q << 2);
     q_len = (query_type)malloc(q << 2);
     for (u32 i = 0; i < q; ++i) cin >> q_x[i] >> q_y[i] >> q_len[i];
-    u32* anss = new u32[q];
+    u32 *anss = new u32[q];
     for (u32 idx = 0, i = 0; i < n; ++i, idx += 3) set(f1, idx + s1[i] - '0');
     for (u32 idx = 0, i = 0; i < n; ++i, idx += 3) set(f2, idx + s2[i] - '1' + 3 * (s2[i] == '0'));
     i64 *_f1, *_f2;
@@ -126,9 +126,9 @@ void main() {
     free(q_len);
 }
 #undef _popcntll
-} // namespace task2
+}  // namespace task2
 namespace task3 {
-using str_type = char*;
+using str_type = char *;
 u32 _[266666 << 1 | 1], *f = _ + 266666;
 u32 n;
 str_type s;
@@ -160,8 +160,8 @@ inline void main() {
     cout << solve() << '\n';
     free(s);
 }
-} // namespace task3
-void (*const _main[4])(void) = {nullptr, task1::main, task2::main, task3::main};
+}  // namespace task3
+void (* const _main[4])(void) = {nullptr, task1::main, task2::main, task3::main};
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);

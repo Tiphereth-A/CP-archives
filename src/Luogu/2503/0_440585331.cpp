@@ -18,7 +18,7 @@ uniform_real_distribution<temperature_type> property(0, 1);
 const temperature_type delta_T = 1 - 1e-2;
 const temperature_type initial_T = 10000;
 const temperature_type minimum_T = 1e-3;
-inline fit_type fitness(const data_seq_type& seq) {
+inline fit_type fitness(const data_seq_type &seq) {
     static double dp[N][N];
     static i64 sum[N];
     memset(dp, 0x7f, sizeof(dp));
@@ -29,13 +29,13 @@ inline fit_type fitness(const data_seq_type& seq) {
             for (size_t k = 0; k < i; ++k) dp[i][j] = min(dp[i][j], dp[k][j - 1] + (sum[i] - sum[k] - ave) * (sum[i] - sum[k] - ave));
     return dp[n][m];
 }
-inline constexpr bool is_valid_seq(const data_seq_type& seq) { return true; }
-inline data_seq_type new_seq_shuffle(const data_seq_type& seq) {
+inline constexpr bool is_valid_seq(const data_seq_type &seq) { return true; }
+inline data_seq_type new_seq_shuffle(const data_seq_type &seq) {
     data_seq_type ret(seq);
     do { random_shuffle(ret.begin(), ret.end()); } while (!is_valid_seq(ret));
     return ret;
 }
-inline data_seq_type new_seq_generate(const data_seq_type&& minimum, const data_seq_type&& maximum) {
+inline data_seq_type new_seq_generate(const data_seq_type &&minimum, const data_seq_type &&maximum) {
     data_seq_type ret;
     do {
         ret.clear();
@@ -43,7 +43,7 @@ inline data_seq_type new_seq_generate(const data_seq_type&& minimum, const data_
     } while (!is_valid_seq(ret));
     return ret;
 }
-inline data_seq_type new_seq_generate_n(const data_type&& minimum, const data_type&& maximum, const size_t&& n) {
+inline data_seq_type new_seq_generate_n(const data_type &&minimum, const data_type &&maximum, const size_t &&n) {
     data_seq_type ret;
     ret.resize(n);
     do {
@@ -51,8 +51,8 @@ inline data_seq_type new_seq_generate_n(const data_type&& minimum, const data_ty
     } while (!is_valid_seq(ret));
     return ret;
 }
-inline bool acceptable(const fit_type& delta_fitness, const temperature_type& now_T) { return delta_fitness <= 0 || exp(-delta_fitness) / now_T > property(g); }
-fit_type main_seq(data_seq_type& ans_seq) {
+inline bool acceptable(const fit_type &delta_fitness, const temperature_type &now_T) { return delta_fitness <= 0 || exp(-delta_fitness) / now_T > property(g); }
+fit_type main_seq(data_seq_type &ans_seq) {
     fit_type ans = fitness(ans_seq), now_ans;
     for (temperature_type T = initial_T; T > minimum_T; T *= delta_T) {
         size_t x, y;
@@ -69,7 +69,7 @@ fit_type main_seq(data_seq_type& ans_seq) {
     }
     return ans;
 }
-fit_type main_range(const data_seq_type&& minimum, const data_seq_type&& maximum) {
+fit_type main_range(const data_seq_type &&minimum, const data_seq_type &&maximum) {
     data_seq_type ans_seq, now_seq;
     fit_type ans = numeric_limits<fit_type>::max(), now_ans;
     for (temperature_type T = initial_T; T > minimum_T; T *= delta_T) {
@@ -82,7 +82,7 @@ fit_type main_range(const data_seq_type&& minimum, const data_seq_type&& maximum
     }
     return ans;
 }
-fit_type main_range_n(const data_type&& minimum, const data_type&& maximum, const size_t&& n) {
+fit_type main_range_n(const data_type &&minimum, const data_type &&maximum, const size_t &&n) {
     data_seq_type ans_seq, now_seq;
     fit_type ans = numeric_limits<fit_type>::max(), now_ans;
     for (temperature_type T = initial_T; T > minimum_T; T *= delta_T) {
@@ -95,7 +95,7 @@ fit_type main_range_n(const data_type&& minimum, const data_type&& maximum, cons
     }
     return ans;
 }
-} // namespace SA
+}  // namespace SA
 using SA::main_range;
 using SA::main_range_n;
 using SA::main_seq;

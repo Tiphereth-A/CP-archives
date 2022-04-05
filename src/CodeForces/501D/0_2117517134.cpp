@@ -30,7 +30,7 @@ void main(size_t p[], size_t const a[], size_t n) {
         tr.modify(a[i]);
     }
 }
-} // namespace Cantor_expansion
+}  // namespace Cantor_expansion
 namespace reverse_Cantor_expansion {
 using std::size_t;
 const size_t N = 2e5 + 5;
@@ -78,7 +78,7 @@ void main(size_t const p[], size_t a[], size_t n) {
     for (size_t i = 1; i <= n; ++i) tr.insert(i);
     for (size_t i = 1; i <= n; ++i) tr.remove(a[i] = tr.kth_num(p[i] + 1));
 }
-} // namespace reverse_Cantor_expansion
+}  // namespace reverse_Cantor_expansion
 const size_t N = 2e5 + 5;
 size_t a[N], p[N], q[N];
 int main() {

@@ -4,8 +4,9 @@
 using std::priority_queue;
 struct Complex {
     int re, im;
-    Complex(int a = 0, int b = 0) : re(a), im(b) {}
-    bool operator<(const Complex& rhs) const { return re == rhs.re ? im > rhs.im : re > rhs.re; }
+    Complex(int a = 0, int b = 0):
+        re(a), im(b) {}
+    bool operator<(const Complex &rhs) const { return re == rhs.re ? im > rhs.im : re > rhs.re; }
 };
 int main() {
     int n, kase = 0;

@@ -8,9 +8,9 @@ using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 #define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
 #define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto& i : container)
-#define _foreach_cref(i, container) for (const auto& i : container)
-#define _foreach_rref(i, container) for (auto&& i : container)
+#define _foreach_ref(i, container) for (auto &i : container)
+#define _foreach_cref(i, container) for (const auto &i : container)
+#define _foreach_rref(i, container) for (auto &&i : container)
 #define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
 #define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 #define _ins(a) std::inserter((a), (a).begin())
@@ -46,9 +46,9 @@ using pii = pair<int, int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const uint32_t OFFSET = 5;
 const uint32_t N = 1000 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const uint32_t MOD = 1e9 + 7;
@@ -79,13 +79,16 @@ auto set_null = [](int x, int y) -> void {
 };
 inline auto solve() -> void {
     cin >> n >> m;
-    _for(i, 1, n) _for(j, 1, m) cin >> maps[i][j];
+    _for(i, 1, n)
+        _for(j, 1, m) cin >> maps[i][j];
     queue<tuple<int, int, int>> q;
     vector<tuple<int, int, int>> ans;
-    _for(i, 1, n - 1) _for(j, 1, m - 1) if (valid(i, j)) {
-        q.emplace(i, j, maps[i][j]);
-        inq[i][j] = 1;
-    }
+    _for(i, 1, n - 1)
+        _for(j, 1, m - 1)
+            if (valid(i, j)) {
+                q.emplace(i, j, maps[i][j]);
+                inq[i][j] = 1;
+            }
     int cnt = 0;
     while (!q.empty()) {
         if (++cnt > n * m) _run_return_void(cout << "-1\n");
@@ -99,7 +102,9 @@ inline auto solve() -> void {
             }
         q.pop();
     }
-    _for(i, 1, n) _for(j, 1, m) if (maps[i][j]) _run_return_void(cout << "-1\n");
+    _for(i, 1, n)
+        _for(j, 1, m)
+            if (maps[i][j]) _run_return_void(cout << "-1\n");
     reverse(_all(ans));
     cout << ans.size() << '\n';
     for (auto [x, y, c] : ans) cout << x << ' ' << y << ' ' << c << '\n';

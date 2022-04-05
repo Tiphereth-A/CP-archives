@@ -11,7 +11,7 @@ il char gc() {
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
 }
 template <tpn A>
-il void read(A& x) {
+il void read(A &x) {
     char c;
     do {
         c = getchar();
@@ -23,11 +23,11 @@ il void read(A& x) {
     } while (c >= '0' && c <= '9');
 }
 template <tpn A, tpn B>
-il void read(A& a, B& b) {
+il void read(A &a, B &b) {
     read(a), read(b);
 }
 template <tpn A, tpn B, tpn C>
-il void read(A& a, B& b, C& c) {
+il void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
 u64 tree[MAXN << 2], add[MAXN << 2];
@@ -39,7 +39,7 @@ il void build() {
     fp(i, N + 1, N + n) read(tree[i]);
     fd(i, N - 1, 1) tree[i] = tree[i << 1] + tree[i << 1 | 1];
 }
-il void update(u64& s, u64& t, u64& k) {
+il void update(u64 &s, u64 &t, u64 &k) {
     u64 lNum = 0, rNum = 0, nNum = 1;
     for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
         tree[s] += k * lNum;
@@ -60,7 +60,7 @@ il void update(u64& s, u64& t, u64& k) {
         tree[t] += k * rNum;
     }
 }
-il u64 query(u64& s, u64& t) {
+il u64 query(u64 &s, u64 &t) {
     u64 lNum = 0, rNum = 0, nNum = 1;
     u64 ans = 0;
     for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {

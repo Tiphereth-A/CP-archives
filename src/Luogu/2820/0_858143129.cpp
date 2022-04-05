@@ -7,7 +7,7 @@ int n, k;
 unsigned long long sum;
 struct edge {
     int from, to, val;
-    bool operator<(const edge& other) const { return val < other.val; }
+    bool operator<(const edge &other) const { return val < other.val; }
 } e[M];
 int fa[N];
 int find(int x) {

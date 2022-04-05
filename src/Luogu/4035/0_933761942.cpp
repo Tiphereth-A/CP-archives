@@ -2,14 +2,14 @@
 using namespace std;
 using i64 = long long;
 namespace Matrix {
-#define _TRAITS(expression, __...) std::enable_if_t<expression, ##__>* = nullptr
+#define _TRAITS(expression, __...) std::enable_if_t<expression, ##__> * = nullptr
 #define _CONVERTIBLE(Tp, Up) std::is_convertible<Tp, Up>::value
 namespace Matrix_helper {
 template <typename Tp>
 struct Zero final { static constexpr Tp value = 0; };
 template <typename Tp>
 struct One final { static constexpr Tp value = 1; };
-} // namespace Matrix_helper
+}  // namespace Matrix_helper
 using namespace Matrix_helper;
 template <class Tp, class Equal = std::equal_to<Tp>>
 class matrix {
@@ -22,12 +22,13 @@ class matrix {
     using data_t = Tp;
 
   protected:
-    inline constexpr friend std::ptrdiff_t _gauss(self& now) {
+    inline constexpr friend std::ptrdiff_t _gauss(self &now) {
         std::size_t rk = 0;
         bool neg = false;
         _for(i, 0, std::min(now.get_row(), now.get_col()), now_row = 0) {
             now_row = rk;
-            _for(j, now_row + 1, now.get_row()) if (std::abs(now.data(j, i)) > std::abs(now.data(now_row, i))) now_row = j;
+            _for(j, now_row + 1, now.get_row())
+                if (std::abs(now.data(j, i)) > std::abs(now.data(now_row, i))) now_row = j;
             if (now.equ(now.data(now_row, i), now.get_zero())) continue;
             if (now_row != rk) {
                 std::swap(now.mat[now_row], now.mat[rk]);
@@ -45,30 +46,33 @@ class matrix {
     }
 
   public:
-    matrix(const std::size_t& _row, const std::size_t& _col, const Equal& _equal = Equal()) : row(_row), col(_col), mat(_row, std::vector<data_t>(_col)), equ(_equal) {
+    matrix(const std::size_t &_row, const std::size_t &_col, const Equal &_equal = Equal()):
+        row(_row), col(_col), mat(_row, std::vector<data_t>(_col)), equ(_equal) {
         if (_row == 0 || _col == 0) throw std::logic_error("invalid parameters");
     }
     template <typename Up, _TRAITS(_CONVERTIBLE(Up, data_t))>
-    matrix(const std::size_t& _row, const std::size_t& _col, Up&& scalar, const Equal& _equal = Equal()) : row(_row), col(_col), mat(_row, std::vector<data_t>(_col, scalar)), equ(_equal) {
+    matrix(const std::size_t &_row, const std::size_t &_col, Up &&scalar, const Equal &_equal = Equal()):
+        row(_row), col(_col), mat(_row, std::vector<data_t>(_col, scalar)), equ(_equal) {
         if (_row == 0 || _col == 0) throw std::logic_error("invalid parameters");
     }
-    template <typename Up, _TRAITS(_CONVERTIBLE(Up, self&))>
-    matrix(Up&& rhs) : row(std::forward<self>(rhs).get_row()), col(std::forward<self>(rhs).get_col()), mat(row), equ(std::forward<self>(rhs).equ) { _for_row(i) this->mat[i] = std::forward<self>(rhs).mat[i]; }
-    inline constexpr const std::size_t& get_row() const { return this->row; }
-    inline constexpr const std::size_t& get_col() const { return this->col; }
-    inline constexpr const data_t& get_zero() const { return this->zero; }
-    inline constexpr const data_t& get_one() const { return this->one; }
-    inline constexpr data_t& data(const size_t& r, const size_t& c) const { return const_cast<self* const>(this)->mat[r][c]; }
-    inline constexpr data_t& data(const size_t& r, const size_t& c) { return this->mat[r][c]; }
-    data_t& operator()(const std::size_t& r, const std::size_t& c) { return this->data(r, c); }
+    template <typename Up, _TRAITS(_CONVERTIBLE(Up, self &))>
+    matrix(Up &&rhs):
+        row(std::forward<self>(rhs).get_row()), col(std::forward<self>(rhs).get_col()), mat(row), equ(std::forward<self>(rhs).equ) { _for_row(i) this->mat[i] = std::forward<self>(rhs).mat[i]; }
+    inline constexpr const std::size_t &get_row() const { return this->row; }
+    inline constexpr const std::size_t &get_col() const { return this->col; }
+    inline constexpr const data_t &get_zero() const { return this->zero; }
+    inline constexpr const data_t &get_one() const { return this->one; }
+    inline constexpr data_t &data(const size_t &r, const size_t &c) const { return const_cast<self * const>(this)->mat[r][c]; }
+    inline constexpr data_t &data(const size_t &r, const size_t &c) { return this->mat[r][c]; }
+    data_t &operator()(const std::size_t &r, const std::size_t &c) { return this->data(r, c); }
     template <typename Unary>
-    inline constexpr self& transform_unary(Unary&& op) {
+    inline constexpr self &transform_unary(Unary &&op) {
         _for_each(i, j) this->data(i, j) = op(this->data(i, j));
         return *this;
     }
-    inline constexpr friend std::ptrdiff_t gauss(self& now) { return _gauss(now); }
-    inline constexpr self& multiply(const data_t& scalar) {
-        return this->transform_unary([&](const data_t& x) { return std::multiplies<data_t>()(x, scalar); });
+    inline constexpr friend std::ptrdiff_t gauss(self &now) { return _gauss(now); }
+    inline constexpr self &multiply(const data_t &scalar) {
+        return this->transform_unary([&](const data_t &x) { return std::multiplies<data_t>()(x, scalar); });
     }
 
   protected:
@@ -83,27 +87,28 @@ class matrix {
 };
 #undef _TRAITS
 #undef _CONVERTIBLE
-} // namespace Matrix
+}  // namespace Matrix
 using Matrix::matrix;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 #define _rfor(i, r, l, vals...) for (decltype(r - l) i = (r), ##vals; i >= (l); --i)
 #define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto& i : container)
-#define _foreach_cref(i, container) for (const auto& i : container)
+#define _foreach_ref(i, container) for (auto &i : container)
+#define _foreach_cref(i, container) for (const auto &i : container)
 #define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
 #define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
-auto _ = [](const double& x, const double& y) { return std::abs(x - y) <= 1e-8; };
+auto _ = [](const double &x, const double &y) { return std::abs(x - y) <= 1e-8; };
 double a[15];
 int main() {
     int n;
     cin >> n;
     matrix<double, decltype(_)> m(n + 1, n + 2, _);
     double _;
-    _for(i, 0, n) _for(j, 0, n - 1) {
-        cin >> _;
-        a[i] += _ * _;
-        m(i, j) = _;
-    }
+    _for(i, 0, n)
+        _for(j, 0, n - 1) {
+            cin >> _;
+            a[i] += _ * _;
+            m(i, j) = _;
+        }
     m.multiply(2);
     _for(i, 0, n) m(i, n) = -1;
     _for(i, 0, n) m(i, n + 1) = a[i];

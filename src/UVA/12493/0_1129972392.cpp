@@ -24,7 +24,7 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef pair<pii, pii> PII;
 template <class T>
-inline bool RD(T& ret) {
+inline bool RD(T &ret) {
     char c;
     int sgn;
     if (c = getchar(), c == EOF) return 0;

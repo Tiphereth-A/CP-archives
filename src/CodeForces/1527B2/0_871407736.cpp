@@ -13,7 +13,7 @@ int main() {
         cin >> n >> s1;
         string s2 = s1;
         reverse(_all(s2));
-        int cnt = accumulate(_all(s1), 0, [](const int& i, const char& ch) { return i + (ch == '0'); });
+        int cnt = accumulate(_all(s1), 0, [](const int &i, const char &ch) { return i + (ch == '0'); });
         cout << (s1 == s2 ? ((cnt % 2) && (cnt > 1) ? "ALICE" : "BOB") : ((n % 2) && (s1[n / 2] == '0') && (cnt == 2) ? "DRAW" : "ALICE")) << '\n';
     }
     return 0;

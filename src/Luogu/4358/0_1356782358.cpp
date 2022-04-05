@@ -8,7 +8,7 @@ inline constexpr signed_data_t mul_mod(signed_data_t a, signed_data_t b, unsigne
     signed_data_t d = floor(1.0l * a * b / mod + 0.5l), ret = a * b - d * mod;
     return ret < 0 ? ret + mod : ret;
 }
-inline constexpr data_type pow_mod(unsigned_data_t a, unsigned_data_t b, const unsigned_data_t& mod) {
+inline constexpr data_type pow_mod(unsigned_data_t a, unsigned_data_t b, const unsigned_data_t &mod) {
     data_type res(1);
     a %= mod;
     for (; b; b >>= 1, a = mul_mod(a, a, mod))
@@ -34,7 +34,7 @@ inline constexpr bool is_prime(unsigned_data_t n) {
     }
     return true;
 }
-} // namespace Primetest_miller_rabin
+}  // namespace Primetest_miller_rabin
 using Primetest_miller_rabin::is_prime;
 default_random_engine e(time(nullptr));
 uniform_int_distribution<data_type> u;
@@ -53,7 +53,7 @@ inline data_type pollard_rho(const data_type x, const data_type y) {
         }
     }
 }
-inline void resolve(data_type x, data_type& ans) {
+inline void resolve(data_type x, data_type &ans) {
     if (!(x ^ 1) || x <= ans) return;
     if (is_prime(x)) {
         if (ans < x) ans = x;
@@ -71,11 +71,11 @@ inline data_type get_max_prime_divisor(data_type x) {
     resolve(x, ans);
     return ans;
 }
-} // namespace Pollard_rho
+}  // namespace Pollard_rho
 using Pollard_rho::get_max_prime_divisor;
 using Pollard_rho::is_prime;
 template <class Tp>
-inline constexpr Tp inverse(make_signed_t<Tp> n, const Tp& mod) {
+inline constexpr Tp inverse(make_signed_t<Tp> n, const Tp &mod) {
     make_signed_t<Tp> b = mod, m0 = 0;
     for (make_signed_t<Tp> q, m1 = 1; n;) {
         q = b / n;

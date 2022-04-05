@@ -11,7 +11,8 @@ struct Trapezoid {
     double l, r;
     double len_l, len_r;
     Trapezoid() {}
-    Trapezoid(double _l, double _r, int i) : l(_l), r(_r) {
+    Trapezoid(double _l, double _r, int i):
+        l(_l), r(_r) {
         len_l = cir[i].get_y(l);
         len_r = i < n ? cir[i + 1].get_y(r) : 0;
     }

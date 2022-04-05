@@ -7,21 +7,23 @@ const int MaxN = 200005;
 int Add[MaxN], Get[MaxN];
 int M, N, k;
 struct Node {
-    Node* ch[2];
+    Node *ch[2];
     int priority;
     int v, size, cnt;
-    inline int cmp(const int& x) const {
+    inline int cmp(const int &x) const {
         if (x == v) return -1;
         return x < v ? 0 : 1;
     }
-    Node() : priority(1 << 30), v(0), size(0), cnt(0) {
+    Node():
+        priority(1 << 30), v(0), size(0), cnt(0) {
         ch[0] = ch[1] = this;
     }
     Node(int v);
 };
-Node* Null(new Node);
-Node* Root = Null;
-inline Node ::Node(const int v) : priority(rand()), v(v), size(1), cnt(1) {
+Node *Null(new Node);
+Node *Root = Null;
+inline Node ::Node(const int v):
+    priority(rand()), v(v), size(1), cnt(1) {
     ch[0] = ch[1] = Null;
 }
 inline int read() {
@@ -35,18 +37,18 @@ inline int read() {
         s = s * 10 + ch - '0', ch = getchar();
     return s * f;
 }
-inline void maintain(Node*& o) {
+inline void maintain(Node *&o) {
     o->size = o->ch[0]->size + o->ch[1]->size + o->cnt;
 }
-inline void rotate(Node*& o, const int& d) {
-    Node* k = o->ch[d ^ 1];
+inline void rotate(Node *&o, const int &d) {
+    Node *k = o->ch[d ^ 1];
     o->ch[d ^ 1] = k->ch[d];
     k->ch[d] = o;
     maintain(o);
     maintain(k);
     o = k;
 }
-inline void Insert(Node*& o, const int& x) {
+inline void Insert(Node *&o, const int &x) {
     if (o == Null)
         o = new Node(x);
     else {
@@ -62,7 +64,7 @@ inline void Insert(Node*& o, const int& x) {
     }
     maintain(o);
 }
-inline int kth(Node*& o, const int& K) {
+inline int kth(Node *&o, const int &K) {
     if (o == Null || K <= 0 || K > o->size) return 0;
     int s = (o->ch[0] == Null ? 0 : o->ch[0]->size);
     if (K >= s + 1 && K <= s + o->cnt)

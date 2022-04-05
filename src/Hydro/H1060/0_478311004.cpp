@@ -12,7 +12,7 @@ inline constexpr i128 pow6(int k) {
     k = (1ll * k * k) % MOD;
     return (i128)k * k * k % MOD;
 }
-inline void init_prime(const int& n = N - 1) {
+inline void init_prime(const int &n = N - 1) {
     f[1] = 1;
     for (int i = 2; i <= n; ++i) {
         if (!vis[i])

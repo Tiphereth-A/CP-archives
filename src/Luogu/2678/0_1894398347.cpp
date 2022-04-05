@@ -4,7 +4,7 @@
 typedef long long i64;
 i64 l, m, n;
 i64 d[50005];
-bool inline solve(const i64& len) {
+bool inline solve(const i64 &len) {
     int cnt = 0, now = 0;
     for (int i = 1; i < n + 1; ++i) {
         if (d[i] - d[now] < len)

@@ -5,7 +5,7 @@ map<string, int> id;
 string team_name[N];
 struct Stat {
     int id, points, wins, losses, draws, goals_scored, goals_allowed;
-    bool operator<(const Stat& rhs) const {
+    bool operator<(const Stat &rhs) const {
         if (points != rhs.points) return points > rhs.points;
         if (goals_scored - goals_allowed != rhs.goals_scored - rhs.goals_allowed) return goals_scored - goals_allowed > rhs.goals_scored - rhs.goals_allowed;
         if (goals_scored != rhs.goals_scored) return goals_scored > rhs.goals_scored;
@@ -52,7 +52,7 @@ int main() {
         sort(team_stat + 1, team_stat + team + 1);
         cout << "Group " << i << ":" << endl;
         for (int j = 1; j <= team; ++j) {
-            Stat& now = team_stat[j];
+            Stat &now = team_stat[j];
             cout << team_name[now.id] << " "
                  << now.points << " "
                  << now.wins << " "

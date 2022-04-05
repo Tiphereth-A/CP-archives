@@ -1,5 +1,5 @@
 #include <cstdio>
-int find(bool& ans) {
+int find(bool &ans) {
     int wl, dl, wr, dr;
     scanf("%d%d%d%d", &wl, &dl, &wr, &dr);
     if (!wl) wl = find(ans);

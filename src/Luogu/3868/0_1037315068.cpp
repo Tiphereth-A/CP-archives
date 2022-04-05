@@ -4,7 +4,7 @@ typedef __int128_t i128;
 typedef long long i64;
 const int N = 15;
 i64 a[N], b[N];
-i128 exgcd(i128 a, i128 b, i128& x, i128& y) {
+i128 exgcd(i128 a, i128 b, i128 &x, i128 &y) {
     if (b == 0) {
         x = 1;
         y = 0;

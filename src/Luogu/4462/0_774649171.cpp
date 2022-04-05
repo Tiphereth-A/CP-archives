@@ -13,7 +13,7 @@ inline int getc() {
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -65,7 +65,7 @@ inline void print_h(T x, char h) {
 inline void putchar(char a) {
     buf2[++p3] = a;
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 const int M = 2e5 + 5;
@@ -75,7 +75,7 @@ i64 k;
 i64 xor_num[N];
 struct query_node {
     int l, r, id;
-    bool operator<(const query_node& other) const {
+    bool operator<(const query_node &other) const {
         return (blocks[l] != blocks[other.l]) ? l < other.l : (r > other.r) ^ (blocks[l] & 1);
     }
 } query[N];
@@ -91,10 +91,10 @@ i64 del(int p) {
     --cnt[xor_num[p]];
     return cnt[xor_num[p] ^ k];
 }
-} // namespace mo
+}  // namespace mo
 using mo::add;
 using mo::del;
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("D:\\code\\IO\\in.in", "r", stdin);
     freopen("D:\\code\\IO\\out.out", "w", stdout);

@@ -7,7 +7,7 @@ struct edge {
 } e[N << 1];
 int head[N], tot, f[21][N], dep[N], lg[N];
 bool flag[N];
-il void Swap(int& x, int& y) {
+il void Swap(int &x, int &y) {
     int tmp = x;
     x = y;
     y = tmp;

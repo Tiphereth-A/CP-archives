@@ -6,7 +6,7 @@ const ll MOD = 1000000007LL;
 struct matrix {
     ll m[N][N];
 } a, b;
-inline matrix mul(const matrix& m, const matrix& n) {
+inline matrix mul(const matrix &m, const matrix &n) {
     matrix t;
     memset(t.m, 0, sizeof(t.m));
     for (int i = 1; i <= 3; ++i)

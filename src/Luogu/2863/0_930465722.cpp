@@ -52,9 +52,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1e4 + OFFSET, M = 1e5 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -64,7 +64,8 @@ const i64 INFLL = 0x3f3f3f3f3f3f3f3f;
 const db PI = acos(-1.0);
 struct Edge {
     int to, next;
-    Edge(int _to = 0, int _next = 0) : to(_to), next(_next) {}
+    Edge(int _to = 0, int _next = 0):
+        to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int head[], int x, int y) {
@@ -107,7 +108,8 @@ int main() {
         scanf("%d%d", &x, &y);
         addEdge(head, x, y);
     }
-    _for(i, 1, n) if (!vis[i]) tarjan(i);
+    _for(i, 1, n)
+        if (!vis[i]) tarjan(i);
     int ans = 0;
     _for(i, 1, cnt_scc) ans += scc_size[i] > 1;
     printf("%d", ans);

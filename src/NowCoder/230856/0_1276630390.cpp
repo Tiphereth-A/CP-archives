@@ -12,20 +12,19 @@ int n, bucket[N], a[N], to[N];
 
 string str, pre[N];
 
-void Get(const string& s, string& res) {
-
+void Get(const string &s, string &res) {
     int cnt = 0;
 
     _for(i, 'a', 'z') bucket[i] = to[i] = a[i] = 0;
 
     n = s.size();
 
-    _rfor(i, n - 1, 0) if (!bucket[s[i]]) {
+    _rfor(i, n - 1, 0)
+        if (!bucket[s[i]]) {
+            bucket[s[i]]++;
 
-        bucket[s[i]]++;
-
-        a[s[i]] = cnt++;
-    }
+            a[s[i]] = cnt++;
+        }
 
     _for(i, 'a', 'z') to[i] = 'a' + a[i];
 
@@ -35,7 +34,6 @@ void Get(const string& s, string& res) {
 }
 
 int main() {
-
     cin >> n >> str;
 
     string _;

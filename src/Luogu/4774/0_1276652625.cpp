@@ -58,9 +58,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class _T>
-bool chkmin(_T& a, _T b) { return b < a ? a = b, true : false; }
+bool chkmin(_T &a, _T b) { return b < a ? a = b, true : false; }
 template <class _T>
-bool chkmax(_T& a, _T b) { return a < b ? a = b, true : false; }
+bool chkmax(_T &a, _T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const int MOD = 1e9 + 7;
@@ -68,7 +68,7 @@ const db EPS = 1e-6;
 const int INF = 0x3f3f3f3f;
 const i64 INFLL = 0x3f3f3f3f3f3f3f3f;
 const db PI = acos(-1.0);
-i128 exgcd(i128 a, i128 b, i128& x, i128& y) {
+i128 exgcd(i128 a, i128 b, i128 &x, i128 &y) {
     if (b == 0) {
         x = 1;
         y = 0;
@@ -80,7 +80,7 @@ i128 exgcd(i128 a, i128 b, i128& x, i128& y) {
 }
 i64 a[N], p[N], _b[N], b[N];
 i64 mindmg = 0;
-bool excrt(i64 n, i64& res) {
+bool excrt(i64 n, i64 &res) {
     i128 A, B, M = 1, pre_M;
     i128 x = 0, R;
     i128 g, lambda, mu;

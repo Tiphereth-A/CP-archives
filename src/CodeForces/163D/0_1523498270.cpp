@@ -9,10 +9,10 @@ u64 n, v;
 u64 p[N][N];
 u32 k[N];
 u64 a, b, c, ans;
-void dfs_b(const u64&& now_n, const u64&& _b, const u64&& _a) {
+void dfs_b(const u64 &&now_n, const u64 &&_b, const u64 &&_a) {
     if (_b * _b * _a > v) return;
     if (now_n > n) {
-        const u64&& _c = v / _a / _b;
+        const u64 &&_c = v / _a / _b;
         if (_a * _b + _b * _c + _c * _a < ans) {
             ans = _a * _b + _b * _c + _c * _a;
             a = _a;
@@ -21,22 +21,22 @@ void dfs_b(const u64&& now_n, const u64&& _b, const u64&& _a) {
         }
         return;
     }
-    const u64* const _p = p[now_n];
+    const u64 * const _p = p[now_n];
     _rfor(i, k[now_n], 0) {
         k[now_n] -= i;
         dfs_b(now_n + 1, _b * _p[i], move(_a));
         k[now_n] += i;
     }
 }
-void dfs_a(const u64&& now_n, const u64&& _a) {
+void dfs_a(const u64 &&now_n, const u64 &&_a) {
     if (_a * _a * _a > v) return;
     if (now_n > n) {
-        const u64&& _va = v / _a;
+        const u64 &&_va = v / _a;
         if (ans <= 2 * _a * sqrt(_va) + _va) return;
         dfs_b(1, 1, move(_a));
         return;
     }
-    const u64* const _p = p[now_n];
+    const u64 * const _p = p[now_n];
     _rfor(i, k[now_n], 0) {
         k[now_n] -= i;
         dfs_a(now_n + 1, _a * _p[i]);
@@ -57,7 +57,8 @@ int main() {
         cin >> n;
         v = 1;
         _for(i, 1, n) cin >> p[i][1] >> k[i];
-        _for(i, 1, n) _for(j, 1, k[i]) p[i][j] = p[i][j - 1] * p[i][1];
+        _for(i, 1, n)
+            _for(j, 1, k[i]) p[i][j] = p[i][j - 1] * p[i][1];
         _for(i, 1, n) v *= p[i][k[i]];
         a = 1;
         b = 1;

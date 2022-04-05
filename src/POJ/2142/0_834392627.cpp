@@ -1,6 +1,6 @@
 #include <cmath>
 #include <cstdio>
-void exgcd(int a, int b, int& gcd, int& x, int& y) {
+void exgcd(int a, int b, int &gcd, int &x, int &y) {
     if (!b) {
         gcd = a;
         x = 1;
@@ -10,7 +10,7 @@ void exgcd(int a, int b, int& gcd, int& x, int& y) {
         y -= x * (a / b);
     }
 }
-void f(int a, int b, int d, int& gcd, int& x, int& y) {
+void f(int a, int b, int d, int &gcd, int &x, int &y) {
     exgcd(a, b, gcd, x, y);
     x *= d / gcd;
     int _ = b / gcd;

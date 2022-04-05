@@ -15,10 +15,11 @@ int main() {
         cin >> n;
         _for(i, 1, n) cin >> a[i];
         i64 ans = 0;
-        _for(i, 1ll, n) for (i64 j = a[i] - i % a[i]; j <= n; j += a[i]) {
-            if (j >= i) continue;
-            ans += a[i] * a[j] == i + j;
-        }
+        _for(i, 1ll, n)
+            for (i64 j = a[i] - i % a[i]; j <= n; j += a[i]) {
+                if (j >= i) continue;
+                ans += a[i] * a[j] == i + j;
+            }
         cout << ans << '\n';
     }
     return 0;

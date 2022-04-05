@@ -39,7 +39,7 @@ int main() {
         ss << line;
         while (ss >> _) ++cnt[prufer[++n] = _];
         ++n;
-        priority_queue<int, vector<int>, greater<int> > pq;
+        priority_queue<int, vector<int>, greater<int>> pq;
         for (int i = 1; i <= n; ++i)
             if (!cnt[i]) pq.push(i);
         for (int i = 1; i < n; ++i) {

@@ -27,7 +27,7 @@ bool vis[N];
 int dis[N];
 struct node {
     int val, now;
-    bool operator<(const node& a) const { return val > a.val; }
+    bool operator<(const node &a) const { return val > a.val; }
 };
 std::priority_queue<node> pq;
 void dij(int from) {

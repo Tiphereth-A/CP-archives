@@ -51,9 +51,9 @@ using si = set<int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 3e5 + OFFSET, M = 1e6, K = 21;
 const int MOD = 1e9 + 7;
@@ -90,7 +90,8 @@ i64 a[N] = {0, 1, 2};
 int main() {
     int n, m;
     scanf("%d%d", &n, &m);
-    _for(i, 1, M) for (int j = i; j <= M; j += i)++ d[j];
+    _for(i, 1, M)
+        for (int j = i; j <= M; j += i) ++d[j];
     _for(i, 1, n) {
         fa[i] = i;
         scanf("%lld", a + i);

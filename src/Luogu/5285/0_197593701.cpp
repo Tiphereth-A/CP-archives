@@ -1,24 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 namespace Util {
-inline constexpr int64_t mul_mod(int64_t a, int64_t b, const int64_t& mod) {
+inline constexpr int64_t mul_mod(int64_t a, int64_t b, const int64_t &mod) {
     int64_t d = floor(1.0l * a * b / mod + 0.5l), ret = a * b - d * mod;
     return ret < 0 ? ret + mod : ret;
 }
-inline constexpr int64_t pow_mod(int64_t a, int64_t b, const int64_t& mod) {
+inline constexpr int64_t pow_mod(int64_t a, int64_t b, const int64_t &mod) {
     int64_t res(1);
     a %= mod;
     for (; b; b >>= 1, a = mul_mod(a, a, mod))
         if (b & 1) res = mul_mod(res, a, mod);
     return res;
 }
-inline constexpr int64_t qpow(int64_t a, int64_t b, const int64_t& mod) {
+inline constexpr int64_t qpow(int64_t a, int64_t b, const int64_t &mod) {
     int64_t res(1);
     for (; b; b >>= 1, (a *= a) %= mod)
         if (b & 1) (res *= a) %= mod;
     return res;
 }
-inline int64_t string2int(const string& s, const int64_t& mod) {
+inline int64_t string2int(const string &s, const int64_t &mod) {
     if (s.size() < 18) return stoll(s) % mod;
     int64_t ans = 0;
     for (auto it = s.begin(); it != s.end(); ++it) ((ans *= 10) += (*it) - '0') %= mod;
@@ -43,7 +43,7 @@ inline constexpr bool is_prime(uint64_t n) {
     }
     return true;
 }
-} // namespace Primetest_miller_rabin
+}  // namespace Primetest_miller_rabin
 using Primetest_miller_rabin::is_prime;
 const int64_t pr_998244353 = 3,
               pr_13123111 = 6,
@@ -51,7 +51,7 @@ const int64_t pr_998244353 = 3,
 const int64_t pf_998244352[] = {2, 7, 17},
               pf_13123110[] = {2, 3, 5, 7, 11, 13, 19, 23},
               pf_1515343656[] = {2, 3, 4003, 15773};
-} // namespace Util
+}  // namespace Util
 namespace _1_9 {
 using namespace ::Util;
 const int64_t p = 998244353;
@@ -65,7 +65,7 @@ void main() {
         cout << pow_mod(19, string2int(_, phi_p), p) << '\n';
     }
 }
-} // namespace _1_9
+}  // namespace _1_9
 namespace _1_q {
 using namespace ::Util;
 const int64_t p = 1145141;
@@ -79,7 +79,7 @@ void main() {
         cout << pow_mod(19, string2int(_, phi_p), p) << '\n';
     }
 }
-} // namespace _1_q
+}  // namespace _1_q
 namespace _1_qp {
 using namespace ::Util;
 const int64_t p = 5211600617818708273ll;
@@ -93,7 +93,7 @@ void main() {
         cout << pow_mod(19, _ % phi_p, p) << '\n';
     }
 }
-} // namespace _1_qp
+}  // namespace _1_qp
 namespace _1_w9 {
 using namespace ::Util;
 const int p = 998244353;
@@ -109,13 +109,13 @@ void main() {
         cout << res[_ <= x ? _ : (_ - x) % y + x] << '\n';
     }
 }
-} // namespace _1_w9
+}  // namespace _1_w9
 namespace _2_p {
 using namespace ::Util;
 const int N = 1e6 + 1, P = 78498 + 1;
 bool vis[N];
 int64_t prime[P], cnt_prime;
-inline void init_prime(const int& n = N - 1) {
+inline void init_prime(const int &n = N - 1) {
     for (int i = 2; i <= n; ++i) {
         if (!vis[i]) prime[++cnt_prime] = i;
         for (int j = 1; j <= cnt_prime && i * prime[j] <= n; ++j) {
@@ -146,14 +146,14 @@ void main() {
         cout << '\n';
     }
 }
-} // namespace _2_p
+}  // namespace _2_p
 namespace _2_u {
 using namespace ::Util;
 const int N = 1e6 + 1, P = 78498 + 1;
 bool vis[N];
 int64_t prime[P], cnt_prime;
 int mu[N];
-inline void init_prime(const int& n = N - 1) {
+inline void init_prime(const int &n = N - 1) {
     mu[1] = 1;
     for (int i = 2; i <= n; ++i) {
         if (!vis[i]) mu[prime[++cnt_prime] = i] = -1;
@@ -206,7 +206,7 @@ void main() {
         cout << '\n';
     }
 }
-} // namespace _2_u
+}  // namespace _2_u
 namespace _2_g {
 using namespace ::Util;
 const int p1 = 998244353, p2 = 13123111;
@@ -242,7 +242,7 @@ void main() {
         cout << '\n';
     }
 }
-} // namespace _2_g
+}  // namespace _2_g
 namespace _2_gq {
 using namespace ::Util;
 const int64_t p1 = 998244353, p2 = 1515343657;
@@ -277,7 +277,7 @@ void main() {
         cout << '\n';
     }
 }
-} // namespace _2_gq
+}  // namespace _2_gq
 #define _run_return(expressions) return (expressions), (cerr << clock() - st), 0
 int main() {
     auto st = clock();

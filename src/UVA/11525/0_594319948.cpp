@@ -53,7 +53,7 @@ void main(size_t const p[], size_t a[], size_t n) {
     for (size_t i = 1; i <= n; ++i) tr.insert(i);
     for (size_t i = 1; i <= n; ++i) tr.remove(a[i] = tr.kth_num(p[i] + 1));
 }
-} // namespace reverse_Cantor_expansion
+}  // namespace reverse_Cantor_expansion
 const int N = 5e4 + 5;
 size_t a[N], p[N];
 int main() {

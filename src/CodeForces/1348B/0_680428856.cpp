@@ -25,7 +25,8 @@ int main() {
         }
         _for(i, len + 1, k) b[i] = b[i - len];
         cout << n * k << '\n';
-        _for(i, 1, n) _for(j, 1, k) cout << b[j] << " \n"[i == n && j == k];
+        _for(i, 1, n)
+            _for(j, 1, k) cout << b[j] << " \n"[i == n && j == k];
     }
     return 0;
 }

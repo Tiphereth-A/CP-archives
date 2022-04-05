@@ -31,13 +31,13 @@ typedef __int128 i128;
 typedef double db;
 typedef long double ldb;
 template <tpn A>
-inline A Max(const A& x, const A& y) { return x < y ? y : x; }
+inline A Max(const A &x, const A &y) { return x < y ? y : x; }
 template <tpn A>
-inline A Min(const A& x, const A& y) { return x < y ? x : y; }
+inline A Min(const A &x, const A &y) { return x < y ? x : y; }
 template <tpn A>
-inline void Swap(A& x, A& y) { x ^= y ^= x ^= y; }
+inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 template <tpn A>
-inline A Abs(const A& x) { return x > 0 ? x : -x; }
+inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <tpn A>
 inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
 #endif
@@ -48,7 +48,7 @@ inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21,
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -73,7 +73,7 @@ inline void print(T x, T2... oth) {
     buf2[++p3] = hh;
     print(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 #define read FastIO::read
 #define print FastIO::print
 #define INF_I32 0x7FFFFFFF
@@ -93,17 +93,17 @@ struct node {
 struct segtree {
     node val;
     int l, r;
-    inline bool operator<(const segtree& a) const {
+    inline bool operator<(const segtree &a) const {
         return (val.first == a.val.first) ? val.second < a.val.second : val.first < a.val.first;
     }
     inline void pt() { print(val.first, val.second); }
 } tree[N << 2];
 int cnt;
-inline node _max(const segtree& a, const segtree& b) {
+inline node _max(const segtree &a, const segtree &b) {
     return a < b ? b.val : a.val;
 }
 inline void push_up(int p) { _now.val = _max(tree[_lch], tree[_rch]); }
-void build(int& p, int l, int r) {
+void build(int &p, int l, int r) {
     p = ++cnt;
     if (l == r) {
         _now = {pair[l], 0, 0};
@@ -127,7 +127,7 @@ void del(int p, int l, int r, int target) {
         del(_rch, mid + 1, r, target);
     push_up(p);
 }
-void modify(int p, int l, int r, int target, const node& a) {
+void modify(int p, int l, int r, int target, const node &a) {
     if (l == r) {
         _now = {pair[target] = a, 0, 0};
         return;
@@ -148,26 +148,26 @@ void debug(int p) {
     debug(tree[p].r);
 }
 #endif
-} // namespace Seg
+}  // namespace Seg
 struct list {
     int pre, suc;
 } id[N];
 int head, rear;
 int a[N], n;
-inline void del_rear(const int& p, const int& pre) {
+inline void del_rear(const int &p, const int &pre) {
     Seg::del(1, 1, n, p);
     std::cerr << '\n';
     Seg::del(1, 1, n, pre);
     rear = id[pre].pre;
     id[pre].pre = id[rear].suc = 0;
 }
-inline void del_head(const int& p, const int& suc) {
+inline void del_head(const int &p, const int &suc) {
     Seg::del(1, 1, n, p);
     Seg::del(1, 1, n, suc);
     head = id[suc].suc;
     id[suc].suc = id[head].pre = 0;
 }
-inline void del(const int& p, const int& pre, const int& suc) {
+inline void del(const int &p, const int &pre, const int &suc) {
     Seg::modify(1, 1, n, p, {Seg::pair[pre].first, Seg::pair[suc].second, p});
     Seg::del(1, 1, n, pre);
     if (!id[pre].pre)
@@ -182,7 +182,7 @@ inline void del(const int& p, const int& pre, const int& suc) {
         id[id[suc].suc].pre = p;
     id[p].suc = id[suc].suc;
 }
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("D:\\code\\IO\\in.in", "r", stdin);
     freopen("D:\\code\\IO\\out2.out", "w", stdout);

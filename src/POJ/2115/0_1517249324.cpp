@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 typedef long long i64;
-void exgcd(i64 a, i64 b, i64& gcd, i64& x, i64& y) {
+void exgcd(i64 a, i64 b, i64 &gcd, i64 &x, i64 &y) {
     if (!b) {
         gcd = a;
         x = 1;

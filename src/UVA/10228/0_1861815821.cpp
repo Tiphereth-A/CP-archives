@@ -7,12 +7,12 @@ struct Node {
     double x, y;
 } a[N];
 int n;
-inline double f(const double& x, const double& y) {
+inline double f(const double &x, const double &y) {
     double ans = 0;
     _for(i, 1, n) ans += sqrt((x - a[i].x) * (x - a[i].x) + (y - a[i].y) * (y - a[i].y));
     return ans;
 }
-double thry(double l, double r, const double& x) {
+double thry(double l, double r, const double &x) {
     double loss, _l, _r;
     double f_l, f_r;
     _for(i, 1, 100) {
@@ -25,7 +25,7 @@ double thry(double l, double r, const double& x) {
     }
     return l + (r - l) / 2;
 }
-double thr(const double& l_x, const double& r_x, const double& l_y, const double& r_y) {
+double thr(const double &l_x, const double &r_x, const double &l_y, const double &r_y) {
     double l = l_x, r = r_x;
     double loss, _l, _r;
     double f_l, f_r;

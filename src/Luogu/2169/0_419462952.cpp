@@ -3,11 +3,12 @@ using namespace std;
 using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 const int N = 2e5 + 5, M = 1e6 + 5;
 struct Edge {
     int w, to, next;
-    Edge(int _w = 0, int _to = 0, int _next = 0) : w(_w), to(_to), next(_next) {}
+    Edge(int _w = 0, int _to = 0, int _next = 0):
+        w(_w), to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int x, int y, int w = 1) {
@@ -69,10 +70,12 @@ int main() {
         cin >> u[i] >> v[i] >> w[i];
         addEdge(u[i], v[i], w[i]);
     }
-    _for(i, 1, n) if (!dfn[i]) tarjan(i);
+    _for(i, 1, n)
+        if (!dfn[i]) tarjan(i);
     cnt_edge = 0;
     memset(head, 0, sizeof(head[0]) * (n + 1));
-    _for(i, 1, m) if (scc_id[u[i]] != scc_id[v[i]]) addEdge(scc_id[u[i]], scc_id[v[i]], w[i]);
+    _for(i, 1, m)
+        if (scc_id[u[i]] != scc_id[v[i]]) addEdge(scc_id[u[i]], scc_id[v[i]], w[i]);
     dijkstra(scc_id[1]);
     cout << dis[scc_id[n]];
     return 0;

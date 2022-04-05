@@ -8,7 +8,8 @@ const unsigned long long f[] = {0, 1, 0, 0, 2, 10, 4, 40, 92, 352, 724, 2680, 14
 int a[15], cnt, n;
 bool is_valid(int n) {
     _for(i, 2, n)
-        _for(j, 1, i - 1) if ((a[i] == a[j]) || (std::abs(a[i] - a[j]) == std::abs(i - j))) return 0;
+        _for(j, 1, i - 1)
+            if ((a[i] == a[j]) || (std::abs(a[i] - a[j]) == std::abs(i - j))) return 0;
     return 1;
 }
 void queen(int k) {

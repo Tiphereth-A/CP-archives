@@ -9,7 +9,8 @@ class SegTree {
   private:
     struct Node {
         u64 val, lazy;
-        Node(u64 _val = 0, u64 _lazy = 0) : val(_val), lazy(_lazy) {}
+        Node(u64 _val = 0, u64 _lazy = 0):
+            val(_val), lazy(_lazy) {}
     } t[N * 4];
     void _push_up(std::size_t index) { t[index].val = t[index << 1].val | t[index << 1 | 1].val; }
     void _push_down(std::size_t index) {

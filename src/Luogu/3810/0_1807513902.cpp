@@ -15,15 +15,15 @@ int query(int pos) {
         ret += tr[pos];
     return ret;
 }
-} // namespace BIT
+}  // namespace BIT
 using namespace BIT;
 struct Node {
     int a, b, c, cnt, ans;
-    bool operator!=(const Node& rhs) const { return a != rhs.a || b != rhs.b || c != rhs.c; }
+    bool operator!=(const Node &rhs) const { return a != rhs.a || b != rhs.b || c != rhs.c; }
 } num[N], tmp[N];
 int len_num;
-auto cmp_bc = [](const Node& lhs, const Node& rhs) { return lhs.b == rhs.b ? lhs.c < rhs.c : lhs.b < rhs.b; };
-auto cmp_abc = [](const Node& lhs, const Node& rhs) { return lhs.a == rhs.a ? cmp_bc(lhs, rhs) : lhs.a < rhs.a; };
+auto cmp_bc = [](const Node &lhs, const Node &rhs) { return lhs.b == rhs.b ? lhs.c < rhs.c : lhs.b < rhs.b; };
+auto cmp_abc = [](const Node &lhs, const Node &rhs) { return lhs.a == rhs.a ? cmp_bc(lhs, rhs) : lhs.a < rhs.a; };
 void divide(int l, int r) {
     if (l == r)
         return;

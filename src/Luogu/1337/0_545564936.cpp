@@ -6,12 +6,12 @@ struct Node {
     long double x, y, w;
 } a[N];
 int n;
-inline long double f(const long double& x, const long double& y) {
+inline long double f(const long double &x, const long double &y) {
     long double ans = 0;
     _for(i, 1, n) ans += a[i].w * sqrt((x - a[i].x) * (x - a[i].x) + (y - a[i].y) * (y - a[i].y));
     return ans;
 }
-long double thry(long double l, long double r, const long double& x) {
+long double thry(long double l, long double r, const long double &x) {
     long double loss, _l, _r;
     long double f_l, f_r;
     _for(i, 1, 100) {
@@ -24,7 +24,7 @@ long double thry(long double l, long double r, const long double& x) {
     }
     return l + (r - l) / 2;
 }
-tuple<long double, long double> thr(const long double& l_x, const long double& r_x, const long double& l_y, const long double& r_y) {
+tuple<long double, long double> thr(const long double &l_x, const long double &r_x, const long double &l_y, const long double &r_y) {
     long double l = l_x, r = r_x;
     long double loss, _l, _r;
     long double f_l, f_r;

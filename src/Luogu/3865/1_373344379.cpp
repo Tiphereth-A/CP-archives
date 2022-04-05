@@ -11,7 +11,7 @@ inline int getc() {
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -46,7 +46,7 @@ inline void print(T x, T2... oth) {
     buf2[++p3] = hh;
     print(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
 const int M = 15 + 5;
@@ -55,8 +55,9 @@ int n, m, st[M][N];
 int main() {
     read(n, m);
     _for(i, 1, n) read(st[0][i]);
-    _for(i, 1, M - 1) _for(j, 1, N - (1 << i) + 1) st[i][j] =
-        std::max(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);
+    _for(i, 1, M - 1)
+        _for(j, 1, N - (1 << i) + 1) st[i][j] =
+                                         std::max(st[i - 1][j], st[i - 1][j + (1 << (i - 1))]);
     _for(i, 1, m) {
         int l, r;
         read(l, r);

@@ -2,12 +2,14 @@
 #include <iostream>
 using namespace std;
 struct T {
-    T(int val) : val(val) {}
-    T(T* a, T* b, bool* d) : val(0), a(a), b(b), d(d) {}
+    T(int val):
+        val(val) {}
+    T(T *a, T *b, bool *d):
+        val(0), a(a), b(b), d(d) {}
     int val;
-    T* a;
-    T* b;
-    bool* d;
+    T *a;
+    T *b;
+    bool *d;
     int query() {
         if (val) {
             return val;
@@ -40,7 +42,7 @@ struct T {
         }
     }
 };
-T* t[202020];
+T *t[202020];
 int main() {
     cin.sync_with_stdio(false);
     cin.tie(nullptr);
@@ -52,9 +54,9 @@ int main() {
         t[i] = new T(x);
     }
     for (int i = 2; i <= n; ++i) {
-        T* a = t[i / 2];
-        T* b = t[i];
-        bool* d = new bool(false);
+        T *a = t[i / 2];
+        T *b = t[i];
+        bool *d = new bool(false);
         t[i / 2] = new T(a, b, d);
         t[i] = new T(b, a, d);
     }

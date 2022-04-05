@@ -5,7 +5,7 @@ const int N = 2e5 + 10;
 struct node {
     i64 x;
     int type;
-    bool operator<(const node& oth) const { return x == oth.x ? type < oth.type : x < oth.x; }
+    bool operator<(const node &oth) const { return x == oth.x ? type < oth.type : x < oth.x; }
 } a[N];
 i64 b[N];
 i64 max(i64 a, i64 b) { return a > b ? a : b; }

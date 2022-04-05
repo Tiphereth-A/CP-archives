@@ -32,11 +32,12 @@ int main() {
             c = getchar();
         }
         bool f = 1;
-        _for(i, 0, 255) if (s1[i] != s2[i]) {
-            f = 0;
-            puts("GJX is unhappy");
-            break;
-        }
+        _for(i, 0, 255)
+            if (s1[i] != s2[i]) {
+                f = 0;
+                puts("GJX is unhappy");
+                break;
+            }
         if (f) puts("GJX is happy");
     }
     return 0;

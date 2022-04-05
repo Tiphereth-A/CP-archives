@@ -2,7 +2,7 @@
 #include <iostream>
 char op[3];
 const int frac[] = {1, 1, 2, 6, 24};
-long long dfs(int tot, long long* __num) {
+long long dfs(int tot, long long *__num) {
     if (tot == 1) return *__num;
     long long num[tot], _ = 0x3f3f3f3f3f3f3f3fll;
     int id[tot], __ = frac[tot];

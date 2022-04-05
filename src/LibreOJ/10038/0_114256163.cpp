@@ -10,7 +10,7 @@ class Hash_substr {
     std::vector<unsigned long long> hash, p;
 
   public:
-    Hash_substr(const std::string& _str) {
+    Hash_substr(const std::string &_str) {
         hash.push_back(0);
         p.push_back(1);
         for (char ch : _str) {
@@ -39,7 +39,7 @@ inline int getc() {
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++;
 }
 void read() {}
-inline void read(char* str) {
+inline void read(char *str) {
     int f = 0;
     char ch = getc(), *now = str;
     while (!isalpha(ch)) ch = getc();
@@ -49,7 +49,7 @@ inline void read(char* str) {
     }
     *(now++) = '\0';
 }
-inline void read(int& x) {
+inline void read(int &x) {
     x = 0;
     char ch = getc();
     while (!isdigit(ch)) ch = getc();
@@ -58,7 +58,7 @@ inline void read(int& x) {
         ch = getc();
     }
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::read;
 int now_primes[N], cnt_now_primes;
 char s[N];

@@ -4,26 +4,26 @@ using i64 = long long;
 using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 template <class T>
-inline bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+inline bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 namespace FastIO {
 char buf[1 << 21], *p1 = buf, *p2 = buf;
 inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++; }
 inline void read() {}
 template <class T>
-inline void read(T& x) {
+inline void read(T &x) {
     x = 0;
     char ch = getc();
     while (!isdigit(ch)) ch = getc();
     while (isdigit(ch)) { x = x * 10 + ch - '0', ch = getc(); }
 }
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     read(x);
     read(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::read;
-bool operator<(const pii& lhs, const pii& rhs) { return lhs.first < rhs.first; }
+bool operator<(const pii &lhs, const pii &rhs) { return lhs.first < rhs.first; }
 int main() {
     int n;
     read(n);
@@ -35,7 +35,7 @@ int main() {
     i64 ans = 0;
     vector<pii> s;
     s.emplace_back(0, 0);
-    for (const auto& i : v) {
+    for (const auto &i : v) {
         if (s.size() == 1) {
             s.push_back(i);
             continue;

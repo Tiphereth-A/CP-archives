@@ -27,7 +27,7 @@ int main() {
         G[a].emplace_back(b, c);
         G[b].emplace_back(a, c);
     }
-    fill((Z*)d, (Z*)d + 32 * 202020, huge);
+    fill((Z *)d, (Z *)d + 32 * 202020, huge);
     for (int i = 0; i < k; ++i) {
         d[1 << i][imp[i]] = 0;
     }

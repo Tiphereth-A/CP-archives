@@ -30,10 +30,11 @@ int lca(int x, int y) {
     if (dep[x] < dep[y]) x ^= y ^= x ^= y;
     while (dep[x] > dep[y]) x = f[lg[dep[x] - dep[y]] - 1][x];
     if (x == y) return x;
-    _rfor(i, lg[dep[x]], 0) if (f[i][x] != f[i][y]) {
-        x = f[i][x];
-        y = f[i][y];
-    }
+    _rfor(i, lg[dep[x]], 0)
+        if (f[i][x] != f[i][y]) {
+            x = f[i][x];
+            y = f[i][y];
+        }
     return f[0][x];
 }
 int main() {

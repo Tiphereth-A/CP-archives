@@ -20,25 +20,28 @@ class DLX {
     void remove_col(std::size_t _now_col) {
         _r(_l(_now_col)) = _r(_now_col);
         _l(_r(_now_col)) = _l(_now_col);
-        _for(i, _now_col, d) _for(j, i, r) {
-            _u(_d(j)) = _u(j);
-            _d(_u(j)) = _d(j);
-            --cnt_col[_col(j)];
-        }
+        _for(i, _now_col, d)
+            _for(j, i, r) {
+                _u(_d(j)) = _u(j);
+                _d(_u(j)) = _d(j);
+                --cnt_col[_col(j)];
+            }
     }
     void restore_col(std::size_t _now_col) {
         _r(_l(_now_col)) = _l(_r(_now_col)) = _now_col;
-        _for(i, _now_col, u) _for(j, i, r) {
-            _u(_d(j)) = _d(_u(j)) = j;
-            ++cnt_col[_col(j)];
-        }
+        _for(i, _now_col, u)
+            _for(j, i, r) {
+                _u(_d(j)) = _d(_u(j)) = j;
+                ++cnt_col[_col(j)];
+            }
     }
     std::size_t find_min_col() {
         std::size_t res = _r(0);
-        _for(i, 0, r) if (cnt_col[i] < cnt_col[res]) res = i;
+        _for(i, 0, r)
+            if (cnt_col[i] < cnt_col[res]) res = i;
         return res;
     }
-    bool dance(std::size_t* _ans, std::size_t& _len) {
+    bool dance(std::size_t *_ans, std::size_t &_len) {
         if (_r(0) == 0) return true;
         std::size_t now_r = find_min_col();
         remove_col(now_r);
@@ -65,7 +68,7 @@ class DLX {
         for (std::size_t i = 1; i <= width; ++i) node[i] = {i - 1, i + 1, i, i, 0, i};
         node[_r(width) = 0] = {width, 1, 0, 0, 0, 0};
     }
-    void insert_row(std::size_t _ln, std::size_t* _cols, std::size_t _len_cols) {
+    void insert_row(std::size_t _ln, std::size_t *_cols, std::size_t _len_cols) {
         for (std::size_t i = 1; i <= _len_cols; ++i) {
             node[cnt_node + i] = {cnt_node + i - 1, cnt_node + i + 1, _u(_cols[i]), _cols[i], _ln, _cols[i]};
             _d(_u(_cols[i])) = cnt_node + i;
@@ -77,17 +80,17 @@ class DLX {
         _r(cnt_node + _len_cols) = cnt_node + 1;
         cnt_node += _len_cols;
     }
-    void insert_map(bool** _map, std::size_t _width, std::size_t _height, std::size_t _height_phy = _Edge_len) {
-        std::size_t* _ = (std::size_t*)malloc(sizeof(std::size_t) * (_width + 1));
+    void insert_map(bool **_map, std::size_t _width, std::size_t _height, std::size_t _height_phy = _Edge_len) {
+        std::size_t *_ = (std::size_t *)malloc(sizeof(std::size_t) * (_width + 1));
         for (std::size_t _ln = 1, len; _ln <= _height; ++_ln) {
             len = 0;
             for (std::size_t _col = 1; _col <= _width; ++_col)
-                if (*((bool*)_map + _ln * _height_phy + _col)) _[++len] = _col;
+                if (*((bool *)_map + _ln * _height_phy + _col)) _[++len] = _col;
             if (len) insert_row(_ln, _, len);
         }
         free(_);
     }
-    bool operator()(std::size_t* ans, std::size_t& len) {
+    bool operator()(std::size_t *ans, std::size_t &len) {
         len = 0;
         return dance(ans, len);
     }
@@ -112,9 +115,9 @@ int main() {
     for (int i = 1; i <= n; ++i)
         for (int j = 1; j <= m; ++j) cin >> maps[i][j];
     a.init(m, n);
-    a.insert_map((bool**)maps, m, n, N);
+    a.insert_map((bool **)maps, m, n, N);
     std::size_t len_ans = 0;
-    if (a((std::size_t*)ans, len_ans))
+    if (a((std::size_t *)ans, len_ans))
         for (std::size_t i = 1; i <= len_ans; ++i) cout << ans[i] << " ";
     else
         cout << "No Solution!";

@@ -4,7 +4,7 @@ int l;
 struct Node {
     char s[55];
     int val;
-    bool operator<(const Node& rhs) const { return val < rhs.val; }
+    bool operator<(const Node &rhs) const { return val < rhs.val; }
     void calc() {
         int a = 0, g = 0, c = 0, t = 0;
         for (int i = l - 1; ~i; --i)

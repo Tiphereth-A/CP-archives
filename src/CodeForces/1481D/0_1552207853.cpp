@@ -23,12 +23,14 @@ int main() {
     while (kase--) {
         int n, m;
         cin >> n >> m;
-        _for(i, 1, n) _for(j, 1, n) cin >> maps[i][j];
+        _for(i, 1, n)
+            _for(j, 1, n) cin >> maps[i][j];
         if (m % 2 == 1) _run_continue(cout << "YES\n"; _for(i, 1, m + 1) cout << (i % 2 ? '1' : '2') << " \n"[i == m + 1];);
         int x = 0, y = 0, z = 0;
         _for(i, 1, n) {
             bool b = 0;
-            _for(j, i + 1, n) if (maps[i][j] == maps[j][i]) _run_break(b = 1; x = i; y = j);
+            _for(j, i + 1, n)
+                if (maps[i][j] == maps[j][i]) _run_break(b = 1; x = i; y = j);
             if (b == 1) break;
         }
         if (x && y) _run_continue(cout << "YES\n"; _for(i, 1, m + 1) cout << (i % 2 ? x : y) << " \n"[i == m + 1];);

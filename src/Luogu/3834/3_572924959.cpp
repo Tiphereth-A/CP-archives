@@ -61,13 +61,13 @@ typedef __int128 i128;
 typedef double db;
 typedef long double ldb;
 template <tpn A>
-inline A Max(const A& x, const A& y) { return x > y ? x : y; }
+inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <tpn A>
-inline A Min(const A& x, const A& y) { return x < y ? x : y; }
+inline A Min(const A &x, const A &y) { return x < y ? x : y; }
 template <tpn A>
-inline void Swap(A& x, A& y) { x ^= y ^= x ^= y; }
+inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 template <tpn A>
-inline A Abs(const A& x) { return x > 0 ? x : -x; }
+inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <tpn A>
 inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
 #endif
@@ -76,7 +76,7 @@ char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;
 inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++; }
 template <tpn Type>
-inline void read_digit(Type& x) {
+inline void read_digit(Type &x) {
     int ret = 0, f = 0;
     char ch = getc();
     while (!isdigit(ch)) {
@@ -90,11 +90,11 @@ inline void read_digit(Type& x) {
     x = f ? -ret : ret;
 }
 template <tpn A, tpn B>
-inline void read_digit(A& a, B& b) { read_digit(a), read_digit(b); }
+inline void read_digit(A &a, B &b) { read_digit(a), read_digit(b); }
 template <tpn A, tpn B, tpn C>
-inline void read_digit(A& a, B& b, C& c) { read_digit(a), read_digit(b), read_digit(c); }
+inline void read_digit(A &a, B &b, C &c) { read_digit(a), read_digit(b), read_digit(c); }
 template <tpn A, tpn B, tpn C, tpn D>
-inline void read_digit(A& a, B& b, C& c, D& d) { read_digit(a), read_digit(b), read_digit(c), read_digit(d); }
+inline void read_digit(A &a, B &b, C &c, D &d) { read_digit(a), read_digit(b), read_digit(c), read_digit(d); }
 inline void flush() { fwrite(buf2, 1, p3 + 1, stdout), p3 = -1; }
 template <tpn Type>
 inline void print_digit(Type x) {
@@ -104,7 +104,7 @@ inline void print_digit(Type x) {
     do { buf2[++p3] = a[p]; } while (--p);
     buf2[++p3] = hh;
 }
-} // namespace FastIO
+}  // namespace FastIO
 #define read FastIO::read_digit
 #define print FastIO::print_digit
 #define INF_I32 0x7FFFFFFF
@@ -123,7 +123,7 @@ int root[N << 5], node_cnt;
 #define PREL tree[L]
 #define PRER tree[R]
 #define NOW tree[now]
-void modify(int pre, int l, int r, int& now, int pos) {
+void modify(int pre, int l, int r, int &now, int pos) {
     tree[now = ++node_cnt] = {PRE.val + 1, PRE.l, PRE.r};
     if (l == r) return;
     int mid = _mid(l, r);
@@ -140,7 +140,7 @@ int query(int L, int R, int l, int r, int k) {
     else
         return query(PREL.r, PRER.r, mid + 1, r, k - tmp);
 }
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("D:\\code\\IO\\in.in", "r", stdin);
     freopen("D:\\code\\IO\\out.out", "w", stdout);

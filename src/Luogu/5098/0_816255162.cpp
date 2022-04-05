@@ -58,13 +58,13 @@ typedef __int128 i128;
 typedef double db;
 typedef long double ldb;
 template <tpn A>
-inline A Max(const A& x, const A& y) { return x > y ? x : y; }
+inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <tpn A>
-inline A Min(const A& x, const A& y) { return x < y ? x : y; }
+inline A Min(const A &x, const A &y) { return x < y ? x : y; }
 template <tpn A>
-inline void Swap(A& x, A& y) { x ^= y ^= x ^= y; }
+inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 template <tpn A>
-inline A Abs(const A& x) { return x > 0 ? x : -x; }
+inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <tpn A>
 inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
 #endif
@@ -75,7 +75,7 @@ inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21,
 void read() {}
 void print() {}
 template <typename T, typename... T2>
-inline void read(T& x, T2&... oth) {
+inline void read(T &x, T2 &...oth) {
     int f = 0;
     x = 0;
     char ch = getc();
@@ -100,7 +100,7 @@ inline void print(T x, T2... oth) {
     buf2[++p3] = hh;
     print(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 #define read FastIO::read
 #define print FastIO::print
 #define INF_I32 0x7FFFFFFF
@@ -110,7 +110,7 @@ const int N = 2e5 + 5;
 const int MOD = 998244353;
 const db EPS = 1e-6;
 int x, y, mina = INF_I32, minb = INF_I32, maxa, maxb, n;
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
 #ifndef ONLINE_JUDGE
     freopen("D:\\code\\IO\\in.in", "r", stdin);
     freopen("D:\\code\\IO\\out.out", "w", stdout);

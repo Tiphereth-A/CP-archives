@@ -7,7 +7,7 @@ using namespace std;
 const int N = 1005;
 int f[N][N], s[N], t[N];
 #define __(op)                                      \
-    for (char& i : str_##op)                        \
+    for (char &i : str_##op)                        \
         if (isspace(i) || ispunct(i)) {             \
             if (!_.empty()) {                       \
                 if (!id[_])                         \

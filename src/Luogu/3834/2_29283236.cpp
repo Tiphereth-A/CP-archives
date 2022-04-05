@@ -39,7 +39,7 @@ inline void print(int x) {
     } while (--p);
     buf2[++p3] = hh;
 }
-} // namespace FastIO
+}  // namespace FastIO
 #define read() FastIO::read()
 #define print(x) FastIO::print(x)
 const int N = 2e5 + 5;
@@ -48,7 +48,7 @@ int a[N], b[N], node_root[N];
 struct tree {
     int val, l, r;
 } seq[N << 5];
-void modify(int pre, int l, int r, int& now, int p) {
+void modify(int pre, int l, int r, int &now, int p) {
     seq[now = ++node_cnt] = {seq[pre].val + 1, seq[pre].l, seq[pre].r};
     if (l == r) return;
     int mid = _mid(l, r);

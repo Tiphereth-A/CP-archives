@@ -15,10 +15,12 @@ int main() {
         cin >> n >> m;
         _for(i, 1, n) cin >> a[i];
         _for(i, 1, m) cin >> b[i];
-        _for(i, 1, n) _for(j, 1, m) if (a[i] == b[j]) {
-            cout << "YES\n1 " << a[i] << '\n';
-            goto __end_kase;
-        }
+        _for(i, 1, n)
+            _for(j, 1, m)
+                if (a[i] == b[j]) {
+                    cout << "YES\n1 " << a[i] << '\n';
+                    goto __end_kase;
+                }
         cout << "NO\n";
     __end_kase:;
     }

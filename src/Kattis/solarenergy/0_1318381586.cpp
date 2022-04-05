@@ -12,7 +12,7 @@ int main() {
     vector<pair<double, double>> vec;
     double now_d = 0;
     for (int i = 1; i <= n; ++i) {
-        const Node& tmp = star[i];
+        const Node &tmp = star[i];
         if (tmp.s != 0 && tmp.t / tmp.s < PI) {
             vec.emplace_back(tmp.a - tmp.t / tmp.s, tmp.s);
             vec.emplace_back(tmp.a - tmp.t / tmp.s + 2 * PI, tmp.s);

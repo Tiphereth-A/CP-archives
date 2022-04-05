@@ -3,7 +3,7 @@
 #define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
 struct node {
     int id, t;
-    bool operator<(const node& a) const {
+    bool operator<(const node &a) const {
         return (this->t == a.t) ? (this->id < a.id) : (this->t < a.t);
     }
 } p[1005];

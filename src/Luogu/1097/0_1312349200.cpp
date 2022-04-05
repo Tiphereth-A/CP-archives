@@ -15,10 +15,10 @@ while (0)
         int num, cnt;
     } a[M], vis[M];
 int n, tot;
-bool cmp(const xjbq& a, const xjbq& b) {
+bool cmp(const xjbq &a, const xjbq &b) {
     return a.num < b.num;
 }
-il void hash(const int& num) {
+il void hash(const int &num) {
     int key = num % M;
     while (vis[key].cnt && vis[key].num != num) key++;
     if (!vis[key].cnt) vis[key].num = num;

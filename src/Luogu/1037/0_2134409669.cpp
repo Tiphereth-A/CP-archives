@@ -4,7 +4,7 @@ using std::cout;
 bool vis[10][10];
 std::string str;
 int k, cnt[10];
-std::ostream& operator<<(std::ostream& os, __uint128_t num) {
+std::ostream &operator<<(std::ostream &os, __uint128_t num) {
     std::string str(" ");
     while (num) {
         str.push_back(num % 10 + '0');

@@ -24,7 +24,7 @@ using std::endl;
 const int dx[] = {-1, 0, 1, 0}, dy[] = {0, 1, 0, -1};
 struct node {
     int x, y, step;
-    bool operator==(const node& other) const { return x == other.x && y == other.y; }
+    bool operator==(const node &other) const { return x == other.x && y == other.y; }
 } start, end;
 int n, map[1005][1005];
 std::queue<node> queue;

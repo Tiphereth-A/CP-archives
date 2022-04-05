@@ -20,7 +20,7 @@ inline void out() {
     oS = obuff;
 }
 template <class Type>
-inline void read(Type& x) {
+inline void read(Type &x) {
     x = 0;
     Type y = 1;
     for (c = gc(); (c > '9' || c < '0') && c != '-'; c = gc())
@@ -31,7 +31,7 @@ inline void read(Type& x) {
     x *= y;
 }
 template <class Type, typename... Args>
-inline void read(Type& x, Args&... args) {
+inline void read(Type &x, Args &...args) {
     read(x);
     read(args...);
 }
@@ -48,7 +48,7 @@ inline void print(Type x, char text = '\n') {
     *oS++ = text;
     out();
 }
-} // namespace fastIO
+}  // namespace fastIO
 using namespace fastIO;
 void PushUp(int p) {
     sum[p] = (sum[ls] + sum[rs]) % mod;

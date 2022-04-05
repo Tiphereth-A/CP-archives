@@ -25,7 +25,7 @@ int main() {
         vi b = a;
         sort(_all(a));
         a.erase(unique(_all(a)), a.end());
-        for (int& i : b) i = lower_bound(_all(a), i) - a.begin() + 1;
+        for (int &i : b) i = lower_bound(_all(a), i) - a.begin() + 1;
         i64 ans = 0;
         _for(i, 1, n) {
             ans += sum[b[i - 1]] * (n - i + 1);

@@ -4,7 +4,7 @@ struct member {
     int num;
     int score;
 } mem[5010];
-bool cmp(const member& a, const member& b) {
+bool cmp(const member &a, const member &b) {
     if (a.score > b.score)
         return 1;
     else if (a.score == b.score) {

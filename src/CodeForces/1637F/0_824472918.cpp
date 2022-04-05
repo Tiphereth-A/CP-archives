@@ -10,9 +10,9 @@ using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 #define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
 #define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto& i : container)
-#define _foreach_cref(i, container) for (const auto& i : container)
-#define _foreach_rref(i, container) for (auto&& i : container)
+#define _foreach_ref(i, container) for (auto &i : container)
+#define _foreach_cref(i, container) for (const auto &i : container)
+#define _foreach_rref(i, container) for (auto &&i : container)
 #define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
 #define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 #define _ins(a) std::inserter((a), (a).begin())
@@ -48,9 +48,9 @@ using pii = pair<int, int>;
         fflush(stderr);                                     \
     }
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const uint32_t OFFSET = 5;
 const uint32_t N = 2e5 + OFFSET, M = 4e5 + OFFSET, K = 21;
 const uint32_t MOD = 1e9 + 7;
@@ -61,7 +61,8 @@ const double PI = acos(-1.0);
 auto __STATIC__ = []() { return 0.0; }();
 struct Edge {
     int to, next;
-    Edge(int _to = 0, int _next = 0) : to(_to), next(_next) {}
+    Edge(int _to = 0, int _next = 0):
+        to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 void addEdge(int x, int y) {
@@ -90,7 +91,8 @@ inline void solve() {
     cin >> n;
     _for(i, 1, n) cin >> h[i];
     int root = 1;
-    _for(i, 1, n) if (h[root] < h[i]) root = i;
+    _for(i, 1, n)
+        if (h[root] < h[i]) root = i;
     _for(i, 1, n - 1, x, y) {
         cin >> x >> y;
         addEdge(x, y);

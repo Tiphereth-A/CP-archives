@@ -3,7 +3,7 @@ using namespace std;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 #define _set_nul(a) memset(a, 0, sizeof(a))
 template <class T>
-bool chkmax(T& a, T b) { return a < b ? a = b, true : false; }
+bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 5e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 struct Edge {
@@ -34,7 +34,8 @@ int main() {
     }
     dfs(1, 0);
     int p = 0, max_p = 0;
-    _for(i, 1, n) if (dis[i] > max_p) max_p = dis[p = i];
+    _for(i, 1, n)
+        if (dis[i] > max_p) max_p = dis[p = i];
     _set_nul(dis);
     dfs(p, 0);
     max_p = 0;

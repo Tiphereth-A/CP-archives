@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 4e5 + 5, B = 987654, mo = 1e6 + 3;
-inline void red(int& x) { x += x >> 31 & mo; }
+inline void red(int &x) { x += x >> 31 & mo; }
 int mi[6];
 typedef unsigned long long ull;
 int x[6], x2[6], n, k, i, j, l, dv[6];
@@ -23,12 +23,12 @@ ull rR;
 bool bb;
 struct hmp {
     int h[mo], nxt[N];
-    inline int geth(int* x) {
+    inline int geth(int *x) {
         int v = 0;
         for (int j = 0; j < k; ++j) v = (1ll * v * B + x[j]) % mo;
         return v;
     }
-    inline void ins(int i, int* x) {
+    inline void ins(int i, int *x) {
         int v = geth(x);
         nxt[i] = h[v];
         h[v] = i;

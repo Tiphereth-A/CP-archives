@@ -9,7 +9,7 @@ int getc() {
 }
 void read() {}
 template <typename T, typename... T2>
-void read(T& x, T2&... oth) {
+void read(T &x, T2 &...oth) {
     x = 0;
     char ch;
     while (!isdigit(ch = getc()))
@@ -20,7 +20,7 @@ void read(T& x, T2&... oth) {
     }
     read(oth...);
 }
-} // namespace FastIO
+}  // namespace FastIO
 using FastIO::read;
 const int N = 2e5 + 5;
 template <size_t N>
@@ -31,8 +31,9 @@ class Segtree {
 #define _mid(l, r) (((l) + (r)) >> 1)
     struct Node {
         data_type a, a_sqr;
-        Node(data_type _a = 0, data_type _a_sqr = 0) : a(_a), a_sqr(_a_sqr) {}
-        Node operator+(const Node& oth) const {
+        Node(data_type _a = 0, data_type _a_sqr = 0):
+            a(_a), a_sqr(_a_sqr) {}
+        Node operator+(const Node &oth) const {
             Node _(*this);
             _.a += oth.a;
             _.a_sqr += oth.a_sqr;

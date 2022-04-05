@@ -7,14 +7,15 @@ using i64 = long long;
 #define _run_exit(expressions) _run_return(expressions, 0)
 #define _run_return(expressions, val) return (expressions), val
 template <class T>
-bool chkmin(T& a, T b) { return b < a ? a = b, true : false; }
+bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1e4 + OFFSET, M = 1e5 + OFFSET;
 const int INF = 0x3f3f3f3f;
 int a[N];
 struct Edge {
     int to, next;
-    Edge(int _to = 0, int _next = 0) : to(_to), next(_next) {}
+    Edge(int _to = 0, int _next = 0):
+        to(_to), next(_next) {}
 } e[M];
 int head[N], cnt_edge;
 int in[N], out[N];
@@ -72,16 +73,19 @@ int main() {
         cin >> x >> y;
         addEdge(x, y);
     }
-    _for(i, 1, n) if (!dfn[i] && a[i] != INF) tarjan(i);
-    _for(i, 1, n) if (!dfn[i]) _run_exit(cout << "NO\n"
-                                              << i);
+    _for(i, 1, n)
+        if (!dfn[i] && a[i] != INF) tarjan(i);
+    _for(i, 1, n)
+        if (!dfn[i]) _run_exit(cout << "NO\n"
+                                    << i);
     _for(i, 1, cnt_scc) fa[i] = i;
     _for(i, 1, n) _for_graph(head, e, j, i) if (find(scc_id[i]) != find(scc_id[to])) {
-        ++scc_in[scc_id[to]];
-        merge(scc_id[i], scc_id[to]);
-    }
+            ++scc_in[scc_id[to]];
+            merge(scc_id[i], scc_id[to]);
+        }
     i64 ans = 0;
-    _for(i, 1, cnt_scc) if (!scc_in[i]) ans += val[i];
+    _for(i, 1, cnt_scc)
+        if (!scc_in[i]) ans += val[i];
     cout << "YES\n"
          << ans;
     return 0;

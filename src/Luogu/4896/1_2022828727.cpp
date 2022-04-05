@@ -8,7 +8,7 @@
 #define _teaout(i) onlineT &= ~(1 << i)
 #define _stuin(i) onlineS |= 1 << i
 #define _stuout(i) onlineS &= ~(1 << i)
-#define _dead(i) deadS&(1 << i)
+#define _dead(i) deadS &(1 << i)
 #define _killstu deadS |= onlineS
 using namespace std;
 int n;

@@ -3,7 +3,7 @@
 using namespace std;
 typedef long long i64;
 template <typename T>
-void exgcd(T a, T b, T& gcd, T& x, T& y) {
+void exgcd(T a, T b, T &gcd, T &x, T &y) {
     if (!b) {
         gcd = a;
         x = 1;

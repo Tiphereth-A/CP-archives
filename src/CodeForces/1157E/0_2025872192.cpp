@@ -17,7 +17,7 @@ int main() {
         cin >> _;
         s.insert(_);
     }
-    for (const int& i : a) {
+    for (const int &i : a) {
         auto it = s.lower_bound((n - i) % n);
         cout << (*((it != s.end()) ? it : s.begin()) + i) % n << ' ';
         s.erase((it != s.end()) ? it : s.begin());

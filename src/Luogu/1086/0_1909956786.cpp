@@ -5,7 +5,7 @@ using std::cout;
 using std::endl;
 struct node {
     int x, y, num;
-    bool operator<(const node& a) const { return num > a.num; }
+    bool operator<(const node &a) const { return num > a.num; }
 } data[500];
 int m, n, k, r;
 int ans, tot = 1;

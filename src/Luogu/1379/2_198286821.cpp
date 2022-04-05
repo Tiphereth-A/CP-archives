@@ -19,10 +19,10 @@ struct STATE {
         return id;
     }
 } state_all[1000005], end;
-inline void swap(int& a, int& b) { a ^= b ^= a ^= b; }
+inline void swap(int &a, int &b) { a ^= b ^= a ^= b; }
 inline int bfs() {
     while (front < rear) {
-        State& now = state_all[front].seq;
+        State &now = state_all[front].seq;
         if (!memcmp(now, _end, sizeof(_end))) return state_all[front].dist;
         int z;
         for (z = 0; now[z]; ++z)
@@ -30,7 +30,7 @@ inline int bfs() {
         int x = z % 3, y = z / 3;
         for (register int i = 0; i < 4; ++i) {
             state_all[rear].id = 0;
-            State& next = state_all[rear].seq;
+            State &next = state_all[rear].seq;
             int nx = x + dx[i], ny = y + dy[i];
             if (nx < 0 || nx > 2 || ny < 0 || ny > 2) continue;
             int nz = ny * 3 + nx;

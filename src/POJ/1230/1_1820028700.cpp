@@ -5,7 +5,7 @@ struct Wall {
     int x1, x2, y;
     bool removed;
     bool is_blocked(int s) { return !removed && s <= x2 && s >= x1; }
-    bool operator<(const Wall& oth) const { return x2 == oth.x2 ? x1 >= oth.x1 : x2 > oth.x2; }
+    bool operator<(const Wall &oth) const { return x2 == oth.x2 ? x1 >= oth.x1 : x2 > oth.x2; }
 } walls[N];
 int main() {
     int kase;

@@ -10,7 +10,7 @@ class SegTree {
   private:
     struct Node {
         _T sum, max, lazy;
-        Node operator+=(const Node& oth) {
+        Node operator+=(const Node &oth) {
             sum += oth.sum;
             lazy += oth.lazy;
             return *this;
@@ -76,10 +76,12 @@ class SegTree {
     }
 
   public:
-    SegTree(std::size_t _n = 0) : n(_n) {
+    SegTree(std::size_t _n = 0):
+        n(_n) {
         if (_clear) memset(t, 0, sizeof t);
     }
-    SegTree(_T Data[], std::size_t _n = 0) : n(_n) {
+    SegTree(_T Data[], std::size_t _n = 0):
+        n(_n) {
         if (_clear) memset(t, 0, sizeof t);
         _init(Data, 1, 1, n);
     }

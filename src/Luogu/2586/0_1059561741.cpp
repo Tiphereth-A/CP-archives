@@ -18,14 +18,14 @@ namespace GEO {
 i64 get_dis_sqr(int x1, int y1, int x2, int y2) {
     return 1ll * (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
 }
-void get_dis_to_segment_sqr(i64 A, i64 B, i64 C, int x, int y, i64& absFSqr, i64& lineSqr) {
+void get_dis_to_segment_sqr(i64 A, i64 B, i64 C, int x, int y, i64 &absFSqr, i64 &lineSqr) {
     absFSqr = (A * x + B * y + C) * (A * x + B * y + C);
     lineSqr = A * A + B * B;
 }
 i64 cross(i64 x1, i64 y1, i64 x2, i64 y2) {
     return x1 * x2 + y1 * y2;
 }
-} // namespace GEO
+}  // namespace GEO
 using namespace GEO;
 void dec_msg() {
     for (int i = 0; i <= n; ++i)
@@ -123,7 +123,8 @@ struct ANT {
 } ant[MAX_ANT];
 struct TURRET {
     int x, y;
-    TURRET(int X = 0, int Y = 0) : x(X), y(Y) {}
+    TURRET(int X = 0, int Y = 0):
+        x(X), y(Y) {}
     void attack() {
         if (!cake_disappeared || get_dis_sqr(x, y, ant[target_all].x_now, ant[target_all].y_now) > r_sqr) {
             int target_antID;

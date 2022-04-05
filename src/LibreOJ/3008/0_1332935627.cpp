@@ -32,7 +32,8 @@ int main() {
     _for(i, 1, n) scanf("%d", v + i);
     _for(i, 1, n) scanf("%d%d", &son[i].l, &son[i].r);
     dfs(1);
-    _for(i, 1, n) if (chk(son[i].l, son[i].r)) ans = max(ans, sz[i]);
+    _for(i, 1, n)
+        if (chk(son[i].l, son[i].r)) ans = max(ans, sz[i]);
     printf("%d", ans);
     return 0;
 }

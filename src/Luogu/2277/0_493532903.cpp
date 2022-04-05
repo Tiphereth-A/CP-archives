@@ -214,15 +214,16 @@ const auto _STATIC_ = []() {
 struct Node {
     u64 hash;
     double data;
-    Node(const int& type,
+    Node(const int &type,
          i64 a,
          i64 b,
          i64 c,
          i64 d,
-         const char* opab,
-         const char* opbc,
-         const char* opcd,
-         const double& _data) : data(_data) {
+         const char *opab,
+         const char *opbc,
+         const char *opcd,
+         const double &_data):
+        data(_data) {
 #define _minmax(a, b) \
     if (auto _a = a, _b = b; !(dict[*op##a##b] & 1)) tie(a, b) = tie(min(_a, _b), max(_a, _b))
         switch (type) {
@@ -267,12 +268,12 @@ struct Node {
         hash += type;
 #undef minmax
     }
-    inline constexpr bool valid(const int& a, const int& b) const {
+    inline constexpr bool valid(const int &a, const int &b) const {
         if (a == 0) return b > 1;
         if (a == 2) return b < 2;
         return true;
     }
-    bool operator<(const Node& rhs) const { return hash < rhs.hash; }
+    bool operator<(const Node &rhs) const { return hash < rhs.hash; }
 };
 inline void decode(u64 hash) {
 #define _decode(val, n)          \
@@ -307,7 +308,7 @@ int main() {
         s.merge(decltype(s){CALC(v[0], v[1], v[2], v[3])});
     } while (next_permutation(v.begin(), v.end()));
     int cnt = 0;
-    for (const auto& [hash, data] : s)
+    for (const auto &[hash, data] : s)
         if (abs(data - 24) <= 1e-7) {
             ++cnt;
         }

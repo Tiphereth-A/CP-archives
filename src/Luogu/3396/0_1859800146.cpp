@@ -10,7 +10,8 @@ int main() {
     cin >> n >> m;
     _for(i, 1, n) cin >> a[i];
     int block_len = sqrt(n);
-    _for(i, 1, n) _for(p, 1, block_len) block[p][i % p] += a[i];
+    _for(i, 1, n)
+        _for(p, 1, block_len) block[p][i % p] += a[i];
     char op;
     i64 x, y;
     _for(i, 1, m) {

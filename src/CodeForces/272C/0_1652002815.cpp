@@ -2,7 +2,7 @@
 using namespace std;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 template <class T>
-T chkmax(T& a, T b) { return a < b ? a = b : a; }
+T chkmax(T &a, T b) { return a < b ? a = b : a; }
 const uint32_t N = 1e5 + 5;
 int64_t h[N];
 int main() {

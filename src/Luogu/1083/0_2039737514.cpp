@@ -9,7 +9,7 @@ const int SIZ = 1 << 21 | 1;
 char *iS, *iT, ibuff[SIZ], fu[110], c;
 int fr;
 template <class Type>
-inline void read(Type& x) {
+inline void read(Type &x) {
     Type y = 1;
     for (c = gc(); (c > '9' || c < '0') && c != '-'; c = gc())
         ;
@@ -18,7 +18,7 @@ inline void read(Type& x) {
         x = x * 10 + (c & 15);
     x *= y;
 }
-} // namespace fastIO
+}  // namespace fastIO
 using namespace fastIO;
 int n, m, r[N], s[N], t[N], d[N], diff[N];
 bool inline judge(int x) {

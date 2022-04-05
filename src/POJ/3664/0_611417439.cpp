@@ -3,8 +3,8 @@
 struct node {
     int f, s, id;
 } c[50005];
-bool cmp1(const node& lhs, const node& rhs) { return lhs.f > rhs.f; }
-bool cmp2(const node& lhs, const node& rhs) { return lhs.s > rhs.s; }
+bool cmp1(const node &lhs, const node &rhs) { return lhs.f > rhs.f; }
+bool cmp2(const node &lhs, const node &rhs) { return lhs.s > rhs.s; }
 int main() {
     int n, k;
     scanf("%d%d", &n, &k);

@@ -7,7 +7,8 @@ class Floyd {
     graph_t spath[N][N];
 
   public:
-    Floyd(std::size_t _n = N - 1) : n(_n) {
+    Floyd(std::size_t _n = N - 1):
+        n(_n) {
         memset(spath, 0x3f, sizeof(spath));
         for (std::size_t i = 1; i <= n; ++i) spath[i][i] = 0;
     }
@@ -20,7 +21,7 @@ class Floyd {
                 for (std::size_t j = 1; j <= n; ++j)
                     if (spath[i][k] + spath[k][j] < spath[i][j]) spath[i][j] = spath[i][k] + spath[k][j];
     }
-    const graph_t& operator()(std::size_t from, std::size_t to) { return spath[from][to]; }
+    const graph_t &operator()(std::size_t from, std::size_t to) { return spath[from][to]; }
 };
 Floyd<> f;
 bool judge(long long k, long long l, long long b) {

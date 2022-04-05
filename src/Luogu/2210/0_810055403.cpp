@@ -21,13 +21,15 @@ uniform_real_distribution<temperature_type> p_gen(0, 1);
 const temperature_type delta_T = 1 - 1e-2;
 const temperature_type initial_T = 10000;
 const temperature_type minimum_T = 1e-3;
-inline fit_type fitness(const data_seq_type& seq) {
+inline fit_type fitness(const data_seq_type &seq) {
     fit_type ans(0);
-    _for(i, 1, n) _for(j, i + 1, n) if (graph[i][j]) ans += abs(seq[i - 1] - seq[j - 1]);
+    _for(i, 1, n)
+        _for(j, i + 1, n)
+            if (graph[i][j]) ans += abs(seq[i - 1] - seq[j - 1]);
     return ans;
 }
-inline void swap_two_elements(data_seq_type& seq, const index_type& x, const index_type& y) { iter_swap(seq.begin() + x, seq.begin() + y); }
-inline pair<index_type, index_type> swap_two_elements_randomly(data_seq_type& seq) {
+inline void swap_two_elements(data_seq_type &seq, const index_type &x, const index_type &y) { iter_swap(seq.begin() + x, seq.begin() + y); }
+inline pair<index_type, index_type> swap_two_elements_randomly(data_seq_type &seq) {
     index_type x, y;
     do {
         x = idx_gen(g) % seq.size();
@@ -36,8 +38,8 @@ inline pair<index_type, index_type> swap_two_elements_randomly(data_seq_type& se
     swap_two_elements(seq, x, y);
     return make_pair(x, y);
 }
-inline bool accept(const fit_type& delta_fitness, const temperature_type& now_T) { return delta_fitness <= 0 || exp(-delta_fitness) / now_T > p_gen(g); }
-fit_type main_seq(data_seq_type& ans_seq) {
+inline bool accept(const fit_type &delta_fitness, const temperature_type &now_T) { return delta_fitness <= 0 || exp(-delta_fitness) / now_T > p_gen(g); }
+fit_type main_seq(data_seq_type &ans_seq) {
     fit_type ans = fitness(ans_seq), now_ans;
     index_type x, y;
     for (temperature_type T = initial_T; T > minimum_T; T *= delta_T) {
@@ -50,7 +52,7 @@ fit_type main_seq(data_seq_type& ans_seq) {
     }
     return ans;
 }
-} // namespace Simulated_annealing
+}  // namespace Simulated_annealing
 int main() {
     cin >> n;
     _for(i, 1, n, x, y, z) {
