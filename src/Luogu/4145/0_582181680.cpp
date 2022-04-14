@@ -34,7 +34,7 @@ int main() {
         if (o)
             printf("%lld\n", qry(y) - qry(x - 1));
         else
-            for (rgi i = x; i <= y;) {
+            for (int i = x; i <= y;) {
                 mdf(i, (tmp = sqrt(a[i])) - a[i]);
                 fa[i] = ((a[i] = tmp) <= 1) ? i + 1 : i;
                 i = (find(i) == i) ? i + 1 : fa[i];

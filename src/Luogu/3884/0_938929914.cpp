@@ -43,7 +43,7 @@ int main() {
         answ = Max(answ, ++wid[tmpd]);
     }
     _for(i, 1, n)
-        for (rgi j = 1; (1 << j) <= dep[i]; ++j) f[j][i] = f[j - 1][f[j - 1][i]];
+        for (int j = 1; (1 << j) <= dep[i]; ++j) f[j][i] = f[j - 1][f[j - 1][i]];
     scanf("%d%d", &tmp1, &tmp2);
     int tmp3 = lca(tmp1, tmp2);
     printf("%d\n%d\n%d\n", ansd + 1, answ, dep[tmp1] * 2 + dep[tmp2] - dep[tmp3] * 3);

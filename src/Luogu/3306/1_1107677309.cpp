@@ -153,7 +153,7 @@ struct hash {
     }
     inline int find(int val) {
         int k = val % MOD;
-        for (rgi i = head[k]; ~i; i = next[i])
+        for (int i = head[k]; ~i; i = next[i])
             if (list[i] == val) return id[i];
         return -1;
     }

@@ -8,11 +8,11 @@ using namespace std;
 int P[10001];
 int I[10001];
 int Min, Leaf;
-void dfs(int inline, int ir, int pl, int pr, int value) {
-    int f = inline, L, R;
+void dfs(int il, int ir, int pl, int pr, int value) {
+    int f = il, L, R;
     while (I[f] != P[pr]) ++f;
-    if (f > inline) dfs(inline, f - 1, pl, pl + f - inline - 1, value + P[pr]);
-    if (f < ir) dfs(f + 1, ir, pl + f - inline, pr - 1, value + P[pr]);
+    if (f > il) dfs(il, f - 1, pl, pl + f - il - 1, value + P[pr]);
+    if (f < ir) dfs(f + 1, ir, pl + f - il, pr - 1, value + P[pr]);
     if (pl == pr) {
         if (Min > P[pl] + value) {
             Min = P[pl] + value;

@@ -82,7 +82,7 @@ inline void dijkstra(int s) {
         int now = minPos[1];
         int valNow = dis[now];
         modify(now, INF_I32);
-        for (rgi i = head[now]; i; i = e[i].next) {
+        for (int i = head[now]; i; i = e[i].next) {
             int v = e[i].to, val = e[i].val;
             if (valNow + val < dis[v]) {
                 dis[v] = valNow + val;

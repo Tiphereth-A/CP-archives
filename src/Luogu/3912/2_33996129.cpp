@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define inline __inline__ __attribute__((always_inline))
+
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, ch;
 int p, p3 = -1;

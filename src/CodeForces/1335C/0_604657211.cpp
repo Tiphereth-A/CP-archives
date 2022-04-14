@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define i32_r int
-#define inline __inline__ __attribute__((always_inline))
+
 #define SYNC std::ios::sync_with_stdio(false)
 #define UNTIE std::cin.tie(0), std::cout.tie(0)
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
