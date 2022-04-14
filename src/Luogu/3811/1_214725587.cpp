@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int maxn = 3e6 + 5;
+const int MAXN = 3e6 + 5;
 typedef long long ll;
-ll inv[maxn];
+ll inv[MAXN];
 int main() {
     ios::sync_with_stdio(false);
     cout.tie(nullptr);

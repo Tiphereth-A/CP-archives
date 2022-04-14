@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-const int maxn = 200000 + 10;
-int a[maxn], g[maxn];
+const int MAXN = 200000 + 10;
+int a[MAXN], g[MAXN];
 struct node {
     node *left, *right;
     int w, n;

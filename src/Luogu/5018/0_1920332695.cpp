@@ -80,7 +80,7 @@ bool chk(int l, int r) {
     return 0;
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int n;
@@ -98,7 +98,7 @@ int main() {
         if (chk(son[i].l, son[i].r)) ans = max(ans, sz[i]);
     printf("%d", ans);
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

@@ -2,7 +2,6 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
 #define MAXN 1005
 #define sstr stringstream
 #define _for(i, l, r) for (int i = (l); i <= (r); i++)

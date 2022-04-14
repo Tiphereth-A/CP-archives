@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
 #define tpn typename

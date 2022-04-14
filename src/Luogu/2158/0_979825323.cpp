@@ -1,10 +1,9 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 
-
-const int maxn = 40000 + 10;
+const int MAXN = 40000 + 10;
 using namespace std;
-ll e[maxn];
+ll e[MAXN];
 int main() {
     int n;
     scanf("%d", &n);

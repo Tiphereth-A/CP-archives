@@ -10,16 +10,16 @@ bool isp(int n) {
     return false;
 }
 int main() {
-    int a[26] = {0}, maxn = 0, minn = 1000;
+    int a[26] = {0}, MAXN = 0, minn = 1000;
     char c;
     while ((c = getchar()) != EOF) a[c - 'a']++;
     for (int i = 0; i < 26; i++) {
-        maxn = max(maxn, a[i]);
+        MAXN = max(MAXN, a[i]);
         if (a[i]) minn = min(minn, a[i]);
     }
-    if (isp(maxn - minn))
+    if (isp(MAXN - minn))
         cout << "Lucky Word" << endl
-             << maxn - minn;
+             << MAXN - minn;
     else
         cout << "No Answer" << endl
              << 0;

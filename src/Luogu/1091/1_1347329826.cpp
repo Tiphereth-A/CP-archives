@@ -25,7 +25,7 @@ inline void read(A &x) {
 const int M = 100005;
 const int N = 105;
 const int INF = 0x7fffffff;
-int n, a[N], f[N], g[N], maxn;
+int n, a[N], f[N], g[N], MAXN;
 inline int lis(int f, int l) {
     int g[N] = {0};
     int len = 1;
@@ -57,8 +57,8 @@ int main() {
     _for(i, 1, n) read(a[i]);
     _for(i, 1, n) {
         f[i] = lis(1, i) + lis(n, i) - 1;
-        maxn = Max(maxn, f[i]);
+        MAXN = Max(MAXN, f[i]);
     }
-    printf("%d", n - maxn);
+    printf("%d", n - MAXN);
     return 0;
 }

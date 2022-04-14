@@ -2,8 +2,7 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 10010
+#define MAXN 10010
 using namespace std;
 int main() {
     int t, l, r, ans = 0;

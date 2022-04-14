@@ -45,8 +45,8 @@ inline void print(T x, T2... oth) {
 }  // namespace FastIO
 #define read FastIO::read
 #define print FastIO::print
-const int maxn = 1e4 + 5;
-int fa[maxn], rank[maxn];
+const int MAXN = 1e4 + 5;
+int fa[MAXN], rank[MAXN];
 int find(int x) { return fa[x] == x ? x : fa[x] = find(fa[fa[fa[fa[fa[fa[fa[fa[x]]]]]]]]); }
 inline void merge(int x, int y) {
     if ((x = find(x)) == (y = find(y))) return;
@@ -59,9 +59,7 @@ inline void merge(int x, int y) {
     fa[find(x)] = find(y);
 }
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("in.in", "r", stdin);
-    freopen("out.out", "w", stdout);
+#ifdef _LOCAL_
 #endif
     int n, m, opt, x, y;
     read(n, m);

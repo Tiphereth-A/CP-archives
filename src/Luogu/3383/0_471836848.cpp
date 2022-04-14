@@ -1,11 +1,10 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 
-
-#define maxn 10000010
+#define MAXN 10000010
 using namespace std;
-bool noprime[maxn];
-int p[maxn], f[maxn];
+bool noprime[MAXN];
+int p[MAXN], f[MAXN];
 void get_prime(int m) {
     int pnum = 0;
     for (int i = 2; i < m; i++) {

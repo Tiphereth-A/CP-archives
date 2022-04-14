@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
-const int maxn = 20000 + 10;
+const int MAXN = 20000 + 10;
 using namespace std;
 struct bign {
-    int len, s[maxn];
+    int len, s[MAXN];
     bign() {
         memset(s, 0, sizeof(s));
         len = 1;
@@ -14,7 +14,7 @@ struct bign {
         *this = num;
     }
     bign operator=(int num) {
-        char s[maxn];
+        char s[MAXN];
         sprintf(s, "%d", num);
         *this = s;
         return *this;
@@ -116,9 +116,7 @@ ostream &operator<<(ostream &out, const bign &x) {
 }
 int n;
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     cin >> n;
@@ -127,7 +125,7 @@ int main() {
         b = b * 2;
     b = b - 2;
     cout << b;
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

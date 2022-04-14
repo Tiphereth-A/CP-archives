@@ -1,9 +1,7 @@
 #include <bits/stdc++.h>
 long long a, b = 1, c = 1;
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     int n;
@@ -14,7 +12,7 @@ int main() {
         c = a + b;
     }
     std::cout << a << ".00";
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

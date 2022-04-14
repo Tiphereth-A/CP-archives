@@ -2,13 +2,12 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 100010
+#define MAXN 100010
 using namespace std;
 struct people {
     short f;
     string s;
-} p[maxn];
+} p[MAXN];
 int main() {
     int n, m, a, s, now = 1;
     cin >> n >> m;

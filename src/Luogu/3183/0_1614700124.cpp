@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
 #define UNTIE std::cin::tie(0), std::cout::tie(0)
@@ -122,9 +121,7 @@ i64 dfs(i64 pos) {
     return f[pos];
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     read(n, m);
@@ -142,7 +139,7 @@ int main() {
     print(ans);
 ex:
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

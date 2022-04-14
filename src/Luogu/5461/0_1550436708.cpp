@@ -2,7 +2,6 @@
 #include <bits/stdc++.h>
 #ifdef __DEF__
 
-
 #define tpn typename
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
@@ -93,9 +92,7 @@ void dfs(int dep) {
     dfs(dep + 1);
 }
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     read(n);
@@ -104,7 +101,7 @@ int main(int argc, char const *argv[]) {
         for (int j = (1 << n) - 1; j >= 0; --j) printf("%d ", map[i][j]);
         _pc('\n');
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "Time:" << clock() - c1 << std::endl;
 #endif
     return 0;

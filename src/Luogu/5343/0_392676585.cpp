@@ -2,7 +2,6 @@
 #include <bits/stdc++.h>
 #ifdef __DEF__
 
-
 #define tpn typename
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
@@ -117,9 +116,7 @@ inline void pow(mat a, i64 b, col_vector &ret) {
         if (b & 1) ret *= a;
 }
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     int k, p;
@@ -158,7 +155,7 @@ int main(int argc, char const *argv[]) {
         print(dp.num[100]);
     }
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "Time:" << clock() - c1 << std::endl;
 #endif
     return 0;

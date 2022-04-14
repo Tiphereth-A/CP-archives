@@ -26,8 +26,6 @@ bool chk(int l, int r) {
 }
 int n, ans;
 int main() {
-    freopen("tree.in", "r", stdin);
-    freopen("tree.out", "w", stdout);
     scanf("%d", &n);
     _for(i, 1, n) scanf("%d", v + i);
     _for(i, 1, n) scanf("%d%d", &son[i].l, &son[i].r);

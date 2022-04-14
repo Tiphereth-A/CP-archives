@@ -10,7 +10,7 @@ T qpow(T a, T b, T mod) {
     return res;
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     i64 a, m;
@@ -33,7 +33,7 @@ int main() {
         }
     }
     cout << qpow(a, b + flag * mod, m);
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

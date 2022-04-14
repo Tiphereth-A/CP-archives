@@ -26,7 +26,7 @@ i64 dfs(int l, int r, int x, i64 p) {
     return qpow(w[x], dfs(l, r, x + 1, phi[p]), p);
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int n, m;
@@ -46,7 +46,7 @@ int main() {
         printf("%lld\n", dfs(l, r, l, m) % m);
     __end_kase:;
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

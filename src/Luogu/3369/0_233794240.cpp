@@ -45,7 +45,7 @@ size_t op[N];
 ptrdiff_t a[N];
 ptrdiff_t rk[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     ios::sync_with_stdio(false);
@@ -80,7 +80,7 @@ int main() {
                 cout << rk[min(tr.suc(a[i]), len_rk)] << endl;
                 break;
         }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

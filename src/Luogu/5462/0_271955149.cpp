@@ -2,7 +2,6 @@
 #include <bits/stdc++.h>
 #ifdef __DEF__
 
-
 #define tpn typename
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
@@ -138,7 +137,7 @@ void modify(int p, int l, int r, int target, const node &a) {
         modify(_rch, mid + 1, r, target, a);
     push_up(p);
 }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
 void debug(int p) {
     if (!p) return;
     std::cerr << p << ":{" << tree[p].val.first << ", " << tree[p].val.second << ", " << tree[p].val.pos << "}, ";
@@ -182,9 +181,7 @@ inline void del(const int &p, const int &pre, const int &suc) {
     id[p].suc = id[suc].suc;
 }
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out2.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     read(n);
@@ -213,7 +210,7 @@ int main(int argc, char const *argv[]) {
     Seg::tree[1].pt();
     --FastIO::p3;
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "Time:" << clock() - c1 << std::endl;
 #endif
     return 0;

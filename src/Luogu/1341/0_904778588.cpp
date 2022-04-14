@@ -77,7 +77,7 @@ void dfs(int now) {
 }
 int d[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     ios::sync_with_stdio(false);
@@ -104,7 +104,7 @@ int main() {
     dfs(start);
     cout << ans << '\n';
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

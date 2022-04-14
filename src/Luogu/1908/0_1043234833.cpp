@@ -87,9 +87,7 @@ void merge_sort(int l = 1, int r = n) {
     memcpy(a + l, b + l, sizeof(int) * (r - l + 1));
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     read(n);
@@ -98,7 +96,7 @@ int main() {
     merge_sort();
     print(cnt);
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

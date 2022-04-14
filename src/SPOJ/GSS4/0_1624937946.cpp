@@ -2,7 +2,6 @@
 #include <cstdio>
 #include <cstring>
 
-
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 #define _mem(a) memset(a, 0, sizeof(a))

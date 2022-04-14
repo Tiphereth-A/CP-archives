@@ -17,15 +17,13 @@ long long find(long long a, long long b, long long c) {
     }
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     while ((std::cin >> a >> b >> c), (~a || ~b || ~c)) {
         printf("w(%lld, %lld, %lld) = %lld\n", a, b, c, find(a, b, c));
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

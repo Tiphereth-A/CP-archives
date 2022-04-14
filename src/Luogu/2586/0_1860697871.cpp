@@ -56,7 +56,7 @@ struct ANT {
     void add_age() { ++age; }
     void leave_msg() { msg[x_now][y_now] += taking_cake ? 5 : 2; }
     void move() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
         puts("-----");
 #endif
         int msg_max = -1;
@@ -64,7 +64,7 @@ struct ANT {
         int dir_final = 0;
         for (int i = 0; i <= 3; ++i) {
             int x_tmp = x_now + dx[i], y_tmp = y_now + dy[i];
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
             printf("%d %d\n", x_tmp, y_tmp);
 #endif
             if (!check_block_valid(x_tmp, y_tmp))
@@ -83,7 +83,7 @@ struct ANT {
                 if (dir_tmp < 0)
                     dir_tmp += 4;
                 int x_tmp = x_now + dx[dir_tmp], y_tmp = y_now + dy[dir_tmp];
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
                 printf("%d %d\n", x_tmp, y_tmp);
 #endif
                 if (!check_block_valid(x_tmp, y_tmp))
@@ -226,9 +226,7 @@ void debug() {
     puts("");
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("P2586.in", "r", stdin);
-    freopen("P2586.out", "w", stdout);
+#ifdef _LOCAL_
 #endif
     scanf("%d%d%d%d%d", &n, &m, &s, &d, &r);
     r_sqr = 1ll * r * r;
@@ -262,7 +260,7 @@ int main() {
         }
         _T_ANT(i) { ant[i].add_age(); }
         dec_msg();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
         printf("#%d\n", time_passed);
         debug();
 #endif

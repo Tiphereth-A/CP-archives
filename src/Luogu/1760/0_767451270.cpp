@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-
 #define sstr stringstream
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rfor(i, r, l) for (int i = (r); i >= (l); --i)

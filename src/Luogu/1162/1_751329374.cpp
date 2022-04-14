@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 typedef long long ll;
-#define maxn 33
+#define MAXN 33
 typedef unsigned long long ull;
 
 #define _for(i, m, n) for (int i = m; i <= n; i++)
 #define _rfor(i, m, n) for (int i = m; i >= n; i--)
 
 using namespace std;
-int f[maxn][maxn], n;
+int f[MAXN][MAXN], n;
 void dfs(int x, int y) {
     f[x][y] = 2;
     if (x > 0 && y + 1 > 0 && x <= n && y + 1 <= n && f[x][y + 1] == 0)

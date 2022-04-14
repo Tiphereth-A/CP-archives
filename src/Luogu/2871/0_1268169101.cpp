@@ -5,9 +5,7 @@ using std::endl;
 const int N = 2e5 + 5;
 long long V, n, v[N], w[N], f[N];
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     cin >> n >> V;
@@ -20,7 +18,7 @@ int main() {
                 f[j] = std::max(f[j], f[j - w[i]] + v[i]);
         }
     cout << f[V];
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

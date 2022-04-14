@@ -4,7 +4,6 @@
 #endif
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 
-
 #define tpn typename
 #if 0
 #define _rfor(i, r, l) for (int i = (r); i >= (l); --i)

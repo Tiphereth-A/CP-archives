@@ -92,9 +92,7 @@ i64 del(int p) {
 using mo::add;
 using mo::del;
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
 #endif
     read(n, m, k);
     sqrt_n = sqrt(n);

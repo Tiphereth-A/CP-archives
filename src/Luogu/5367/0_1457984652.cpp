@@ -41,7 +41,7 @@ size_t main(size_t n, const size_t a[]) {
 const size_t N = 1e6 + 5;
 size_t n, a[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     ios::sync_with_stdio(false);
@@ -50,7 +50,7 @@ int main() {
     cin >> n;
     for (size_t i = 1; i <= n; ++i) cin >> a[i];
     cout << Cantor_expansion::main(n, a);
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

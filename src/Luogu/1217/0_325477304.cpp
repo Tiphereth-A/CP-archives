@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 
-
-const int maxn = 5000 + 10;
+const int MAXN = 5000 + 10;
 using namespace std;
 int p[] = {
     5,

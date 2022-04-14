@@ -4,7 +4,6 @@
 #define _for(i, l, r) for (int(i) = (l); (i) <= (r); ++(i))
 #define _rfor(i, l, r) for (int(i) = (l); (i) >= (r); --(i))
 
-
 typedef long long ll;
 typedef unsigned long long ull;
 #define max(a, b) (((a) > (b)) ? (a) : (b))

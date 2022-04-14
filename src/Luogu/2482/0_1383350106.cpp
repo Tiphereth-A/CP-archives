@@ -140,7 +140,7 @@ void dead(int now_player, int from_player) {
     if (now->dead)
         return;
     if (now->health <= 0) {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
         if (now->health < 0) {
             std::cerr << "the health of player " << now_player
                       << " is less than 0 ("
@@ -380,10 +380,7 @@ void debug() {
 }  // namespace main_action
 using namespace main_action;
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
-    freopen("D:\\code\\IO\\err.err", "w", stderr);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     cin >> n >> m;
@@ -419,7 +416,7 @@ int main() {
     for (int i = MP_pos; 1; i = pigs[i].next_player) {
         get_cards(i, 2);
         action(i);
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
         if (i == MP_pos)
             std::cerr << "\nRound " << ++cnt << ":";
         std::cerr << "\nTime for " << i << ":\n";
@@ -429,7 +426,7 @@ int main() {
             break;
     }
     print_result();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "Time:" << clock() - c1 << std::endl;
 #endif
     return 0;

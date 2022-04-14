@@ -3,8 +3,8 @@
 #include <cstring>
 #include <iostream>
 using namespace std;
-const int maxn = 105;
-int d[maxn][maxn];
+const int MAXN = 105;
+int d[MAXN][MAXN];
 bool check(int a, int b, int c) {
     long long sum = 0;
     for (int i = 1; i <= b; i++) {
@@ -14,8 +14,6 @@ bool check(int a, int b, int c) {
     return true;
 }
 int main() {
-#ifdef LOCAL freopen("in.in", "r", stdin); freopen("out.out", "w", stdout);
-#endif
     int n, m, q;
     cin >> n >> m;
     memset(d, 0x3f, sizeof(d));

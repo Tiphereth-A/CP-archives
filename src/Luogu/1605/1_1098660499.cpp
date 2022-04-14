@@ -2,8 +2,7 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 10010
+#define MAXN 10010
 bool f[105][105];
 int n, m, t, sx, sy, fx, fy;
 int sum;

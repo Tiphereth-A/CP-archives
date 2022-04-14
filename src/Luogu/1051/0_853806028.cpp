@@ -8,7 +8,7 @@ struct stu {
     int sch;
 } m[110];
 int main() {
-    int n, maxn = -1, sum = 0, j = 0;
+    int n, MAXN = -1, sum = 0, j = 0;
     cin >> n;
     for (int i = 1; i <= n; i++) {
         cin >> m[i].name >> m[i].s1 >> m[i].s2 >> m[i].f1 >> m[i].f2 >> m[i].p;
@@ -18,13 +18,13 @@ int main() {
         if (m[i].s1 > 85 && m[i].f2 == 'Y') m[i].sch += 1000;
         if (m[i].s2 > 80 && m[i].f1 == 'Y') m[i].sch += 850;
         sum += m[i].sch;
-        if (maxn < m[i].sch) {
-            maxn = m[i].sch;
+        if (MAXN < m[i].sch) {
+            MAXN = m[i].sch;
             j = i;
         }
     }
     cout << m[j].name << endl
-         << maxn << endl
+         << MAXN << endl
          << sum;
     return 0;
 }

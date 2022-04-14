@@ -14,22 +14,22 @@ int main() {
     }
     int xb[1005] = {0}, yb[1005] = {0};
     for (int i = 1; i <= k; i++) {
-        int maxn = -1;
+        int MAXN = -1;
         int p;
         for (int j = 1; j <= m; j++)
-            if (y[j] > maxn) {
-                maxn = y[j];
+            if (y[j] > MAXN) {
+                MAXN = y[j];
                 p = j;
             }
         xb[p]++;
         y[p] = 0;
     }
     for (int i = 1; i <= l; i++) {
-        int maxn = -1;
+        int MAXN = -1;
         int p;
         for (int j = 1; j <= m; j++)
-            if (x[j] > maxn) {
-                maxn = x[j];
+            if (x[j] > MAXN) {
+                MAXN = x[j];
                 p = j;
             }
         yb[p]++;

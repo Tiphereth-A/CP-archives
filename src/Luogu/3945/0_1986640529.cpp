@@ -2,8 +2,7 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 35
+#define MAXN 35
 #define g 6.67408e-11
 #define t0 0.01
 #define fps 100
@@ -18,8 +17,8 @@ struct point {
     void write() {
         printf("%.12lf %.12lf %.12lf\n", x, y, z);
     }
-} p[maxn], v[maxn];
-double m[maxn];
+} p[MAXN], v[MAXN];
+double m[MAXN];
 void operator+=(point &a, const point &b) {
     a.x += b.x, a.y += b.y, a.z += b.z;
 }

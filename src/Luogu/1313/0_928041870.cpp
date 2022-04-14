@@ -1,10 +1,9 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 
-
-const int maxn = 5000 + 10;
+const int MAXN = 5000 + 10;
 const int mod = 10007;
-int c[maxn][maxn];
+int c[MAXN][MAXN];
 using namespace std;
 int power(ll x, int k) {
     long long ans = 1;

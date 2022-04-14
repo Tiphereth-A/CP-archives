@@ -3,7 +3,7 @@ using namespace std;
 const int N = 405;
 int c[N], f[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
 #define _(a)      \
@@ -25,7 +25,7 @@ int main() {
         _(f);
     }
     printf("%.12lf", ans);
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

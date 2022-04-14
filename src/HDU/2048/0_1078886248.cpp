@@ -70,7 +70,7 @@ T qpow(T a, T b, T mod = MOD) {
 }
 i64 frac[25] = {1};
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     _for(i, 1, 20) frac[i] = frac[i - 1] * i;
@@ -88,7 +88,7 @@ int main() {
     __end_kase:;
     }
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

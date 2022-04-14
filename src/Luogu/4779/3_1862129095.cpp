@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _lch(p) ((p) << 1)
 #define _rch(p) ((p) << 1 | 1)

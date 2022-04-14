@@ -2,12 +2,11 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 1000005
+#define MAXN 1000005
 using namespace std;
 struct t {
     int start, end;
-} p[maxn];
+} p[MAXN];
 bool cmp(t a, t b) {
     return a.end < b.end;
 }

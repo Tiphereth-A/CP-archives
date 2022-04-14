@@ -22,9 +22,7 @@ void f_i(int pos) {
     f_i(t[pos].r);
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     int n;
@@ -46,7 +44,7 @@ int main() {
         }
     }
     f_i(id[r]);
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

@@ -6,9 +6,7 @@ const int N = 1e4 + 5;
 int fa[N];
 int find(int x) { return x == fa[x] ? x : fa[x] = find(fa[fa[fa[fa[x]]]]); }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     int n, m;
@@ -27,7 +25,7 @@ int main() {
         }
         cout << ans << endl;
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

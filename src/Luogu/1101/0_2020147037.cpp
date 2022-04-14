@@ -2,10 +2,9 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 105
-char f[maxn][maxn];
-bool flag[maxn][maxn];
+#define MAXN 105
+char f[MAXN][MAXN];
+bool flag[MAXN][MAXN];
 char c[6] = {'i', 'z', 'h', 'o', 'n', 'g'};
 int d[8][2] = {{1, 0}, {0, 1}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}, {0, -1}, {-1, 0}};
 int n, dx, dy;

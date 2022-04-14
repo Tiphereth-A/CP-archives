@@ -16,7 +16,7 @@ typedef pair<int, int> pii;
 vector<pii> ans;
 queue<int> tmp;
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     init_prime();
@@ -53,7 +53,7 @@ int main() {
         for (auto it = ans.begin(); it != ans.end(); ++it) printf("%d %d%c", it->first, it->second, " \n"[it == ans.end() - 1]);
         ans.clear();
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

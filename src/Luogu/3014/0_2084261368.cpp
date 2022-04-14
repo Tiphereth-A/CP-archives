@@ -103,7 +103,7 @@ const size_t N = 1e6 + 5;
 size_t n, q;
 size_t a[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     ios::sync_with_stdio(false);
@@ -123,7 +123,7 @@ int main() {
             cout << Cantor_expansion::main(n, a) << endl;
         }
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

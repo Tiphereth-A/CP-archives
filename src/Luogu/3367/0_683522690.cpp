@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-
 #define M 10005
 #define _for(i, l, r) for (int i = (l); i <= (r); i++)
 #define merge(x, y) pre[find(x)] = find(y)

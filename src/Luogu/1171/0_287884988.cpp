@@ -7,9 +7,7 @@ const int N = 20;
 int n;
 int map[N][N], f[1 << N][N];
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     memset(f, 0x3f, sizeof f);
@@ -33,7 +31,7 @@ int main() {
         ans = min(ans, f[(1 << n) - 1][i] + map[i][0]);
     }
     cout << ans;
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

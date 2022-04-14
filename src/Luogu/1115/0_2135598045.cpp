@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     int n;
@@ -14,7 +12,7 @@ int main() {
         sum = std::max(sum, 0ll);
     }
     std::cout << ans;
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

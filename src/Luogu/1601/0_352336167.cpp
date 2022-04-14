@@ -2,11 +2,10 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 10000
+#define MAXN 10000
 using namespace std;
 struct f {
-    int len, n[maxn];
+    int len, n[MAXN];
     f() {
         memset(n, 0, sizeof(n));
         len = 1;
@@ -17,7 +16,7 @@ struct f {
         return *this;
     }
     f operator=(const int num) {
-        char a[maxn];
+        char a[MAXN];
         sprintf(a, "%d", num);
         *this = a;
         return *this;
@@ -57,7 +56,7 @@ ostream &operator<<(ostream &out, const f &x) {
     return out;
 }
 istream &operator>>(istream &in, f &x) {
-    char num[maxn];
+    char num[MAXN];
     in >> num;
     x = num;
     return in;

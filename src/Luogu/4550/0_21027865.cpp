@@ -2,7 +2,6 @@
 #include <bits/stdc++.h>
 #ifdef __DEF__
 
-
 #define tpn typename
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
@@ -86,10 +85,7 @@ const int MOD = 998244353;
 const db EPS = 1e-6;
 db a[N], b[N];
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
-    freopen("D:\\code\\IO\\err.err", "w", stderr);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     int n;
@@ -100,7 +96,7 @@ int main(int argc, char const *argv[]) {
     }
     printf("%.2lf", (a[0] + b[0]) / 2);
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "Time:" << clock() - c1 << std::endl;
 #endif
     return 0;

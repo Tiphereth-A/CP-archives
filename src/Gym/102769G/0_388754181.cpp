@@ -9,7 +9,7 @@ int qpow(int a, int b) {
     return res;
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int _kase;
@@ -29,7 +29,7 @@ int main() {
         }
         print(kase, cnt);
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

@@ -130,7 +130,7 @@ class ACAM {
 ACAM<> acam;
 int e[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int n;
@@ -143,7 +143,7 @@ int main() {
     cin >> str;
     cout << acam.query(str);
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

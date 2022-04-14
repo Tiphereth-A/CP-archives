@@ -4,9 +4,7 @@ using std::cout;
 using std::endl;
 long long n, p, w, d;
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     cin >> n >> p >> w >> d;
@@ -22,7 +20,7 @@ int main() {
         cout << -1;
     else
         cout << x << " " << y << " " << n - x - y;
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

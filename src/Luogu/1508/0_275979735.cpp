@@ -25,7 +25,7 @@ inline void read(A &a, B &b) {
     read(a), read(b);
 }
 const int N = 205;
-int n, m, a[N][N], f[N][N], maxn;
+int n, m, a[N][N], f[N][N], MAXN;
 int main() {
     read(n, m);
     int pos = (m >> 1) + 1;
@@ -34,7 +34,7 @@ int main() {
         _for(j, 1, m) read(a[i][j]);
     _for(i, 1, n)
         _for(j, 1, m) f[i][j] = a[i][j] + Max(f[i - 1][j + 1], Max(f[i - 1][j], f[i - 1][j - 1]));
-    maxn = Max(Max(f[n][pos], f[n][pos - 1]), f[n][pos + 1]);
-    printf("%d", maxn);
+    MAXN = Max(Max(f[n][pos], f[n][pos - 1]), f[n][pos + 1]);
+    printf("%d", MAXN);
     return 0;
 }

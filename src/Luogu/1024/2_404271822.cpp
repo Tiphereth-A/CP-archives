@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 
-
-const int maxn = 2000 + 10;
+const int MAXN = 2000 + 10;
 double x[4];
 using namespace std;
 int main() {

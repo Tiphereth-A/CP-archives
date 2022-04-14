@@ -2,7 +2,6 @@
 #include <bits/stdc++.h>
 #ifdef __DEF__
 
-
 #define tpn typename
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
@@ -130,10 +129,7 @@ void merge_alay(int x, int y) {
     fa[find(x + n * 2)] = find(y + n * 2);
 }
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
-    freopen("D:\\code\\IO\\err.err", "w", stderr);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     read(n, k);
@@ -164,7 +160,7 @@ int main(int argc, char const *argv[]) {
     }
     std::cout << ans;
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "Time:" << clock() - c1 << std::endl;
 #endif
     return 0;

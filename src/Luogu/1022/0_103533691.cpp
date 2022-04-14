@@ -2,10 +2,7 @@
 int var_n[2], cst_n[2], num, k, t = 1;
 char var;
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
-    freopen("D:\\code\\IO\\err.err", "w", stderr);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     std::string str;
@@ -45,7 +42,7 @@ int main() {
     else
         printf("%c=%.3lf", var, (double)(var_n[0] - var_n[1]) / (cst_n[1] - cst_n[0]));
     return 0;
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "Time:" << clock() - c1 << std::endl;
 #endif
     return 0;

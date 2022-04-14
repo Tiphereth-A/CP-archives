@@ -7,9 +7,7 @@ const int N = 1e4 + 5;
 int n;
 std::priority_queue<u64, std::vector<u64>, std::greater<u64>> q;
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     cin >> n;
@@ -27,7 +25,7 @@ int main() {
         q.push(a + b);
     }
     cout << ans;
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

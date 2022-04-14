@@ -39,14 +39,14 @@ inline void print(int x) {
 #define read() FastIO::read()
 #define print(x) FastIO::print(x)
 #include <bits/stdc++.h>
-const int maxn = 2e5 + 5;
-int a[maxn];
+const int MAXN = 2e5 + 5;
+int a[MAXN];
 std::vector<int> v;
 inline int getid(int x) { return lower_bound(v.begin(), v.end(), x) - v.begin() + 1; }
 struct Node {
     int l, r, sum;
-} hjt[maxn * 40];
-int cnt, root[maxn];
+} hjt[MAXN * 40];
+int cnt, root[MAXN];
 void insert(int l, int r, int pre, int &now, int p) {
     hjt[++cnt] = hjt[pre];
     now = cnt;
@@ -68,9 +68,7 @@ int query(int l, int r, int L, int R, int k) {
         return query(m + 1, r, hjt[L].r, hjt[R].r, k - tmp);
 }
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("in.in", "r", stdin);
-    freopen("out.out", "w", stdout);
+#ifdef _LOCAL_
 #endif
     clock_t c1 = clock();
     int n = read(), m = read();

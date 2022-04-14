@@ -7,10 +7,7 @@ int stat(int num, int digit) {
     return ans;
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
-    freopen("D:\\code\\IO\\err.err", "w", stderr);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     int n, x;
@@ -20,7 +17,7 @@ int main() {
         ans += stat(i, x);
     }
     std::cout << ans;
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "Time:" << clock() - c1 << std::endl;
 #endif
     return 0;

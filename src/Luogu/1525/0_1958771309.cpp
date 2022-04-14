@@ -2,7 +2,6 @@
 #include <bits/stdc++.h>
 #ifdef __DEF__
 
-
 #define tpn typename
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
@@ -117,10 +116,7 @@ int fa[N], enemy[N];
 int find(int x) { return x == fa[x] ? x : fa[x] = find(fa[x]); }
 void merge(int x, int y) { fa[find(x)] = find(y); }
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
-    freopen("D:\\code\\IO\\err.err", "w", stderr);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     read(n, m);
@@ -144,7 +140,7 @@ int main(int argc, char const *argv[]) {
             merge(enemy[fa[x]], fa[y]);
     }
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "Time:" << clock() - c1 << std::endl;
 #endif
     return 0;

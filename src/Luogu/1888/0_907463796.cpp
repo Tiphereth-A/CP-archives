@@ -21,8 +21,8 @@ int gcd(int a, int b) {
 }
 int main() {
     int a = gi(), b = gi(), c = gi();
-    int maxn = max(a, max(b, c)), minn = min(a, min(b, c));
-    int d = gcd(maxn, minn);
-    cout << minn / d << '/' << maxn / d;
+    int MAXN = max(a, max(b, c)), minn = min(a, min(b, c));
+    int d = gcd(MAXN, minn);
+    cout << minn / d << '/' << MAXN / d;
     return 0;
 }

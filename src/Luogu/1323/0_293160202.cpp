@@ -2,8 +2,7 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 30010;
+#define MAXN 30010;
 using namespace std;
 priority_queue<int, vector<int>, greater<int>> q;
 string ans, s1;

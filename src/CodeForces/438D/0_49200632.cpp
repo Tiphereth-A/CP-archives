@@ -153,7 +153,7 @@ class SegTree {
 i64 a[N];
 SegTree<i64> st;
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int n, m;
@@ -173,7 +173,7 @@ int main() {
             st.modify(l, r);
     }
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

@@ -2,7 +2,6 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
 #define M 100005
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define gi getint

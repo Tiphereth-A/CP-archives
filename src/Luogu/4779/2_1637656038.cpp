@@ -15,10 +15,10 @@ inline void read(T &t, Args &...args) {
 #define rep(I, A, B) for (int I = (A); I <= (B); ++I)
 #define rrep(I, A, B) for (int I = (A); I >= (B); --I)
 #define erep(I, X) for (int I = head[X]; I; I = next[I])
-const int maxn = 1e5 + 100;
+const int MAXN = 1e5 + 100;
 const int maxm = 2e5 + 100;
-int v[maxm], w[maxm], next[maxm], head[maxn], dist[maxn];
-int minval[maxn << 2], minpos[maxn << 2];
+int v[maxm], w[maxm], next[maxm], head[MAXN], dist[MAXN];
+int minval[MAXN << 2], minpos[MAXN << 2];
 int n, m, M, s, tot;
 inline void ae(int x, int y, int z) {
     v[++tot] = y;

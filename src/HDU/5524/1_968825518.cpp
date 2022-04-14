@@ -3,10 +3,10 @@
 #include <iostream>
 using namespace std;
 typedef long long LL;
-const int maxn = 111;
+const int MAXN = 111;
 LL _n;
-LL sum[maxn], f[maxn];
-int vis[maxn];
+LL sum[MAXN], f[MAXN];
+int vis[MAXN];
 LL solve(LL n) {
     int po = 0;
     for (int i = 62; i >= 0; i--) {

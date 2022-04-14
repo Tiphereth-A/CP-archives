@@ -11,7 +11,7 @@ int dfs(int l, int r, int dep) {
     return min(l_ch + dfs(mid + 1, r, dep + 1), r_ch + dfs(l, mid, dep + 1));
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int kase;

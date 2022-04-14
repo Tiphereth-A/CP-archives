@@ -72,7 +72,7 @@ void addEdge(int x, int y, int w = 1) {
 int in[N], out[N];
 i64 neu[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int n, p;
@@ -112,7 +112,7 @@ int main() {
         }
     if (f) puts("NULL");
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

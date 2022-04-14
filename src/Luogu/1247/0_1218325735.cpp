@@ -5,11 +5,11 @@ int a[N];
 int main() {
     int n;
     cin >> n;
-    int maxn = -1, idx = 0, ans = 0;
+    int MAXN = -1, idx = 0, ans = 0;
     for (int i = 1; i <= n; ++i) {
         cin >> a[i];
-        if (maxn < a[i])
-            maxn = a[idx = i];
+        if (MAXN < a[i])
+            MAXN = a[idx = i];
         ans ^= a[i];
     }
     if (!ans) {

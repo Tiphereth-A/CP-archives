@@ -2,10 +2,9 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 44725
+#define MAXN 44725
 using namespace std;
-ll d[maxn];
+ll d[MAXN];
 int f(int low, int high, int t) {
     while (low <= high) {
         int mid = (low + high) / 2;

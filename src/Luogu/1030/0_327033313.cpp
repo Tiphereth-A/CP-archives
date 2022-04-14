@@ -14,15 +14,13 @@ void solve(string m, string l) {
         solve(m.substr(root_pos_m + 1, rch_len), l.substr(lch_len, rch_len));
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     string m, l;
     cin >> m >> l;
     solve(m, l);
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

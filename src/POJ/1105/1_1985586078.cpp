@@ -1,7 +1,7 @@
 #include <stdio.h>
-const int maxn = 128 + 10;
-char terminal[maxn];
-char outcome[maxn];
+const int MAXN = 128 + 10;
+char terminal[MAXN];
+char outcome[MAXN];
 int n;
 char order[8];
 int amount = 0;

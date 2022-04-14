@@ -30,7 +30,7 @@ i64 solve(i64 p) {
     return P[p] = qpow(2, solve(phi[p]) + phi[p], p);
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     init();
@@ -42,7 +42,7 @@ int main() {
         printf("%lld\n", solve(p));
     __end_kase:;
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

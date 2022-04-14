@@ -2,8 +2,7 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 100010
+#define MAXN 100010
 using namespace std;
 ll f[21][21] = {1};
 bool mark[21][21];

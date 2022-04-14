@@ -3,7 +3,7 @@ using namespace std;
 const int N = 2e4 + 5;
 long long cnt[N], sum[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int n;
@@ -22,7 +22,7 @@ int main() {
             return 0;
         }
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

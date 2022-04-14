@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 typedef long long ll;
-#define maxn 405
+#define MAXN 405
 typedef unsigned long long ull;
 
 #define _for(i, m, n) for (int i = m; i <= n; i++)
 #define _rfor(i, m, n) for (int i = m; i >= n; i--)
 
 using namespace std;
-int f[maxn][maxn];
+int f[MAXN][MAXN];
 int m, n;
 void dfs(int x, int y, int step) {
     if (step > 200)

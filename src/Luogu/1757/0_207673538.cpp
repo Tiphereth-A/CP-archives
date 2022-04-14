@@ -10,9 +10,7 @@ struct node {
 } a[N][M];
 int f[M], cnt_a[M];
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     cin >> m >> n;
@@ -29,7 +27,7 @@ int main() {
                 if (j >= a[k][i].weight)
                     f[j] = std::max(f[j], f[j - a[k][i].weight] + a[k][i].value);
     cout << f[m];
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

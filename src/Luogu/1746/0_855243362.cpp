@@ -13,9 +13,7 @@ inline bool valid(int x, int y) {
     return x > 0 && y > 0 && x <= n && y <= n && !map[x][y];
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     scanf("%d", &n);
@@ -39,7 +37,7 @@ int main() {
             }
         }
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

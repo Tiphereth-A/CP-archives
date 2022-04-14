@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int MaxN = 200005;
-int Add[MaxN], Get[MaxN];
+const int MAXN = 200005;
+int Add[MAXN], Get[MAXN];
 int M, N, k;
 struct Node {
     Node *ch[2];

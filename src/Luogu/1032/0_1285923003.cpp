@@ -9,9 +9,7 @@ int total_map;
 std::queue<node> queue;
 std::map<std::string, int> mm;
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     cin >> a >> b;
@@ -45,7 +43,7 @@ int main() {
         }
     }
     cout << "NO ANSWER!";
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

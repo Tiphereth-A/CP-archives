@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>*/
 #include <bits/stdc++.h>
 
-
 #define M 200005
 #define N 1001
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)

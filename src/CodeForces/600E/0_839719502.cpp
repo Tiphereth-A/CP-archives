@@ -58,7 +58,7 @@ void dfs(int p = 1, int fa = 0, bool erase = true) {
     return;
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     int n;
@@ -72,7 +72,7 @@ int main() {
     init();
     dfs();
     for (int i = 1; i <= n; ++i) cout << ans[i] << " ";
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n--------\n"
               << "Time used:" << clock() - c1 << std::endl;
 #endif

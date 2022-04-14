@@ -55,7 +55,7 @@ class DLX {
         restore_col(now_r);
         return false;
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
   public:
     void debug() {
         cerr << "w: " << width << ", h: " << height << ", cnt: " << cnt_node << endl;

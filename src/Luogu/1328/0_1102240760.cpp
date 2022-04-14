@@ -2,11 +2,10 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 210
+#define MAXN 210
 using namespace std;
 const int f[5][5] = {{0, 0, 1, 1, 0}, {1, 0, 0, 1, 0}, {0, 1, 0, 0, 1}, {0, 0, 1, 0, 1}, {1, 1, 0, 0, 0}};
-int a[maxn], b[maxn];
+int a[MAXN], b[MAXN];
 int main() {
     int n, na, nb, aa = 0, bb = 0;
     cin >> n >> na >> nb;

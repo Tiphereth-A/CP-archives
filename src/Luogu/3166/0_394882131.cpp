@@ -24,7 +24,7 @@ void init_prime(int n = N - 1) {
 }
 i64 c3(i64 n) { return n * (n - 1) / 2 * (n - 2) / 3; }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     init_prime();
@@ -41,7 +41,7 @@ int main() {
     }
     cout << ans;
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

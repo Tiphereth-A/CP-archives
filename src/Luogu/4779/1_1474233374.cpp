@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define INF_I32 0x7fffffff
 const int M = 500005;

@@ -10,7 +10,7 @@ int f(int m, int n) {
 int main() {
     for (int i, j, ans; ~scanf("%d%d", &i, &j);) {
         ans = 0;
-        for (int minn = min(i, j), maxn = max(i, j); minn <= maxn; ++minn) ans = max(ans, f(minn, 1));
+        for (int minn = min(i, j), MAXN = max(i, j); minn <= MAXN; ++minn) ans = max(ans, f(minn, 1));
         printf("%d %d %d\n", i, j, ans);
     }
     return 0;

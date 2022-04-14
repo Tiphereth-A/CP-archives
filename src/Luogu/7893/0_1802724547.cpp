@@ -120,7 +120,7 @@ void solve() {
     printf("%lld\n", ans);
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
 #ifdef MULTI_CASES
@@ -131,7 +131,7 @@ int main() {
         solve();
 FINISHED:
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

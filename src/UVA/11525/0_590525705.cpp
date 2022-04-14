@@ -57,7 +57,7 @@ void main(size_t const p[], size_t a[], size_t n) {
 const int N = 5e4 + 5;
 size_t a[N], p[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int kase;
@@ -69,7 +69,7 @@ int main() {
         reverse_Cantor_expansion::main(p, a, k);
         for (int i = 1; i <= k; ++i) printf("%d%c", a[i], " \n"[i == k]);
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

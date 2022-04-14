@@ -98,7 +98,7 @@ void tarjan(int now) {
     }
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int n, m;
@@ -114,7 +114,7 @@ int main() {
     _for(i, 1, cnt_scc) ans += scc_size[i] > 1;
     printf("%d", ans);
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

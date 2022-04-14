@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
 #define UNTIE std::cin::tie(0), std::cout::tie(0)
@@ -101,9 +100,7 @@ const int N = 2e5 + 5;
 const int MOD = 998244353;
 const db EPS = 1e-6;
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     u64 h, k;
@@ -111,7 +108,7 @@ int main(int argc, char const *argv[]) {
     print((1ull << h) * (k + 1));
 ex:
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

@@ -12,7 +12,6 @@
 #endif
 #ifdef __DEF__
 
-
 #define tpn typename
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
@@ -122,9 +121,7 @@ int query(int L, int R, int l, int r, int k) {
         return query(PREL.r, PRER.r, mid + 1, r, k - tmp);
 }
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
 #endif
     clock_t c1 = clock();
     read(n, m);

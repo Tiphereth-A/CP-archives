@@ -19,7 +19,7 @@ void init_prime(int n = N - 1) {
     }
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     init_prime();
@@ -59,7 +59,7 @@ int main() {
         }
     __end_kase:;
     }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

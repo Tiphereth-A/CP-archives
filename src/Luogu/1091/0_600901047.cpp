@@ -25,7 +25,7 @@ inline void read(A &x) {
 const int M = 100005;
 const int N = 105;
 const int INF = 0x7fffffff;
-int n, a[N], f[N], g[N], maxn;
+int n, a[N], f[N], g[N], MAXN;
 int main() {
     read(n);
     _for(i, 1, n) read(a[i]);
@@ -35,7 +35,7 @@ int main() {
     _rfor(i, n, 1)
         _rfor(j, n + 1, i + 1)
             if (a[i] > a[j]) g[i] = Max(g[i], g[j] + 1);
-    _for(i, 1, n) maxn = Max(maxn, f[i] + g[i] - 1);
-    printf("%d", n - maxn);
+    _for(i, 1, n) MAXN = Max(MAXN, f[i] + g[i] - 1);
+    printf("%d", n - MAXN);
     return 0;
 }

@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-
 #define M 200005
 #define N 1005
 #define INF 0x7fffffff

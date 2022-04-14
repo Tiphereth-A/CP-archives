@@ -10,7 +10,6 @@
 #endif
 #ifdef __DEF__
 
-
 #define tpn typename
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
@@ -93,9 +92,7 @@ const int MOD = 998244353;
 const db EPS = 1e-6;
 int x, y, mina = INF_I32, minb = INF_I32, maxa, maxb, n;
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
 #endif
     clock_t c1 = clock();
     read(n);

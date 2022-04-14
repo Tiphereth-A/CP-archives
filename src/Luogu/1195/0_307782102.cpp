@@ -28,7 +28,7 @@ long long kruskal(int n, int k = 1) {
     return ans;
 }
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int n, m, k;
@@ -40,7 +40,7 @@ int main() {
     try {
         printf("%lld", kruskal(n, k));
     } catch (const char *str) { puts(str); }
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr
         << "\n---\n"
         << "Time used: " << clock() - _CLOCK_ST << std::endl;

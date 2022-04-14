@@ -49,7 +49,7 @@ i64 n, p, k;
 i64 a[N];
 i64 s[N], v[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     read(n, p, k);
@@ -62,7 +62,7 @@ int main() {
     for (int i = 1; i <= n; ++i) (ans += ((_ *= k) %= p) * v[i] % p * s[i - 1] % p) %= p;
     print(ans);
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

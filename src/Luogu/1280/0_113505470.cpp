@@ -10,9 +10,7 @@ struct node {
 } task[N];
 int f[N];
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     cin >> n >> k;
@@ -28,7 +26,7 @@ int main() {
                 f[i] = std::max(f[i], f[i + task[j++].time]);
     }
     cout << f[1];
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

@@ -4,9 +4,7 @@ using std::cout;
 using std::endl;
 unsigned long long a[25] = {0, 0, 1, 2};
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     for (unsigned long long i = 4; i <= 20; ++i)
@@ -14,7 +12,7 @@ int main() {
     int n;
     cin >> n;
     cout << a[n];
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

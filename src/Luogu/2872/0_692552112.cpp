@@ -91,7 +91,7 @@ pii point[N];
 double dis(int x, int y) { return sqrt((point[x].first - point[y].first) * (point[x].first - point[y].first) + (point[x].second - point[y].second) * (point[x].second - point[y].second)); }
 bool vis[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int n, m;
@@ -115,7 +115,7 @@ int main() {
         }
     printf("%.2lf", kruskal(n));
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

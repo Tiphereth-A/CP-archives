@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 
-
-const int maxn = 2000 + 10;
+const int MAXN = 2000 + 10;
 using namespace std;
 inline int gcd(int x, int y) {
     return x % y == 0 ? y : gcd(y, x % y);

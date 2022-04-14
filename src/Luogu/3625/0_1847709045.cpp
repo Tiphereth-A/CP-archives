@@ -31,21 +31,21 @@ int main() {
     _rfor(i, m, k)
         _rfor(j, n, k)
             matrd[i][j] = max(max(matrd[i + 1][j], matrd[i][j + 1]), mat[i][j]);
-    int maxn = -1;
+    int MAXN = -1;
     _for(i, k, m - k)
         _for(j, k, n - k)
-            maxn =
-                max(maxn,
+            MAXN =
+                max(MAXN,
                     max(max(matlu[i][j] + matru[i][j + k] + matld[i + k][n],
                             matlu[i][n] + matld[i + k][j] + matrd[i + k][j + k]),
                         max(matrd[i + k][j + k] + matru[i][j + k] + matlu[i][j],
                             matlu[m][j] + matrd[i + k][j + k] + matru[i][j + k])));
     _for(i, k, m - k)
         _for(j, k * 2, n - k)
-            maxn = max(maxn, matlu[m][j - k] + matru[m][j + k] + mat[i][j]);
+            MAXN = max(MAXN, matlu[m][j - k] + matru[m][j + k] + mat[i][j]);
     _for(i, k * 2, m - k)
         _for(j, k, n - k)
-            maxn = max(maxn, matlu[i - k][n] + matld[i + k][n] + mat[i][j]);
-    printf("%d", maxn);
+            MAXN = max(MAXN, matlu[i - k][n] + matld[i + k][n] + mat[i][j]);
+    printf("%d", MAXN);
     return 0;
 }

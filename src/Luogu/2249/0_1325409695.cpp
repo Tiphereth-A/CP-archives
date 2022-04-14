@@ -82,7 +82,7 @@ const int M = 5e5 + 5, N = 1e6 + 5, MOD = 998244353;
 const db EPS = 1e-6;
 int a[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     int n, m;
@@ -96,7 +96,7 @@ int main() {
     }
 FINISHED:
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n--------\n"
               << "Time used:" << clock() - c1 << std::endl;
 #endif

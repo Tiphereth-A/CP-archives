@@ -2,8 +2,7 @@
 typedef long long ll;
 typedef unsigned long long ull;
 
-
-#define maxn 1010;
+#define MAXN 1010;
 using namespace std;
 const string key[3] = {"qwertyuiop", "asdfghjkl;", "zxcvbnm,./"};
 string ans;

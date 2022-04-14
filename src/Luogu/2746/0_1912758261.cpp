@@ -99,7 +99,7 @@ void tarjan(int now) {
 }
 int in[N], out[N];
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int n;
@@ -122,7 +122,7 @@ int main() {
     }
     printf("%d\n%d", cnt_in, cnt_scc == 1 ? 0 : max(cnt_in, cnt_out));
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

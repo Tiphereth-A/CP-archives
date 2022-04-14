@@ -90,7 +90,7 @@ using FastIO::read;
 const int M = 5e5 + 5, N = 2e5 + 5, MOD = 998244353;
 const double EPS = 1e-6;
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
     int kase;
@@ -111,7 +111,7 @@ int main() {
     }
 FINISHED:
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif

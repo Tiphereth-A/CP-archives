@@ -21,9 +21,7 @@ int get_ans(int func(int, int), int ans) {
     return ans;
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
 #endif
     std::cin >> n;
     for (int i = 1; i <= n; (std::cin >> a[i]), (a[i + n] = a[i]), ++i)

@@ -2,15 +2,15 @@
 char in[1001];
 long long cnt[35];
 long long inline max(long long x, long long y) { return x > y ? x : y; }
-long long maxn = 0;
+long long MAXN = 0;
 int main() {
     for (int i = 0; i < 4; i++) {
         fgets(in, 1000, stdin);
         for (int j = 0; in[j]; j++)
             if (in[j] != ' ') ++cnt[in[j] - 'A' + 1];
     }
-    for (int i = 1; i <= 26; ++i) maxn = max(maxn, cnt[i]);
-    for (int i = maxn; i; --i) {
+    for (int i = 1; i <= 26; ++i) MAXN = max(MAXN, cnt[i]);
+    for (int i = MAXN; i; --i) {
         for (int j = 1; j <= 26; ++j) {
             if (cnt[j] >= i)
                 putchar('*');

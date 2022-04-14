@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
 #define UNTIE std::cin::tie(0), std::cout::tie(0)
@@ -106,9 +105,7 @@ struct Food {
     int v, m, cal;
 } a[M];
 int main(int argc, char const *argv[]) {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     read(V, Mass, n);
@@ -124,7 +121,7 @@ int main(int argc, char const *argv[]) {
     print(f[V][Mass]);
 ex:
     FastIO::flush();
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

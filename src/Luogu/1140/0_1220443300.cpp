@@ -22,9 +22,7 @@ std::string a(" "), b(" ");
 int len_a, len_b;
 int f[N][N];
 int main() {
-#ifndef ONLINE_JUDGE
-    freopen("D:\\code\\IO\\in.in", "r", stdin);
-    freopen("D:\\code\\IO\\out.out", "w", stdout);
+#ifdef _LOCAL_
     clock_t c1 = clock();
 #endif
     std::string tmp_a, tmp_b;
@@ -45,7 +43,7 @@ int main() {
                                   f[now_a][now_b - 1] + get_sim(0, b[now_b])));
         }
     cout << f[len_a][len_b];
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time:" << clock() - c1 << std::endl;
 #endif

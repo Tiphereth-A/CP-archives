@@ -6,20 +6,20 @@
 #include <queue>
 #include <stack>
 using namespace std;
-const int maxn = 10200;
-char ch[maxn];
-char aaa[maxn];
+const int MAXN = 10200;
+char ch[MAXN];
+char aaa[MAXN];
 struct node {
     char data;
     node *l;
     node *r;
 };
 node *root;
-node nn[maxn];
+node nn[MAXN];
 stack<node *> a;
 queue<node *> aa;
 void init() {
-    for (int i = 0; i < maxn; i++) {
+    for (int i = 0; i < MAXN; i++) {
         nn[i].data = 0;
         nn[i].l = NULL;
         nn[i].r = NULL;

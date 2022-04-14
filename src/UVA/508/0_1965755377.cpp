@@ -39,7 +39,6 @@ using namespace std;
 #endif
 #ifdef __DEF__
 
-
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define REP(i, l, r) for (int i = (l); i < (r); ++i)
 #define _rfor(i, r, l) for (int i = (r); i >= (l); --i)

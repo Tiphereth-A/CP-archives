@@ -98,11 +98,9 @@ bool excrt(i64 n, i64 &res) {
 }
 multiset<i64> all_b;
 int main() {
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     clock_t _CLOCK_ST = clock();
 #endif
-    freopen("dragon.in", "r", stdin);
-    freopen("dragon.out", "w", stdout);
     int kase;
     scanf("%d", &kase);
     while (kase--) {
@@ -134,7 +132,7 @@ int main() {
         mindmg = 0;
     }
 FINISHED:
-#ifndef ONLINE_JUDGE
+#ifdef _LOCAL_
     std::cerr << "\n---\n"
               << "Time used: " << clock() - _CLOCK_ST << std::endl;
 #endif
