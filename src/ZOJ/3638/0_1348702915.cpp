@@ -1,6 +1,6 @@
 #include <cstdio>
 #include <cstring>
-typedef long long i64;
+typedef long long ll;
 const i64 mod = 100000007;
 i64 qpow(i64 a, i64 b) {
     i64 res = 1;

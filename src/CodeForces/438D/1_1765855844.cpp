@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
-using u64 = unsigned long long;
+using ll = long long;
+using ull = unsigned long long;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 const int OFFSET = 5;
 const int N = 5e5 + OFFSET, M = 2e5 + OFFSET, K = 21;

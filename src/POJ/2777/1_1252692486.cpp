@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstring>
 using namespace std;
-typedef unsigned long long u64;
+typedef unsigned long long ull;
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 const int OFFSET = 5;
 const int N = 1e5 + OFFSET, M = 2e5 + OFFSET, K = 21;

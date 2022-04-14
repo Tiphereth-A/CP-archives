@@ -1,5 +1,5 @@
 #include <cstdio>
-typedef unsigned long long u64;
+typedef unsigned long long ull;
 u64 a[35] = {0, 1}, b[35] = {0, 1};
 u64 gcd(u64 a, u64 b) { return !b ? a : gcd(b, a % b); }
 int get_len(u64 n) {

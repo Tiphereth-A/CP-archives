@@ -3,7 +3,7 @@
 #include <cstdio>
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _lowbit(x) ((x) & (-x))
-typedef long long i64;
+typedef long long ll;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = ' ';
 int p, p3 = -1;

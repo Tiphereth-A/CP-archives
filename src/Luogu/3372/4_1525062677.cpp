@@ -3,7 +3,7 @@
 #define _for(i, l, r) for (unsigned long long(i) = (l); (i) <= (r); (i)++)
 #define _rfor(i, l, r) for (unsigned long long i = l; i >= r; --i)
 
-typedef unsigned long long u64;
+typedef unsigned long long ull;
 u64 tree[MAXN << 2], add[MAXN << 2];
 u64 n, N = 1, m;
 inline void build() {

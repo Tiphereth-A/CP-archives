@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-typedef unsigned long long u64;
+typedef unsigned long long ull;
 using std::cin;
 using std::cout;
 using std::endl;

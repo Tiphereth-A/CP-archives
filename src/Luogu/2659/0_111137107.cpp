@@ -47,7 +47,7 @@ inline void print(T x, T2... oth) {
 }  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
-typedef long long i64;
+typedef long long ll;
 const int M = 25;
 const int N = 2e6 + 5;
 int n;

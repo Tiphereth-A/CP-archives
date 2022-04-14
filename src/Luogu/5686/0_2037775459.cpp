@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
-using u64 = unsigned long long;
+using ll = long long;
+using ull = unsigned long long;
 using db = double;
 using ldb = long double;
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)

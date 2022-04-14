@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <iostream>
 using namespace std;
-typedef long long i64;
+typedef long long ll;
 void exgcd(i64 a, i64 b, i64 &gcd, i64 &x, i64 &y) {
     if (!b) {
         gcd = a;

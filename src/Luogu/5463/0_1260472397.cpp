@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define _lowbit(x) (1 << __builtin_ctz(x))
-typedef unsigned long long u64;
+typedef unsigned long long ull;
 typedef __int128_t i128;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf;

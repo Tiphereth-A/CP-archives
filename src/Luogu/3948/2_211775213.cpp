@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 const int N = 8e4 + 5;
-typedef long long i64;
+typedef long long ll;
 #define tpn typename
 template <tpn A>
 inline void read(A &x) {

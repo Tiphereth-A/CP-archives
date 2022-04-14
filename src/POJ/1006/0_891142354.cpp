@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-typedef long long i64;
+typedef long long ll;
 int main() {
     i64 p, e, i, d;
     int kase = 0;

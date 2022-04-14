@@ -1,7 +1,7 @@
 #include <cmath>
 #include <cstdio>
 #include <cstring>
-typedef long long i64;
+typedef long long ll;
 i64 gcd(i64 a, i64 b) { return b == 0 ? a : gcd(b, a % b); }
 char s[20];
 int main() {

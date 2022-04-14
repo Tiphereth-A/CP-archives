@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 #define _run_continue(expressions) \
     {                              \
         expressions;               \

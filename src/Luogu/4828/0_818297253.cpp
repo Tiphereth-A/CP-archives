@@ -6,8 +6,8 @@
 
 #define gc getchar
 typedef unsigned int u32;
-typedef unsigned long long u64;
-typedef long long i64;
+typedef unsigned long long ull;
+typedef long long ll;
 template <tpn A>
 inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;

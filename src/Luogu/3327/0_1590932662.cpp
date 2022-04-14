@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long i64;
+typedef long long ll;
 const int N = 5e4 + 5;
 int mu[N] = {0, 1}, prime[N], cnt;
 bool vis[N];

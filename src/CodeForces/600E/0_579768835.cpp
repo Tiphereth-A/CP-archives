@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long i64;
+typedef long long ll;
 const int N = 1e5 + 5, M = 2e5 + 5;
 struct Edge {
     int to, next;

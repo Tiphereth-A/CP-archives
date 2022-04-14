@@ -1,6 +1,6 @@
 #include <cstdio>
 const int N = 2e5 + 5;
-typedef long long i64;
+typedef long long ll;
 i64 a[N], ans;
 int n, q, s, t;
 inline i64 get(i64 num) {

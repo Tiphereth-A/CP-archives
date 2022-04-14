@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
-typedef long long i64;
+typedef long long ll;
 namespace FastIO {
 char buf[1 << 21], *p1 = buf, *p2 = buf;
 int getc() {

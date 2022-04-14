@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 const int N = 1e5 + 5;
 template <typename Tp>

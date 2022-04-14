@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int M = 22505, N = 155;
-typedef long long i64;
+typedef long long ll;
 int sg[N][N];
 int f(int m, int n) {
     if (~sg[m][n]) return sg[m][n];

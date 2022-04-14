@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 const int N = 2e3 + 5, MOD = 1e9 + 7;
 i64 dp[N][N];
 int s[N], t[N];

@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 #define _for_graph(head, e, i, now) for (int i = head[now], to = e[i].to; i; to = e[i = e[i].next].to)
 #define _set_inf_n(a, n) memset(a, 0x3f, sizeof(a[0]) * (n))

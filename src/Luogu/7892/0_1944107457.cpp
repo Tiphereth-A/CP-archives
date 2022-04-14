@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
-using u64 = unsigned long long;
+using ll = long long;
+using ull = unsigned long long;
 using i128 = __int128_t;
 using u128 = __uint128_t;
 using db = double;

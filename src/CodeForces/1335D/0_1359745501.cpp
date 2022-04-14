@@ -18,8 +18,8 @@ using namespace std;
 #define _debug_cpp(x) std::cerr << #x << " = " << x << std::endl
 #define _debug_c(type, x) fprintf(stderr, "#" #x "=%" type "\n", (x))
 #define _fin goto FINISHED
-typedef long long i64;
-typedef unsigned long long u64;
+typedef long long ll;
+typedef unsigned long long ull;
 typedef double db;
 typedef long double ldb;
 namespace FastIO {

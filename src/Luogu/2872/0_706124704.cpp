@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
-using u64 = unsigned long long;
+using ll = long long;
+using ull = unsigned long long;
 using db = double;
 using ldb = long double;
 using pii = pair<i64, i64>;

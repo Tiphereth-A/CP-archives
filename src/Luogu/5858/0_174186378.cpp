@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long i64;
+typedef long long ll;
 const int N = 5e3 + 505;
 int n, w, s;
 i64 a[N];

@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstring>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 #define _rfor(i, r, l) for (decltype(l + r) i = (r); i >= (l); --i)
 #define _set_nul(a) memset(a, 0, sizeof(a))

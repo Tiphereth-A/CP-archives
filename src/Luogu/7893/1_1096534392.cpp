@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 using i128 = __int128_t;
 namespace FastIO {
 char buf[1 << 21], *p1 = buf, *p2 = buf;

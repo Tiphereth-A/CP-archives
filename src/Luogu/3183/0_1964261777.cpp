@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 
-#define rgi i64
 
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
@@ -25,8 +24,8 @@
 #define _debug_cpp(x) std::cout << #x << " = " << x << std::endl
 #define _debug_c(type, x) printf("#" #x "=%" type "\n", (x))
 #define fin goto ex
-typedef long long i64;
-typedef unsigned long long u64;
+typedef long long ll;
+typedef unsigned long long ull;
 typedef __int128 i128;
 typedef double db;
 typedef long double ldb;

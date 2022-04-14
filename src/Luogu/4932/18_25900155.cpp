@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-typedef unsigned long long u64;
+typedef unsigned long long ull;
 int n, a, b, c, d;
 u64 pre, eve, odd;
 inline bool even(int x) {

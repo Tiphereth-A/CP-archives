@@ -22,7 +22,6 @@ using namespace std;
 #endif
 #ifdef __DEF__
 
-#define rgi int
 
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define rep(i, l, r) for (int i = (l); i < (r); ++i)
@@ -37,8 +36,8 @@ using namespace std;
 #ifdef __CPP_STYLE__
 #define dbg(x) cout << #x << " = " << x << endl
 #endif
-typedef long long i64;
-typedef unsigned long long u64;
+typedef long long ll;
+typedef unsigned long long ull;
 typedef double db;
 typedef long double ldb;
 #endif

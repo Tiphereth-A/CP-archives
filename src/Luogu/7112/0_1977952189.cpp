@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 namespace ModInteger {
 #define _TRAITS(expression, __...) std::enable_if_t<expression, ##__> * = nullptr
 template <typename Tp>

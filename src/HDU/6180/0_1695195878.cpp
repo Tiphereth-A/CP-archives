@@ -1,6 +1,6 @@
 #include <algorithm>
 #include <cstdio>
-typedef long long i64;
+typedef long long ll;
 const int N = 2e5 + 10;
 struct node {
     i64 x;

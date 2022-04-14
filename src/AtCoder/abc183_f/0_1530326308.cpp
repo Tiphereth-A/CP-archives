@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 const int OFFSET = 5, N = 2e5 + OFFSET;
 unordered_map<int, int> m[N];
 int fa[N], sz[N];

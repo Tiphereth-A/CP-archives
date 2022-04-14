@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-typedef unsigned long long u64;
+typedef unsigned long long ull;
 const int N = 350050;
 bool vis[N];
 int prime[N / 10], cnt_prime, ans[N], n, sqrt_n, last[N << 1], cnt_val_div_n;

@@ -7,7 +7,7 @@
 #define _err puts("No Solution")
 template <tpn A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
-typedef long long i64;
+typedef long long ll;
 std::map<int, int> set;
 inline int qpow(i64 a, i64 b, int mod) {
     int ans = 1;

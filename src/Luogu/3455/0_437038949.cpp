@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 const int N = 5e4 + 5;
 int prime[N], cnt;
 bool vis[N];

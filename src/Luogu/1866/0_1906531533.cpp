@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long i64;
+typedef long long ll;
 const i64 MOD = 1000000007;
 i64 a[55];
 int main() {

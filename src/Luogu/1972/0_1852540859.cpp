@@ -2,7 +2,7 @@
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _lowbit(x) (1 << __builtin_ctz(x))
 #define fin goto ex
-typedef long long i64;
+typedef long long ll;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;
@@ -67,7 +67,7 @@ inline void putchar(char a) {
 }  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
-typedef long long i64;
+typedef long long ll;
 const int N = 1e6 + 5;
 int n, m;
 i64 a[N], tr[N], pos[N];

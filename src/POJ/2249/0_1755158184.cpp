@@ -1,5 +1,5 @@
 #include <cstdio>
-typedef long long i64;
+typedef long long ll;
 int main() {
     i64 n, k;
     while (~scanf("%lld%lld", &n, &k) && (n || k)) {

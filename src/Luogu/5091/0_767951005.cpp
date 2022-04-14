@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long i64;
+typedef long long ll;
 string str;
 template <typename T = i64>
 T qpow(T a, T b, T mod) {

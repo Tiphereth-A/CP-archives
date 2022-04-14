@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-typedef long long i64;
+typedef long long ll;
 i64 a[3000005] = {0, 1}, n, p;
 int main() {
     scanf("%lld%lld", &n, &p);

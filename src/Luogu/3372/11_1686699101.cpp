@@ -7,7 +7,7 @@
 #define tpn typename
 #define MAXN 100005
 #define MAXBUF 140000000
-typedef unsigned long long u64;
+typedef unsigned long long ull;
 inline char gc() {
     static char buf[MAXBUF], *p1 = buf, *p2 = buf;
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;

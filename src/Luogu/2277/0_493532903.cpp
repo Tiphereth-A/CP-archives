@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
-using u64 = unsigned long long;
+using ll = long long;
+using ull = unsigned long long;
 #define _RM3(_1, _2, _3, ...) __VA_ARGS__
 #define RM3(...) _RM3(__VA_ARGS__)
 #define _RM4(_1, _2, _3, _4, ...) __VA_ARGS__

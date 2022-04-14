@@ -1,13 +1,13 @@
 #include <cmath>
 #include <cstdio>
 #include <cstring>
-#define rgi int
+
 
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 #define _mem(a) memset(a, 0, sizeof(a))
 #define _lowbit(x) ((x) & -(x))
-typedef long long i64;
+typedef long long ll;
 template <tpn A>
 inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 const int N = 1e5 + 5;

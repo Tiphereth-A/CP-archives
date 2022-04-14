@@ -12,7 +12,6 @@
 #endif
 #ifdef __DEF__
 
-#define rgi int
 
 #define tpn typename
 #define sstream std::stringstream
@@ -37,8 +36,8 @@
 #define _meminf(a) memset(a, 0x3f, sizeof(a))
 #define _debug_cpp(x) std::cout << #x << " = " << x << std::endl
 #define _debug_c(type, x) printf("#" #x "=%" type "\n", (x))
-typedef long long i64;
-typedef unsigned long long u64;
+typedef long long ll;
+typedef unsigned long long ull;
 typedef __int128 i128;
 typedef double db;
 typedef long double ldb;

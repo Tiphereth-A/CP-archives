@@ -1,5 +1,5 @@
 #include <cstdio>
-typedef long long i64;
+typedef long long ll;
 int main() {
     int kase;
     scanf("%d", &kase);

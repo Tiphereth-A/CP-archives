@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 const int N = 1e5 + 5;
 i64 a[N], sum[N];
 int main() {

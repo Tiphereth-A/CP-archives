@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _rfor(i, r, l) for (auto i = (r); i >= (l); --i)
 const int OFFSET = 5;

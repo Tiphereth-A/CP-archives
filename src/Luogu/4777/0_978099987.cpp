@@ -48,7 +48,7 @@ bool excrt(T b[], T m[], const int len, T &res) {
 }
 }  // namespace EXCRT
 using EXCRT::excrt;
-typedef long long i64;
+typedef long long ll;
 const int N = 1e5 + 5;
 i64 b[N], m[N];
 int main() {

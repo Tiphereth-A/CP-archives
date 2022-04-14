@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <cstring>
-typedef long long i64;
+typedef long long ll;
 const i64 MOD = 1e5 + 7;
 i64 hash_n[MOD], pos[MOD], pop[MOD], a[6];
 int hash(i64 num) {

@@ -19,8 +19,8 @@
 #define Mid int m = ((r - l) >> 1) + l
 #define sstr stringstream
 typedef unsigned int u32;
-typedef unsigned long long u64;
-typedef long long i64;
+typedef unsigned long long ull;
+typedef long long ll;
 typedef __int128 i128;
 typedef double db;
 typedef long double ldb;

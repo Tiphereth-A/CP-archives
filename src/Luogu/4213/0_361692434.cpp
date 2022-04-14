@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 5e6 + 5;
-typedef long long i64;
-typedef unsigned long long u64;
+typedef long long ll;
+typedef unsigned long long ull;
 i64 mu[N];
 unordered_map<int, i64> sum_mu;
 u64 phi[N];

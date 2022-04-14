@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 using vi = vector<int>;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 #define _all(a) (a).begin(), (a).end()

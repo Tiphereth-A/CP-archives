@@ -22,8 +22,8 @@
 #define _gc getchar
 #define _pc putchar
 #define tpn typename
-typedef long long i64;
-typedef unsigned long long u64;
+typedef long long ll;
+typedef unsigned long long ull;
 #endif
 #define INF_I32 0x7fffffff
 const int M = 500005;

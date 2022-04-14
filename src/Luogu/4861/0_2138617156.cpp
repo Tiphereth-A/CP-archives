@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 i64 qpow(i64 a, i64 b, i64 mod) {
     i64 res = 1;
     for (; b; b >>= 1, a = a * a % mod)

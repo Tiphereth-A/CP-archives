@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #define N 200005
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-typedef long long i64;
+typedef long long ll;
 i64 id[N], win[N], lose[N];
 i64 rank[N], w[N];
 int n, r, q;

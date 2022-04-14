@@ -2,7 +2,7 @@
 #include <cstdio>
 #include <iostream>
 using namespace std;
-typedef long long i64;
+typedef long long ll;
 template <typename T>
 T qpow(T a, T b, T mod) {
     T res = 1;

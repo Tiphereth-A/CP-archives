@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 const int N = 8e4 + 5;
-typedef long long i64;
+typedef long long ll;
 int n, opt, mod, min, max;
 i64 b[N], s[N];
 int l, r, k;

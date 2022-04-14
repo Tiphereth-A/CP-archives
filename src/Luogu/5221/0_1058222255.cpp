@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = long long;
+using ll = long long;
 const int N = 1e6 + 2, mod = 104857601;
 i64 qpow(i64 a, i64 b) {
     i64 res = 1;

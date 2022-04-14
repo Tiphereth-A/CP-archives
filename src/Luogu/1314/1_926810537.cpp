@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
-typedef long long i64;
+typedef long long ll;
 #define MAXBUF 1 << 14
 inline char gc() {
     static char buf[MAXBUF], *p1 = buf, *p2 = buf;
