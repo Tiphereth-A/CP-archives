@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <iostream>
-#include <numeric>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 vector<int> a;
 int main() {

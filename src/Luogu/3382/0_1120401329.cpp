@@ -1,6 +1,6 @@
-#include <cstdio>
-#define il inline
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#include <bits/stdc++.h>
+
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define tpn typename
 typedef long double ldb;
 template <tpn A>
@@ -10,12 +10,12 @@ inline A Abs(const A &x) {
 const ldb EPS = 1e-8l;
 int n;
 ldb a[14], l, r;
-ldb il F(ldb num) {
+ldb inline F(ldb num) {
     ldb sum = 0;
-    fd(i, n, 0) sum = sum * num + a[i];
+    _rfor(i, n, 0) sum = sum * num + a[i];
     return sum;
 }
-ldb il GoldSearch() {
+ldb inline GoldSearch() {
     ldb mid1, mid2;
     mid1 = l + 0.38196601l * (r - l);
     mid2 = l + 0.61803399l * (r - l);
@@ -34,7 +34,7 @@ ldb il GoldSearch() {
 }
 int main() {
     scanf("%d%Lf%Lf", &n, &l, &r);
-    fd(i, n, 0) scanf("%Lf", a + i);
+    _rfor(i, n, 0) scanf("%Lf", a + i);
     printf("%.5Lf", GoldSearch());
     return 0;
 }

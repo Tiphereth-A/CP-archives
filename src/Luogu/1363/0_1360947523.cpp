@@ -1,7 +1,6 @@
-#include <cstring>
-#include <iostream>
+#include <bits/stdc++.h>
 #define mem(a) memset(a, 0, sizeof(a))
-#define fp(i, l, r) for (int i(l); i < r; ++i)
+#define _for(i, l, r) for (int i(l); i < r; ++i)
 #define N 1505
 using namespace std;
 char g[N][N];
@@ -51,8 +50,8 @@ int main() {
         nn = n * 2;
         mm = m * 2;
         int xx, yy;
-        fp(i, 0, n) {
-            fp(j, 0, m) {
+        _for(i, 0, n) {
+            _for(j, 0, m) {
                 cin >> g[i][j];
                 if (g[i][j] == 'S') {
                     xx = i;

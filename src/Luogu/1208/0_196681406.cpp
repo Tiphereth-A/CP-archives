@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <cstdio>
+#include <bits/stdc++.h>
 #define N 5005
 struct node {
     int v, num;

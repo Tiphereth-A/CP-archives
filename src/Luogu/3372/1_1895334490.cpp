@@ -1,13 +1,13 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define MAXN 200005
-#define fp(i, l, r) for (register int(i) = (l); (i) <= (r); (i)++)
-#define fd(i, l, r) for (register int i = l; i >= r; --i)
-#define il inline
+#define _for(i, l, r) for (int(i) = (l); (i) <= (r); (i)++)
+#define _rfor(i, l, r) for (int i = l; i >= r; --i)
+
 long long a[MAXN << 2], tree[MAXN << 2], add[MAXN << 2];
 long long n, N = 1, m;
-il void build() {
-    fp(i, 1, n) tree[N + i] = a[i];
-    fd(i, N - 1, 1) tree[i] = tree[i << 1] + tree[i << 1 | 1];
+inline void build() {
+    _for(i, 1, n) tree[N + i] = a[i];
+    _rfor(i, N - 1, 1) tree[i] = tree[i << 1] + tree[i << 1 | 1];
 }
 void update(long long s, long long t, long long k) {
     long long lNum = 0, rNum = 0, nNum = 1;
@@ -54,7 +54,7 @@ long long query(long long s, long long t) {
 int main() {
     scanf("%lld%lld", &n, &m);
     while (N < n + 2) N <<= 1;
-    fp(i, 1, n) scanf("%lld", a + i);
+    _for(i, 1, n) scanf("%lld", a + i);
     build();
     while (m--) {
         char c;

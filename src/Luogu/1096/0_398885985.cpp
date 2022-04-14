@@ -1,24 +1,4 @@
-#include <algorithm>
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <deque>
-#include <fstream>
-#include <iomanip>
-#include <iosfwd>
-#include <iostream>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 const int maxn = 20000 + 10;
 using namespace std;
 struct bign {

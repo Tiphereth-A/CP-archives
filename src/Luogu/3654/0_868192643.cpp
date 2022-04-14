@@ -1,9 +1,5 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <cstring>
-#include <iostream>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define gc getchar
 using namespace std;
 const int M = 100005;
@@ -14,10 +10,11 @@ char g[N][N];
 int main() {
     scanf("%d%d%d", &r, &c, &k);
     gc();
-    fp(i, 1, r) fp(j, 1, c) cin >> g[i][j];
-    fp(i, 1, c) {
+    _for(i, 1, r)
+        _for(j, 1, c) cin >> g[i][j];
+    _for(i, 1, c) {
         int cnt = 0;
-        fp(j, 1, r + 1) {
+        _for(j, 1, r + 1) {
             if (g[j][i] == '.')
                 cnt++;
             else {
@@ -26,9 +23,9 @@ int main() {
             }
         }
     }
-    fp(i, 1, r) {
+    _for(i, 1, r) {
         int cnt = 0;
-        fp(j, 1, c + 1) {
+        _for(j, 1, c + 1) {
             if (g[i][j] == '.')
                 cnt++;
             else {

@@ -1,15 +1,8 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <queue>
-#include <string>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define maxn 1010;
 using namespace std;
 ll b, p, k;

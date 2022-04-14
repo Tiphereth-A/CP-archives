@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 unsigned long long s, t, n;
 int main() {
     while (scanf("%lld%lld%lld\n", &s, &t, &n) != -1) {

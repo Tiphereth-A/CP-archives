@@ -1,8 +1,6 @@
-#include <cstdio>
-#include <cstring>
-#include <queue>
+#include <bits/stdc++.h>
 #define ctn continue
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define memn(a) memset(a, 0xff, sizeof(a))
 #define meminf(a) memset(a, 0x7f, sizeof(a))
 #define gc getchar
@@ -71,12 +69,12 @@ void spfa() {
 }
 int main() {
     read(n, m, s);
-    fp(i, 1, m) {
+    _for(i, 1, m) {
         int u, v, w;
         read(u, v, w);
         add(u, v, w);
     }
     spfa();
-    fp(i, 1, n) printf("%d ", ans[i]);
+    _for(i, 1, n) printf("%d ", ans[i]);
     return 0;
 }

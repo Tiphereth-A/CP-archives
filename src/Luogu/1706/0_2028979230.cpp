@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <cstdio>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 using std::cin;
 using std::cout;
 const int frac[] = {0, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};

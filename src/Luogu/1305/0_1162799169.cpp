@@ -1,5 +1,4 @@
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 struct tree {
     char val;
     int l, r;

@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 int m, n, a[105][105], f[105][105], ans = 0x3fffffff;
 int dx[4] = {-1, 0, 1, 0};
 int dy[4] = {0, -1, 0, 1};

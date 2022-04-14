@@ -1,6 +1,6 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define MAXN 100005
-#define ll long long
+typedef long long ll;
 ll n, b, num[2][MAXN << 1], ans;
 int main() {
     scanf("%lld%lld", &n, &b);

@@ -1,17 +1,8 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <queue>
-#include <sstream>
-#include <stack>
-#include <string>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define maxn 1000005
 using namespace std;
 int main() {
@@ -19,7 +10,7 @@ int main() {
     cin >> n;
     int s = ceil(sqrt(n));
     int a, b;
-    for (rg int i = 2; i <= s; i++) {
+    for (int i = 2; i <= s; i++) {
         if (n % i == 0) {
             a = i;
             b = n / i;

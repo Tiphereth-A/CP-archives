@@ -34,11 +34,11 @@ void tarjan(int now) {
     in_stk[now] = 1;
     dfn[now] = low[now] = ++cnt_dfn;
     stk.push(now);
-    _for_graph(head, e, i, now) if (!dfn[to]) {
-        tarjan(to);
-        chkmin(low[now], low[to]);
-    }
-    else if (in_stk[to]) chkmin(low[now], dfn[to]);
+    _for_graph(head, e, i, now)
+        if (!dfn[to]) {
+            tarjan(to);
+            chkmin(low[now], low[to]);
+        } else if (in_stk[to]) chkmin(low[now], dfn[to]);
     if (dfn[now] == low[now]) {
         val[++cnt_scc] = INF;
         while (stk.top() != now) {
@@ -79,10 +79,12 @@ int main() {
         if (!dfn[i]) _run_exit(cout << "NO\n"
                                     << i);
     _for(i, 1, cnt_scc) fa[i] = i;
-    _for(i, 1, n) _for_graph(head, e, j, i) if (find(scc_id[i]) != find(scc_id[to])) {
-            ++scc_in[scc_id[to]];
-            merge(scc_id[i], scc_id[to]);
-        }
+    _for(i, 1, n)
+        _for_graph(head, e, j, i)
+            if (find(scc_id[i]) != find(scc_id[to])) {
+                ++scc_in[scc_id[to]];
+                merge(scc_id[i], scc_id[to]);
+            }
     i64 ans = 0;
     _for(i, 1, cnt_scc)
         if (!scc_in[i]) ans += val[i];

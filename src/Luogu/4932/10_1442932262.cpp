@@ -1,5 +1,4 @@
-#include <cctype>
-#include <cstdio>
+#include <bits/stdc++.h>
 typedef unsigned long long u64;
 int In, Ia, Ib, Ic, Id;
 u64 pre, cnt[2];

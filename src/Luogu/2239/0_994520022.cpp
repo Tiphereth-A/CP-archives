@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define abs(x) (x < 0 ? -(x) : (x))
 #define max(x, y) (x > y ? x : y)
 int n, x, y;

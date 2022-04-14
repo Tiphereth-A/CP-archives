@@ -1,5 +1,4 @@
-#include <cmath>
-#include <cstdio>
+#include <bits/stdc++.h>
 int k, n, i;
 long long ans;
 int main() {

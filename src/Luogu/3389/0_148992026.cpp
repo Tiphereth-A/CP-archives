@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define _for(i, l, r) for (register int(i) = (l); (i) <= (r); (i)++)
-#define _rfor(i, l, r) for (register int(i) = (l); (i) >= (r); (i)--)
+#define _for(i, l, r) for (int(i) = (l); (i) <= (r); (i)++)
+#define _rfor(i, l, r) for (int(i) = (l); (i) >= (r); (i)--)
 const double EPS = 1E-8;
 int n;
 double a[105][105];

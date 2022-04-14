@@ -1,23 +1,4 @@
-#include <algorithm>
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <deque>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 const int dx[] = {1, 2, 2, 1}, dy[] = {2, 1, -1, -2};
 using std::cin;
 using std::cout;

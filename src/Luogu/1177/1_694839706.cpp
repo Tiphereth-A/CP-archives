@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cstring>
-#include <iostream>
+#include <bits/stdc++.h>
 using std::cin;
 using std::cout;
 const int N = 1e5 + 5;

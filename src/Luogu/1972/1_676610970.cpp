@@ -1,10 +1,9 @@
-#include <algorithm>
-#include <cstdio>
+#include <bits/stdc++.h>
 #define lowbit(x) ((x) & (-(x)))
 #define N 500005
 #define gi(a)                                                                                    \
     do {                                                                                         \
-        register char ch;                                                                        \
+        char ch;                                                                                 \
         while ((a = getchar()) > '9' || a < '0')                                                 \
             ;                                                                                    \
         for (a -= '0'; (ch = getchar()) >= '0' && ch <= '9'; a = (a << 3) + (a << 1) + ch - '0') \
@@ -25,35 +24,35 @@ bool cmp2(data a, data b) {
 }
 int a[N], t[N], nex[N], num[1000005], n;
 inline void insert(int x, int f) {
-    for (register int i = x; i <= n; i += lowbit(i))
+    for (int i = x; i <= n; i += lowbit(i))
         t[i] += f;
 }
 inline int query(int x) {
     int ans = 0;
-    for (register int i = x; i; i -= lowbit(i))
+    for (int i = x; i; i -= lowbit(i))
         ans += t[i];
     return ans;
 }
 int main() {
     gi(n);
     int mx;
-    for (register int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         gi(a[i]);
         mx = Max(mx, a[i]);
     }
-    for (register int i = n; i > 0; --i) {
+    for (int i = n; i > 0; --i) {
         int tmp = a[i];
         nex[i] = num[tmp];
         num[tmp] = i;
     }
-    for (register int i = 0; i <= mx; ++i) {
+    for (int i = 0; i <= mx; ++i) {
         int tmp = num[i];
         if (tmp)
             insert(tmp, 1);
     }
     int m;
     gi(m);
-    for (register int i = 1; i <= m; ++i) {
+    for (int i = 1; i <= m; ++i) {
         data *tmp = &q[i];
         gi((*tmp).l);
         gi((*tmp).r);
@@ -61,7 +60,7 @@ int main() {
     }
     std::sort(q + 1, q + m + 1, cmp1);
     int l = 1;
-    for (register int i = 1; i <= m; ++i) {
+    for (int i = 1; i <= m; ++i) {
         data *t1 = &q[i];
         while (l < (*t1).l) {
             int t2 = nex[l];
@@ -72,7 +71,7 @@ int main() {
         (*t1).ans = query((*t1).r) - query((*t1).l - 1);
     }
     std::sort(q + 1, q + m + 1, cmp2);
-    for (register int i = 1; i <= m; ++i)
+    for (int i = 1; i <= m; ++i)
         printf("%d\n", q[i].ans);
     return 0;
 }

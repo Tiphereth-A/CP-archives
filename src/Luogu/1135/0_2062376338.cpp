@@ -1,8 +1,5 @@
-#include <cstdio>
-#include <cstring>
-#include <iostream>
-#include <queue>
-#define _for(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 const int M = 200005;
 const int N = 1005;
 int n, a, b, k[N], ans[N];

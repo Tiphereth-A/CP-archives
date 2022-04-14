@@ -1,6 +1,5 @@
-#include <cstdio>
-#include <cstring>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define mem(a) memset(a, 0, sizeof(a))
 #define tpn typename
 typedef long long i64;
@@ -25,16 +24,16 @@ bool inline check(int num) {
     i64 y = 0;
     mem(prew);
     mem(prev);
-    fp(i, 1, n) if (w[i] >= num) {
-        prew[i] = prew[i - 1] + 1;
-        prev[i] = prev[i - 1] + v[i];
-    }
-    else {
-        prew[i] = prew[i - 1];
-        prev[i] = prev[i - 1];
-    }
+    _for(i, 1, n)
+        if (w[i] >= num) {
+            prew[i] = prew[i - 1] + 1;
+            prev[i] = prev[i - 1] + v[i];
+        } else {
+            prew[i] = prew[i - 1];
+            prev[i] = prev[i - 1];
+        }
     int tmpl, tmpr;
-    fp(i, 1, m) {
+    _for(i, 1, m) {
         tmpl = l[i] - 1;
         tmpr = r[i];
         y += (prew[tmpr] - prew[tmpl]) * (prev[tmpr] - prev[tmpl]);
@@ -46,12 +45,12 @@ int main() {
     scanf("%d%d%lld", &n, &m, &s);
     int L = INF_I32, R = -1, mid;
     i64 ans = INF_I64;
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         scanf("%d%d", w + i, v + i);
         R = Max(R, w[i]);
         L = Min(L, w[i]);
     }
-    fp(i, 1, m) scanf("%d%d", l + i, r + i);
+    _for(i, 1, m) scanf("%d%d", l + i, r + i);
     L--;
     R += 2;
     while (L <= R) {

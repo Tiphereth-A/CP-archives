@@ -1,6 +1,4 @@
-#include <cstdio>
-#include <cstring>
-#include <iostream>
+#include <bits/stdc++.h>
 const int N = 405;
 const int dx[] = {2, 2, 1, -1, -2, -2, 1, -1}, dy[] = {1, -1, 2, 2, -1, 1, -2, -2};
 int f[N][N];

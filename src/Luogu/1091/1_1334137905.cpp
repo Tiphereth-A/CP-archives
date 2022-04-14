@@ -1,8 +1,7 @@
-#include <algorithm>
-#include <cstdio>
-#define il inline
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#include <bits/stdc++.h>
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define tpn typename
 template <tpn A>
 inline A Max(const A &x, const A &y) {
@@ -27,12 +26,12 @@ const int M = 100005;
 const int N = 105;
 const int INF = 0x7fffffff;
 int n, a[N], f[N], g[N], maxn;
-il int lis(int f, int l) {
+inline int lis(int f, int l) {
     int g[N] = {0};
     int len = 1;
     if (f < l) {
         g[1] = a[f];
-        fp(i, f, l) {
+        _for(i, f, l) {
             if (a[i] > g[len])
                 g[++len] = a[i];
             else {
@@ -42,7 +41,7 @@ il int lis(int f, int l) {
         }
     } else if (f > l) {
         g[1] = a[l];
-        fd(i, f, l) {
+        _rfor(i, f, l) {
             if (a[i] > g[len])
                 g[++len] = a[i];
             else {
@@ -55,8 +54,8 @@ il int lis(int f, int l) {
 }
 int main() {
     read(n);
-    fp(i, 1, n) read(a[i]);
-    fp(i, 1, n) {
+    _for(i, 1, n) read(a[i]);
+    _for(i, 1, n) {
         f[i] = lis(1, i) + lis(n, i) - 1;
         maxn = Max(maxn, f[i]);
     }

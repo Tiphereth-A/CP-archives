@@ -1,13 +1,9 @@
-#include <cstdio>
-#include <map>
-#include <queue>
-#include <stack>
-#include <vector>
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+
+
 #define M 200005
 #define N 205
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 #if 0
 typedef long long ll;
@@ -51,8 +47,8 @@ bool v[N];
 int main() {
     int n, m, tot = 0;
     scanf("%d%d", &n, &m);
-    fp(i, 1, n) {
-        fp(j, 1, m) {
+    _for(i, 1, n) {
+        _for(j, 1, m) {
             if (++tot > n) tot = 1;
             if (v[tot]) j--;
         }

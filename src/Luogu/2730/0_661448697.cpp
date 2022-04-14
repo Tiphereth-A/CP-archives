@@ -1,6 +1,4 @@
-#include <cstdio>
-#include <cstring>
-#include <queue>
+#include <bits/stdc++.h>
 const int frac[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
 const int state_begin[9] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
 struct SEQ {

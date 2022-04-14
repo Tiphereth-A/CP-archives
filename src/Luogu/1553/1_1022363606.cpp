@@ -1,6 +1,4 @@
-#include <cctype>
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 string s;
 char p;

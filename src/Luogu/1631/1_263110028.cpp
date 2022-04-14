@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <queue>
+#include <bits/stdc++.h>
 const int N = 1e5 + 5;
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
@@ -40,10 +39,10 @@ int a[N], b[N], ans[N];
 int n;
 int main() {
     scanf("%d", &n);
-    for (register int i = 1; i <= n; ++i) read(a[i]);
-    for (register int i = 1; i <= n; ++i) read(b[i]);
-    for (register int i = 1; i <= n; ++i)
-        for (register int j = 1; j <= n; ++j) {
+    for (int i = 1; i <= n; ++i) read(a[i]);
+    for (int i = 1; i <= n; ++i) read(b[i]);
+    for (int i = 1; i <= n; ++i)
+        for (int j = 1; j <= n; ++j) {
             int tmp = a[i] + b[j];
             if (q.size() < n)
                 q.push(tmp);
@@ -55,10 +54,10 @@ int main() {
                     break;
             }
         }
-    for (register int i = n; i; --i) {
+    for (int i = n; i; --i) {
         ans[i] = q.top();
         q.pop();
     }
-    for (register int i = 1; i <= n; ++i) print(ans[i], ' ');
+    for (int i = 1; i <= n; ++i) print(ans[i], ' ');
     return 0;
 }

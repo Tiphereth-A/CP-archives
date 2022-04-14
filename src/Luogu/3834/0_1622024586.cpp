@@ -1,6 +1,5 @@
-#include <algorithm>
-#include <cstdio>
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _mid(l, r) (((l) + (r)) >> 1)
 const int N = 2e5 + 5;
 int n, m, max_order, node_cnt;
@@ -27,13 +26,13 @@ int query(int node_l, int node_r, int l, int r, int k) {
 }
 int main() {
     scanf("%d%d", &n, &m);
-    _fp(i, 1, n) {
+    _for(i, 1, n) {
         scanf("%d", a + i);
         b[i] = a[i];
     }
     std::sort(b + 1, b + n + 1);
     max_order = std::unique(b + 1, b + n + 1) - b - 1;
-    _fp(i, 1, n) modify(node_root[i - 1], 1, max_order, node_root[i], std::lower_bound(b + 1, b + max_order + 1, a[i]) - b);
+    _for(i, 1, n) modify(node_root[i - 1], 1, max_order, node_root[i], std::lower_bound(b + 1, b + max_order + 1, a[i]) - b);
     int l, r, k;
     while (m--) {
         scanf("%d%d%d", &l, &r, &k);

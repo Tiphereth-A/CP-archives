@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <iostream>
+#include <bits/stdc++.h>
 const int M = 40005;
 int temp[M], a[M], n, ans = 0;
 void mergesort(int lo, int hi) {

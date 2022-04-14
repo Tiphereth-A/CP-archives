@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int f[60][60][60][60], g[60][60];
 int main() {

@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <iostream>
+#include <bits/stdc++.h>
 int a[3];
 char A, B, C;
 int main() {

@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <set>
+#include <bits/stdc++.h>
 std::set<int> s;
 int main() {
     int n;

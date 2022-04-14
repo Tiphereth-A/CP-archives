@@ -1,5 +1,5 @@
-#include <cstdio>
-#define rg register
+#include <bits/stdc++.h>
+
 int a[355], b[5];
 int f[41][41][41][41];
 inline int max(int a, int b) { return a > b ? a : b; }
@@ -14,10 +14,10 @@ int main() {
     }
     f[0][0][0][0] = a[1];
     int b1 = b[1], b2 = b[2], b3 = b[3], b4 = b[4];
-    for (rg int i = 0; i <= b1; ++i)
-        for (rg int j = 0; j <= b2; ++j)
-            for (rg int k = 0; k <= b3; ++k)
-                for (rg int l = 0; l <= b4; ++l) {
+    for (int i = 0; i <= b1; ++i)
+        for (int j = 0; j <= b2; ++j)
+            for (int k = 0; k <= b3; ++k)
+                for (int l = 0; l <= b4; ++l) {
                     int d = 1 + i + j * 2 + k * 3 + l * 4;
                     int tmp = a[d];
                     if (i) f[i][j][k][l] = max(f[i][j][k][l], f[i - 1][j][k][l] + tmp);

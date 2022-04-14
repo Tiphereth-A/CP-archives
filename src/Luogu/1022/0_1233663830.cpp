@@ -1,8 +1,4 @@
-#include <cctype>
-#include <cstdio>
-#include <ctime>
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 int var_n[2], cst_n[2], num, k, t = 1;
 char var;
 int main() {

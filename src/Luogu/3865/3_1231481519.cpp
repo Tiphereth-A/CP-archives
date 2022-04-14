@@ -1,10 +1,9 @@
-#include <cmath>
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define Max(a, b) (((a) > (b)) ? (a) : (b))
 #define gi(a)                                                                       \
     do {                                                                            \
-        register char ch;                                                           \
+        char ch;                                                                    \
         while ((a = getchar()) > '9' || a < '0')                                    \
             ;                                                                       \
         for (a -= '0'; (ch = getchar()) >= '0' && ch <= '9'; a = a * 10 + ch - '0') \
@@ -15,7 +14,7 @@ int a[MAXN], st[MAXN][20], n, m;
 int main() {
     gi(n);
     gi(m);
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         gi(a[i]);
         st[i][0] = a[i];
     }

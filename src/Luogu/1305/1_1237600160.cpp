@@ -1,24 +1,10 @@
-#include <algorithm>
-#include <cctype>
-#include <cmath>
-#include <cstdio>
-#include <cstring>
-#include <deque>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <stack>
-#include <string>
-#include <vector>
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+
+
 #define M 200005
 #define N 1005
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define mem(a) memset(a, 0, sizeof(a))
 #define memid(a) memset(a, 63, sizeof(a))
 #define memax(a) memset(a, 127, sizeof(a))
@@ -69,7 +55,7 @@ struct bt {
 } f[1000];
 void print(char data) {
     if (data == '*') return;
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         if (f[i].data == data) {
             cout << f[i].data;
             print(f[i].l);
@@ -80,7 +66,7 @@ void print(char data) {
 }
 int main() {
     cin >> n;
-    fp(i, 1, n) cin >> f[i].data >> f[i].l >> f[i].r;
+    _for(i, 1, n) cin >> f[i].data >> f[i].l >> f[i].r;
     print(f[1].data);
     return 0;
 }

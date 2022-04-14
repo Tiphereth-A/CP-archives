@@ -1,7 +1,5 @@
-#include <cmath>
-#include <cstdio>
-#include <queue>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 typedef long long i64;
 std::priority_queue<i64> a, b;
 int main() {
@@ -11,7 +9,7 @@ int main() {
         i64 m, n, f = 0;
         scanf("%lld%lld", &n, &m);
         tmp = tmpa = tmpb = 0;
-        fp(i, 1, n) {
+        _for(i, 1, n) {
             scanf("%lld", &tmp);
             if (tmp == 1) {
                 --i;
@@ -19,7 +17,7 @@ int main() {
             } else
                 a.push(tmp);
         }
-        fp(i, 1, m) {
+        _for(i, 1, m) {
             scanf("%lld", &tmp);
             if (tmp == 1) {
                 --i;
@@ -32,7 +30,7 @@ int main() {
             continue;
         }
         i64 p = 0;
-        fp(i, 1, m) {
+        _for(i, 1, m) {
             tmpa = a.top();
             tmpb = b.top();
             if (tmpa != tmpb) {
@@ -44,10 +42,11 @@ int main() {
         }
         if (!p) p = a.top();
         i64 sq = sqrt(p);
-        fp(i, 2, sq) if (p % i == 0) {
-            f = -1;
-            break;
-        }
+        _for(i, 2, sq)
+            if (p % i == 0) {
+                f = -1;
+                break;
+            }
         puts(f == -1 ? "NO" : "YES");
     }
     return 0;

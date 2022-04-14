@@ -1,5 +1,4 @@
-#include <cctype>
-#include <cstdio>
+#include <bits/stdc++.h>
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;
@@ -57,7 +56,7 @@ int main(int argc, char const *argv[]) {
 #endif
     int n, m, opt, x, y;
     read(n, m);
-    for (register int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++)
         fa[i] = i;
     while (m--) {
         read(opt);

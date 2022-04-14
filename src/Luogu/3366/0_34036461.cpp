@@ -1,6 +1,5 @@
-#include <algorithm>
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
 const int SIZ = 1 << 21 | 1;
@@ -45,10 +44,10 @@ int find(int x) { return x == pre[x] ? x : pre[x] = find(pre[x]); }
 int main() {
     int n, m, cnt = 0, ans = 0, fx, fy;
     fastIO::read(n, m);
-    fp(i, 1, m) fastIO::read(g[i].x, g[i].y, g[i].z);
-    fp(i, 1, n) pre[i] = i;
+    _for(i, 1, m) fastIO::read(g[i].x, g[i].y, g[i].z);
+    _for(i, 1, n) pre[i] = i;
     std::sort(g + 1, g + m + 1);
-    fp(i, 1, m) {
+    _for(i, 1, m) {
         if (cnt == n - 1) break;
         fx = find(g[i].x), fy = find(g[i].y);
         if (fx != fy) {

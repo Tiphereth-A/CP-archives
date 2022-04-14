@@ -1,6 +1,4 @@
-#include <cstdio>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 long long w[25][25][25];
 long long a, b, c;
 long long find(long long a, long long b, long long c) {

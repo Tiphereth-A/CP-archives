@@ -1,5 +1,5 @@
-#include <cstdio>
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 typedef unsigned long long u64;
 int In, Ia, Ib, Ic, Id;
 u64 pre, cnt[2];
@@ -30,7 +30,7 @@ int main() {
     Ia %= Id;
     Ib %= Id;
     Ic %= Id;
-    _fp(i, 1, In)(Id > 937500000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
+    _for(i, 1, In) (Id > 937500000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
     printf("%llu", cnt[0] * cnt[1]);
     return 0;
 }

@@ -1,6 +1,4 @@
-#include <cstdio>
-#include <cstring>
-#include <queue>
+#include <bits/stdc++.h>
 typedef int State[9];
 const int frac[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880}, dx[] = {0, 1, 0, -1}, dy[] = {1, 0, -1, 0};
 const State _end = {1, 2, 3, 8, 0, 4, 7, 6, 5};
@@ -13,9 +11,9 @@ struct node {
     int hash() {
         if (id)
             return id;
-        for (register int i = 0; i < 9; ++i) {
+        for (int i = 0; i < 9; ++i) {
             int tmp = 0, cur = seq[i];
-            for (register int j = i + 1; j < 9; ++j)
+            for (int j = i + 1; j < 9; ++j)
                 if (cur > seq[j])
                     ++tmp;
             id += tmp * frac[8 - i];
@@ -56,7 +54,7 @@ inline int bfs() {
 int main() {
     memcpy(end.seq, _end, sizeof(_end));
     node tmp;
-    for (register int i = 0; i < 9; ++i)
+    for (int i = 0; i < 9; ++i)
         tmp.seq[i] = getchar() - '0';
     state_all.push(tmp);
     printf("%d", bfs());

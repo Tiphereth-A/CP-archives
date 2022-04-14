@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cstdio>
-#include <functional>
+#include <bits/stdc++.h>
 const int N = 30005;
 int w, g, a[N];
 int main() {

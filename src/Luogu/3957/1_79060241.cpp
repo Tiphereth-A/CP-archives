@@ -1,7 +1,6 @@
-#include <cstdio>
-#include <cstring>
-#define il inline
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define mem(a) memset(a, 0, sizeof(a))
 #define memp(a) memset(a, 1, sizeof(a))
 #define memn(a) memset(a, -1, sizeof(a))
@@ -40,13 +39,13 @@ struct pnt {
 } a[M];
 int n, d, k, ans = -1;
 ll sum;
-il ll dp(int left, int right) {
+inline ll dp(int left, int right) {
     int f[M], dq[M];
     mem(dq);
     memn(f);
     f[0] = 0;
     int head = 1, tail = 0, i = 0;
-    fp(j, 1, n) {
+    _for(j, 1, n) {
         while (a[j].dis - a[i].dis >= left && i < j) {
             if (f[i] != -1) {
                 while (head <= tail && f[dq[tail]] <= f[i]) --tail;
@@ -58,12 +57,13 @@ il ll dp(int left, int right) {
         if (head <= tail) f[j] = f[dq[head]] + a[j].val;
     }
     ll num = 0;
-    fp(i, 1, n) if (num < f[i]) num = f[i];
+    _for(i, 1, n)
+        if (num < f[i]) num = f[i];
     return num;
 }
 int main() {
     read(n, d, k);
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         read(a[i].dis, a[i].val);
         if (a[i].val > 0) sum += a[i].val;
     }

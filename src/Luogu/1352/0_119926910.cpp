@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int N = 6e4 + 5;
 struct edge {
     int next, to;

@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 inline void swap(int &a, int &b) {
     int tmp = a;
     a = b;

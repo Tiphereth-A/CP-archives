@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int a[3];
 char c1, c2;
 int main() {

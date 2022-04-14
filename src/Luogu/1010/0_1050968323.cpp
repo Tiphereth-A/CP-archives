@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 void p(int n) {
     int i;

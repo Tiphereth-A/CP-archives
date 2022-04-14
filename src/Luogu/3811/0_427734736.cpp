@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 typedef long long i64;
 i64 a[3000005] = {0, 1}, n, p;
 int main() {

@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int a[7], f[1010], tot;
 int main() {
     for (int i = 1; i <= 6; ++i)

@@ -4,43 +4,29 @@
 #define __DEF__
 #define __FASTIO__
 #ifdef __C_STYLE__
-#include <cstdio>
+#include <bits/stdc++.h>
 #endif
 #ifdef __C_LIB__
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_STYLE__
-#include <iostream>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_LIB__
-#include <fstream>
-#include <iomanip>
-#include <string>
+#include <bits/stdc++.h>
 #endif
 #ifdef __STL__
-#include <algorithm>
-#include <deque>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <vector>
+#include <bits/stdc++.h>
 #endif
 #ifdef __DEF__
-#define rg register
-#define rgi register int
-#define il inline
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define _replu(i, l, r) for (register long unsigned int i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (register int i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (register int i = (r); i > (l); --i)
+
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
+#define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
+#define _repr(i, r, l) for (int i = (r); i > (l); --i)
 #define _gc getchar
 #define tpn typename
 #define _ins(a) std::inserter((a), (a).begin())
@@ -150,13 +136,13 @@ inline void print(Type x, char text = '\n') {
 const int N = 1e7 + 5;
 i128 k, mod;
 std::map<i128, int> set;
-il i128 qpow(i128 a, i128 b) {
+inline i128 qpow(i128 a, i128 b) {
     i128 ans = 1;
     for (; b; a = a * a % mod, b >>= 1)
         if (b & 1) ans = ans * a % mod;
     return ans;
 }
-il i128 bsgs(i128 x, i128 y) {
+inline i128 bsgs(i128 x, i128 y) {
     set.clear();
     if (x == 0 && y == 0) return 0;
     if (x == 0) return -1;
@@ -167,7 +153,7 @@ il i128 bsgs(i128 x, i128 y) {
     }
     i128 tmp = qpow(x, m);
     s = 1;
-    _fp(i, 1, m + 1) {
+    _for(i, 1, m + 1) {
         s = s * tmp % mod;
         if (set.count(s)) return i * m - set[s];
     }

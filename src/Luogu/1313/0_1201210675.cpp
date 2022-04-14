@@ -1,10 +1,7 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <iostream>
-#define ll long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+
+
 const int maxn = 5000 + 10;
 const int mod = 10007;
 int c[maxn][maxn];

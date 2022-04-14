@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int day[8] = {0};
 int mon[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};

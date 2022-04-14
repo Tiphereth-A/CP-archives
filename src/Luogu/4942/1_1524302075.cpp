@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int main() {
     int t;
     scanf("%d", &t);

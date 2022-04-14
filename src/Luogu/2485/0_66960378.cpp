@@ -1,6 +1,4 @@
-#include <cmath>
-#include <cstdio>
-#include <map>
+#include <bits/stdc++.h>
 typedef long long i64;
 std::map<int, int> list;
 int mod;
@@ -18,13 +16,13 @@ inline void bsgs(int x, int y) {
         return;
     }
     int m = sqrt(mod) + 1, s = y, tmp, ans = -1;
-    for (register int b = 0; b < m; ++b) {
+    for (int b = 0; b < m; ++b) {
         list[s] = b;
         s = 1ll * s * x % mod;
     }
     tmp = qpow(x, m);
     s = 1;
-    for (register int a = 1; a <= m + 1; ++a) {
+    for (int a = 1; a <= m + 1; ++a) {
         s = 1ll * s * tmp % mod;
         if (list.count(s)) {
             ans = a * m - list[s];

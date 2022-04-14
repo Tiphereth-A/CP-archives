@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int mod = 6662333;
 long long n, a = 2, s = 1;
 int main() {

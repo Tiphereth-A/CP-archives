@@ -1,14 +1,12 @@
-#include <iostream>
-#include <set>
-#include <string>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 int n;
 std::set<std::string> s;
 std::string str;
 int main() {
     std::ios::sync_with_stdio(false);
     std::cin >> n;
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         std::cin >> str;
         std::string a = "";
         for (auto j : str) {

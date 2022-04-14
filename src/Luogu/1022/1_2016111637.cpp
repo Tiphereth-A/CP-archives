@@ -1,5 +1,4 @@
-#include <cctype>
-#include <cstdio>
+#include <bits/stdc++.h>
 int a[2], b[2], num, k, t = 1;
 char c, d;
 int main() {

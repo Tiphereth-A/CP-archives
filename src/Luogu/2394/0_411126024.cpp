@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 long double a;
 int main() {
     scanf("%15Lf", &a);

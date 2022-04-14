@@ -1,23 +1,12 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctype.h>
-#include <iostream>
-#include <math.h>
-#include <queue>
-#include <sstream>
-#include <stack>
-#include <string>
-#include <vector>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define M 100005
 #define sstr stringstream
-#define fp(i, l, r) for (register int i = (l); i <= (r); i++)
-#define fd(i, r, l) for (register int i = (r); i >= (l); i--)
+#define _for(i, l, r) for (int i = (l); i <= (r); i++)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); i--)
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 using namespace std;
@@ -25,7 +14,7 @@ struct num {
     int n[M];
 } s1;
 int ans, m;
-il void scan(num &a) {
+inline void scan(num &a) {
     a.n[0] = 0;
     char c = getchar();
     if (isalpha(c)) c = toupper(c);
@@ -42,16 +31,16 @@ il void scan(num &a) {
         if (isalpha(c)) c = toupper(c);
     }
 }
-il num rev(num &a) {
+inline num rev(num &a) {
     num x;
     x.n[0] = a.n[0];
-    fp(i, 1, a.n[0]) x.n[i] = a.n[a.n[0] - i + 1];
+    _for(i, 1, a.n[0]) x.n[i] = a.n[a.n[0] - i + 1];
     return x;
 }
-il void nplus(num &a, num b) {
+inline void nplus(num &a, num b) {
     int s = max(a.n[0], b.n[0]), c = 0;
     a.n[0] = s;
-    fp(i, 1, s) {
+    _for(i, 1, s) {
         a.n[i] += b.n[i] + c;
         c = a.n[i] / m;
         a.n[i] %= m;
@@ -61,9 +50,10 @@ il void nplus(num &a, num b) {
         }
     }
 }
-il bool f(num a) {
+inline bool f(num a) {
     int c = a.n[0] / 2;
-    fp(i, 1, c) if (a.n[i] != a.n[a.n[0] - i + 1]) return true;
+    _for(i, 1, c)
+        if (a.n[i] != a.n[a.n[0] - i + 1]) return true;
     return false;
 }
 int main() {

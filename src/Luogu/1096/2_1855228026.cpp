@@ -1,7 +1,4 @@
-#include <cmath>
-#include <iostream>
-#include <sstream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 int main() {
     int n;

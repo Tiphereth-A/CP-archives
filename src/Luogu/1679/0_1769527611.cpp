@@ -1,6 +1,4 @@
-#include <cmath>
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 #define N 100005
 #define ll int
 int n, cnt, list[20] = {0, 1}, f[N];

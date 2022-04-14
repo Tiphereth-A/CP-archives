@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 #define N 10005
 #define M 30005
 const int prime[] = {
@@ -3296,17 +3295,17 @@ int main() {
         return 0;
     }
     dividePipe();
-    for (register int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         scanf("%d", &s);
         divideCell(s);
         bool fNow = 1;
         int curTime = -1;
-        for (register int k = 2, j = 1; j <= primeCnt; k = prime[++j]) {
-            bool fP = pipeP[k], fC = cellP[k];
-            if (fP && !fC) {
+        for (int k = 2, j = 1; j <= primeCnt; k = prime[++j]) {
+            bool _for = pipeP[k], fC = cellP[k];
+            if (_for && !fC) {
                 fNow = 0;
                 break;
-            } else if (fP && fC) {
+            } else if (_for && fC) {
                 int cntPnow = pipeTot[k], cntCnow = cellTot[k];
                 if (cntPnow % cntCnow)
                     curTime = max(curTime, cntPnow / cntCnow + 1);

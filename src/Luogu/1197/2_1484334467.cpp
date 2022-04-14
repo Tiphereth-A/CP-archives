@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int M = 4e5 + 5;
 int n, m, fa[M], tar[M];
 struct edge {
@@ -55,31 +55,31 @@ inline void merge(int x, int y) {
 }
 int main() {
     fastIO::read(n, m);
-    for (register int i = 0; i < n; ++i) fa[i] = i;
+    for (int i = 0; i < n; ++i) fa[i] = i;
     int u, v;
-    for (register int i = 0; i < m; ++i) {
+    for (int i = 0; i < m; ++i) {
         fastIO::read(u, v);
         add(u, v);
         add(v, u);
     }
     fastIO::read(u);
-    for (register int i = 1; i <= u; ++i) {
+    for (int i = 1; i <= u; ++i) {
         fastIO::read(v);
         broken[tar[i] = v] = 1;
     }
     tot = n - u;
-    for (register int i = 1; i <= m * 2; i += 2)
+    for (int i = 1; i <= m * 2; i += 2)
         if (!broken[e[i].from] && !broken[e[i].to]) merge(e[i].from, e[i].to);
     ans[u + 1] = tot;
-    for (register int i = u; i; --i) {
+    for (int i = u; i; --i) {
         int now = tar[i];
         ++tot;
         broken[now] = 0;
-        for (register int j = head[now]; j; j = e[j].next) {
+        for (int j = head[now]; j; j = e[j].next) {
             if (!broken[e[j].to]) merge(now, e[j].to);
         }
         ans[i] = tot;
     }
-    for (register int i = 1; i <= u + 1; ++i) fastIO::print(ans[i]);
+    for (int i = 1; i <= u + 1; ++i) fastIO::print(ans[i]);
     return 0;
 }

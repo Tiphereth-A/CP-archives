@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <stack>
+#include <bits/stdc++.h>
 std::stack<int> s;
 int main() {
     int n;

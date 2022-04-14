@@ -32,14 +32,14 @@
 #include <vector>
 #endif
 #ifdef __DEF__
-#define rg register
-#define rgi register int
-#define il inline
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define _replu(i, l, r) for (register long unsigned int i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (register int i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (register int i = (r); i > (l); --i)
+
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
+#define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
+#define _repr(i, r, l) for (int i = (r); i > (l); --i)
 #define _gc getchar
 #define _pc putchar
 #define tpn typename
@@ -81,7 +81,7 @@ inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 template <tpn A>
 inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <tpn A>
-inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
+inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 #define INF_I32 0x7fffffff
 #define INF_I64 0x7FFFFFFFFFFFFFFFll
@@ -89,10 +89,10 @@ const int M = 500005;
 const int N = 1e3 + 5;
 const int MOD = 998244353;
 char map[7][7];
-il bool legel(int i, int j) { return i > 0 && i < 6 && j > 0 && j < 6; }
-il void output() {
-    _fp(i, 1, 5) {
-        _fp(j, 1, 4) printf("%c ", map[i][j]);
+inline bool legel(int i, int j) { return i > 0 && i < 6 && j > 0 && j < 6; }
+inline void output() {
+    _for(i, 1, 5) {
+        _for(j, 1, 4) printf("%c ", map[i][j]);
         printf("%c\n", map[i][5]);
     }
 }
@@ -103,8 +103,8 @@ int main() {
     while (!feof(stdin)) {
         int nowi = -1, nowj = -1;
         _mem(map);
-        _fp(i, 1, 5) {
-            _fp(j, 1, 5) {
+        _for(i, 1, 5) {
+            _for(j, 1, 5) {
                 map[i][j] = (c = _gc());
                 if (c == ' ') {
                     nowi = i;

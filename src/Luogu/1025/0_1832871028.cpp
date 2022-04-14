@@ -1,17 +1,8 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <queue>
-#include <sstream>
-#include <stack>
-#include <string>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define MAXN 105
 using namespace std;
 int n, k, ans;

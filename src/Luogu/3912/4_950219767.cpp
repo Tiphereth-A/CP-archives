@@ -1,15 +1,14 @@
-#include <cctype>
-#include <cstdio>
-#define il __inline__ __attribute__((always_inline))
-#define rint register int
+#include <bits/stdc++.h>
+#define inline __inline__ __attribute__((always_inline))
+#define rint int
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, ch;
 int p, p3 = -1;
-il int getc() {
+inline int getc() {
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++;
 }
 template <typename T>
-il void read(T &x) {
+inline void read(T &x) {
     x = 0;
     while (ch = getc(), !isdigit(ch))
         ;
@@ -19,7 +18,7 @@ il void read(T &x) {
     }
 }
 template <typename T>
-il void print(T x) {
+inline void print(T x) {
     do {
         a[++p] = x % 10 + 48;
     } while (x /= 10);

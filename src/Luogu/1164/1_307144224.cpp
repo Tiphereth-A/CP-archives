@@ -1,23 +1,12 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctype.h>
-#include <iostream>
-#include <math.h>
-#include <queue>
-#include <sstream>
-#include <stack>
-#include <string>
-#include <vector>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define M 10005
 #define sstr stringstream
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define nos(a, b, n) ((((a) < 1) || ((b) < 1) || ((a) > (n)) || ((b) > (n))) ? 0 : 1)
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
@@ -25,7 +14,7 @@
 #define gc getchar
 using namespace std;
 int f[M], n, V, v[105], w[105];
-il int getint() {
+inline int getint() {
     int t = 0;
     char c = gc();
     while (c < 48 || c > 57) c = gc();
@@ -38,9 +27,10 @@ il int getint() {
 int main() {
     n = gi();
     V = gi();
-    fp(i, 1, n) v[i] = gi();
+    _for(i, 1, n) v[i] = gi();
     f[0] = 1;
-    fp(i, 1, n) fd(j, V, v[i]) f[j] += f[j - v[i]];
+    _for(i, 1, n)
+        _rfor(j, V, v[i]) f[j] += f[j - v[i]];
     cout << f[V];
     return 0;
 }

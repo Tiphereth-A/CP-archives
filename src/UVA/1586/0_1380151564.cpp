@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstring>
 #include <map>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 typedef double db;
 std::map<char, db> ar;
 int main() {
@@ -16,7 +16,7 @@ int main() {
         scanf("%s", s);
         int len = strlen(s), num = 0;
         db ans = 0.0, atom = 0.0;
-        fp(i, 0, len - 1) {
+        _for(i, 0, len - 1) {
             if (isalpha(s[i])) {
                 if (atom > 0.0 && !num)
                     ans += atom;

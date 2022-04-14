@@ -1,6 +1,4 @@
-#include <cmath>
-#include <cstdio>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 const double eps = 1e-8;
 double a, b, c, d;

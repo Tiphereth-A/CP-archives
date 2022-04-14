@@ -1,17 +1,17 @@
-#include <cstdio>
-#define fp(i, l, r) for (register unsigned long long i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (unsigned long long i = (l); i <= (r); ++i)
 #define lowbit(x) ((x) & -(x))
-#define il inline
+
 #define tpn typename
 #define MAXN 100005
 #define MAXBUF 140000000
 typedef unsigned long long u64;
-il char gc() {
+inline char gc() {
     static char buf[MAXBUF], *p1 = buf, *p2 = buf;
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
 }
 template <tpn A>
-il void read(A &x) {
+inline void read(A &x) {
     char c;
     do {
         c = getchar();
@@ -23,21 +23,21 @@ il void read(A &x) {
     } while (c >= '0' && c <= '9');
 }
 template <tpn A, tpn B>
-il void read(A &a, B &b) {
+inline void read(A &a, B &b) {
     read(a);
     read(b);
 }
 template <tpn A, tpn B, tpn C>
-il void read(A &a, B &b, C &c) {
+inline void read(A &a, B &b, C &c) {
     read(a);
     read(b);
     read(c);
 }
 u64 n, m, c1[MAXN], c2[MAXN], num[MAXN];
-void il add(u64 *r, u64 pos, const u64 &v) {
+void inline add(u64 *r, u64 pos, const u64 &v) {
     for (; pos <= n; pos += lowbit(pos)) r[pos] += v;
 }
-u64 il query(u64 *r, u64 pos) {
+u64 inline query(u64 *r, u64 pos) {
     u64 ans(0);
     for (; pos; pos -= lowbit(pos)) ans += r[pos];
     return ans;
@@ -45,7 +45,7 @@ u64 il query(u64 *r, u64 pos) {
 int main() {
     u64 op, x, y, k, sum1, sum2;
     read(n, m);
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         read(num[i]);
         add(c1, i, num[i] - num[i - 1]);
         add(c2, i, (i - 1) * (num[i] - num[i - 1]));

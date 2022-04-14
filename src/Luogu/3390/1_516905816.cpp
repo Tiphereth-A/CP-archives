@@ -1,12 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <exception>
-#include <iostream>
-#include <typeinfo>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 using int_t = unsigned long long int;
 const int_t mod = (int_t)1e9 + 7;

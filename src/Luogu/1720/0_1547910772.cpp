@@ -1,5 +1,4 @@
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 long long a, b = 1, c = 1;
 int main() {
 #ifndef ONLINE_JUDGE

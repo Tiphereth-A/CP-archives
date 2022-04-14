@@ -1,13 +1,9 @@
-#include <cstdio>
-#include <map>
-#include <queue>
-#include <stack>
-#include <vector>
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+
+
 #define M 200005
 #define N 10005
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 typedef long long ll;
 typedef unsigned long long ull;
@@ -54,7 +50,7 @@ read(a),read(b),read(c),read(d);}
 int f[M], a[M], n, ans = -999999;
 int main() {
     scanf("%d", &n);
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         scanf("%d", &f[i]);
         a[i] = Max(a[i - 1] + f[i], f[i]);
         ans = Max(ans, a[i]);

@@ -1,7 +1,6 @@
-#include <cstdio>
-#include <cstring>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define il inline
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+
 #define mem(a) memset(a, 0, sizeof(a))
 #define MOD(x, p) ((x) % (p))
 typedef long long ll;
@@ -10,7 +9,7 @@ struct mat {
     mat() { mem(n); }
 } ans, mul;
 ll m, n, g;
-il ll qmul(ll a, ll b) {
+inline ll qmul(ll a, ll b) {
     ll tmp = 0;
     for (; b; b >>= 1) {
         if (b & 1) tmp = MOD(tmp + a, m);
@@ -18,15 +17,17 @@ il ll qmul(ll a, ll b) {
     }
     return tmp;
 }
-il mat Mul(mat a, mat b) {
+inline mat Mul(mat a, mat b) {
     mat tmp;
-    fp(i, 1, 2) fp(j, 1, 2) fp(k, 1, 2) {
-        tmp.n[i][j] = MOD(tmp.n[i][j] + MOD(qmul(a.n[i][k], b.n[k][j]), m), m);
-        if (tmp.n[i][j] < 0) tmp.n[i][j] += m;
-    }
+    _for(i, 1, 2)
+        _for(j, 1, 2)
+            _for(k, 1, 2) {
+                tmp.n[i][j] = MOD(tmp.n[i][j] + MOD(qmul(a.n[i][k], b.n[k][j]), m), m);
+                if (tmp.n[i][j] < 0) tmp.n[i][j] += m;
+            }
     return tmp;
 }
-il mat qpow() {
+inline mat qpow() {
     mat tmp;
     tmp.n[1][1] = tmp.n[2][2] = 1;
     for (; n; n >>= 1) {

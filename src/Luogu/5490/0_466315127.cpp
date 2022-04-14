@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <cstdio>
+#include <bits/stdc++.h>
 const int N = 2e5 + 5;
 struct node_sgt {
     int l, r;

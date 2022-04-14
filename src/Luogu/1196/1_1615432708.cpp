@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define _getch(ch) while (((ch) = getchar()) != '\n' && (ch) != ' ' && (ch) != '\r')
 const int N = 3e4 + 1;
 int fa[N], sum[N], num[N];
@@ -38,7 +38,7 @@ int main() {
     int t, x, y, fx, fy;
     fastIO::read(t);
     getchar();
-    for (register int i = 1; i <= 30000; ++i) {
+    for (int i = 1; i <= 30000; ++i) {
         fa[i] = i;
         num[i] = 1;
     }

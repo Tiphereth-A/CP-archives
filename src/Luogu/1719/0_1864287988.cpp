@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define _for(num, end) for (int i##num = 1; i##num <= end; ++i##num)
 const int N = 130;
 int n, sum[N][N], ans = 0x80000000;

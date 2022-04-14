@@ -1,5 +1,5 @@
-#include <cstdio>
-#define _for(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 typedef long long i64;
 template <typename A>
 inline void read(A &x) {

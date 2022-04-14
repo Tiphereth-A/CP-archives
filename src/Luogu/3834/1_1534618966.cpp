@@ -1,7 +1,4 @@
-#include <cctype>
-#include <cstdio>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;
@@ -41,8 +38,7 @@ inline void print(int x) {
 }  // namespace FastIO
 #define read() FastIO::read()
 #define print(x) FastIO::print(x)
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 const int maxn = 2e5 + 5;
 int a[maxn];
 std::vector<int> v;

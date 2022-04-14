@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 bool a[110][110];
 int n, m;
@@ -8,14 +8,14 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     cin >> n >> m;
-    for (register int i = 1; i <= n; ++i) {
-        for (register int j = 1; j <= m; ++j) {
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
             cin >> tmp;
             if (tmp == '*') a[i][j] = 1;
         }
     }
-    for (register int i = 1; i <= n; ++i) {
-        for (register int j = 1; j <= m; ++j) {
+    for (int i = 1; i <= n; ++i) {
+        for (int j = 1; j <= m; ++j) {
             if (a[i][j] == 1)
                 cout << '*';
             else

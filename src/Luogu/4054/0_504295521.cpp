@@ -1,35 +1,16 @@
-#include <algorithm>
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <deque>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
-#define rg register
-#define rgi register int
-#define il inline
+#include <bits/stdc++.h>
+
+#define rgi int
+
 #define tpn typename
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
 #define UNTIE std::cin::tie(0), std::cout::tie(0)
-#define _for(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define _replu(i, l, r) for (register long unsigned int i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (register int i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (register int i = (r); i > (l); --i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
+#define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
+#define _repr(i, r, l) for (int i = (r); i > (l); --i)
 #define _gc getchar
 #define _pc putchar
 #define _ins(a) std::inserter((a), (a).begin())
@@ -68,7 +49,7 @@ inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 template <tpn A>
-inline A Gcd(register A x, register A y) {
+inline A Gcd(A x, A y) {
     return !y ? x : Gcd(y, x % y);
 }
 namespace FastIO {

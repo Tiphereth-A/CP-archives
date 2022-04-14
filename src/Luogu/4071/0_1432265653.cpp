@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 typedef long long i64;
 const int N = 1e6 + 5, MOD = 1e9 + 7;
 i64 frac[N] = {1}, inv[N], d[N];

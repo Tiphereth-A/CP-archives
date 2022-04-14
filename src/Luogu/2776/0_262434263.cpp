@@ -6,46 +6,32 @@
 #define __DEF__
 #define __STD__
 #ifdef __C_STYLE__
-#include <cstdio>
+#include <bits/stdc++.h>
 #endif
 #ifdef __C_LIB__
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_STYLE__
-#include <iostream>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_LIB__
-#include <fstream>
-#include <iomanip>
-#include <string>
+#include <bits/stdc++.h>
 #endif
 #ifdef __STL__
-#include <algorithm>
-#include <deque>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <vector>
+#include <bits/stdc++.h>
 #endif
 #ifdef __STD__
 using namespace std;
 #endif
 #ifdef __DEF__
-#define rg register
-#define rgi register int
-#define il inline
-#define FP(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define REP(i, l, r) for (register int i = (l); i < (r); ++i)
-#define REPLU(i, l, r) for (register long unsigned int i = (l); i < (r); ++i)
-#define FD(i, r, l) for (register int i = (r); i >= (l); --i)
-#define REPR(i, r, l) for (register int i = (r); i > (l); --i)
+
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define REP(i, l, r) for (int i = (l); i < (r); ++i)
+#define REPLU(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
+#define REPR(i, r, l) for (int i = (r); i > (l); --i)
 #define gc getchar
 #define tpn typename
 #define INS(a) std::inserter((a), (a).begin())

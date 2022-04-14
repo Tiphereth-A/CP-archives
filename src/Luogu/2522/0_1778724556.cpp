@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cstdio>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 using i64 = long long;
 namespace FastIO {

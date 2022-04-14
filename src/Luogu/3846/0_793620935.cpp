@@ -1,6 +1,4 @@
-#include <cmath>
-#include <iostream>
-#include <map>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long i64;
 i64 qpow(i64 a, i64 b, i64 mod) {

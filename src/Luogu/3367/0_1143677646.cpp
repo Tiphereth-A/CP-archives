@@ -1,8 +1,8 @@
-#include <cstdio>
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+
+
 #define M 10005
-#define fp(i, l, r) for (register int i = (l); i <= (r); i++)
+#define _for(i, l, r) for (int i = (l); i <= (r); i++)
 #define merge(x, y) pre[find(x)] = find(y)
 int pre[M];
 namespace fastIO {
@@ -29,8 +29,8 @@ int main() {
     int n, m;
     read(n);
     read(m);
-    fp(i, 1, n) pre[i] = i;
-    fp(i, 1, m) {
+    _for(i, 1, n) pre[i] = i;
+    _for(i, 1, m) {
         int z, x, y;
         read(z);
         read(x);

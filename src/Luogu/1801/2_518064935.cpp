@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int maxn = 200000 + 10;
 int a[maxn], g[maxn];
 struct node {

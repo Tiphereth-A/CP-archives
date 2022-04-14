@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 #define _l (i - *tmp)
 #define _r (i + *tmp)
 const int N = 11000005;
@@ -17,13 +16,13 @@ int main() {
     scanf("%s", a);
     len = strlen(a);
     s[0] = s[1] = '#';
-    for (register int i = 1; i <= len; ++i) {
+    for (int i = 1; i <= len; ++i) {
         s[i << 1] = a[i - 1];
         s[i << 1 | 1] = '#';
     }
     len = len << 1 | 1;
     int rMax = 0, mid = 0;
-    for (register int i = 1, *tmp = r + 1; i <= len; ++i, ++tmp) {
+    for (int i = 1, *tmp = r + 1; i <= len; ++i, ++tmp) {
         *tmp = (i < rMax) ? min(r[(mid << 1) - i], rMax - i) : 1;
         while (1 <= _l && _r <= len && s[_l] == s[_r]) ++(*tmp);
         if (_r > rMax) {
@@ -32,7 +31,7 @@ int main() {
         }
     }
     int lMax = 0;
-    for (register int i = 1; i <= len; ++i) lMax = max(lMax, r[i] - 1);
+    for (int i = 1; i <= len; ++i) lMax = max(lMax, r[i] - 1);
     printf("%d\n", lMax);
     return 0;
 }

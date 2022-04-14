@@ -1,18 +1,8 @@
-#include <algorithm>
-#include <cctype>
-#include <cmath>
-#include <cstring>
-#include <deque>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <list>*/
-#include <map>
-#include <queue>
-#include <stack>
-#include <string>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>*/
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define mem(a) memset(a, 0, sizeof(a))
 #define memid(a) memset(a, 63, sizeof(a))
 #define memax(a) memset(a, 127, sizeof(a))

@@ -1,34 +1,17 @@
-#include <algorithm>
-#include <cctype>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <deque>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <utility>
-#include <vector>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
-#define rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define il inline
+#define rep(i, l, r) for (int i = (l); i < (r); ++i)
+
 #define INF 0x3f3f3f3f
 #define EPS 1e-5
 #define pc putchar
 #define mem(a) memset(a, 0, sizeof(a))
-#define rg register
+
 #define gc getchar
 #define fst first
 #define snd second
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define memid(a) memset(a, 0x3f, sizeof(a))
 #define memax(a) memset(a, 0x7f, sizeof(a))
 #define ls rt << 1
@@ -76,10 +59,10 @@ int n, q, x, y;
 i64 c[M][M] = {1};
 int main() {
     read(n);
-    fp(i, 1, n) read(a[i]);
-    fp(i, 1, 2000) {
+    _for(i, 1, n) read(a[i]);
+    _for(i, 1, 2000) {
         c[i][0] = c[i][i] = 1;
-        fp(j, 1, i - 1) {
+        _for(j, 1, i - 1) {
             c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % MOD;
         }
     }
@@ -87,7 +70,7 @@ int main() {
     while (q--) {
         i64 ans = 0;
         read(x, y);
-        for (register int i = 0; i <= x; ++i) {
+        for (int i = 0; i <= x; ++i) {
             ans = (ans + a[y] * c[x][i]) % MOD;
             ((++y) > n) ? (y = 1) : 1;
         }

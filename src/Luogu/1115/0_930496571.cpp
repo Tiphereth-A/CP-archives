@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 int main() {
 #ifndef ONLINE_JUDGE
     freopen("D:\\code\\IO\\in.in", "r", stdin);

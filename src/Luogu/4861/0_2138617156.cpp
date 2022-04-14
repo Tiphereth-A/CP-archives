@@ -1,8 +1,4 @@
-#include <algorithm>
-#include <climits>
-#include <cmath>
-#include <iostream>
-#include <numeric>
+#include <bits/stdc++.h>
 using namespace std;
 using i64 = long long;
 i64 qpow(i64 a, i64 b, i64 mod) {

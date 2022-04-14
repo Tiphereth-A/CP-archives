@@ -1,17 +1,15 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 #define N 1005
 #define D 100000000
-#define fp(i, l, r) for (register int(i) = (l); (i) <= (r); ++(i))
-#define fd(i, l, r) for (register int(i) = (l); (i) >= (r); --(i))
-#define il inline
-#define rg register
-#define ll long long
-#define ull unsigned long long
+#define _for(i, l, r) for (int(i) = (l); (i) <= (r); ++(i))
+#define _rfor(i, l, r) for (int(i) = (l); (i) >= (r); --(i))
+
+
+typedef long long ll;
+typedef unsigned long long ull;
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define gi(a) do {
-register char ch;
+char ch;
 while ((a = getchar()) > '9' || a < '0')
     ;
 for (a -= '0'; (ch = getchar()) >= '0' && ch <= '9'; a = (a << 3) + (a << 1) + ch - '0')
@@ -34,9 +32,9 @@ int n;
 bool cmp(node a, node b) {
     return a.mul < b.mul;
 }
-il void mul(int m) {
-    fp(i, 1, ans.len) ans.num[i] *= m;
-    fp(i, 1, ans.len) {
+inline void mul(int m) {
+    _for(i, 1, ans.len) ans.num[i] *= m;
+    _for(i, 1, ans.len) {
         ll *tmp = ans.num + i;
         if (*tmp >= D) {
             *(tmp + 1) += *tmp / D;
@@ -45,11 +43,11 @@ il void mul(int m) {
         if (i == ans.len && *(tmp + 1)) ++ans.len;
     }
 }
-il void div(int d) {
+inline void div(int d) {
     ull q = 0LL;
     memset(c.num, 0, sizeof(c.num));
     c.len = ans.len;
-    fd(i, c.len, 1) {
+    _rfor(i, c.len, 1) {
         q *= D;
         q += ans.num[i];
         c.num[i] = q / d;
@@ -58,12 +56,12 @@ il void div(int d) {
     while (c.len > 1 && !c.num[c.len])
         --c.len;
 }
-il bool comp() {
+inline bool comp() {
     if (c.len > final.len)
         return 1;
     if (c.len < final.len)
         return 0;
-    fd(i, c.len, 1) {
+    _rfor(i, c.len, 1) {
         if (c.num[i] > final.num[i])
             return 1;
         if (c.num[i] < final.num[i])
@@ -72,7 +70,7 @@ il bool comp() {
 }
 int main() {
     gi(n);
-    fp(i, 0, n) {
+    _for(i, 0, n) {
         gi(p[i].a);
         gi(p[i].b);
         p[i].mul = p[i].a;
@@ -80,7 +78,7 @@ int main() {
     }
     std::sort(p + 1, p + n + 1, cmp);
     ans.num[1] = 1;
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         mul(p[i - 1].a);
         div(p[i].b);
         if (comp()) {
@@ -89,6 +87,6 @@ int main() {
         }
     }
     printf("%d", final.num[final.len]);
-    fd(i, final.len - 1, 1) printf("%08d", final.num[i]);
+    _rfor(i, final.len - 1, 1) printf("%08d", final.num[i]);
     return 0;
 }

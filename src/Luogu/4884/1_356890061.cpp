@@ -1,9 +1,7 @@
-#include <cmath>
-#include <cstdio>
-#include <map>
-#define il inline
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
+#include <bits/stdc++.h>
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
 typedef __int128 i128;
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
@@ -40,13 +38,13 @@ inline void print(Type x, char text = '\n') {
 }  // namespace fastIO
 i128 k, mod;
 std::map<i128, int> set;
-il i128 qpow(i128 a, i128 b) {
+inline i128 qpow(i128 a, i128 b) {
     i128 ans = 1;
     for (; b; a = a * a % mod, b >>= 1)
         if (b & 1) ans = ans * a % mod;
     return ans;
 }
-il i128 bsgs(i128 x, i128 y) {
+inline i128 bsgs(i128 x, i128 y) {
     set.clear();
     if (x == 0 && y == 0) return 0;
     if (x == 0) return -1;
@@ -57,7 +55,7 @@ il i128 bsgs(i128 x, i128 y) {
     }
     i128 tmp = qpow(x, m);
     s = 1;
-    _fp(i, 1, m + 1) {
+    _for(i, 1, m + 1) {
         s = s * tmp % mod;
         if (set.count(s)) return i * m - set[s];
     }

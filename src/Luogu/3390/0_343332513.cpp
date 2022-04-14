@@ -1,8 +1,7 @@
-#include <cstring>
-#include <iostream>
+#include <bits/stdc++.h>
 #define MOD 1000000007
-#define ll long long
-#define fp(i, l, r) for (register int(i) = (l); (i) <= (r); i++)
+typedef long long ll;
+#define _for(i, l, r) for (int(i) = (l); (i) <= (r); i++)
 using namespace std;
 struct Mtx {
     ll m[101][101];
@@ -11,9 +10,11 @@ ll n, p;
 inline Mtx Mul(const Mtx &x, const Mtx &y) {
     Mtx c;
     memset(c.m, 0, sizeof(c.m));
-    fp(i, 1, n) fp(j, 1, n) fp(k, 1, n) {
-        c.m[i][j] = c.m[i][j] % MOD + x.m[i][k] * y.m[k][j] % MOD;
-    }
+    _for(i, 1, n)
+        _for(j, 1, n)
+            _for(k, 1, n) {
+                c.m[i][j] = c.m[i][j] % MOD + x.m[i][k] * y.m[k][j] % MOD;
+            }
     return c;
 }
 inline Mtx pow(Mtx x, ll y) {
@@ -29,12 +30,13 @@ inline Mtx pow(Mtx x, ll y) {
 int main() {
     ios::sync_with_stdio(false);
     cin >> n >> p;
-    fp(i, 1, n) fp(j, 1, n) cin >> a.m[i][j];
-    fp(i, 1, n)
+    _for(i, 1, n)
+        _for(j, 1, n) cin >> a.m[i][j];
+    _for(i, 1, n)
         b.m[i][i] = 1;
     Mtx ans = pow(a, p);
-    fp(i, 1, n) {
-        fp(j, 1, n) cout << ans.m[i][j] % MOD << " ";
+    _for(i, 1, n) {
+        _for(j, 1, n) cout << ans.m[i][j] % MOD << " ";
         cout << endl;
     }
     return 0;

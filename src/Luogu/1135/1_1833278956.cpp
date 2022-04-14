@@ -1,26 +1,12 @@
-#include <algorithm>
-#include <cctype>
-#include <cmath>
-#include <cstdio>
-#include <cstring>
-#include <deque>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <stack>
-#include <string>
-#include <vector>
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+
+
 #define M 200005
 #define N 1005
 #define INF 0x7fffffff
 #define sstr stringstream
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define mem(a) memset(a, 0, sizeof(a))
 #define memid(a) memset(a, 63, sizeof(a))
 #define memax(a) memset(a, 127, sizeof(a))
@@ -103,7 +89,7 @@ void bfs() {
 int main() {
     read(n, a, b);
     memset(ans, -1, sizeof(ans));
-    fp(i, 1, n) read(k[i]);
+    _for(i, 1, n) read(k[i]);
     q.push(a);
     ans[a] = 0;
     bfs();

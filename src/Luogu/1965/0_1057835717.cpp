@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define tpn typename
 typedef long long ll;
 template <tpn A>

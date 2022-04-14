@@ -1,14 +1,9 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <cstring>
-#include <iostream>
-#include <string>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
-#define rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define il inline
-#define rg register
+#define rep(i, l, r) for (int i = (l); i < (r); ++i)
+
+
 #define gc getchar
 typedef unsigned int u32;
 typedef unsigned long long u64;
@@ -41,10 +36,10 @@ int n, q, x, y;
 i64 c[M][M] = {1};
 int main() {
     read(n);
-    fp(i, 1, n) read(a[i]);
-    fp(i, 1, 2000) {
+    _for(i, 1, n) read(a[i]);
+    _for(i, 1, 2000) {
         c[i][0] = c[i][i] = 1;
-        fp(j, 1, i - 1) {
+        _for(j, 1, i - 1) {
             c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % MOD;
         }
     }
@@ -52,7 +47,7 @@ int main() {
     while (q--) {
         i64 ans = 0;
         read(x, y);
-        for (register int i = 0; i <= x; ++i) {
+        for (int i = 0; i <= x; ++i) {
             ans = (ans + a[y] * c[x][i]) % MOD;
             ((++y) > n) ? (y = 1) : 1;
         }

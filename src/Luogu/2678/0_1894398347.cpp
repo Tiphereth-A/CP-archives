@@ -1,6 +1,5 @@
-#include <algorithm>
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 typedef long long i64;
 i64 l, m, n;
 i64 d[50005];
@@ -19,7 +18,7 @@ bool inline solve(const i64 &len) {
 }
 int main() {
     scanf("%lld%lld%lld", &l, &n, &m);
-    fp(i, 1, n) scanf("%lld", d + i);
+    _for(i, 1, n) scanf("%lld", d + i);
     d[n + 1] = l;
     i64 left = 1, right = l, ans = 0;
     while (left <= right) {

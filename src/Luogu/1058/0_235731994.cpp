@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int m, n, lenx, leny, a[1005][1005], z[6] = {2, 1, 0, 0, 0, 0}, s[6] = {6, 6, 6, 6, 5, 4};
 char c[1005][1005], c1[10][10] = {
                         "  +---+",
@@ -18,15 +18,15 @@ inline void cover(int x, int y) {
 }
 int main() {
     scanf("%d%d", &n, &m);
-    for (register int i = 1; i <= n; ++i)
-        for (register int j = 0; j < m; ++j)
+    for (int i = 1; i <= n; ++i)
+        for (int j = 0; j < m; ++j)
             scanf("%d", &a[i][j]);
-    for (register int o = 1; o <= n; ++o)
-        for (register int k = 0; k < m; ++k)
-            for (register int l = 0; l < a[o][k]; ++l)
+    for (int o = 1; o <= n; ++o)
+        for (int k = 0; k < m; ++k)
+            for (int l = 0; l < a[o][k]; ++l)
                 cover(((n - o) << 1) + 1 + 3 * l, ((n - o) << 1) + 1 + (k << 2));
-    for (register int i = lenx; i >= 1; --i) {
-        for (register int j = 1; j <= leny; ++j)
+    for (int i = lenx; i >= 1; --i) {
+        for (int j = 1; j <= leny; ++j)
             if (c[i][j] == '\000')
                 printf(".");
             else

@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int N = 1e7 + 5;
 int n, a[N];
 double ans;

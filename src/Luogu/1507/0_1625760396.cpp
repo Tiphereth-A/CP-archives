@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
-#define rg register
-#define rgi register int
-#define il inline
+
+#define rgi int
+
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
 #define UNTIE std::cin::tie(0), std::cout::tie(0)
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (auto i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (auto i = (r); i >= (l); --i)
+#define _rfor(i, r, l) for (auto i = (r); i >= (l); --i)
 #define _repr(i, r, l) for (auto i = (r); i > (l); --i)
 #define _gc getchar
 #define _pc putchar
@@ -114,9 +114,10 @@ int main(int argc, char const *argv[]) {
 #endif
     read(V, Mass, n);
     _for(i, 1, n) read(a[i].v, a[i].m, a[i].cal);
-    _for(i, 1, n) _fd(j, V, 0) {
+    _for(i, 1, n)
+        _rfor(j, V, 0) {
             if (j >= a[i].v)
-                _fd(k, Mass, 0) {
+                _rfor(k, Mass, 0) {
                     if (k >= a[i].m)
                         f[j][k] = std::max(f[j][k], f[j - a[i].v][k - a[i].m] + a[i].cal);
                 }

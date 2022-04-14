@@ -1,8 +1,6 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstring>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define tpn typename
 template <tpn A>
 inline A Max(const A &x, const A &y) {
@@ -37,13 +35,14 @@ bool cmp(task a, task b) {
 }
 int main() {
     read(n, k);
-    fp(i, 1, k) {
+    _for(i, 1, k) {
         read(a[i].st, a[i].t);
         sum[a[i].st]++;
     }
     std::sort(a + 1, a + k + 1, cmp);
-    fd(i, n, 1) {
-        if (sum[i]) fp(j, 1, sum[i]) {
+    _rfor(i, n, 1) {
+        if (sum[i])
+            _for(j, 1, sum[i]) {
                 f[i] = Max(f[i], f[i + a[now].t]);
                 now++;
             }

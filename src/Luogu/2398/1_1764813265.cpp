@@ -1,5 +1,5 @@
-#include <cstdio>
-#define re register int
+#include <bits/stdc++.h>
+#define re int
 long long n, ans, f[100010];
 int main() {
     scanf("%lld", &n);

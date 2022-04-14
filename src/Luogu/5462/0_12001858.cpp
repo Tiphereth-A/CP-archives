@@ -1,18 +1,18 @@
 #define __DEF__
 #include <bits/stdc++.h>
 #ifdef __DEF__
-#define rg register
-#define rgi register int
-#define il inline
+
+#define rgi int
+
 #define tpn typename
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
 #define UNTIE std::cin::tie(0), std::cout::tie(0)
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define _replu(i, l, r) for (register long unsigned int i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (register int i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (register int i = (r); i > (l); --i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
+#define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
+#define _repr(i, r, l) for (int i = (r); i > (l); --i)
 #define _gc getchar
 #define _pc putchar
 #define _ins(a) std::inserter((a), (a).begin())
@@ -39,7 +39,7 @@ inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 template <tpn A>
 inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <tpn A>
-inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
+inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = ' ';
@@ -189,9 +189,9 @@ int main(int argc, char const *argv[]) {
     clock_t c1 = clock();
 #endif
     read(n);
-    _fp(i, 1, n) read(a[i]);
+    _for(i, 1, n) read(a[i]);
     --n;
-    _fp(i, 1, n) {
+    _for(i, 1, n) {
         Seg::pair[i] = {a[i], a[i + 1], i};
         id[i] = {i - 1, i + 1};
     }

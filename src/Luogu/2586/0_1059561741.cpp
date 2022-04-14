@@ -1,5 +1,4 @@
-#include <cmath>
-#include <cstdio>
+#include <bits/stdc++.h>
 #define _T_ANT(i) for (int i = 1; i <= ant_alive; ++i)
 #define _T_TURRET(i) for (int i = 1; i <= s; ++i)
 const int MAX_TURRET = 25, MAX_ANT = 11;

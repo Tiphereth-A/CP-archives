@@ -18,7 +18,8 @@ void addEdge(int x, int y) {
 int ans[N];
 void dfs(int now, int ast) {
     ans[now] = ast;
-    _for_graph(head, e, i, now) if (!ans[to]) dfs(to, ast);
+    _for_graph(head, e, i, now)
+        if (!ans[to]) dfs(to, ast);
 }
 int main() {
     ios::sync_with_stdio(false);

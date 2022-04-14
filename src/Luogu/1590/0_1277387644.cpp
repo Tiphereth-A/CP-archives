@@ -1,5 +1,4 @@
-#include <cstring>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 long long k, s = 1, sum = 0, ans = 0;
 int t, i, j;

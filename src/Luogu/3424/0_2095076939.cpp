@@ -1,18 +1,18 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define N 1000100
-#define il inline
+
 int a[N], b[N], c[N], n, m, len;
-il int max(int a, int b) {
+inline int max(int a, int b) {
     return a > b ? a : b;
 }
-il void up(int x) {
+inline void up(int x) {
     while (c[x]) {
         c[x] = c[x - 1] = 0;
         c[x + 1]++;
         x += 2;
     }
 }
-il void trans(int x) {
+inline void trans(int x) {
     if (c[x] < 2)
         return;
     int k = x - 2;

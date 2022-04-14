@@ -80,11 +80,11 @@ void tarjan(int now) {
     in_stk[now] = vis[now] = 1;
     dfn[now] = low[now] = ++cnt_dfn;
     stk.push(now);
-    _for_graph(head, e, i, now) if (!dfn[to]) {
-        tarjan(to);
-        chkmin(low[now], low[to]);
-    }
-    else if (in_stk[to]) chkmin(low[now], dfn[to]);
+    _for_graph(head, e, i, now)
+        if (!dfn[to]) {
+            tarjan(to);
+            chkmin(low[now], low[to]);
+        } else if (in_stk[to]) chkmin(low[now], dfn[to]);
     if (dfn[now] == low[now]) {
         ++cnt_scc;
         while (stk.top() != now) {

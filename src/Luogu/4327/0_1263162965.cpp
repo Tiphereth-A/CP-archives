@@ -1,6 +1,4 @@
-#include <cstring>
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 char a[6][62];
 std::string s;
 void f(char c, int y, int x) {

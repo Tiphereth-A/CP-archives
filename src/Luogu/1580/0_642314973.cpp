@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 #define N 1050
 int c;
 char s[N], target[N], now[N], t[N];

@@ -1,9 +1,5 @@
-#include <algorithm>
-#include <cctype>
-#include <cstdio>
-#include <ctime>
-#include <iostream>
-#define _for(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _lowbit(x) (1 << __builtin_ctz(x))
 #define fin goto ex
 typedef long long i64;

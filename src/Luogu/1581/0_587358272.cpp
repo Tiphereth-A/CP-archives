@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <stack>
+#include <bits/stdc++.h>
 std::stack<int> s1, s2, ans;
 const int prime[] = {2, 3, 5, 7, 11};
 int main() {

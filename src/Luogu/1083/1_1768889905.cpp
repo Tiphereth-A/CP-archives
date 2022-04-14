@@ -1,17 +1,16 @@
-#include <cstdio>
-#include <cstring>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define mem(a) memset(a, 0, sizeof(a))
 #define N 1000005
 int n, m, r[N], s[N], t[N], d[N], diff[N];
 bool inline judge(int x) {
     mem(diff);
-    fp(i, 1, x) {
+    _for(i, 1, x) {
         diff[s[i]] += d[i];
         diff[t[i] + 1] -= d[i];
     }
     int now = 0;
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         now += diff[i];
         if (now > r[i]) return 0;
     }
@@ -19,8 +18,8 @@ bool inline judge(int x) {
 }
 int main() {
     scanf("%d%d", &n, &m);
-    fp(i, 1, n) scanf("%d", r + i);
-    fp(i, 1, m) scanf("%d%d%d", d + i, s + i, t + i);
+    _for(i, 1, n) scanf("%d", r + i);
+    _for(i, 1, m) scanf("%d%d%d", d + i, s + i, t + i);
     if (judge(m)) {
         puts("0");
         return 0;

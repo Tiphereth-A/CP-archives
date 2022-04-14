@@ -1,5 +1,4 @@
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 int stat(int num, int digit) {
     int ans = 0;
     for (; num; num /= 10) {

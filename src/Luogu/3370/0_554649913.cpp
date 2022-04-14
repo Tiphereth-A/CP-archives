@@ -1,20 +1,19 @@
-#include <cstdio>
-#include <cstring>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+
+
 typedef unsigned int uint;
 #define M 1505
 struct trie {
     bool val;
     uint index;
     trie *nxt[16];
-    il trie() { val = index = 0; }
+    inline trie() { val = index = 0; }
 } *t = new trie();
 uint tab[16] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768};
 const uint key = 127;
 int ans;
-il void push(uint code) {
+inline void push(uint code) {
     trie **s = &t;
     while (code) {
         short nxt = code & 15;
@@ -28,9 +27,9 @@ il void push(uint code) {
     ans += ((*s)->val) ^ 1;
     (*s)->val = true;
 }
-il uint getHash(char str[]) {
+inline uint getHash(char str[]) {
     uint len = strlen(str), ans = 0;
-    for (rg int i = 0; i < len; ++i) ans = ans * key + (uint)str[i];
+    for (int i = 0; i < len; ++i) ans = ans * key + (uint)str[i];
     return ans;
 }
 int main() {

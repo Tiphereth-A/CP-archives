@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int a, n, t = 0, s = 0;
 bool i;
 int main() {

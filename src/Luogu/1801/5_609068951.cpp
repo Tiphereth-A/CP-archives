@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 const int MaxN = 200005;
 int Add[MaxN], Get[MaxN];

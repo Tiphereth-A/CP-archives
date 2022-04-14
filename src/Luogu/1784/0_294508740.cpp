@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int N = 10;
 int g[N][N];
 bool ln[N][N], col[N][N], zone[N][N];

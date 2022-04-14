@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 template <class _T>

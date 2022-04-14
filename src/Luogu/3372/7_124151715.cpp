@@ -1,6 +1,6 @@
-#include <cstdio>
-#define fp(i, l, r) for (register unsigned long long i = (l); i <= (r); ++i)
-#define il inline
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (unsigned long long i = (l); i <= (r); ++i)
+
 #define ls rt << 1
 #define rs rt << 1 | 1
 #define Mid unsigned long long m = ((r - l) >> 1) + l
@@ -8,12 +8,12 @@
 #define MAXN 100005
 #define MAXBUF 140000000
 typedef unsigned long long u64;
-il char gc() {
+inline char gc() {
     static char buf[MAXBUF], *p1 = buf, *p2 = buf;
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
 }
 template <tpn A>
-il void read(A &x) {
+inline void read(A &x) {
     char c;
     do {
         c = getchar();
@@ -25,11 +25,11 @@ il void read(A &x) {
     } while (c >= '0' && c <= '9');
 }
 template <tpn A, tpn B>
-il void read(A &a, B &b) {
+inline void read(A &a, B &b) {
     read(a), read(b);
 }
 template <tpn A, tpn B, tpn C>
-il void read(A &a, B &b, C &c) {
+inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
 template <tpn A>
@@ -38,10 +38,10 @@ void print(A x) {
     putchar(x % 10 + '0');
 }
 u64 sum[MAXN << 2], add[MAXN << 2], a[MAXN];
-il void PushUp(const u64 &rt) {
+inline void PushUp(const u64 &rt) {
     sum[rt] = sum[ls] + sum[rs];
 }
-il void PushDown(const u64 &rt, const u64 &ln, const u64 &rn) {
+inline void PushDown(const u64 &rt, const u64 &ln, const u64 &rn) {
     add[ls] += add[rt];
     sum[ls] += add[rt] * ln;
     add[rs] += add[rt];
@@ -87,7 +87,7 @@ u64 Query(const u64 &L, const u64 &R, const u64 &l, const u64 &r, const u64 &rt)
 int main() {
     u64 n = 0, m = 0;
     read(n, m);
-    fp(i, 1, n) read(a[i]);
+    _for(i, 1, n) read(a[i]);
     Build(1, n, 1);
     u64 o = 0, x = 0, y = 0, k = 0;
     while (m--) {

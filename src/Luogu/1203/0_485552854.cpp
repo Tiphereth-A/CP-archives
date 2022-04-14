@@ -1,27 +1,26 @@
-#include <iostream>
-#include <string>
-#define il inline
-#define rg register
+#include <bits/stdc++.h>
+
+
 using namespace std;
 string str;
 int n;
-il int max(int &a, int &b) {
+inline int max(int &a, int &b) {
     return (a > b) ? a : b;
 }
-il int min(int &a, int &b) {
+inline int min(int &a, int &b) {
     return (a < b) ? a : b;
 }
-il int fnd(int x) {
+inline int fnd(int x) {
     int ans = 0;
     char a = str[x], b = str[x + 1];
-    for (rg int i = x;; --i) {
+    for (int i = x;; --i) {
         char tmp = str[i];
         if (tmp == a || tmp == 'w')
             ++ans;
         else
             break;
     }
-    for (rg int i = x + 1;; ++i) {
+    for (int i = x + 1;; ++i) {
         char tmp = str[i];
         if (tmp == b || tmp == 'w')
             ++ans;
@@ -36,7 +35,7 @@ int main() {
     cin >> n >> str;
     str = str + str + str;
     int ans = -1;
-    for (rg int i = n; i < (n << 1); ++i) {
+    for (int i = n; i < (n << 1); ++i) {
         char *tmp = &str[i];
         if (*tmp == *(tmp + 1))
             continue;

@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int k, n = 1, coin;
 int main() {
     scanf("%d", &k);

@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int N = 2e5 + 5;
 int n, t, fa[N], dis[N], ans = 0x7fffffff;
 inline int min(int x, int y) {

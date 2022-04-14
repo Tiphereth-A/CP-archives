@@ -1,8 +1,6 @@
-#include <cstdio>
-#include <queue>
-#include <vector>
+#include <bits/stdc++.h>
 #define N 200005
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 std::priority_queue<int, std::vector<int>, std::greater<int>> h_max;
 std::priority_queue<int> h_min;
@@ -24,9 +22,9 @@ inline void read(A &x) {
 int main() {
     read(m);
     read(n);
-    fp(i, 1, m) read(a[i]);
+    _for(i, 1, m) read(a[i]);
     int top_of_h_max = 0, top_of_h_min = 0, tmp;
-    for (register int i = 1, j = 1; i <= n; ++i) {
+    for (int i = 1, j = 1; i <= n; ++i) {
         read(tmp);
         for (; j <= tmp; ++j) h_max.push(a[j]);
         h_min.push(h_max.top());

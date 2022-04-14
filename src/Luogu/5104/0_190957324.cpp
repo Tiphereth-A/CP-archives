@@ -1,7 +1,6 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #ifndef ONLINE_JUDGE
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 #endif
 const int mod = 1e9 + 7;
 long long qpow(long long a, long long b) {

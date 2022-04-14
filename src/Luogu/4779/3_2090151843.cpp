@@ -1,7 +1,7 @@
-#include <cstdio>
-#define rgi register int
-#define il inline
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _lch(p) ((p) << 1)
 #define _rch(p) ((p) << 1 | 1)
 #define _mid(l, r) (((l) + (r)) >> 1)
@@ -12,12 +12,12 @@ struct edge {
     int next, to, val;
 } e[M];
 int head[N], cnt;
-il void add(int u, int v, int val) {
+inline void add(int u, int v, int val) {
     e[++cnt] = {head[u], v, val};
     head[u] = cnt;
 }
 int minPos[N << 2], minDis[N << 2];
-il void update(int pos) {
+inline void update(int pos) {
     if (minDis[_lch(pos)] < minDis[_rch(pos)]) {
         minDis[pos] = minDis[_lch(pos)];
         minPos[pos] = minPos[_lch(pos)];
@@ -50,9 +50,9 @@ void modify(int cur, int l, int r, int pos, int k) {
     update(cur);
 }
 int n, m, s, dis[N];
-il void dijkstra(int s) {
+inline void dijkstra(int s) {
     build(1, 1, n, s);
-    _fp(i, 1, n) dis[i] = INF_I32;
+    _for(i, 1, n) dis[i] = INF_I32;
     dis[s] = 0;
     while (minDis[1] < INF_I32) {
         int now = minPos[1];
@@ -66,12 +66,12 @@ il void dijkstra(int s) {
             }
         }
     }
-    _fp(i, 1, n) printf("%d ", dis[i]);
+    _for(i, 1, n) printf("%d ", dis[i]);
 }
 int main() {
     scanf("%d%d%d", &n, &m, &s);
     int u, v, w;
-    _fp(i, 1, m) {
+    _for(i, 1, m) {
         scanf("%d%d%d", &u, &v, &w);
         add(u, v, w);
     }

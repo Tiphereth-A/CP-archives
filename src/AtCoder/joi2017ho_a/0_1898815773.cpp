@@ -9,14 +9,14 @@ inline i64 get(i64 num) {
 int main() {
     int pre;
     scanf("%d%d%d%d%d", &n, &q, &s, &t, &pre);
-    for (register int i = 1; i <= n; ++i) {
+    for (int i = 1; i <= n; ++i) {
         int tmp;
         scanf("%d", &tmp);
         ans += get(a[i] = tmp - pre);
         pre = tmp;
     }
     int l, r, x;
-    for (register int i = 1; i <= q; ++i) {
+    for (int i = 1; i <= q; ++i) {
         scanf("%d%d%d", &l, &r, &x);
         ans -= get(a[l]);
         ans += get(a[l] += x);

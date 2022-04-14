@@ -1,12 +1,11 @@
-#include <cmath>
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define Max(a, b) (((a) > (b)) ? (a) : (b))
 #define MAXN 100005
 int a[MAXN], st[MAXN][20], n, m;
 int main() {
     scanf("%d%d", &n, &m);
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         scanf("%d", &a[i]);
         st[i][0] = a[i];
     }

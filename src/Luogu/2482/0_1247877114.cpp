@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define _fp(i, l, r) for (int(i) = (l); (i) <= (r); ++(i))
+#define _for(i, l, r) for (int(i) = (l); (i) <= (r); ++(i))
 #define _rep(i, l, r) for (int(i) = (l); (i) < (r); ++(i))
 using std::cin;
 using std::cout;
@@ -64,11 +64,11 @@ bool hostility(int player1, int player2) {
 }
 void debug() {
     std::cerr << "\nallys:\n";
-    _fp(i, 1, n) std::cerr << allys[i] << ' ';
+    _for(i, 1, n) std::cerr << allys[i] << ' ';
     std::cerr << "\nenemys:\n";
-    _fp(i, 1, n) std::cerr << enemys[i] << ' ';
+    _for(i, 1, n) std::cerr << enemys[i] << ' ';
     std::cerr << "\nsemi-enemys:\n";
-    _fp(i, 1, n) std::cerr << semi_enemys[i] << ' ';
+    _for(i, 1, n) std::cerr << semi_enemys[i] << ' ';
     std::cerr << '\n';
 }
 }  // namespace Relation
@@ -83,9 +83,9 @@ int FP_list[15], FP_cnt;
 void debug() {
     std::cerr << "\nMP_pos:" << MP_pos
               << "\nZP_cnt:" << ZP_cnt << '\n';
-    _fp(i, 1, ZP_cnt) std::cerr << ZP_list[i] << ' ';
+    _for(i, 1, ZP_cnt) std::cerr << ZP_list[i] << ' ';
     std::cerr << "\nFP_cnt:" << FP_cnt << '\n';
-    _fp(i, 1, FP_cnt) std::cerr << FP_list[i] << ' ';
+    _for(i, 1, FP_cnt) std::cerr << FP_list[i] << ' ';
     std::cerr << '\n';
 }
 }  // namespace Identity_list
@@ -107,14 +107,15 @@ bool game_fin;
 namespace basic_action {
 bool game_over() {
     bool tmp = 1;
-    _fp(i, 1, FP_cnt) if (!pigs[FP_list[i]].dead) tmp = 0;
+    _for(i, 1, FP_cnt)
+        if (!pigs[FP_list[i]].dead) tmp = 0;
     if (tmp)
         return 1;
     return pigs[MP_pos].dead;
 }
 void get_cards(int now_player, int step) {
     Pig *now = &pigs[now_player];
-    _fp(i, 1, step) {
+    _for(i, 1, step) {
         now->cards[now->cards_rear] = card_group[card_group_head < card_group_rear ? card_group_head : (card_group_rear - 1)];
         ++now->cards_rear;
         ++card_group_head;
@@ -174,8 +175,8 @@ void dead(int now_player, int from_player) {
     }
 }
 void print_result() {
-    cout << (pigs[MP_pos].dead ? "FP" : "MP") << '\n';
-    _fp(i, 1, n) {
+    cout << (pigs[MP_pos].dead ? "_for" : "MP") << '\n';
+    _for(i, 1, n) {
         if (pigs[i].dead)
             cout << "DEAD";
         else
@@ -367,7 +368,7 @@ void action(int now_player) {
     }
 }
 void debug() {
-    _fp(i, 1, n) {
+    _for(i, 1, n) {
         std::cerr << "\n#" << i << ":";
         pigs[i].debug();
     }
@@ -388,7 +389,7 @@ int main() {
     cin >> n >> m;
     card_group_head = 1;
     card_group_rear = m + 1;
-    _fp(i, 1, n) {
+    _for(i, 1, n) {
         char tmp[5];
         cin >> tmp >> pigs[i].cards[1] >> pigs[i].cards[2] >> pigs[i].cards[3] >> pigs[i].cards[4];
         pigs[i].identity = *tmp;
@@ -407,7 +408,7 @@ int main() {
                 break;
         }
     }
-    _fp(i, 1, m) cin >> card_group[i];
+    _for(i, 1, m) cin >> card_group[i];
     pigs[n].next_player = 1;
     pigs[1].last_player = n;
     if (game_over()) {

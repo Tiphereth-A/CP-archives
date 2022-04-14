@@ -1,6 +1,6 @@
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define il inline
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+
 #define tpn typename
 #define ls rt << 1
 #define rs rt << 1 | 1
@@ -31,10 +31,10 @@ inline void read(A &a, B &b, C &c) {
 }
 #define MAXN 1000005
 ll sum[MAXN << 2], add[MAXN << 2], a[MAXN];
-il void PushUp(ll rt) {
+inline void PushUp(ll rt) {
     sum[rt] = sum[ls] + sum[rs];
 }
-il void PushDown(ll rt, ll ln, ll rn) {
+inline void PushDown(ll rt, ll ln, ll rn) {
     add[ls] += add[rt];
     sum[ls] += add[rt] * ln;
     add[rs] += add[rt];
@@ -80,7 +80,7 @@ ll Query(ll L, ll R, ll l, ll r, ll rt) {
 int main() {
     ll n, m;
     read(n, m);
-    fp(i, 1, n) read(a[i]);
+    _for(i, 1, n) read(a[i]);
     Build(1, n, 1);
     while (m--) {
         ll o, x, y;

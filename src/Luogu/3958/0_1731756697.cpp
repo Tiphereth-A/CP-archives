@@ -1,17 +1,10 @@
-#include <algorithm>
-#include <cctype>
-#include <cmath>
-#include <map>
-#include <queue>
-#include <stack>
-#include <string>
-#include <vector>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define M 100005
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define gi getint
 #define gc getchar
 using namespace std;
@@ -19,7 +12,7 @@ int pre[1005], up[M], down[M];
 struct point {
     ll x, y, z;
 } p[M];
-il int find(int x) {
+inline int find(int x) {
     int a = x, b = x, c;
     while (a != pre[a]) a = pre[a];
     while (b != pre[b]) {
@@ -29,7 +22,7 @@ il int find(int x) {
     }
     return a;
 }
-il double dist(point p1, point p2) {
+inline double dist(point p1, point p2) {
     return sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y) + (p1.z - p2.z) * (p1.z - p2.z));
 }
 int main() {
@@ -39,8 +32,8 @@ int main() {
     while (t--) {
         scanf("%d%d%ld", &n, &h, &r);
         int tot1 = 0, tot2 = 0;
-        fp(i, 1, n) pre[i] = i;
-        fp(i, 1, n) {
+        _for(i, 1, n) pre[i] = i;
+        _for(i, 1, n) {
             scanf("%ld%ld%ld", &p[i].x, &p[i].y, &p[i].z);
             if (p[i].z + r >= h) {
                 tot1++;
@@ -50,7 +43,7 @@ int main() {
                 tot2++;
                 down[tot2] = i;
             }
-            fp(j, 1, i) {
+            _for(j, 1, i) {
                 if (dist(p[j], p[i]) <= 2 * r) {
                     int fx = find(i), fy = find(j);
                     if (fx != fy) pre[fx] = fy;
@@ -58,8 +51,8 @@ int main() {
             }
         }
         int f = 0;
-        fp(i, 1, tot1) {
-            fp(j, 1, tot2) {
+        _for(i, 1, tot1) {
+            _for(j, 1, tot2) {
                 if (find(up[i]) == find(down[j])) {
                     f = 1;
                     break;

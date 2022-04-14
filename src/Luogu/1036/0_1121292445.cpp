@@ -5,7 +5,7 @@ bool f[21];
 inline bool isprime(int num) {
     if (num == 0 || num == 1) return false;
     int s = sqrt(num);
-    for (register int i = 2; i <= s; i++)
+    for (int i = 2; i <= s; i++)
         if (num % i == 0) return false;
     return true;
 }

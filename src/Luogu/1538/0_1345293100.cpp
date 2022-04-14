@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <iostream>
-#include <stdio.h>
-#include <string.h>
+#include <bits/stdc++.h>
 using namespace std;
 int num[1000];
 char str[1000];

@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 using i8 = int8_t;
 using i32 = int32_t;
@@ -39,8 +38,8 @@ using u64 = uint64_t;
         }                                                                                                                     \
     }
 inline void output_arr(u32 *a, u32 &&size) {
-    register u32 ret = size;
-    for (register u32 x = 23333333, *_ = a + (size >> 2), *i = a; i < _; ++i) {
+    u32 ret = size;
+    for (u32 x = 23333333, *_ = a + (size >> 2), *i = a; i < _; ++i) {
         ret ^= *i + x;
         _next(x);
     }

@@ -1,5 +1,4 @@
-#include <cmath>
-#include <cstdio>
+#include <bits/stdc++.h>
 #define tpn typename
 typedef double db;
 template <tpn A>

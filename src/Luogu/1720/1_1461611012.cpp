@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
 double f[50];
 int n, i;
 int main() {

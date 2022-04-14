@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 char a[550];
 int main() {
     gets(a);

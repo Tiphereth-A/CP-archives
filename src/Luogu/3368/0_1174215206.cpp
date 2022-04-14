@@ -1,5 +1,4 @@
-#include <cctype>
-#include <cstdio>
+#include <bits/stdc++.h>
 #define _lowbit(x) (1 << __builtin_ctz(x))
 typedef long long i64;
 namespace FastIO {

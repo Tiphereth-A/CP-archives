@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <cstdio>
+#include <bits/stdc++.h>
 const int M = 10001;
 int x, x1, a[M], b[M], c, t = 1, i, j, s, f1, f2, n1, n2, f;
 bool cmp(int a, int b) { return a > b; }

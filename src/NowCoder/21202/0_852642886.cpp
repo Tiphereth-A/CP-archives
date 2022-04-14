@@ -60,18 +60,18 @@ inline void putchar(char a) { buf2[++p3] = a; }
 const int N = 1e7 + 5;
 int n, a[N], f[65536], b[N];
 void radix_sort() {
-    for (register int i = 1; i <= n; ++i)
+    for (int i = 1; i <= n; ++i)
         ++f[a[i] & 65535];
-    for (register int i = 0; i < 65536; ++i)
+    for (int i = 0; i < 65536; ++i)
         f[i] += f[i - 1];
-    for (register int i = n; i; --i)
+    for (int i = n; i; --i)
         b[f[a[i] & 65535]--] = a[i];
     memset(f, 0, sizeof(f));
-    for (register int i = 1; i <= n; ++i)
+    for (int i = 1; i <= n; ++i)
         ++f[b[i] >> 16 & 65535];
-    for (register int i = 0; i < 65536; ++i)
+    for (int i = 0; i < 65536; ++i)
         f[i] += f[i - 1];
-    for (register int i = n; i; --i)
+    for (int i = n; i; --i)
         a[f[b[i] >> 16 & 65535]--] = b[i];
     return;
 }

@@ -1,9 +1,4 @@
-#include <algorithm>
-#include <climits>
-#include <iostream>
-#include <map>
-#include <sstream>
-#include <string>
+#include <bits/stdc++.h>
 #define _teain(i) onlineT |= 1 << i
 #define _teaout(i) onlineT &= ~(1 << i)
 #define _stuin(i) onlineS |= 1 << i

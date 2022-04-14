@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 typedef int State[9];
 const int frac[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
 const int dx[] = {0, 1, 0, -1}, dy[] = {1, 0, -1, 0};

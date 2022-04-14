@@ -1,7 +1,6 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 #define N 5
-#define ll long long
+typedef long long ll;
 const ll MOD = 1000000007LL;
 struct matrix {
     ll m[N][N];

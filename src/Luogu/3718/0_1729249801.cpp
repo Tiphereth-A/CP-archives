@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int N = 1e5 + 5;
 int n, k, len[N], cnt;
 bool light[N];

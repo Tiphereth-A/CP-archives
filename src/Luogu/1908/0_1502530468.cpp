@@ -1,23 +1,4 @@
-#include <algorithm>
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <deque>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;

@@ -1,7 +1,6 @@
-#include <algorithm>
-#include <cstdio>
+#include <bits/stdc++.h>
 #define N 200005
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 typedef long long i64;
 i64 id[N], win[N], lose[N];
 i64 rank[N], w[N];
@@ -18,15 +17,15 @@ void inline merge() {
 int main() {
     scanf("%d%d%d", &n, &r, &q);
     n <<= 1;
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         scanf("%lld", rank + i);
         id[i] = i;
     }
-    fp(i, 1, n) scanf("%lld", w + i);
+    _for(i, 1, n) scanf("%lld", w + i);
     std::sort(id + 1, id + n + 1, cmp);
     while (r--) {
         wincnt = losecnt = 0;
-        for (register int i = 1; i <= n; i += 2) {
+        for (int i = 1; i <= n; i += 2) {
             if (w[id[i]] > w[id[i + 1]]) {
                 ++rank[id[i]];
                 win[++wincnt] = id[i];

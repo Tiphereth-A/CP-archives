@@ -1,6 +1,6 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define N 10005
-#define ll long long
+typedef long long ll;
 ll n, cnt;
 ll prime[N], f[N] = {1};
 bool vis[N];

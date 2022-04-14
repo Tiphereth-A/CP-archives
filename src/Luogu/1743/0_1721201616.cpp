@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int n, m;
 long double ans(1.0l);
 int main() {

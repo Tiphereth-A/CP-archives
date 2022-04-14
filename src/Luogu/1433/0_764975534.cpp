@@ -1,16 +1,10 @@
-#include <algorithm>*/
-#include <cctype>
-#include <cmath>
-#include <map>
-#include <queue>
-#include <stack>
-#include <string>
-#include <vector>
-#define rg register
-#define il inline
+#include <bits/stdc++.h>*/
+#include <bits/stdc++.h>
+
+
 #define M 200005
 #define N 1001
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 using namespace std;
 typedef long long ll;
@@ -63,16 +57,18 @@ void dfs(int step, int now, db l) {
         ans = Min(ans, l);
         return;
     }
-    fp(i, 1, n) if (!v[i]) {
-        v[i] = 1;
-        dfs(step + 1, i, l + d[now][i]);
-        v[i] = 0;
-    }
+    _for(i, 1, n)
+        if (!v[i]) {
+            v[i] = 1;
+            dfs(step + 1, i, l + d[now][i]);
+            v[i] = 0;
+        }
 }
 int main() {
     scanf("%d", &n);
-    fp(i, 1, n) scanf("%lf%lf", &x[i], &y[i]);
-    fp(i, 0, n) fp(j, 0, n) d[i][j] = sqrt((x[i] - x[j]) * (x[i] - x[j]) + (y[i] - y[j]) * (y[i] - y[j]));
+    _for(i, 1, n) scanf("%lf%lf", &x[i], &y[i]);
+    _for(i, 0, n)
+        _for(j, 0, n) d[i][j] = sqrt((x[i] - x[j]) * (x[i] - x[j]) + (y[i] - y[j]) * (y[i] - y[j]));
     dfs(0, 0, 0.0);
     printf("%.2lf", ans);
     return 0;

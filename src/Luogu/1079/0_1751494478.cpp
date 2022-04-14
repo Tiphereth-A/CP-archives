@@ -1,18 +1,8 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctype.h>
-#include <iostream>
-#include <queue>
-#include <sstream>
-#include <stack>
-#include <string>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define MAXN 105
 using namespace std;
 int f[26][26] = {
@@ -44,7 +34,7 @@ int f[26][26] = {
     {25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0}};
 string key, s;
 bool mark;
-il int ch(char c) {
+inline int ch(char c) {
     if ((c >= 'A') && (c <= 'Z'))
         return c - 'A';
     else

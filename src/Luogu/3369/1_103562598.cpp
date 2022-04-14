@@ -1,10 +1,4 @@
-#include <algorithm>
-#include <cctype>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 vector<int> a;
 int read() {
@@ -27,7 +21,7 @@ int main() {
     cin >> n;
     while (n--) {
         cin >> op;
-        register int x = read();
+        int x = read();
         switch (op) {
             case (1): a.insert(upper_bound(a.begin(), a.end(), x), x); break;
             case (2): a.erase(lower_bound(a.begin(), a.end(), x)); break;

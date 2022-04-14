@@ -1,6 +1,5 @@
-#include <cctype>
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 typedef long long i64;
 template <tpn A>
@@ -47,7 +46,7 @@ int n, m, w[N], v[N], l[N], r[N];
 i64 s, prew[N], prev[N], sum, y;
 bool inline check(int num) {
     y = 0;
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         prew[i] = prew[i - 1];
         prev[i] = prev[i - 1];
         if (w[i] >= num) {
@@ -56,7 +55,7 @@ bool inline check(int num) {
         }
     }
     int tmpl, tmpr;
-    fp(i, 1, m) {
+    _for(i, 1, m) {
         tmpl = l[i] - 1;
         tmpr = r[i];
         y += (prew[tmpr] - prew[tmpl]) * (prev[tmpr] - prev[tmpl]);
@@ -68,12 +67,12 @@ int main() {
     read(n, m, s);
     int L = INF_I32, R = -1, mid;
     i64 ans = INF_I64;
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         read(w[i], v[i]);
         R = Max(R, w[i]);
         L = Min(L, w[i]);
     }
-    fp(i, 1, m) read(l[i], r[i]);
+    _for(i, 1, m) read(l[i], r[i]);
     L--;
     R += 2;
     while (L <= R) {

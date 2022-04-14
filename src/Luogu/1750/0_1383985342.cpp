@@ -1,27 +1,13 @@
-#include <cstdio>
-#include <stack>
+#include <bits/stdc++.h>
 #if 0
-#include <algorithm>
-#include <cctype>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
-#include <deque>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 #endif
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define rg register
-#define il inline
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+
+
 #define tpn typename
 #if 0
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define mem(a) memset(a, 0, sizeof(a))
 #define memid(a) memset(a, 63, sizeof(a))
 #define memax(a) memset(a, 127, sizeof(a))
@@ -35,7 +21,7 @@ int num[M], n, c, m, slen, pos = 1;
 std::stack<int> sta;
 int main() {
     scanf("%d%d", &n, &c);
-    fp(i, 1, n) scanf("%d", num + i);
+    _for(i, 1, n) scanf("%d", num + i);
     while (sta.size() + m < n) {
         slen = sta.size();
         int minn = INF, l = pos, len = c - slen;

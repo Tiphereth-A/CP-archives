@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <iostream>
+#include <bits/stdc++.h>
 const int k[26] = {1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 1, 2, 3, 4};
 using namespace std;
 int main() {

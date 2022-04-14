@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
-#define rg register
-#define rgi register int
-#define il inline
+
+#define rgi int
+
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
 #define UNTIE std::cin::tie(0), std::cout::tie(0)
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (auto i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (auto i = (r); i >= (l); --i)
+#define _rfor(i, r, l) for (auto i = (r); i >= (l); --i)
 #define _repr(i, r, l) for (auto i = (r); i > (l); --i)
 #define _gc getchar
 #define _pc putchar

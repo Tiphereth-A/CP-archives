@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 const int md = 1e9 + 7;
 typedef long long LL;
 int b[105];

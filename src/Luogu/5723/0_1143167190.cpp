@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int N = 1e5 + 5;
 int prime[N], cnt;
 bool vis[N];

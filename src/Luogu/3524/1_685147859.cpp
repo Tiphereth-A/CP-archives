@@ -2,8 +2,8 @@
 using namespace std;
 typedef long long ll;
 typedef long double ld;
-#define re register
-#define il inline
+#define re
+
 const int N = 3010;
 int n, m, mp[N][N], vi[N], tot = 1;
 int main() {

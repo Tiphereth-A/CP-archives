@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int len = 1, c[760] = {0, 1};
 const int mod = 1000;
 const int p = 10000;
@@ -13,18 +13,18 @@ inline int pow(int b, int x) {
 }
 inline void print() {
     printf("%d", c[len]);
-    for (register int i = len - 1; i; --i)
+    for (int i = len - 1; i; --i)
         printf("%d%d%d%d", c[i] / 1000, c[i] / 100 % 10, c[i] / 10 % 10, c[i] % 10);
 }
 inline void comb(int n, int m) {
-    for (register int k = 1; k <= m; ++k) {
-        for (register int i = 1; i <= len; ++i) c[i] *= (n - k + 1);
-        for (register int i = 1; i <= len; ++i) {
+    for (int k = 1; k <= m; ++k) {
+        for (int i = 1; i <= len; ++i) c[i] *= (n - k + 1);
+        for (int i = 1; i <= len; ++i) {
             c[i + 1] += c[i] / p;
             c[i] %= p;
         }
         while (c[len + 1]) ++len;
-        for (register int i = len, y = 0; i; --i) {
+        for (int i = len, y = 0; i; --i) {
             y = y * p + c[i];
             c[i] = y / k;
             y %= k;

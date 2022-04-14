@@ -1,7 +1,5 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstring>
-#define rg register
+#include <bits/stdc++.h>
+
 struct gar {
     int t, h, f;
 } a[105];
@@ -13,10 +11,10 @@ int main() {
     memset(dp, 0xff, sizeof(dp));
     int nowt = dp[0][0] = 10, pstt = 0;
     scanf("%d%d", &d, &g);
-    for (rg int i = 1; i <= g; ++i) scanf("%d%d%d", &a[i].t, &a[i].f, &a[i].h);
+    for (int i = 1; i <= g; ++i) scanf("%d%d%d", &a[i].t, &a[i].f, &a[i].h);
     std::sort(a + 1, a + g + 1, cmp);
-    for (rg int i = 0; i <= g; ++i)
-        for (rg int j = 0; j <= d; ++j) {
+    for (int i = 0; i <= g; ++i)
+        for (int j = 0; j <= d; ++j) {
             if (dp[i][j] < 0) continue;
             int tmp = dp[i][j], tmpt = a[i + 1].t - a[i].t;
             if (j + a[i + 1].h >= d && tmp >= tmpt) {
@@ -28,7 +26,7 @@ int main() {
                 dp[i + 1][j] = max(dp[i + 1][j], tmp - tmpt + a[i + 1].f);
             }
         }
-    for (rg int i = 1; i <= g; ++i) {
+    for (int i = 1; i <= g; ++i) {
         int tmp = a[i].t - a[i - 1].t;
         if (tmp > nowt) {
             printf("%d\n", nowt + pstt);

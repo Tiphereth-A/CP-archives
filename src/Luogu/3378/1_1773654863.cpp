@@ -1,8 +1,7 @@
-#include <cstdio>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 #define gi(a) do {
-register char ch;
+char ch;
 while ((a = getchar()) > '9' || a < '0')
     ;
 for (a -= '0'; (ch = getchar()) >= '0' && ch <= '9'; a = a * 10 + ch - '0')

@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 const char map[] = "yfrbkgimujvphatdsnelozcxwq";
 char str[105005];

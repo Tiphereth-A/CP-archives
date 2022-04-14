@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 typedef long long i64;
 const int N = 1e4 + 5;
 #define max(a, b) (((a) > (b)) ? (a) : (b))

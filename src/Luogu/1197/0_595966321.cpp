@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int M = 4e5 + 5;
 int n, m, fa[M], tar[M];
 struct edge {

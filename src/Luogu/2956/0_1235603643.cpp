@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 bool t[255][255];
 int main() {
     int x, y, n, s = 0;

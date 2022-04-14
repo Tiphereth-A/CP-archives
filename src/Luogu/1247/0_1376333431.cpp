@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 const int N = 5e5 + 5;
 int a[N];

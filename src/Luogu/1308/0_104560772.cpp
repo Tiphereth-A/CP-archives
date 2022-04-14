@@ -1,6 +1,4 @@
-#include <cctype>
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using std::cin;
 using std::cout;
 std::string word, docu;

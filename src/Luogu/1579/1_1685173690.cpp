@@ -1,9 +1,7 @@
-#include <cmath>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 const int N = 2e4 + 5;
 inline bool prime(int n) {
-    register int i = 2;
+    int i = 2;
     while (i <= sqrt(n))
         if (!(n % i++))
             return false;

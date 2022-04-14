@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define ls (p << 1)
 #define rs (p << 1 | 1)

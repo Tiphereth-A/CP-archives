@@ -1,7 +1,5 @@
-#include <algorithm>
-#include <cmath>
-#include <iostream>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 typedef long long ll;
 #define N 100005
 using namespace std;
@@ -15,14 +13,14 @@ int main() {
         ll m, n;
         cin >> n >> m;
         ll f = 0;
-        fp(i, 1, n) {
+        _for(i, 1, n) {
             cin >> a[i];
             if (a[i] == 1) {
                 --i;
                 --n;
             }
         }
-        fp(i, 1, m) {
+        _for(i, 1, m) {
             cin >> b[i];
             if (b[i] == 1) {
                 --i;
@@ -36,17 +34,19 @@ int main() {
         sort(a + 1, a + n + 1, greater<ll>());
         sort(b + 1, b + m + 1, greater<ll>());
         ll p = 0;
-        fp(i, 1, m) if (a[i] != b[i]) {
-            p = a[i];
-            break;
-        }
+        _for(i, 1, m)
+            if (a[i] != b[i]) {
+                p = a[i];
+                break;
+            }
         if (!p)
             p = a[n];
         ll sq = sqrt(p);
-        fp(i, 2, sq) if (p % i == 0) {
-            f = -1;
-            break;
-        }
+        _for(i, 2, sq)
+            if (p % i == 0) {
+                f = -1;
+                break;
+            }
         cout << ((f == -1) ? "NO" : "YES") << endl;
     }
     return 0;

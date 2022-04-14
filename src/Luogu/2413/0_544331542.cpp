@@ -1,9 +1,4 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <stack>
-#include <string>
+#include <bits/stdc++.h>
 #define tpn typename
 template <tpn A>
 inline A Abs(const A &x) {

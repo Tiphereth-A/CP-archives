@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 char nlist[305][20];
 struct node {
     int son[27] = {0};

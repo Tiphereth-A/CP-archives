@@ -1,15 +1,14 @@
-#include <cstdio>
-#include <iostream>
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+
+
 #define M 10005
-#define fp(i, l, r) for (register int i = (l); i <= (r); i++)
+#define _for(i, l, r) for (int i = (l); i <= (r); i++)
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define gi getint
 #define gc getchar
 using namespace std;
 int pre[M];
-il int find(int x) {
+inline int find(int x) {
     int a = x;
     while (a != pre[a])
         a = pre[a];
@@ -21,7 +20,7 @@ il int find(int x) {
     }
     return a;
 }
-il void merge(int x, int y) {
+inline void merge(int x, int y) {
     int fx = find(x), fy = find(y);
     if (fx != fy)
         pre[fx] = fy;
@@ -29,8 +28,8 @@ il void merge(int x, int y) {
 int main() {
     int n, m;
     cin >> n >> m;
-    fp(i, 1, n) pre[i] = i;
-    fp(i, 1, m) {
+    _for(i, 1, n) pre[i] = i;
+    _for(i, 1, m) {
         int z, x, y;
         cin >> z >> x >> y;
         if (z == 1)

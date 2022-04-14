@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
+#include <bits/stdc++.h>
 typedef unsigned long long u64;
 const int N = 350050;
 bool vis[N];

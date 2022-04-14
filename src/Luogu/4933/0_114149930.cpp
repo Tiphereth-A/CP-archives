@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 const int N = 1005, M = 4e4 + 5, ofs = 2e4, mod = 998244353;
 int a[N];

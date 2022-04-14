@@ -1,5 +1,5 @@
-#include <cstdio>
-#define _for(i, m, n) for (register int i = m; i <= n; i++)
+#include <bits/stdc++.h>
+#define _for(i, m, n) for (int i = m; i <= n; i++)
 int f[33][33], n;
 const int dx[] = {0, 0, 1, -1}, dy[] = {1, -1, 0, 0};
 void dfs(int x, int y) {

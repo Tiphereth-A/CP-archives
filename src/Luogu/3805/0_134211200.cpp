@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 #define _l(a) ((a)-r[a])
 #define _r(a) ((a) + r[a])
 const int N = 11000005;

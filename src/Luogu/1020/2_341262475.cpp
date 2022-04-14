@@ -1,8 +1,5 @@
-#include <algorithm>
-#include <cstdio>
-#include <iostream>
-#include <string>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define gc getchar
 #define tpn typename
 template <tpn A>
@@ -24,7 +21,7 @@ int main() {
     l1 = l2 = 1;
     f[1] = -a[1];
     g[1] = a[1];
-    fp(i, 2, n) {
+    _for(i, 2, n) {
         if (-a[i] >= f[l1])
             f[++l1] = -a[i];
         else {

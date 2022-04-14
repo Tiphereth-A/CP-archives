@@ -5,43 +5,29 @@
 #define __FASTIO__
 #define __FUNC__
 #ifdef __C_STYLE__
-#include <cstdio>
+#include <bits/stdc++.h>
 #endif
 #ifdef __C_LIB__
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_STYLE__
-#include <iostream>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_LIB__
-#include <fstream>
-#include <iomanip>
-#include <string>
+#include <bits/stdc++.h>
 #endif
 #ifdef __STL__
-#include <algorithm>
-#include <deque>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <vector>
+#include <bits/stdc++.h>
 #endif
 #ifdef __DEF__
-#define rg register
-#define rgi register int
-#define il inline
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define _replu(i, l, r) for (register long unsigned int i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (register int i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (register int i = (r); i > (l); --i)
+
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
+#define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
+#define _repr(i, r, l) for (int i = (r); i > (l); --i)
 #define _gc getchar
 #define _pc putchar
 #define tpn typename
@@ -88,7 +74,7 @@ inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 template <tpn A>
-inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
+inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 #ifdef __FASTIO__
 #if 1
@@ -162,20 +148,20 @@ inline void print(Type x, char text = '\n') {
 #define INF_I64 0x7FFFFFFFFFFFFFFFll
 const int N = 1e7 + 5;
 std::map<int, int> set;
-il int qpow(rg i64 a, rg i64 b, rg int mod) {
-    rg int ans = 1;
+inline int qpow(i64 a, i64 b, int mod) {
+    int ans = 1;
     for (; b; a = a * a % mod, b >>= 1)
         if (b & 1) ans = ans * a % mod;
     return ans;
 }
-il void ex_bsgs(rg int x, rg int y, rg int mod) {
+inline void ex_bsgs(int x, int y, int mod) {
     if (y == 1) {
         puts("0");
         return;
     }
     set.clear();
-    rg int cnt = 0, t = 1;
-    for (rg int d = Gcd(x, mod); d != 1; d = Gcd(x, mod)) {
+    int cnt = 0, t = 1;
+    for (int d = Gcd(x, mod); d != 1; d = Gcd(x, mod)) {
         if (y % d) {
             _err;
             return;
@@ -189,14 +175,14 @@ il void ex_bsgs(rg int x, rg int y, rg int mod) {
             return;
         }
     }
-    rg int m = sqrt(mod) + 1, s = y;
+    int m = sqrt(mod) + 1, s = y;
     _rep(i, 0, m) {
         set[s] = i;
         s = 1ll * s * x % mod;
     }
-    rg int tmp = qpow(x, m, mod);
+    int tmp = qpow(x, m, mod);
     s = 1ll * t * tmp % mod;
-    _fp(i, 1, m) {
+    _for(i, 1, m) {
         if (set.count(s)) {
             printf("%d\n", i * m - set[s] + cnt);
             return;

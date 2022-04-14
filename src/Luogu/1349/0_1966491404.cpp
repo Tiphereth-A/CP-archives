@@ -1,8 +1,7 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 #define N 5
 #define M 2
-#define ll long long
+typedef long long ll;
 struct matrix {
     ll m[N][N];
 } a, b;

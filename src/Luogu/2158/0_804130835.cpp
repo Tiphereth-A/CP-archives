@@ -1,10 +1,7 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <iostream>
-#define ll long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+
+
 const int maxn = 40000 + 10;
 using namespace std;
 ll e[maxn];

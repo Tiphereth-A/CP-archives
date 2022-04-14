@@ -1,6 +1,6 @@
-#include <iostream>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define M 1005
 int n;
 char tmp, llt[M][M];
@@ -11,14 +11,24 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     cin >> n;
-    fp(i, 1, n) fp(j, 1, n) {
-        cin >> tmp;
-        if (tmp == 'O') m[i][j] = true;
-    }
-    fp(i, 1, n) fp(j, 1, n) cin >> llt[i][j];
-    fp(i, 1, n) fp(j, 1, n) if (m[i][j]) cout << llt[i][j];
-    fp(i, 1, n) fd(j, n, 1) if (m[j][i]) cout << llt[i][n - j + 1];
-    fd(i, n, 1) fd(j, n, 1) if (m[i][j]) cout << llt[n - i + 1][n - j + 1];
-    fd(i, n, 1) fp(j, 1, n) if (m[j][i]) cout << llt[n - i + 1][j];
+    _for(i, 1, n)
+        _for(j, 1, n) {
+            cin >> tmp;
+            if (tmp == 'O') m[i][j] = true;
+        }
+    _for(i, 1, n)
+        _for(j, 1, n) cin >> llt[i][j];
+    _for(i, 1, n)
+        _for(j, 1, n)
+            if (m[i][j]) cout << llt[i][j];
+    _for(i, 1, n)
+        _rfor(j, n, 1)
+            if (m[j][i]) cout << llt[i][n - j + 1];
+    _rfor(i, n, 1)
+        _rfor(j, n, 1)
+            if (m[i][j]) cout << llt[n - i + 1][n - j + 1];
+    _rfor(i, n, 1)
+        _for(j, 1, n)
+            if (m[j][i]) cout << llt[n - i + 1][j];
     return 0;
 }

@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int main() {
     double t;
     int n;

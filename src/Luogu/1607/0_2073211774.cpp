@@ -1,9 +1,4 @@
-#include <algorithm>
-#include <cassert>
-#include <cctype>
-#include <cstdio>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _lch ((p) << 1)
 #define _rch ((p) << 1 | 1)

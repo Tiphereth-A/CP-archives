@@ -1,13 +1,11 @@
-#include <cstdio>
-#include <cstring>
-#include <iostream>
-#define ll long long
+#include <bits/stdc++.h>
+typedef long long ll;
 #define maxn 405
-#define ull unsigned long long
-#define rg register
-#define fp(i, m, n) for (register int i = m; i <= n; i++)
-#define fd(i, m, n) for (register int i = m; i >= n; i--)
-#define il inline
+typedef unsigned long long ull;
+
+#define _for(i, m, n) for (int i = m; i <= n; i++)
+#define _rfor(i, m, n) for (int i = m; i >= n; i--)
+
 using namespace std;
 int f[maxn][maxn];
 int m, n;

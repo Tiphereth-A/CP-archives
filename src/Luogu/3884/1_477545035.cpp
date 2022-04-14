@@ -1,9 +1,9 @@
-#include <cstdio>
-#define rg register
-#define rgi register int
-#define il inline
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#include <bits/stdc++.h>
+
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define gc getchar
 #define tpn typename
 template <tpn A>
@@ -25,24 +25,27 @@ int ansd, answ;
 int lca(int u, int v) {
     if (dep[u] > dep[v]) Swap(u, v);
     int dis = dep[v] - dep[u];
-    fd(i, 7, 0) if ((1 << i) & dis) v = f[i][v];
+    _rfor(i, 7, 0)
+        if ((1 << i) & dis) v = f[i][v];
     if (u == v) return u;
-    fd(i, 7, 0) if (f[i][u] != f[i][v]) {
-        u = f[i][u];
-        v = f[i][v];
-    }
+    _rfor(i, 7, 0)
+        if (f[i][u] != f[i][v]) {
+            u = f[i][u];
+            v = f[i][v];
+        }
     return f[0][u];
 }
 int main() {
     scanf("%d", &n);
     int tmp1, tmp2, tmpd;
-    fp(i, 1, n - 1) {
+    _for(i, 1, n - 1) {
         scanf("%d%d", &tmp1, &tmp2);
         f[0][tmp2] = tmp1;
         ansd = Max(ansd, tmpd = dep[tmp2] = dep[tmp1] + 1);
         answ = Max(answ, ++wid[tmpd]);
     }
-    fp(i, 1, n) for (rgi j = 1; (1 << j) <= dep[i]; ++j) f[j][i] = f[j - 1][f[j - 1][i]];
+    _for(i, 1, n)
+        for (rgi j = 1; (1 << j) <= dep[i]; ++j) f[j][i] = f[j - 1][f[j - 1][i]];
     scanf("%d%d", &tmp1, &tmp2);
     int tmp3 = lca(tmp1, tmp2);
     printf("%d\n%d\n%d\n", ansd + 1, answ, dep[tmp1] * 2 + dep[tmp2] - dep[tmp3] * 3);

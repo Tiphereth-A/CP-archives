@@ -1,10 +1,7 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <iostream>
-#define ll long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+
+
 using namespace std;
 int main() {
     ll n, k, c, i;

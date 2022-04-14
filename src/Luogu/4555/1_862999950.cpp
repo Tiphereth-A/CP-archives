@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 #define _r (i + p[i])
 #define _l (i - p[i])
 const int N = 1e5 + 5, M = 2e5 + 15;

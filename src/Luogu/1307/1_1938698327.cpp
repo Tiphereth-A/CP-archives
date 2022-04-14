@@ -1,22 +1,12 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctype.h>
-#include <iostream>
-#include <queue>
-#include <sstream>
-#include <stack>
-#include <string>
-#include <vector>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define M 30005
 #define sstr stringstream
-#define fp(i, l, r) for (register int i = (l); i <= (r); i++)
-#define fd(i, r, l) for (register int i = (r); i >= (l); i--)
+#define _for(i, l, r) for (int i = (l); i <= (r); i++)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); i--)
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 using namespace std;
@@ -25,7 +15,7 @@ int n;
 int main() {
     ios::sync_with_stdio(false);
     cin >> str;
-    fd(i, str.size() - 1, 1) {
+    _rfor(i, str.size() - 1, 1) {
         n *= 10;
         n += str[i] - '0';
     }

@@ -4,9 +4,9 @@
 #include <iostream>
 #include <map>
 #include <string>
-#define REP1(i, l, r) for (register int i = (l); i < (r); ++i)
-#define REP2(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define il inline
+#define REP1(i, l, r) for (int i = (l); i < (r); ++i)
+#define REP2(i, l, r) for (int i = (l); i <= (r); ++i)
+
 #define INF 0x3f3f3f3f
 #define EPS 1e-5
 using namespace std;
@@ -28,7 +28,7 @@ map<string, int> sidTable;
 int Student::Cnt = 1;
 bool CmpScore(const Student &a, const Student &b) { return a.TotScore > b.TotScore; }
 bool CmpInputID(const Student &a, const Student &b) { return a.InputID < b.InputID; }
-il void PrintMenu() {
+inline void PrintMenu() {
     printf(
         "Welcome to Student Performance Management System (SPMS).\n\n"
         "1 - Add\n"
@@ -38,7 +38,7 @@ il void PrintMenu() {
         "5 - Show Statistics\n"
         "0 - Exit\n\n");
 }
-il void Add() {
+inline void Add() {
     printf("Please enter the SID, CID, name and four scores. Enter 0 to finish.\n");
     string sid, name;
     int cid, ch, ma, en, pr;
@@ -66,7 +66,7 @@ il void Add() {
         printf("Please enter the SID, CID, name and four scores. Enter 0 to finish.\n");
     }
 }
-il void Remove() {
+inline void Remove() {
     printf("Please enter SID or name. Enter 0 to finish.\n");
     string p;
     while (cin >> p) {
@@ -90,7 +90,7 @@ il void Remove() {
             cnt);
     }
 }
-il void Query() {
+inline void Query() {
     printf("Please enter SID or name. Enter 0 to finish.\n");
     sort(stu + 1, stu + Student::Cnt, CmpScore);
     REP1(i, 1, Student::Cnt)
@@ -108,8 +108,8 @@ il void Query() {
         printf("Please enter SID or name. Enter 0 to finish.\n");
     }
 }
-il void ShowRanking() { printf("Showing the ranklist hurts students' self-esteem. Don't do that.\n"); }
-il void ShowStatistics() {
+inline void ShowRanking() { printf("Showing the ranklist hurts students' self-esteem. Don't do that.\n"); }
+inline void ShowStatistics() {
     printf("Please enter class ID, 0 for the whole statistics.\n");
     int cid, StuCnt = 0;
     cin >> cid;

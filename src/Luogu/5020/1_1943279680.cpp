@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <stdio.h>
-#include <string.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define MAXAI 25005
 #define MAXN 105

@@ -7,10 +7,10 @@
 #include <queue>
 #include <sstream>
 #include <string>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define maxn 210
 using namespace std;
 int main() {

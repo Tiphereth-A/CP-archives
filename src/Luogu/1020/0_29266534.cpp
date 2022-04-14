@@ -1,23 +1,4 @@
-#include <algorithm>
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <deque>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 using std::cin;
 using std::cout;
 const int N = 1e5 + 5;

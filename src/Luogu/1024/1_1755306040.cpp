@@ -1,7 +1,4 @@
-#include <cmath>
-#include <cstdio>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 using std::cin;
 int main() {
 #ifndef ONLINE_JUDGE

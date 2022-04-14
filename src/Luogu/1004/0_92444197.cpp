@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int f[10][10][10][10], g[10][10];
 int main() {

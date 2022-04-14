@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 char in[1001];
 long long cnt[35];
 long long inline max(long long x, long long y) { return x > y ? x : y; }

@@ -1,8 +1,4 @@
-#include <algorithm>
-#include <cctype>
-#include <cstdio>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 #define _mid(l, r) ((l) + (((r) - (l)) >> 1))
 typedef long long i64;
 namespace FastIO {

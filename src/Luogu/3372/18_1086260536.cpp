@@ -1,7 +1,6 @@
-#include <cstdio>
-#include <iostream>
+#include <bits/stdc++.h>
 #define MAXN 1000001
-#define ll long long
+typedef long long ll;
 using namespace std;
 unsigned ll n, m, a[MAXN], ans[MAXN << 2], tag[MAXN << 2];
 inline ll ls(ll x) {

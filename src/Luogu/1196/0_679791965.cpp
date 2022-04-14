@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int N = 3e4 + 1;
 int fa[N], sum[N], num[N];
 inline int abs(int a) {
@@ -14,7 +14,7 @@ int find(int x) {
 int main() {
     int t, x, y, fx, fy;
     scanf("%d\n", &t);
-    for (register int i = 1; i <= 30000; ++i) {
+    for (int i = 1; i <= 30000; ++i) {
         fa[i] = i;
         num[i] = 1;
     }

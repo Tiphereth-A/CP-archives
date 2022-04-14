@@ -1,9 +1,9 @@
-#include <cstdio>
-#define rgi register int
-#define il inline
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#include <bits/stdc++.h>
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define _lch(p) ((p) << 1)
 #define _rch(p) ((p) << 1 | 1)
 #define INF_I32 0x7fffffff
@@ -48,13 +48,13 @@ struct edge {
     int next, to, val;
 } e[M];
 int head[N], cnt;
-il void add(int u, int v, int val) {
+inline void add(int u, int v, int val) {
     e[++cnt] = {head[u], v, val};
     head[u] = cnt;
 }
 int minPos[N << 2], minDis[N << 2], trM;
 int n, m, s, dis[N];
-il void update(int pos) {
+inline void update(int pos) {
     if (minDis[_lch(pos)] < minDis[_rch(pos)]) {
         minDis[pos] = minDis[_lch(pos)];
         minPos[pos] = minPos[_lch(pos)];
@@ -63,21 +63,21 @@ il void update(int pos) {
         minPos[pos] = minPos[_rch(pos)];
     }
 }
-il void build() {
+inline void build() {
     for (trM = 1; trM < n + 2; trM <<= 1)
         ;
     _rep(i, trM, trM << 1) {
         minDis[i] = i - trM == s ? 0 : INF_I32;
         minPos[i] = i - trM;
     }
-    _fd(i, trM - 1, 1) update(i);
+    _rfor(i, trM - 1, 1) update(i);
 }
-il void modify(int pos, int k) {
+inline void modify(int pos, int k) {
     for (minDis[pos += trM] = k, pos >>= 1; pos; pos >>= 1) update(pos);
 }
-il void dijkstra(int s) {
+inline void dijkstra(int s) {
     build();
-    _fp(i, 1, n) dis[i] = INF_I32;
+    _for(i, 1, n) dis[i] = INF_I32;
     dis[s] = 0;
     while (minDis[1] < INF_I32) {
         int now = minPos[1];
@@ -91,12 +91,12 @@ il void dijkstra(int s) {
             }
         }
     }
-    _fp(i, 1, n) fastIO::print(dis[i], ' ');
+    _for(i, 1, n) fastIO::print(dis[i], ' ');
 }
 int main() {
     fastIO::read(n, m, s);
     int u, v, w;
-    _fp(i, 1, m) {
+    _for(i, 1, m) {
         fastIO::read(u, v, w);
         add(u, v, w);
     }

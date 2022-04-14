@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define lowbit(x) (1 << __builtin_ctz(x))
 char op;
 int m, n;

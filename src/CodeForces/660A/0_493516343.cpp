@@ -1,10 +1,10 @@
 #define __DEF__
 #include <bits/stdc++.h>
 #ifdef __DEF__
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
 template <typename A>
-inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
+inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = ' ';
@@ -55,7 +55,7 @@ const int N = 1e4 + 5;
 int n, a[N], b[N], cnt;
 int main(int argc, char const *argv[]) {
     read(n);
-    _fp(i, 1, n) read(a[i]);
+    _for(i, 1, n) read(a[i]);
     _rep(i, 1, n) if (Gcd(a[i], a[i + 1]) > 1) b[++cnt] = i;
     print_h(cnt, '\n');
     for (int i = 1, j = b[1], k = 1; i <= n; ++i) {

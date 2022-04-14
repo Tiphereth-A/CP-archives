@@ -1,10 +1,10 @@
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define MAXN 1000005
 int a[MAXN], q1[MAXN], q2[MAXN], n, m;
 int main() {
     scanf("%d%d", &n, &m);
-    fp(i, 1, n) scanf("%d", a + i);
+    _for(i, 1, n) scanf("%d", a + i);
     int h = 1, t = 0;
     for (int i = 1; i <= n; i++) {
         while (h <= t && q1[h] + m <= i)

@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 char s[1000001], p[1000001];
 int sLen, pLen, next[1000001] = {-1};
 int main() {

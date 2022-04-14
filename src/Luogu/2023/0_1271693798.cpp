@@ -1,16 +1,16 @@
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define il inline
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+
 #define ls p << 1
 #define rs p << 1 | 1
 #define Mid int m = ((r - l) >> 1) + l
-#define ll long long
+typedef long long ll;
 #define MAXN 1000005
 ll sum[MAXN << 2], add[MAXN << 2], mul[MAXN << 2], a[MAXN], mod;
-il void PushUp(int p) {
+inline void PushUp(int p) {
     sum[p] = (sum[ls] + sum[rs]) % mod;
 }
-il void PushDown(int p, int ln, int rn) {
+inline void PushDown(int p, int ln, int rn) {
     add[ls] = ((add[ls] * mul[p]) % mod + add[p]) % mod;
     mul[ls] = (mul[ls] * mul[p]) % mod;
     sum[ls] = ((sum[ls] * mul[p]) % mod + (add[p] * ln) % mod) % mod;
@@ -67,7 +67,7 @@ ll Query(int L, int R, int l, int r, int p) {
 int main() {
     int n, m;
     scanf("%d%lld", &n, &mod);
-    fp(i, 1, n) scanf("%lld", &a[i]);
+    _for(i, 1, n) scanf("%lld", &a[i]);
     Build(1, n, 1);
     scanf("%d", &m);
     while (m--) {

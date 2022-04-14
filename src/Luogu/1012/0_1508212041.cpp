@@ -1,10 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 bool cmp(string a, string b) {
     return a + b > b + a;

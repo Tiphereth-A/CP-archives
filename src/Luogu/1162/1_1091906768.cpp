@@ -1,13 +1,11 @@
-#include <cstdio>
-#include <cstring>
-#include <iostream>
-#define ll long long
+#include <bits/stdc++.h>
+typedef long long ll;
 #define maxn 33
-#define ull unsigned long long
-#define rg register
-#define fp(i, m, n) for (register int i = m; i <= n; i++)
-#define fd(i, m, n) for (register int i = m; i >= n; i--)
-#define il inline
+typedef unsigned long long ull;
+
+#define _for(i, m, n) for (int i = m; i <= n; i++)
+#define _rfor(i, m, n) for (int i = m; i >= n; i--)
+
 using namespace std;
 int f[maxn][maxn], n;
 void dfs(int x, int y) {
@@ -25,16 +23,17 @@ void dfs(int x, int y) {
 int main() {
     int x = 0, y = 0;
     scanf("%d", &n);
-    fp(i, 1, n) fp(j, 1, n) {
-        scanf("%d", &f[i][j]);
-        if (f[i][j] && x == 0) {
-            x = i + 1;
-            y = j + 1;
+    _for(i, 1, n)
+        _for(j, 1, n) {
+            scanf("%d", &f[i][j]);
+            if (f[i][j] && x == 0) {
+                x = i + 1;
+                y = j + 1;
+            }
         }
-    }
     dfs(x, y);
-    fp(i, 1, n) {
-        fp(j, 1, n)
+    _for(i, 1, n) {
+        _for(j, 1, n)
             printf("%d ", f[i][j]);
         printf("\n");
     }

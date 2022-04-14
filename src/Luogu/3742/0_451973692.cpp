@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int n, i;
 char x[101], z[101];
 int main() {

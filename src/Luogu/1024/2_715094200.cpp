@@ -1,10 +1,7 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
-#include <iostream>
-#define ll long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+
+
 const int maxn = 2000 + 10;
 double x[4];
 using namespace std;

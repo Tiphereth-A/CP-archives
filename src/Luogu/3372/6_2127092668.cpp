@@ -1,16 +1,16 @@
-#include <cstdio>
-#define fp(i, l, r) for (register unsigned long long i = (l); i <= (r); ++i)
-#define il inline
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (unsigned long long i = (l); i <= (r); ++i)
+
 #define ls rt << 1
 #define rs rt << 1 | 1
 #define Mid unsigned long long m = ((r - l) >> 1) + l
 typedef unsigned long long u64;
 #define MAXN 100005
 u64 sum[MAXN << 2], add[MAXN << 2], a[MAXN];
-il void PushUp(const u64 &rt) {
+inline void PushUp(const u64 &rt) {
     sum[rt] = sum[ls] + sum[rs];
 }
-il void PushDown(const u64 &rt, const u64 &ln, const u64 &rn) {
+inline void PushDown(const u64 &rt, const u64 &ln, const u64 &rn) {
     add[ls] += add[rt];
     sum[ls] += add[rt] * ln;
     add[rs] += add[rt];
@@ -56,7 +56,7 @@ u64 Query(const u64 &L, const u64 &R, const u64 &l, const u64 &r, const u64 &rt)
 int main() {
     u64 n = 0, m = 0;
     scanf("%lld%lld", &n, &m);
-    fp(i, 1, n) scanf("%lld", &a[i]);
+    _for(i, 1, n) scanf("%lld", &a[i]);
     Build(1, n, 1);
     u64 o = 0, x = 0, y = 0, k = 0;
     while (m--) {

@@ -1,5 +1,4 @@
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 typedef long long ll;
 ll ans;
 int n, k;

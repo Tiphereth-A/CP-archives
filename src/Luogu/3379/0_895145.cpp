@@ -29,11 +29,13 @@ int find(int x) { return x == fa[x] ? fa[x] : fa[x] = find(fa[x]); }
 bool vis[N];
 void tarjan(int now) {
     vis[now] = 1;
-    _for_graph(head, e, i, now) if (!vis[to]) {
-        tarjan(to);
-        fa[to] = now;
-    }
-    _for_graph(qhead, qe, i, now) if (vis[to]) qe[i].lca = qe[((i - 1) ^ 1) + 1].lca = find(to);
+    _for_graph(head, e, i, now)
+        if (!vis[to]) {
+            tarjan(to);
+            fa[to] = now;
+        }
+    _for_graph(qhead, qe, i, now)
+        if (vis[to]) qe[i].lca = qe[((i - 1) ^ 1) + 1].lca = find(to);
 }
 int main() {
     ios::sync_with_stdio(false);

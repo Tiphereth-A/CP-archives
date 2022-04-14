@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 using namespace std;
 int n = 0, a[100001], f[100001], d[100001], ans = 1, t = 0;
 int main() {

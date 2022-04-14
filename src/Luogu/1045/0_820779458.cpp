@@ -1,23 +1,9 @@
-#include <algorithm>
-#include <cctype>
-#include <cmath>
-#include <cstdio>
-#include <cstring>
-#include <deque>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <list>
-#include <map>
-#include <queue>
-#include <stack>
-#include <string>
-#include <vector>
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+
+
 #define sstr stringstream
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define mem(a) memset(a, 0, sizeof(a))
 #define memid(a) memset(a, 63, sizeof(a))
 #define memax(a) memset(a, 127, sizeof(a))
@@ -84,7 +70,7 @@ struct bign {
     int n[M];
     bign() { memset(n, 0, sizeof(n)); }
     void print() {
-        for (register int i = n[0], j = 1; i >= 1; i--, j++) {
+        for (int i = n[0], j = 1; i >= 1; i--, j++) {
             if (j > 50) {
                 putchar('\n');
                 j = 1;
@@ -95,20 +81,21 @@ struct bign {
     }
     bign operator=(const bign a) {
         memset(n, 0, sizeof(n));
-        fp(i, 0, a.n[0]) n[i] = a.n[i];
+        _for(i, 0, a.n[0]) n[i] = a.n[i];
         return *this;
     }
     bign operator*(const bign a) const {
         bign c;
         c.n[0] = a.n[0] + n[0];
         if (c.n[0] > 500) c.n[0] = 500;
-        fp(i, 1, a.n[0]) fp(j, 1, n[0]) {
-            c.n[i + j - 1] += a.n[i] * n[j];
-            if (c.n[i + j - 1] > 9) {
-                c.n[i + j] += c.n[i + j - 1] / 10;
-                c.n[i + j - 1] %= 10;
+        _for(i, 1, a.n[0])
+            _for(j, 1, n[0]) {
+                c.n[i + j - 1] += a.n[i] * n[j];
+                if (c.n[i + j - 1] > 9) {
+                    c.n[i + j] += c.n[i + j - 1] / 10;
+                    c.n[i + j - 1] %= 10;
+                }
             }
-        }
         return c;
     }
 };

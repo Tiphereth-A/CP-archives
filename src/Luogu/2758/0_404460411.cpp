@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 const int N = 2005;
 string a, b;

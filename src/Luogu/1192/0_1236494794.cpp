@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 const int N = 1e5 + 5;
 int n, k;
 long long f[N] = {1};

@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using std::cin;
 using std::cout;
 long long n, a[110], ave, ans;

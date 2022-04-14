@@ -1,5 +1,5 @@
-#include <cstdio>
-#define ll long long
+#include <bits/stdc++.h>
+typedef long long ll;
 using namespace std;
 ll k, n;
 ll dfs(int v) {

@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
-#define i32_r register int
-#define il __inline__ __attribute__((always_inline))
+#define i32_r int
+#define inline __inline__ __attribute__((always_inline))
 #define SYNC std::ios::sync_with_stdio(false)
 #define UNTIE std::cin::tie(0), std::cout::tie(0)
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (auto i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (auto i = (r); i >= (l); --i)
+#define _rfor(i, r, l) for (auto i = (r); i >= (l); --i)
 #define _repr(i, r, l) for (auto i = (r); i > (l); --i)
 #define _gc getchar
 #define _pc putchar

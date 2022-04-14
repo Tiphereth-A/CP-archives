@@ -1,8 +1,7 @@
-#include <algorithm>
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+
+
 #define tpn typename
 const int M = 100005;
 const int N = 1005;
@@ -12,10 +11,10 @@ struct f {
 } g[M];
 int pre[N];
 bool cmp(f a, f b) { return a.t < b.t; }
-il int find(int x) {
-    rg int a = x;
+inline int find(int x) {
+    int a = x;
     while (a != pre[a]) a = pre[a];
-    rg int b = x, c;
+    int b = x, c;
     while (b != a) {
         c = pre[b];
         pre[b] = a;
@@ -23,7 +22,7 @@ il int find(int x) {
     }
     return a;
 }
-il bool ins(int x, int y) {
+inline bool ins(int x, int y) {
     if (find(x) != find(y)) {
         pre[find(x)] = find(y);
         return true;
@@ -34,9 +33,9 @@ int main() {
     scanf("%d %d", &n, &m);
     for (int i = 1; i <= m; i++) scanf("%d %d %d", &g[i].x, &g[i].y, &g[i].t);
     std::sort(g + 1, g + m + 1, cmp);
-    fp(i, 1, n) pre[i] = i;
+    _for(i, 1, n) pre[i] = i;
     tot = n;
-    fp(i, 1, m) {
+    _for(i, 1, m) {
         if (find(g[i].x) != find(g[i].y)) {
             ins(g[i].x, g[i].y);
             tot--;

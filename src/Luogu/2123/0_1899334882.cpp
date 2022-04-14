@@ -1,6 +1,5 @@
-#include <algorithm>
-#include <cstdio>
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 typedef long long i64;
 template <tpn A>
@@ -18,13 +17,13 @@ int main() {
     while (t--) {
         int n;
         scanf("%d", &n);
-        _fp(i, 1, n) {
+        _for(i, 1, n) {
             scanf("%lld%lld", &minister[i].a, &minister[i].b);
             minister[i].index = (minister[i].a > minister[i].b) ? 1 : ((minister[i].a < minister[i].b) ? -1 : 0);
         }
         std::sort(minister + 1, minister + n + 1);
         i64 ans = minister[1].a + minister[1].b, sum = minister[1].a;
-        _fp(i, 2, n) ans = Max(ans, (sum += minister[i].a)) + minister[i].b;
+        _for(i, 2, n) ans = Max(ans, (sum += minister[i].a)) + minister[i].b;
         printf("%lld\n", ans);
     }
     return 0;

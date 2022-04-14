@@ -4,42 +4,30 @@
 #define __DEF__
 #define __FASTIO__
 #ifdef __C_STYLE__
-#include <cstdio>
+#include <bits/stdc++.h>
 #endif
 #ifdef __C_LIB__
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_STYLE__
-#include <iostream>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_LIB__
-#include <fstream>
-#include <iomanip>
-#include <string>
+#include <bits/stdc++.h>
 #endif
 #ifdef __STL__
-#include <algorithm>
-#include <deque>
-#include <list>
-#include <map>
-#include <queue>
-#include <stack>
-#include <vector>
+#include <bits/stdc++.h>
 #endif
 #ifdef __STD__
 using namespace std;
 #endif
 #ifdef __DEF__
-#define rg register
-#define rgi register int
-#define il inline
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define rep(i, l, r) for (int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define gc getchar
 #define tpn typename
 #ifdef __C_LIB__
@@ -151,18 +139,18 @@ int n, m;
 int tr[N];
 #define lowbit(x) (x) & (-(x))
 void add(int s, int t) {
-    for (rg int i = s; i <= n; i += lowbit(i)) ++tr[i];
-    for (rg int i = t + 1; i <= n; i += lowbit(i)) --tr[i];
+    for (int i = s; i <= n; i += lowbit(i)) ++tr[i];
+    for (int i = t + 1; i <= n; i += lowbit(i)) --tr[i];
 }
 i64 query(int x) {
     i64 ans = 0;
-    for (rg int i = x; i; i -= lowbit(i)) ans += tr[i];
+    for (int i = x; i; i -= lowbit(i)) ans += tr[i];
     return ans;
 }
 int main() {
     read(n, m);
     int f, a, b;
-    fp(i, 1, m) {
+    _for(i, 1, m) {
         read(f, a);
         if (f)
             printf("%lld\n", query(a));

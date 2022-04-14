@@ -1,6 +1,5 @@
-#include <algorithm>
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 template <tpn A>
 inline void read(A &x) {
@@ -25,7 +24,7 @@ const int M = 200005;
 int n, b, a[M], f[M], ans;
 int main() {
     read(n, b);
-    fp(i, 1, n) read(a[i]);
+    _for(i, 1, n) read(a[i]);
     std::sort(a + 1, a + n + 1, std::greater<int>());
     int cnt = 0;
     while (ans < b) ans += a[++cnt];

@@ -5,7 +5,7 @@
 using namespace std;
 int n;
 vector<int> vec[35];
-void fd(int a, int &p, int &h) {
+void _rfor(int a, int &p, int &h) {
     for (p = 0; p < n; ++p)
         for (h = 0; h < vec[p].size(); ++h)
             if (vec[p][h] == a) return;
@@ -28,8 +28,10 @@ int main() {
     int a, b;
     while (cin >> s1 >> a >> s2 >> b) {
         int pa, pb, ha, hb;
-        fd(a, pa, ha);
-        fd(b, pb, hb);
+        _rfor(a, pa, ha)
+            ;
+        _rfor(b, pb, hb)
+            ;
         if (pa == pb) continue;
         if (s2 == "onto") clr(pb, hb);
         if (s1 == "move") clr(pa, ha);

@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <cstdio>
+#include <bits/stdc++.h>
 const int INF = 0x3f3f3f3f;
 int n, m, tree[4000005];
 int main() {

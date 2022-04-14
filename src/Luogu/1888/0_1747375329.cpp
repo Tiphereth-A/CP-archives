@@ -1,12 +1,11 @@
-#include <cstdio>
-#include <iostream>
-#define il inline
+#include <bits/stdc++.h>
+
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 #define gi getint
 #define gc getchar
 using namespace std;
-il int getint() {
+inline int getint() {
     int t = 0;
     char c = gc();
     while (c < 48 || c > 57) c = gc();

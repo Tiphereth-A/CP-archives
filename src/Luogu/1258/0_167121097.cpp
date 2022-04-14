@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 double a, b, s, x;
 int main() {
     scanf("%lf%lf%lf", &s, &a, &b);

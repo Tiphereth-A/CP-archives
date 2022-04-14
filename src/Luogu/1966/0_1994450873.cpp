@@ -1,6 +1,5 @@
-#include <algorithm>
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 typedef long long i64;
 #define N 100005
 const int MOD = 99999997;
@@ -27,21 +26,21 @@ void merge(int l, int r) {
     }
     while (i <= mid) b[k++] = a[i++];
     while (j <= r) b[k++] = a[j++];
-    fp(i, l, r) a[i] = b[i];
+    _for(i, l, r) a[i] = b[i];
 }
 int main() {
     scanf("%d", &n);
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         scanf("%lld", &fst[i].num);
         fst[i].id = i;
     }
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         scanf("%lld", &snd[i].num);
         snd[i].id = i;
     }
     std::sort(fst + 1, fst + n + 1);
     std::sort(snd + 1, snd + n + 1);
-    fp(i, 1, n) a[fst[i].id] = snd[i].id;
+    _for(i, 1, n) a[fst[i].id] = snd[i].id;
     merge(1, n);
     printf("%d", ans % MOD);
     return 0;

@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 bool noprime[1000010] = {1, 1};
 int p[1000010], f[1000010];
 void get_prime(int m) {

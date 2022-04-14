@@ -1,6 +1,4 @@
-#include <cctype>
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 char s[10];
 int main() {
     fgets(s, 10, stdin);

@@ -1,10 +1,10 @@
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define il inline
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+
 #define ls p << 1
 #define rs p << 1 | 1
 #define Mid int m = ((r - l) >> 1) + l
-#define ll long long
+typedef long long ll;
 #define N 1000005
 ll sum[N << 2], add[N << 2], mul[N << 2], a[N], mod;
 namespace fastIO {
@@ -47,10 +47,10 @@ inline void print(Type x, char text = '\n') {
 }
 }  // namespace fastIO
 using namespace fastIO;
-il void PushUp(int p) {
+inline void PushUp(int p) {
     sum[p] = (sum[ls] + sum[rs]) % mod;
 }
-il void PushDown(int p, int ln, int rn) {
+inline void PushDown(int p, int ln, int rn) {
     add[ls] = (add[ls] * mul[p] + add[p]) % mod;
     mul[ls] = (mul[ls] * mul[p]) % mod;
     sum[ls] = (sum[ls] * mul[p] + add[p] * ln) % mod;
@@ -107,7 +107,7 @@ ll Query(int L, int R, int l, int r, int p) {
 int main() {
     int n, m;
     read(n, m, mod);
-    fp(i, 1, n) read(a[i]);
+    _for(i, 1, n) read(a[i]);
     Build(1, n, 1);
     int o, x, y;
     ll k;

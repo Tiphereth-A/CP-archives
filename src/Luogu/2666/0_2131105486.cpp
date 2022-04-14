@@ -1,5 +1,4 @@
-#include <cmath>
-#include <cstdio>
+#include <bits/stdc++.h>
 int sqr[110], n, f, ans;
 int a[5];
 bool app[10005];

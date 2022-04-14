@@ -1,7 +1,6 @@
-#include <cctype>
-#include <cstdio>
+#include <bits/stdc++.h>
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
-#define _fd(i, r, l) for (auto i = (r); i >= (l); --i)
+#define _rfor(i, r, l) for (auto i = (r); i >= (l); --i)
 #define _lch ((p) << 1)
 #define _rch ((p) << 1 | 1)
 #define _mid(l, r) ((l) + (((r) - (l)) >> 1))
@@ -79,7 +78,7 @@ int main() {
     read(n, m);
     _for(i, 1, m) read(l[i].l, l[i].r);
     int ans = 0;
-    _fd(i, m, 1) ans += update(l[i].l, l[i].r);
+    _rfor(i, m, 1) ans += update(l[i].l, l[i].r);
     print(ans);
     FastIO::flush();
     return 0;

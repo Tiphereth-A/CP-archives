@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <cctype>
-#include <cmath>
-#include <cstdio>
+#include <bits/stdc++.h>
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 typedef long long i64;
 namespace FastIO {

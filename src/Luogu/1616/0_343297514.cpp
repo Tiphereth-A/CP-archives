@@ -1,6 +1,6 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int M = 100005;
-#define _for(i, l, r) for (register int i = (l); i <= (r); i++)
+#define _for(i, l, r) for (int i = (l); i <= (r); i++)
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 int f[M], n, m, v[M], p[M];
 int main() {

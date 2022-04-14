@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int n, q, a[1005] = {0};
 int main() {
     scanf("%d%d", &n, &q);

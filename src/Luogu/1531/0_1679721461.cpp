@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 const int MAXN = 2e5 + 5;
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (auto i = (l); i >= (r); --i)

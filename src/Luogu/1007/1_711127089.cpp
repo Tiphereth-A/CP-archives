@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int main() {
     int l, n, a, maxvalue = 0, minvalue = 0;

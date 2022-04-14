@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int N, M, m, n, P_i[1000], p, q, price, total;
 int main() {
     scanf("%d%d", &N, &M);

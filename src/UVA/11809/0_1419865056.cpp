@@ -32,14 +32,14 @@
 #include <vector>
 #endif
 #ifdef __DEF__
-#define rg register
-#define rgi register int
-#define il inline
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define _replu(i, l, r) for (register long unsigned int i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (register int i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (register int i = (r); i > (l); --i)
+
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
+#define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
+#define _repr(i, r, l) for (int i = (r); i > (l); --i)
 #define _gc getchar
 #define _pc putchar
 #define tpn typename
@@ -81,7 +81,7 @@ inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 template <tpn A>
 inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <tpn A>
-inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
+inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 #define INF_I32 0x7fffffff
 #define INF_I64 0x7FFFFFFFFFFFFFFFll
@@ -98,9 +98,9 @@ int main() {
         *strchr(num, 'e') = ' ';
         sscanf(num, "%llf%d", &a, &b);
         a = log10(a) + b;
-        _fp(m, 0, 9) {
+        _for(m, 0, 9) {
             ldb tmp1 = log10((1 << (m + 1)) - 1);
-            _fp(e, 1, 30) {
+            _for(e, 1, 30) {
                 ldb tmp2 = tmp1 + lg2 * ((1 << e) - m - 2);
                 if (fabs(tmp2 - a) <= EPS) {
                     printf("%d %d", m, e);

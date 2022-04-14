@@ -1,18 +1,18 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define MAXN 100005
-#define fp(i, l, r) for (register long long(i) = (l); (i) <= (r); (i)++)
-#define fd(i, l, r) for (register long long i = l; i >= r; --i)
-#define il inline
+#define _for(i, l, r) for (long long(i) = (l); (i) <= (r); (i)++)
+#define _rfor(i, l, r) for (long long i = l; i >= r; --i)
+
 long long tree[MAXN << 2], add[MAXN << 2];
 long long n, N = 1, m;
-il void build() {
+inline void build() {
     scanf("%lld%lld", &n, &m);
     for (; N <= n + 1; N <<= 1)
         ;
-    fp(i, N + 1, N + n) scanf("%lld", tree + i);
-    fd(i, N - 1, 1) tree[i] = tree[i << 1] + tree[i << 1 | 1];
+    _for(i, N + 1, N + n) scanf("%lld", tree + i);
+    _rfor(i, N - 1, 1) tree[i] = tree[i << 1] + tree[i << 1 | 1];
 }
-il void update(long long s, long long t, long long k) {
+inline void update(long long s, long long t, long long k) {
     long long lNum = 0, rNum = 0, nNum = 1;
     for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
         tree[s] += k * lNum;
@@ -33,7 +33,7 @@ il void update(long long s, long long t, long long k) {
         tree[t] += k * rNum;
     }
 }
-il long long query(long long s, long long t) {
+inline long long query(long long s, long long t) {
     long long lNum = 0, rNum = 0, nNum = 1;
     long long ans = 0;
     for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {

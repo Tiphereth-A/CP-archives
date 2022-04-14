@@ -1,6 +1,4 @@
-#include <cstring>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 const int N = 1e4 + 5;
 bool sum[N];
 int n, m;

@@ -1,7 +1,4 @@
-#include <cmath>
-#include <cstdio>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 typedef unsigned long long u64;
 const int N = 2e5 + 5;
 namespace FastIO {

@@ -3,43 +3,29 @@
 #define __STL__
 #define __DEF__
 #ifdef __C_STYLE__
-#include <cstdio>
+#include <bits/stdc++.h>
 #endif
 #ifdef __C_LIB__
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_STYLE__
-#include <iostream>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_LIB__
-#include <fstream>
-#include <iomanip>
-#include <string>
+#include <bits/stdc++.h>
 #endif
 #ifdef __STL__
-#include <algorithm>
-#include <deque>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <vector>
+#include <bits/stdc++.h>
 #endif
 #ifdef __DEF__
-#define rg register
-#define rgi register int
-#define il inline
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define _replu(i, l, r) for (register long unsigned int i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (register int i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (register int i = (r); i > (l); --i)
+
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
+#define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
+#define _repr(i, r, l) for (int i = (r); i > (l); --i)
 #define _gc getchar
 #define _pc putchar
 #define tpn typename
@@ -89,7 +75,7 @@ inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 template <tpn A>
-inline A Gcd(register A x, register A y) { return !y ? x : Gcd(y, x % y); }
+inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 #ifdef __FASTIO__
 #if 0
@@ -158,13 +144,13 @@ const int M = 500005;
 const int N = 100005;
 int p;
 std::map<int, int> list;
-il int qpow(i64 a, i64 b) {
+inline int qpow(i64 a, i64 b) {
     i64 ans = 1;
     for (; b; a = a * a % p, b >>= 1)
         if (b & 1) ans = ans * a % p;
     return ans;
 }
-il i64 bsgs(int x, int y) {
+inline i64 bsgs(int x, int y) {
     if (x == 0 && y == 0) return 0;
     if (x == 0) return -1;
     list.clear();
@@ -175,7 +161,7 @@ il i64 bsgs(int x, int y) {
     }
     int tmp = qpow(x, m);
     s = 1;
-    _fp(i, 1, m + 1) {
+    _for(i, 1, m + 1) {
         s = 1ll * s * tmp % p;
         if (list.count(s)) return 1ll * i * m - list[s] + 1;
     }

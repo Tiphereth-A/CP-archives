@@ -3,46 +3,32 @@
 #define __STL__
 #define __DEF__
 #ifdef __C_STYLE__
-#include <cstdio>
+#include <bits/stdc++.h>
 #endif
 #ifdef __C_LIB__
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdlib>
-#include <cstring>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_STYLE__
-#include <iostream>
+#include <bits/stdc++.h>
 #endif
 #ifdef __CPP_LIB__
-#include <fstream>
-#include <iomanip>
-#include <string>
+#include <bits/stdc++.h>
 #endif
 #ifdef __STL__
-#include <algorithm>
-#include <deque>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <vector>
+#include <bits/stdc++.h>
 #endif
 #ifdef __STD__
 using namespace std;
 #endif
 #ifdef __DEF__
-#define rg register
-#define rgi register int
-#define il inline
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
-#define _replu(i, l, r) for (register long unsigned int i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (register int i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (register int i = (r); i > (l); --i)
+
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
+#define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
+#define _repr(i, r, l) for (int i = (r); i > (l); --i)
 #define gc getchar
 #define tpn typename
 #define _ins(a) std::inserter((a), (a).begin())
@@ -162,7 +148,7 @@ int main() {
     i64 n, m;
     scanf("%lld%lld", &n, &m);
     int l = 1, r = n;
-    _fp(i, 1, n) {
+    _for(i, 1, n) {
         i64 tmp = (n - i - 1) * (n - i) >> 1;
         if (m <= tmp)
             ans[l++] = i;
@@ -171,6 +157,6 @@ int main() {
             m -= r - l + 1;
         }
     }
-    _fp(i, 1, n) printf("%lld ", ans[i]);
+    _for(i, 1, n) printf("%lld ", ans[i]);
     return 0;
 }

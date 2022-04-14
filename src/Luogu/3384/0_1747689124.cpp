@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define int long long
 #define _for(p) for (signed i = head[p]; i; i = e[i].next)
 const int N = 1e5 + 5;

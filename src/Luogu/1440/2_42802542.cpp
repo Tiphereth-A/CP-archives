@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <cstdio>
+#include <bits/stdc++.h>
 using namespace std;
 int n, m, tree[4000001];
 int main() {

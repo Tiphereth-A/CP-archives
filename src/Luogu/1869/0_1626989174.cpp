@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 long long t, n, k;
 int main() {
     scanf("%lld", &t);

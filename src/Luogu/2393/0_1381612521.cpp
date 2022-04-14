@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 long double a, sum;
 int main() {
     while (scanf("%Lf", &a) != EOF)

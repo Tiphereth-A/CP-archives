@@ -5,13 +5,13 @@
 #include <set>
 #include <stack>
 #include <vector>
-#define il inline
+
 #define INS(a) std::inserter((a), (a).begin())
 #define ALL(a) (a).begin(), (a).end()
 typedef std::set<int> S;
 std::map<S, int> IDCache;
 std::vector<S> SetCache;
-il int findID(S x) {
+inline int findID(S x) {
     if (IDCache.count(x)) return IDCache[x];
     SetCache.push_back(x);
     return IDCache[x] = SetCache.size() - 1;

@@ -1,6 +1,4 @@
-#include <cstdio>
-#include <cstring>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 long long f[500005], a[500005][2], n, d, k, ok, lpos, rpos;
 bool check(int g) {

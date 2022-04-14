@@ -26,11 +26,11 @@ void tarjan(int now) {
     in_stk[now] = 1;
     dfn[now] = low[now] = ++cnt_dfn;
     stk.push(now);
-    _for_graph(head, e, i, now) if (!dfn[to]) {
-        tarjan(to);
-        chkmin(low[now], low[to]);
-    }
-    else if (in_stk[to]) chkmin(low[now], dfn[to]);
+    _for_graph(head, e, i, now)
+        if (!dfn[to]) {
+            tarjan(to);
+            chkmin(low[now], low[to]);
+        } else if (in_stk[to]) chkmin(low[now], dfn[to]);
     if (dfn[now] == low[now]) {
         ++cnt_scc;
         while (stk.top() != now) {
@@ -52,7 +52,8 @@ int main() {
         while (scanf("%d", &x), x) addEdge(i, x);
     _for(i, 1, n)
         if (!dfn[i]) tarjan(i);
-    _for(i, 1, n) _for_graph(head, e, j, i) {
+    _for(i, 1, n)
+        _for_graph(head, e, j, i) {
             if (scc_id[to] == scc_id[i]) continue;
             ++in[scc_id[to]];
             ++out[scc_id[i]];

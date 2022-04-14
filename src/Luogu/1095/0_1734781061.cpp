@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int f[300010], m, s, t;
 int main() {
     scanf("%d%d%d", &m, &s, &t);

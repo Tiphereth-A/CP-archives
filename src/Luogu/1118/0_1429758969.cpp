@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int n, sum, c[15], a[15], v[15];
 bool dfs(int step, int i, int s) {
     if (s > sum)

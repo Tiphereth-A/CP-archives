@@ -1,5 +1,4 @@
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 typedef long long ll;
 ll b, p, k;
 ll qpow(__int128_t a, __int128_t b) {

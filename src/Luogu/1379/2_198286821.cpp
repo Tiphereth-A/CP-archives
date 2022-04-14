@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 typedef int State[9];
 const int frac[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880}, dx[] = {0, 1, 0, -1}, dy[] = {1, 0, -1, 0};
 const State _end = {1, 2, 3, 8, 0, 4, 7, 6, 5};
@@ -10,9 +9,9 @@ struct STATE {
     int dist, id;
     int get_order() {
         if (id) return id;
-        for (register int i = 0; i < 9; ++i) {
+        for (int i = 0; i < 9; ++i) {
             int tmp = 0, cur = seq[i];
-            for (register int j = i + 1; j < 9; ++j)
+            for (int j = i + 1; j < 9; ++j)
                 if (cur > seq[j]) ++tmp;
             id += tmp * frac[8 - i];
         }
@@ -28,7 +27,7 @@ inline int bfs() {
         for (z = 0; now[z]; ++z)
             ;
         int x = z % 3, y = z / 3;
-        for (register int i = 0; i < 4; ++i) {
+        for (int i = 0; i < 4; ++i) {
             state_all[rear].id = 0;
             State &next = state_all[rear].seq;
             int nx = x + dx[i], ny = y + dy[i];
@@ -48,7 +47,7 @@ inline int bfs() {
 }
 int main() {
     memcpy(end.seq, _end, sizeof(_end));
-    for (register int i = 0; i < 9; ++i) state_all[1].seq[i] = getchar() - '0';
+    for (int i = 0; i < 9; ++i) state_all[1].seq[i] = getchar() - '0';
     printf("%d", bfs());
     return 0;
 }

@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 using namespace std;
 int a1, a2, b1, b2;
 char spc;

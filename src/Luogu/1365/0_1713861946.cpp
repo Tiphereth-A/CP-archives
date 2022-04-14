@@ -1,9 +1,8 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #ifndef ONLINE_JUDGE
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
 #endif
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 const int N = 3e5 + 5;
 double a[N], b[N];
 int main() {
@@ -15,7 +14,7 @@ int main() {
 #endif
     int n;
     scanf("%d\n", &n);
-    _fp(i, 1, n) {
+    _for(i, 1, n) {
         char c;
         while (((c = getchar()) != 'o') && (c != 'x') && (c != '?'))
             ;

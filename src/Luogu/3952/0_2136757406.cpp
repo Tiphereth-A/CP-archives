@@ -1,16 +1,12 @@
-#include <algorithm>
-#include <cstdio>
-#include <iostream>
-#include <stack>
-#include <string>
-#define il inline
+#include <bits/stdc++.h>
+
 #define M 1000001
-#define fp(i, l, r) for (register int i = (l); i <= (r); i++)
+#define _for(i, l, r) for (int i = (l); i <= (r); i++)
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 using namespace std;
 string str[101], o;
 int t, l;
-il int getint(int &x, string c) {
+inline int getint(int &x, string c) {
     int res = 0, l = c.size();
     while ((c[x] < '0' || c[x] > '9') && x < l) {
         if (c[x] == 'n') {
@@ -26,16 +22,16 @@ il int getint(int &x, string c) {
     }
     return res;
 }
-il int getcomp() {
+inline int getcomp() {
     int res = 0, x = 3;
     if (o[2] == 'n') res = getint(x, o);
     return res;
 }
-il int check(int n) {
+inline int check(int n) {
     int res = 0, errf = -1, now = 0, st, et, x;
     stack<int> s;
     bool alpha[26] = {0}, ctbt[26] = {0};
-    fp(i, 1, l) {
+    _for(i, 1, l) {
         if (str[i][0] == 'F') {
             int k = str[i][2] - 'a';
             if (alpha[k]) return -1;
@@ -76,7 +72,7 @@ int main() {
     while (t--) {
         scanf("%d ", &l);
         getline(cin, o);
-        fp(i, 1, l) getline(cin, str[i]);
+        _for(i, 1, l) getline(cin, str[i]);
         int w = getcomp();
         int ans = check(w);
         if (ans == -1)

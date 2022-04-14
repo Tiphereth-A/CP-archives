@@ -1,7 +1,6 @@
-#include <cstdio>
-#include <cstring>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define fd(i, r, l) for (register int i = (r); i >= (l); --i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define mem(a) memset(a, 0, sizeof(a))
 #define memp(a) memset(a, 1, sizeof(a))
 #define memn(a) memset(a, -1, sizeof(a))
@@ -48,9 +47,9 @@ int n, l, r, a[M], f[M], ans;
 int main() {
     read(n, l, r);
     if (l > r) Swap(l, r);
-    fp(i, 0, n) read(a[i]);
-    fd(i, n, n - l + 1) f[i] = a[i];
-    fd(i, n + 1, l) {
+    _for(i, 0, n) read(a[i]);
+    _rfor(i, n, n - l + 1) f[i] = a[i];
+    _rfor(i, n + 1, l) {
         while (q.tail >= q.head && f[i] > q.val[q.tail]) --q.tail;
         ++q.tail;
         q.val[q.tail] = f[i];

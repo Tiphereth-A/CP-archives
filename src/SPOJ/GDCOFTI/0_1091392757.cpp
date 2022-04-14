@@ -1,7 +1,7 @@
 #include <algorithm>
+#include <cmath>
 #include <iostream>
-#include <math.h>
-#define ull unsigned long long
+typedef unsigned long long ull;
 using namespace std;
 ull a, b, c;
 int main() {

@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 typedef long long ll;
 ll a[3000005], n, p;
 inline void inv() {

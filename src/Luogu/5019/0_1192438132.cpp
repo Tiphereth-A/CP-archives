@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int n, a[100005];
 int main() {
     scanf("%d", &n);

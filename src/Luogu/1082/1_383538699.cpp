@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <iostream>
+#include <bits/stdc++.h>
 typedef long long ll;
 std::pair<ll, ll> exgcd(ll a, ll b) {
     if (b == 0) return std::make_pair(1, 0);

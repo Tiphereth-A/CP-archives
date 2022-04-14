@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using std::cin;
 using std::cout;
 bool f[105];

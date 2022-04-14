@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <stack>
+#include <bits/stdc++.h>
 using namespace std;
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _for_graph(head, e, i, now) for (int i = head[now], to = e[i].to; i; to = e[i = e[i].next].to)
@@ -33,11 +32,11 @@ void tarjan(int now) {
     in_stk[now] = 1;
     dfn[now] = low[now] = ++cnt_dfn;
     stk.push(now);
-    _for_graph(head, e, i, now) if (!dfn[to]) {
-        tarjan(to);
-        chkmin(low[now], low[to]);
-    }
-    else if (in_stk[to]) chkmin(low[now], dfn[to]);
+    _for_graph(head, e, i, now)
+        if (!dfn[to]) {
+            tarjan(to);
+            chkmin(low[now], low[to]);
+        } else if (in_stk[to]) chkmin(low[now], dfn[to]);
     if (dfn[now] == low[now]) {
         ++cnt_scc;
         while (stk.top() != now) {
@@ -62,7 +61,8 @@ int main() {
         if (!dfn[i]) tarjan(i);
     _for(i, 1, m)
         if (cnt_scc == 1) _run_exit(printf("%d", scc_size[1]));
-    _for(i, 1, n) _for_graph(head, e, j, i) {
+    _for(i, 1, n)
+        _for_graph(head, e, j, i) {
             if (scc_id[i] == scc_id[to]) continue;
             ++out[scc_id[i]];
         }

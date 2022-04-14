@@ -1,10 +1,10 @@
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define il inline
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+
 #define MOD(x, p) ((x) % (p))
 typedef long long ll;
 #define P 1000000007
-il ll qpow(ll a, ll b) {
+inline ll qpow(ll a, ll b) {
     ll ans = 1, c = MOD(a, P);
     while (b) {
         if (b & 1) ans = MOD(ans * c, P);
@@ -13,10 +13,10 @@ il ll qpow(ll a, ll b) {
     }
     return MOD(ans, P);
 }
-il ll inv(ll x, ll y) {
+inline ll inv(ll x, ll y) {
     if (y > x) return 0;
     ll ans = 1;
-    fp(i, 1, y) {
+    _for(i, 1, y) {
         ll tmp1 = MOD(x - y + i, P), tmp2 = MOD(i, P);
         ans = MOD(ans * MOD(tmp1 * qpow(tmp2, P - 2), P), P);
     }

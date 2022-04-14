@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int cnt, num[42], m;
 int main() {
     for (int i = 1; i <= 10; i++) {

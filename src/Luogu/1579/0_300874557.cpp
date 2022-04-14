@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 inline bool prime(int n) {
-    register int i = 2;
+    int i = 2;
     while (i <= sqrt(n))
         if (!(n % i++))
             return false;
@@ -10,8 +10,8 @@ inline bool prime(int n) {
 int main() {
     int n;
     cin >> n;
-    for (register int i = 2; i <= 20000; i++)
-        for (register int j = i; n - i - j >= j; j++)
+    for (int i = 2; i <= 20000; i++)
+        for (int j = i; n - i - j >= j; j++)
             if (prime(i) && prime(j) && prime(n - i - j))
                 return !printf("%d %d %d\n", i, j, n - i - j);
 }

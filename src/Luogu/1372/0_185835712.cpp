@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 long long n, k;
 int main() {

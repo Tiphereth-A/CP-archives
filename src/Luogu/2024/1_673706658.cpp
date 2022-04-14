@@ -1,7 +1,5 @@
-#include <cctype>
-#include <cstdio>
-#include <iostream>
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;
@@ -68,7 +66,7 @@ void merge_alay(int x, int y) {
 }
 int main() {
     read(n, k);
-    _fp(i, 1, n * 3) fa[i] = i;
+    _for(i, 1, n * 3) fa[i] = i;
     for (int op, x, y, i = 1; i <= k; ++i) {
         read(op, x, y);
         if (x > n || y > n) {

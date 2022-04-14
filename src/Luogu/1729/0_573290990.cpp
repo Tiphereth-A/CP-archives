@@ -1,23 +1,12 @@
-#include <algorithm>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctype.h>
-#include <iostream>
-#include <math.h>
-#include <queue>
-#include <sstream>
-#include <stack>
-#include <string>
-#include <vector>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+#include <bits/stdc++.h>
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define MAXN 1005
 #define sstr stringstream
-#define fp(i, l, r) for (register int i = (l); i <= (r); i++)
-#define fd(i, r, l) for (register int i = (r); i >= (l); i--)
+#define _for(i, l, r) for (int i = (l); i <= (r); i++)
+#define _rfor(i, r, l) for (int i = (r); i >= (l); i--)
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 #define min(a, b) (((a) < (b)) ? (a) : (b))
 using namespace std;
@@ -26,7 +15,7 @@ int main() {
     int n;
     cin >> n;
     printf("2.\n");
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         printf("%d", e[i]);
         if (i % 50 == 0)
             printf("\n");

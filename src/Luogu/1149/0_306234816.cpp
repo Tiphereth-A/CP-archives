@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using std::cin;
 using std::cout;
 const int match[10] = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6}, N = 1111;

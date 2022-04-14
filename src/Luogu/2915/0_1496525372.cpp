@@ -1,32 +1,13 @@
-#include <algorithm>
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <deque>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
-#define rg register
-#define rgi register int
-#define il inline
+#include <bits/stdc++.h>
+
+#define rgi int
+
 #define sstream std::stringstream
 #define SYNC std::ios::sync_with_stdio(false)
 #define UNTIE std::cin::tie(0), std::cout::tie(0)
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (auto i = (l); i < (r); ++i)
-#define _fd(i, r, l) for (auto i = (r); i >= (l); --i)
+#define _rfor(i, r, l) for (auto i = (r); i >= (l); --i)
 #define _repr(i, r, l) for (auto i = (r); i > (l); --i)
 #define _gc getchar
 #define _pc putchar

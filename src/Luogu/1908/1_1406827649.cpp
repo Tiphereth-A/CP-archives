@@ -84,9 +84,7 @@ ma GCC optimize(2)
                                                                                                                                                                     ma GCC optimize("inline-functions-called-once")
 #prag
                                                                                                                                                                         ma GCC optimize("-fdelete-null-pointer-checks")
-#include <cctype>
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
                                                                                                                                                                             namespace FastIO {
     char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf;
     int p, p3 = -1;

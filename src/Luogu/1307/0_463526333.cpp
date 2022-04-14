@@ -1,13 +1,12 @@
-#include <iostream>
-#include <string>
-#define fd(i, r, l) for (register int i = (r); i >= (l); i--)
+#include <bits/stdc++.h>
+#define _rfor(i, r, l) for (int i = (r); i >= (l); i--)
 using namespace std;
 string str;
 int n;
 int main() {
     ios::sync_with_stdio(false);
     cin >> str;
-    fd(i, str.size() - 1, 1) {
+    _rfor(i, str.size() - 1, 1) {
         n *= 10;
         n += str[i] - '0';
     }

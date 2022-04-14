@@ -1,6 +1,5 @@
-#include <cstdio>
-#include <cstring>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 template <tpn A>
 inline A Max(const A &x, const A &y) {
@@ -31,8 +30,10 @@ int main() {
     read(n, m);
     int pos = (m >> 1) + 1;
     memset(a, 0xffffffff, sizeof(a));
-    fp(i, 1, n) fp(j, 1, m) read(a[i][j]);
-    fp(i, 1, n) fp(j, 1, m) f[i][j] = a[i][j] + Max(f[i - 1][j + 1], Max(f[i - 1][j], f[i - 1][j - 1]));
+    _for(i, 1, n)
+        _for(j, 1, m) read(a[i][j]);
+    _for(i, 1, n)
+        _for(j, 1, m) f[i][j] = a[i][j] + Max(f[i - 1][j + 1], Max(f[i - 1][j], f[i - 1][j - 1]));
     maxn = Max(Max(f[n][pos], f[n][pos - 1]), f[n][pos + 1]);
     printf("%d", maxn);
     return 0;

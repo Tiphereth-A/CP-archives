@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 const int N = 8e4 + 5;
 typedef long long i64;
 i64 n, opt, mod, min, max;

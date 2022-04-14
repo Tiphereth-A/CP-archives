@@ -1,18 +1,18 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 #define N 500005
-#define fd(i, r, l) for (register int(i) = (r); (i) >= (l); --(i))
-#define il inline
+#define _rfor(i, r, l) for (int(i) = (r); (i) >= (l); --(i))
+
 struct edge {
     int to, nxt;
 } e[N << 1];
 int head[N], tot, f[21][N], dep[N], lg[N];
 bool flag[N];
-il void Swap(int &x, int &y) {
+inline void Swap(int &x, int &y) {
     int tmp = x;
     x = y;
     y = tmp;
 }
-il void add(int x, int y) {
+inline void add(int x, int y) {
     e[++tot].to = y;
     e[tot].nxt = head[x];
     head[x] = tot;
@@ -28,16 +28,17 @@ void dfs(int x, int fa) {
             dfs(v, x);
     }
 }
-il int lca(int x, int y) {
+inline int lca(int x, int y) {
     if (dep[x] < dep[y])
         Swap(x, y);
     while (dep[x] > dep[y])
         x = f[lg[dep[x] - dep[y]] - 1][x];
     if (x == y) return x;
-    fd(i, lg[dep[x]], 0) if (f[i][x] != f[i][y]) {
-        x = f[i][x];
-        y = f[i][y];
-    }
+    _rfor(i, lg[dep[x]], 0)
+        if (f[i][x] != f[i][y]) {
+            x = f[i][x];
+            y = f[i][y];
+        }
     return f[0][x];
 }
 int main() {

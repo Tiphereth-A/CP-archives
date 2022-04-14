@@ -1,5 +1,4 @@
-#include <cmath>
-#include <cstdio>
+#include <bits/stdc++.h>
 int main() {
     long double v, theta;
     scanf("%Lf%Lf", &v, &theta);

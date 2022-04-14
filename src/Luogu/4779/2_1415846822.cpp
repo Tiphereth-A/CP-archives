@@ -1,7 +1,4 @@
-#include <algorithm>
-#include <cctype>
-#include <climits>
-#include <cstdio>
+#include <bits/stdc++.h>
 template <typename T>
 inline void read(T &t) {
     int f = 0, c = getchar();

@@ -1,6 +1,4 @@
-#include <climits>
-#include <iostream>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long int Z;
 int n, k, m;

@@ -1,6 +1,5 @@
-#include <cstdio>
-#include <cstring>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define mem(a) memset(a, 0, sizeof(a))
 #define N 1000005
 namespace fastIO {
@@ -23,12 +22,12 @@ using namespace fastIO;
 int n, m, r[N], s[N], t[N], d[N], diff[N];
 bool inline judge(int x) {
     mem(diff);
-    fp(i, 1, x) {
+    _for(i, 1, x) {
         diff[s[i]] += d[i];
         diff[t[i] + 1] -= d[i];
     }
     int now = 0;
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         now += diff[i];
         if (now > r[i])
             return 0;
@@ -38,8 +37,8 @@ bool inline judge(int x) {
 int main() {
     read(n);
     read(m);
-    fp(i, 1, n) read(r[i]);
-    fp(i, 1, m) {
+    _for(i, 1, n) read(r[i]);
+    _for(i, 1, m) {
         read(d[i]);
         read(s[i]);
         read(t[i]);

@@ -1,20 +1,18 @@
-#include <algorithm>
-#include <cmath>
-#include <cstdio>
+#include <bits/stdc++.h>
 #define N 100005
 long long t, a[N], b[N], m, n, f, p;
 int main() {
     scanf("%lld", &t);
     while (t--) {
         scanf("%lld%lld", &n, &m);
-        for (register int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
             scanf("%lld", &a[i]);
             if (a[i] == 1) {
                 --i;
                 --n;
             }
         }
-        for (register int i = 0; i < m; ++i) {
+        for (int i = 0; i < m; ++i) {
             scanf("%lld", &b[i]);
             if (b[i] == 1) {
                 --i;
@@ -27,13 +25,13 @@ int main() {
         }
         std::sort(a, a + n);
         std::sort(b, b + m);
-        for (register int i = m; i ^ -1; --i)
+        for (int i = m; i ^ -1; --i)
             if (a[i] != b[i]) {
                 p = a[i];
                 break;
             }
         if (!p) p = a[m];
-        for (register int i = 2, sq = sqrt(p); i <= sq; ++i)
+        for (int i = 2, sq = sqrt(p); i <= sq; ++i)
             if (p % i == 0) {
                 f = -1;
                 break;

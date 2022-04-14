@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int g[10][10];
 bool ln[10][10], col[10][10], zon[10][10];
 inline int getz(int x, int y) {

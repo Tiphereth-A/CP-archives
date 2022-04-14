@@ -1,5 +1,5 @@
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
 template <tpn A>
 inline A Abs(const A &x) {
@@ -27,7 +27,7 @@ inline void read(A &x) {
 int n, m, s;
 int main() {
     read(n);
-    fp(i, 1, n) read(m), s = Gcd(s, Abs(m));
+    _for(i, 1, n) read(m), s = Gcd(s, Abs(m));
     printf("%d", s);
     return 0;
 }

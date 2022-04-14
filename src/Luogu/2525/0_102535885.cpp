@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int n, a[10];
 int main() {

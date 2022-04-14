@@ -1,10 +1,8 @@
-#include <cmath>
-#include <cstdio>
-#include <cstring>
-#define rgi register int
-#define il inline
-#define _fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (register int i = (l); i < (r); ++i)
+#include <bits/stdc++.h>
+#define rgi int
+
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
 #define _memng(a) memset(a, 0xff, sizeof(a))
 typedef long long i64;
 namespace fastIO {
@@ -48,27 +46,27 @@ const int MOD = 1000003;
 int p;
 struct hash {
     int list[N], head[N], next[N], id[N], top;
-    il void insert(int val, int y) {
+    inline void insert(int val, int y) {
         int k = val % MOD;
         list[++top] = val;
         id[top] = y;
         next[top] = head[k];
         head[k] = top;
     }
-    il int find(int val) {
+    inline int find(int val) {
         int k = val % MOD;
         for (rgi i = head[k]; ~i; i = next[i])
             if (list[i] == val) return id[i];
         return -1;
     }
 } list;
-il int qpow(i64 a, i64 b) {
+inline int qpow(i64 a, i64 b) {
     i64 ans = 1;
     for (; b; a = a * a % p, b >>= 1)
         if (b & 1) ans = ans * a % p;
     return ans;
 }
-il i64 bsgs(int x, int y) {
+inline i64 bsgs(int x, int y) {
     if (x == 0) return -1;
     _memng(list.head);
     int m = sqrt(p) + 1, s = y;
@@ -78,7 +76,7 @@ il i64 bsgs(int x, int y) {
     }
     int tmp = qpow(x, m);
     s = 1;
-    _fp(i, 1, m + 1) {
+    _for(i, 1, m + 1) {
         s = 1ll * s * tmp % p;
         int tmpp = list.find(s);
         if (~tmpp) return 1ll * i * m - tmpp + 1;

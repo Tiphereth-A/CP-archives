@@ -1,5 +1,4 @@
-#include <climits>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 struct T {
     T(int val):

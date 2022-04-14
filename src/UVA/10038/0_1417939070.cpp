@@ -6,12 +6,12 @@ bool flag = 1;
 int main() {
     ios::sync_with_stdio(false);
     while (cin >> cnt) {
-        for (register int i = 0; i < cnt; i++)
+        for (int i = 0; i < cnt; i++)
             cin >> coord[i];
-        for (register int i = 0; i < cnt - 1; i++)
+        for (int i = 0; i < cnt - 1; i++)
             jump[i] = abs(coord[i] - coord[i + 1]);
         sort(jump, jump + cnt - 1);
-        for (register int i = 0; i < cnt - 1; i++)
+        for (int i = 0; i < cnt - 1; i++)
             if (jump[i] - jump[i - 1] != 1) {
                 flag = 0;
                 break;

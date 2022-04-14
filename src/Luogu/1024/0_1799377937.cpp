@@ -1,6 +1,4 @@
-#include <iomanip>
-#include <iostream>
-#include <math.h>
+#include <bits/stdc++.h>
 using std::cin;
 using std::cout;
 int main() {

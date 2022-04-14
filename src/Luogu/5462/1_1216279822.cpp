@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int n, a[100001], k[100001], x[100001], i;
 int main() {
     scanf("%d", &n);

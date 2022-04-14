@@ -1,23 +1,23 @@
-#include <cstdio>
-#define fp(i, l, r) for (register int i = (l); i <= (r); ++i)
-#define il inline
+#include <bits/stdc++.h>
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+
 typedef long long ll;
 #define MAXN 5000005
 ll t[MAXN], a[MAXN], delta[MAXN];
 int n, m;
-il int lowbit(int n) { return n & (-n); }
-il ll getsum(int x) {
+inline int lowbit(int n) { return n & (-n); }
+inline ll getsum(int x) {
     ll ans = 0;
     for (int i = x; i > 0; i -= lowbit(i)) ans += t[i];
     return ans;
 }
-il void modify(int x, int k) {
+inline void modify(int x, int k) {
     for (int i = x; i <= n; i += lowbit(i)) t[i] += k;
 }
-il ll query(int x, int y) { return getsum(y) - getsum(x - 1); }
+inline ll query(int x, int y) { return getsum(y) - getsum(x - 1); }
 int main() {
     scanf("%d%d", &n, &m);
-    fp(i, 1, n) {
+    _for(i, 1, n) {
         scanf("%lld", &a[i]);
         delta[i] = a[i] - a[i - 1];
         modify(i, delta[i]);

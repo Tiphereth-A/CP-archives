@@ -6,10 +6,10 @@
 #include <iostream>
 #include <queue>
 #include <string>
-#define ll long long
-#define ull unsigned long long
-#define rg register
-#define il inline
+typedef long long ll;
+typedef unsigned long long ull;
+
+
 #define maxn 1010;
 using namespace std;
 const string key[3] = {"qwertyuiop", "asdfghjkl;", "zxcvbnm,./"};
