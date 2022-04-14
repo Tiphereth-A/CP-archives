@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <bits/stdc++.h>
 int main() {
     int iMax = 0, nCount, iInput;
     scanf("%d", &nCount);

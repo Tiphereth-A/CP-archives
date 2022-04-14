@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <iostream>
+#include <bits/stdc++.h>
 char op[3];
 const int frac[] = {1, 1, 2, 6, 24};
 long long dfs(int tot, long long *__num) {

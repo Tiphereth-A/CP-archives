@@ -1,5 +1,4 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 const char *str[4] = {"fantasy", "forward", "backward", "both"};
 char s[100005], s1[105], s2[105];
 int main() {

@@ -1,6 +1,4 @@
-#include <cmath>
-#include <iomanip>
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 string ans;
 int i, cnt = 0;

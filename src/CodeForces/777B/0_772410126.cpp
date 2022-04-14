@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <cstdio>
+#include <bits/stdc++.h>
 char a[30005], b[30005];
 int n, ans1, ans2, i, j;
 int main() {

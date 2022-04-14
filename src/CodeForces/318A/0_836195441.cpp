@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 typedef long long ll;
 ll n, k;
 int main() {

@@ -1,10 +1,4 @@
-#include <cctype>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
+#include <bits/stdc++.h>
 using std::cin;
 using std::cout;
 using std::endl;

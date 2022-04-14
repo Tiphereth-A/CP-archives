@@ -1,15 +1,4 @@
-#include <algorithm>
-#include <cctype>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <queue>
-#include <sstream>
-#include <stack>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 typedef long long ll;
 typedef unsigned long long ull;
 

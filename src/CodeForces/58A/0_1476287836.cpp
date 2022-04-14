@@ -1,6 +1,4 @@
-#include <iostream>
-#include <regex>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 int main() {
     string s;

@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 int _[100005];
 int main() {
     int t;
