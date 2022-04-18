@@ -138,7 +138,7 @@ def remove_comments(src: str):
         code = re.sub(r'\r', '\n', code)
         code = re.sub(r'\n\n', '\n', code)
 
-        __commands.get(get_extname(filename), lambda _: None)(code)
+        code = __commands.get(get_extname(filename), lambda _: None)(code)
 
         with open(os.path.join(filepath, filename), 'w', encoding='utf8') as f:
             f.write(code)
