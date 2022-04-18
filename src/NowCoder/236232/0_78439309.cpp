@@ -13,7 +13,6 @@ using pii = pair<int, int>;
 #define _foreach_rref(i, container) for (auto &&i : container)
 #define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
 #define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
-// #define MULTI_CASES
 inline auto solve() -> void {
     int n, k;
     cin >> n >> k;

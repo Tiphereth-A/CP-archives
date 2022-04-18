@@ -51,7 +51,6 @@ void tarjan(int now) {
         stk.pop();
     }
 }
-// #define MULTI_CASES
 inline auto solve() -> void {
     int n, m;
     cin >> n >> m;

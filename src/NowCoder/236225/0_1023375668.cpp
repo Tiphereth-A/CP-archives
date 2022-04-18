@@ -12,7 +12,6 @@ using u64 = uint64_t;
 #define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 const int N = 500 + 5;
 int f[N][N];
-// #define MULTI_CASES
 inline auto solve() -> void {
     int n, m;
     cin >> n >> m;

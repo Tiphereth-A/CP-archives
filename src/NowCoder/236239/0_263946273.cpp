@@ -12,7 +12,6 @@ using u64 = uint64_t;
 #define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 const int N = 2e5 + 5;
 int a[N];
-// #define MULTI_CASES
 inline auto solve() -> void {
     int n;
     cin >> n;

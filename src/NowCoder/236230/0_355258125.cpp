@@ -20,7 +20,6 @@ pii query[N * N];
 auto vaild = [](int x, int y, int n, int m) -> bool {
     return (x >= 1) && (x <= n) && (y >= 1) && (y <= m);
 };
-// #define MULTI_CASES
 inline auto solve() -> void {
     int n, m, q;
     cin >> n >> m >> q;
@@ -46,8 +45,6 @@ inline auto solve() -> void {
             pos.emplace(x + dx, y + dy, step + 1);
         }
     }
-    // _for(i, 1, n)
-    //     _for(j, 1, m) cerr << vis[i][j] << " \n"[j == m];
     _for(i, 1, q) cout << (query[i].first == x && query[i].second == y ? 0 : vis[query[i].first][query[i].second] ? vis[query[i].first][query[i].second] :
                                                                                                                     -1)
                        << '\n';

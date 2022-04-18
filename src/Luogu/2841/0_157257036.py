@@ -2,7 +2,7 @@ n = int(input())
 s = ''
 _ = str(n).count('9')
 if _ == len(str(n)):
-    s = '1' * _ * 9
+    s = '1'*_ * 9
 elif n % 2 == 0 or n % 5 == 0:
     p, s = 2, '10'
     while int(s) % n:

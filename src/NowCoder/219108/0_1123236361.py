@@ -1,6 +1,6 @@
 import math
 n = int(input())
-for i in range(1, n+1):
+for i in range(1, n + 1):
     s = input().split(" ")
     a = int(s[0], 16)
     b = int(s[1], 16)

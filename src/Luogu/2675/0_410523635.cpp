@@ -73,7 +73,6 @@ auto __STATIC__ = []() {
     return 0.0;
 }();
 auto m_choose_n = [](int m, int n, i64 mod = MOD) -> i64 { return m < n ? 0 : fact[m] * inv_fact[n] % mod * inv_fact[m - n] % mod; };
-// #define MULTI_CASES
 int a[M];
 inline auto solve() -> void {
     int n;

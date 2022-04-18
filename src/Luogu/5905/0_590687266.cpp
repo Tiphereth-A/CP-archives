@@ -78,7 +78,7 @@ inline bool init(int vertex_num, int edge_num, const tuple<int, int, int> *edges
 }
 inline bool is_disconnected(int x, int y) { return ans[x][y] == INF; }
 inline int64_t distance(int x, int y) { return ans[x][y]; }
-}
+}  // namespace Johnson_shortest_path
 const int INF = 1e9;
 tuple<int, int, int> edges[Johnson_shortest_path::M];
 inline auto solve() -> void {

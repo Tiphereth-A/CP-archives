@@ -42,10 +42,8 @@ inline void read(T &x, T2 &...oth) {
 }
 }  // namespace FastIO
 using FastIO::read;
-//======================================
 const int N = 1e7 + 5;
 uint32_t f[N];
-// #define MULTI_CASES
 inline auto solve() -> void {
     uint32_t n, m;
     read(n, m);
