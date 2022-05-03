@@ -1,0 +1,3 @@
+[submodule "tools/cmcleaner"]
+	path = tools/cmcleaner
+	url = git@github.com:Tiphereth-A/cmcleaner.git
