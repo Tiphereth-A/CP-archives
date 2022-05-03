@@ -1,15 +1,18 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+from fileinput import filename
 import hashlib
 import os
 import random
 import re
 import subprocess
 from logging import Logger, basicConfig, getLogger
-from typing import List, Tuple, Any
+from typing import Any
+from xmlrpc.client import boolean
 
 import click
+import tkinter as tk
 
 from tools.cmcleaner.src.comments_cleaner import cpp, python
 
@@ -21,14 +24,20 @@ basicConfig(
 )
 
 
-def get_filemap(src: str) -> List[Tuple[str, List[str]]]:
+def get_clipboard_text():
+    root = tk.Tk()
+    root.withdraw()
+    return root.clipboard_get()
+
+
+def get_filemap(src: str) -> list[tuple[str, list[str]]]:
     filemap = []
     for filepath, _, filenames in os.walk(src):
         filemap.append((filepath, filenames))
     return filemap
 
 
-def get_all_files(src: str) -> List[Tuple[str, str]]:
+def get_all_files(src: str) -> list[tuple[str, str]]:
     files = []
     for filepath, _, filenames in os.walk(src):
         for filename in filenames:
@@ -52,7 +61,7 @@ def md5sum(filepath: str, filename: str) -> str:
         return md5.hexdigest()
 
 
-def wrapper(files: List[Tuple[str, Any]]):
+def wrapper(files: list[tuple[str, Any]]):
     def inner_wrapper(func):
         logger.info(rf"function '{func.__name__}' called")
 
@@ -75,7 +84,7 @@ def cli():
 
 
 @cli.command('rne')
-@click.option('--src', '-s', type=str, help='src folder', default='src')
+@click.option('-s', '--src', type=str, help='src folder', default='src')
 def remove_non_ext_files(src: str):
     """remove files with no extension name"""
 
@@ -88,7 +97,7 @@ def remove_non_ext_files(src: str):
 
 
 @cli.command('rnf')
-@click.option('--src', '-s', type=str, help='src folder', default='src')
+@click.option('-s', '--src', type=str, help='src folder', default='src')
 def remove_empty_files(src: str):
     """remove empty files"""
 
@@ -101,7 +110,7 @@ def remove_empty_files(src: str):
 
 
 @cli.command('cb')
-@click.option('--src', '-s', type=str, help='src folder', default='src')
+@click.option('-s', '--src', type=str, help='src folder', default='src')
 def remove_blanks(src: str):
     """clean blank in files"""
 
@@ -120,7 +129,7 @@ def remove_blanks(src: str):
 
 
 @cli.command('cc')
-@click.option('--src', '-s', type=str, help='src folder', default='src')
+@click.option('-s', '--src', type=str, help='src folder', default='src')
 def remove_comments(src: str):
     """clean comments in files"""
     __commands = {
@@ -147,12 +156,12 @@ def remove_comments(src: str):
 
 
 @cli.command('cr')
-@click.option('--src', '-s', type=str, help='src folder', default='src')
+@click.option('-s', '--src', type=str, help='src folder', default='src')
 def remove_redundant_codes(src: str):
     """clean useless codes in files, such as `#pragma` in C/C++ files"""
 
-    def __cpp(code: List[str]) -> List[str]:
-        ret_list: List[str] = []
+    def __cpp(code: list[str]) -> list[str]:
+        ret_list: list[str] = []
         for column in code:
             if re.match(r'^\s*#pragma', column):
                 continue
@@ -178,7 +187,7 @@ def remove_redundant_codes(src: str):
 
 
 @cli.command('f')
-@click.option('--src', '-s', type=str, help='src folder', default='src')
+@click.option('-s', '--src', type=str, help='src folder', default='src')
 def unify_code_format(src: str):
     """format all files"""
 
@@ -196,15 +205,15 @@ def unify_code_format(src: str):
 
 
 @cli.command('rdf')
-@click.option('--src', '-s', type=str, help='src folder', default='src')
+@click.option('-s', '--src', type=str, help='src folder', default='src')
 def remove_duplicate_files(src: str):
     """remove duplicate files"""
 
     @wrapper(get_filemap(src))
-    def _remove_duplicate_files(filepath: str, filenames: List[str]) -> None:
+    def _remove_duplicate_files(filepath: str, filenames: list[str]) -> None:
         if len(filenames) < 2:
             return
-        md5_list: List = []
+        md5_list: list = []
         for filename in filenames:
             current_md5 = md5sum(filepath, filename)
             if current_md5 in md5_list:
@@ -216,26 +225,26 @@ def remove_duplicate_files(src: str):
 
 
 @cli.command('rnd')
-@click.option('--src', '-s', type=str, help='src folder', default='src')
+@click.option('-s', '--src', type=str, help='src folder', default='src')
 def remove_empty_folder(src: str):
     """remove empty dirs"""
 
     @wrapper(get_filemap(src))
-    def _remove_empty_folder(filepath: str, filenames: List[str]) -> None:
+    def _remove_empty_folder(filepath: str, filenames: list[str]) -> None:
         if not filenames:
             os.removedirs(filepath)
 
     return _remove_empty_folder
 
 
-@cli.command('n')
-@click.option('--src', '-s', type=str, help='src folder', default='src')
-@click.option('--max-int', '-m', help='maximum of rand', type=int, default=2147483647)
+@cli.command('rn')
+@click.option('-s', '--src', type=str, help='src folder', default='src')
+@click.option('-m', '--max-int',  help='maximum of rand', type=int, default=2147483647)
 def rename_all_files(src: str, max_int: int):
     """rename all files"""
 
     @wrapper(get_filemap(src))
-    def _rename_all_files(filepath: str, filenames: List[str]) -> None:
+    def _rename_all_files(filepath: str, filenames: list[str]) -> None:
         filenames.sort()
         cnt: int = 0
         for filename in filenames:
@@ -245,6 +254,66 @@ def rename_all_files(src: str, max_int: int):
             cnt += 1
 
     return _rename_all_files
+
+
+@cli.command('n')
+@click.option('-o', '--oj', type=str, help='OJ name')
+@click.option('-i', '--id', type=str, help='problem ID')
+@click.option('-e', '--ext-name', type=str, help='ext name', default="cpp")
+@click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
+def add_new_file(oj: str, id: str, ext_name: str, max_int: int):
+    """add new file, and copy content in clipboard to the new file"""
+
+    src: str = rf'.\src\{oj}\{id}'
+    try:
+        os.makedirs(src)
+    except:
+        pass
+
+    @wrapper(get_filemap(src))
+    def _add_new_file(filepath: str, filenames: list[str]) -> None:
+        filename: str = rf"{len(filenames)}_{random.randint(0, max_int)}.{ext_name}"
+        with open(os.path.join(filepath, filename), 'w', encoding='utf8') as f:
+            f.write(get_clipboard_text())
+            logger.info(rf'"{os.path.join(filepath, filename)}" created')
+
+    return _add_new_file
+
+
+@cli.command('d')
+@click.option('-o', '--oj', type=str, prompt='OJ name', help='OJ name')
+@click.option('-i', '--id', type=str, prompt='problem ID',  help='problem ID')
+@click.option('-e', '--ext-name', type=str, prompt='ext name',  help='ext name', default="cpp")
+@click.option('-m', '--max-int', prompt='maximum of rand', help='maximum of rand', type=int, default=2147483647)
+@click.option('--git/--no-git', help='auto commit after process(default) / do nothing after process', default=True)
+def default_process(oj: str, id: str, ext_name: str, max_int: int, git: boolean):
+    """default process"""
+
+    src: str = rf'.\src\{oj}\{id}'
+    try:
+        os.makedirs(src)
+    except:
+        pass
+
+    add_new_file.callback(oj, id, ext_name, max_int)
+    unify_code_format.callback(src)
+    remove_comments.callback(src)
+    remove_blanks.callback(src)
+    unify_code_format.callback(src)
+
+    prev_cnt: int = len(get_all_files(src))
+    remove_non_ext_files.callback(src)
+    remove_empty_files.callback(src)
+    remove_duplicate_files.callback(src)
+    next_cnt: int = len(get_all_files(src))
+    if prev_cnt != next_cnt:
+        rename_all_files.callback(src, max_int)
+
+    if not git:
+        return
+
+    subprocess.run(['git', 'add', '--all'], encoding='utf8', check=True)
+    subprocess.run(['git', 'commit', '--message', rf'feat: add {oj} {id}'], encoding='utf8', check=True)
 
 
 if __name__ == '__main__':
