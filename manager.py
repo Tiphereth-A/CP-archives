@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from fileinput import filename
 import hashlib
 import os
 import random
 import re
 import subprocess
+import tkinter as tk
 from logging import Logger, basicConfig, getLogger
 from typing import Any
 from xmlrpc.client import boolean
 
 import click
-import tkinter as tk
 
 from tools.cmcleaner.src.comments_cleaner import cpp, python
 
@@ -239,7 +238,7 @@ def remove_empty_folder(src: str):
 
 @cli.command('rn')
 @click.option('-s', '--src', type=str, help='src folder', default='src')
-@click.option('-m', '--max-int',  help='maximum of rand', type=int, default=2147483647)
+@click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
 def rename_all_files(src: str, max_int: int):
     """rename all files"""
 
@@ -282,9 +281,9 @@ def add_new_file(oj: str, id: str, ext_name: str, max_int: int):
 
 @cli.command('d')
 @click.option('-o', '--oj', type=str, prompt='OJ name', help='OJ name')
-@click.option('-i', '--id', type=str, prompt='problem ID',  help='problem ID')
-@click.option('-e', '--ext-name', type=str, prompt='ext name',  help='ext name', default="cpp")
-@click.option('-m', '--max-int', prompt='maximum of rand', help='maximum of rand', type=int, default=2147483647)
+@click.option('-i', '--id', type=str, prompt='problem ID', help='problem ID')
+@click.option('-e', '--ext-name', type=str, prompt='ext name', help='ext name', default="cpp")
+@click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
 @click.option('--git/--no-git', help='auto commit after process(default) / do nothing after process', default=True)
 def default_process(oj: str, id: str, ext_name: str, max_int: int, git: boolean):
     """default process"""
