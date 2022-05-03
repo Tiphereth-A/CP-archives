@@ -284,7 +284,7 @@ def default_process(oj: str, id: str, ext_name: str, max_int: int, git: bool):
     if not git:
         return
 
-    subprocess.run(['git', 'add', '--all'], encoding='utf8', check=True)
+    subprocess.run(['git', 'add', r'src/\*'], encoding='utf8', check=True)
     subprocess.run(['git', 'commit', '--message', rf'feat: add {oj} {id}'], encoding='utf8', check=True)
     # subprocess.run(['git', 'push', 'origin', 'main'], encoding='utf8', check=True)
 
