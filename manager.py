@@ -1,17 +1,16 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import hashlib
 import os
 import random
 import re
 import subprocess
-import tkinter as tk
 from logging import Logger, basicConfig, getLogger
 from typing import Any
 
 import click
 
+from tools import get_clipboard_text, get_filemap, get_all_files, md5sum, get_extname
 from tools.cmcleaner.src.comments_cleaner import cpp, python
 
 logger: Logger = getLogger(__name__)
@@ -22,45 +21,8 @@ basicConfig(
 )
 
 
-def get_clipboard_text():
-    root = tk.Tk()
-    root.withdraw()
-    return root.clipboard_get()
-
-
-def get_filemap(src: str) -> list[tuple[str, list[str]]]:
-    filemap = []
-    for filepath, _, filenames in os.walk(src):
-        filemap.append((filepath, filenames))
-    return filemap
-
-
-def get_all_files(src: str) -> list[tuple[str, str]]:
-    files = []
-    for filepath, _, filenames in os.walk(src):
-        for filename in filenames:
-            files.append((filepath, filename))
-    return files
-
-
-def get_extname(filename: str) -> str:
-    return filename.split('.')[-1]
-
-
-def md5sum(filepath: str, filename: str) -> str:
-    with open(os.path.join(filepath, filename), 'rb') as f:
-        md5 = hashlib.md5()
-        while True:
-            fb = f.read(8096)
-            if not fb:
-                break
-            md5.update(fb)
-        f.close()
-        return md5.hexdigest()
-
-
-def wrapper(files: list[tuple[str, Any]]):
-    def inner_wrapper(func):
+def log_default(files: list[tuple[str, Any]]):
+    def _log_default(func):
         logger.info(rf"function '{func.__name__}' called")
 
         fail_cnt = 0
@@ -73,7 +35,7 @@ def wrapper(files: list[tuple[str, Any]]):
         if fail_cnt:
             logger.info(f'{fail_cnt} file(s) failed')
 
-    return inner_wrapper
+    return _log_default
 
 
 @click.group()
@@ -86,7 +48,7 @@ def cli():
 def remove_non_ext_files(src: str):
     """remove files with no extension name"""
 
-    @wrapper(get_all_files(src))
+    @log_default(get_all_files(src))
     def _remove_non_ext_files(filepath: str, filename: str) -> None:
         if len(filename.split('.')) == 1:
             os.remove(os.path.join(filepath, filename))
@@ -99,7 +61,7 @@ def remove_non_ext_files(src: str):
 def remove_empty_files(src: str):
     """remove empty files"""
 
-    @wrapper(get_all_files(src))
+    @log_default(get_all_files(src))
     def _remove_empty_files(filepath: str, filename: str) -> None:
         if not os.path.getsize(os.path.join(filepath, filename)):
             os.remove(os.path.join(filepath, filename))
@@ -112,7 +74,7 @@ def remove_empty_files(src: str):
 def remove_blanks(src: str):
     """clean blank in files"""
 
-    @wrapper(get_all_files(src))
+    @log_default(get_all_files(src))
     def _remove_blanks(filepath: str, filename: str) -> None:
         with open(os.path.join(filepath, filename), 'r', encoding='utf8') as f:
             code = '\n'.join(filter(bool, f.readlines()))
@@ -136,7 +98,7 @@ def remove_comments(src: str):
         'py': python.clean
     }
 
-    @wrapper(get_all_files(src))
+    @log_default(get_all_files(src))
     def _remove_comments(filepath: str, filename: str) -> None:
         with open(os.path.join(filepath, filename), 'r', encoding='utf8') as f:
             code = '\n'.join(filter(bool, f.readlines()))
@@ -173,7 +135,7 @@ def remove_redundant_codes(src: str):
         'cpp': __cpp,
     }
 
-    @wrapper(get_all_files(src))
+    @log_default(get_all_files(src))
     def _remove_redundant_codes(filepath: str, filename: str) -> None:
         code = list(filter(bool, list(open(os.path.join(filepath, filename), 'r', encoding='utf8'))))
         __commands.get(get_extname(filename), lambda _: None)(code)
@@ -194,7 +156,7 @@ def unify_code_format(src: str):
         'py': lambda filepath, filename: ['autopep8', '-i', os.path.join(filepath, filename)]
     }
 
-    @wrapper(get_all_files(src))
+    @log_default(get_all_files(src))
     def _unify_code_format(filepath: str, filename: str) -> None:
         subprocess.run(__commands.get(get_extname(filename), lambda _, __: [])(filepath, filename), encoding='utf8',
                        check=True)
@@ -207,7 +169,7 @@ def unify_code_format(src: str):
 def remove_duplicate_files(src: str):
     """remove duplicate files"""
 
-    @wrapper(get_filemap(src))
+    @log_default(get_filemap(src))
     def _remove_duplicate_files(filepath: str, filenames: list[str]) -> None:
         if len(filenames) < 2:
             return
@@ -227,7 +189,7 @@ def remove_duplicate_files(src: str):
 def remove_empty_folder(src: str):
     """remove empty dirs"""
 
-    @wrapper(get_filemap(src))
+    @log_default(get_filemap(src))
     def _remove_empty_folder(filepath: str, filenames: list[str]) -> None:
         if not filenames:
             os.removedirs(filepath)
@@ -241,7 +203,7 @@ def remove_empty_folder(src: str):
 def rename_all_files(src: str, max_int: int):
     """rename all files"""
 
-    @wrapper(get_filemap(src))
+    @log_default(get_filemap(src))
     def _rename_all_files(filepath: str, filenames: list[str]) -> None:
         filenames.sort()
         cnt: int = 0
@@ -268,7 +230,7 @@ def add_new_file(oj: str, id: str, ext_name: str, max_int: int):
     except:
         pass
 
-    @wrapper(get_filemap(src))
+    @log_default(get_filemap(src))
     def _add_new_file(filepath: str, filenames: list[str]) -> None:
         filename: str = rf"{len(filenames)}_{random.randint(0, max_int)}.{ext_name}"
         with open(os.path.join(filepath, filename), 'w', encoding='utf8') as f:
