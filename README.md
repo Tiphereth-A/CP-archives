@@ -33,11 +33,11 @@ Then input OJ, problem ID and Extension name
 ### Advanced usage
 
 ```shell
-python manager.py command [args]
+python manager.py [options] command [args]
 ```
 
 See more info by
 
 ```shell
-python manager.py [command] --help
+python manager.py [options] [command] --help
 ```
