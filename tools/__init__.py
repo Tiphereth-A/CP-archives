@@ -26,8 +26,8 @@ def get_all_files(src: str) -> list[tuple[str, str]]:
     return files
 
 
-def md5sum(filepath: str, filename: str) -> str:
-    with open(os.path.join(filepath, filename), 'rb') as f:
+def md5sum(full_filename: str) -> str:
+    with open(full_filename, 'rb') as f:
         md5 = hashlib.md5()
         while True:
             fb = f.read(8096)
@@ -45,18 +45,23 @@ def get_extname(filename: str) -> str:
 def log_default(files: list[tuple[str, Any]]):
     def _log_default(func):
         logger: logging.Logger = logging.getLogger(func.__name__)
-        logger.info(rf"function '{func.__name__}' called")
 
         fail_cnt = 0
         for filepath, filename in files:
             try:
-                logger.debug(rf"running {func.__name__}('{filepath}', '{filename}')")
-                func(filepath, filename)
+                logger.debug(rf"running with ({filepath}, {filename})")
+                func(filepath, filename, logger)
+                logger.debug(rf"({filepath}, {filename}) succeed")
             except Exception as e:
-                logger.warning(rf"'{filepath}' '{filename}' failed with exception {e}")
+                logger.warning(rf"({filepath}, {filename}) failed with exception '{e}'")
                 fail_cnt += 1
         if fail_cnt:
             logger.warning(f'{fail_cnt} file(s) failed')
 
-        logger.info(rf"function '{func.__name__}' finished")
+        logger.info('finished')
     return _log_default
+
+
+def remove_file(full_filename: str, logger: logging.Logger) -> None:
+    os.remove(full_filename)
+    logger.debug(rf"'{full_filename}' removed")
