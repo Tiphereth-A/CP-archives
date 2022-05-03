@@ -9,7 +9,6 @@ import subprocess
 import tkinter as tk
 from logging import Logger, basicConfig, getLogger
 from typing import Any
-from xmlrpc.client import boolean
 
 import click
 
@@ -285,7 +284,7 @@ def add_new_file(oj: str, id: str, ext_name: str, max_int: int):
 @click.option('-e', '--ext-name', type=str, prompt='extension name', help='extension name', default="cpp")
 @click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
 @click.option('--git/--no-git', help='auto commit after process(default) / do nothing after process', default=True)
-def default_process(oj: str, id: str, ext_name: str, max_int: int, git: boolean):
+def default_process(oj: str, id: str, ext_name: str, max_int: int, git: bool):
     """default process"""
 
     src: str = rf'.\src\{oj}\{id}'
