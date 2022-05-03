@@ -9,7 +9,35 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/Tiphereth-A/CP-archives)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Tiphereth-A/CP-archives?style=social)
 
-
 ![](https://img.shields.io/badge/work-on--my--machine-success)
 
 My code about Competitive Programming in daily practice
+
+## Feature of `manager.py`
+
+- Remove useless files (empty files, duplicate files, files with no extension name, ...)
+- Clean content of files (comments, blanks, ...)
+- Add new file
+- Reformat files
+- Rename files
+
+## Usage of `manager.py`
+### Simple usage
+
+```shell
+python manager d
+```
+
+Then input OJ, problem ID and Extension name
+
+### Advanced usage
+
+```shell
+python manager.py command [args]
+```
+
+See more info by
+
+```shell
+python manager.py [command] --help
+```

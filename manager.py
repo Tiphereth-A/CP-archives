@@ -258,7 +258,7 @@ def rename_all_files(src: str, max_int: int):
 @cli.command('n')
 @click.option('-o', '--oj', type=str, help='OJ name')
 @click.option('-i', '--id', type=str, help='problem ID')
-@click.option('-e', '--ext-name', type=str, help='ext name', default="cpp")
+@click.option('-e', '--ext-name', type=str, help='extension name', default="cpp")
 @click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
 def add_new_file(oj: str, id: str, ext_name: str, max_int: int):
     """add new file, and copy content in clipboard to the new file"""
@@ -282,7 +282,7 @@ def add_new_file(oj: str, id: str, ext_name: str, max_int: int):
 @cli.command('d')
 @click.option('-o', '--oj', type=str, prompt='OJ name', help='OJ name')
 @click.option('-i', '--id', type=str, prompt='problem ID', help='problem ID')
-@click.option('-e', '--ext-name', type=str, prompt='ext name', help='ext name', default="cpp")
+@click.option('-e', '--ext-name', type=str, prompt='extension name', help='extension name', default="cpp")
 @click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
 @click.option('--git/--no-git', help='auto commit after process(default) / do nothing after process', default=True)
 def default_process(oj: str, id: str, ext_name: str, max_int: int, git: boolean):
