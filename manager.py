@@ -298,6 +298,7 @@ def default_process(oj: str, id: str, ext_name: str, max_int: int, git: boolean)
     unify_code_format.callback(src)
     remove_comments.callback(src)
     remove_blanks.callback(src)
+    remove_redundant_codes.callback(src)
     unify_code_format.callback(src)
 
     prev_cnt: int = len(get_all_files(src))
