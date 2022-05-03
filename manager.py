@@ -1,46 +1,22 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+import logging
 import os
 import random
 import re
 import subprocess
-from logging import Logger, basicConfig, getLogger
-from typing import Any
 
 import click
 
-from tools import get_clipboard_text, get_filemap, get_all_files, md5sum, get_extname
+from tools import get_clipboard_text, get_filemap, get_all_files, md5sum, get_extname, log_default
 from tools.cmcleaner.src.comments_cleaner import cpp, python
-
-logger: Logger = getLogger(__name__)
-basicConfig(
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    datefmt="%H:%M:%S",
-    level=os.getenv('LOG_LEVEL', 'INFO'),
-)
-
-
-def log_default(files: list[tuple[str, Any]]):
-    def _log_default(func):
-        logger.info(rf"function '{func.__name__}' called")
-
-        fail_cnt = 0
-        for filepath, filename in files:
-            try:
-                func(filepath, filename)
-            except Exception as e:
-                logger.info(rf"'{filepath}' '{filename}' failed with exception {e}")
-                fail_cnt += 1
-        if fail_cnt:
-            logger.info(f'{fail_cnt} file(s) failed')
-
-    return _log_default
 
 
 @click.group()
-def cli():
-    pass
+@click.option('-l', '--level', type=click.Choice(["ERROR", "WARNING", "INFO", "DEBUG"]), help='log level', default="INFO")
+def cli(level: str):
+    logging.basicConfig(level=level, format="%(asctime)s [%(levelname)s] <%(name)s> %(message)s")
 
 
 @cli.command('rne')
@@ -274,7 +250,8 @@ def default_process(oj: str, id: str, ext_name: str, max_int: int, git: bool):
         return
 
     subprocess.run(['git', 'add', '--all'], encoding='utf8', check=True)
-    subprocess.run(['git', 'commit', '--message', rf'feat: add {oj} {id}'], encoding='utf8', check=True)
+    # subprocess.run(['git', 'commit', '--message', rf'feat: add {oj} {id}'], encoding='utf8', check=True)
+    # subprocess.run(['git', 'push', 'origin', 'main'], encoding='utf8', check=True)
 
 
 if __name__ == '__main__':

@@ -1,6 +1,8 @@
 import hashlib
+import logging
 import os
 import tkinter as tk
+from typing import Any
 
 
 def get_clipboard_text():
@@ -38,3 +40,23 @@ def md5sum(filepath: str, filename: str) -> str:
 
 def get_extname(filename: str) -> str:
     return filename.split('.')[-1]
+
+
+def log_default(files: list[tuple[str, Any]]):
+    def _log_default(func):
+        logger: logging.Logger = logging.getLogger(func.__name__)
+        logger.info(rf"function '{func.__name__}' called")
+
+        fail_cnt = 0
+        for filepath, filename in files:
+            try:
+                logger.debug(rf"running {func.__name__}('{filepath}', '{filename}')")
+                func(filepath, filename)
+            except Exception as e:
+                logger.warning(rf"'{filepath}' '{filename}' failed with exception {e}")
+                fail_cnt += 1
+        if fail_cnt:
+            logger.warning(f'{fail_cnt} file(s) failed')
+
+        logger.info(rf"function '{func.__name__}' finished")
+    return _log_default
