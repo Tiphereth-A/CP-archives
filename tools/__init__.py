@@ -74,7 +74,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
 
     # remove #pragma
     for column in code:
-        if re.match(r'^\s*#pragma', column):
+        if re.search(r'^\s*#pragma', column):
             continue
         new_code.append(column)
     code, new_code = new_code, []
