@@ -31,12 +31,12 @@ Then input OJ, problem ID and Extension name
 
 ### Advanced usage
 
-```shell
+```text
 python manager.py [options] command [args]
 ```
 
 See more info by
 
-```shell
+```text
 python manager.py [command] --help
 ```
