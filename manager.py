@@ -9,7 +9,8 @@ import subprocess
 
 import click
 
-from tools import get_clipboard_text, get_filemap, get_all_files, md5sum, get_extname, log_default, remove_file
+from tools import get_clipboard_text, get_filemap, get_all_files, md5sum, get_extname, log_default, remove_file, \
+    clean_redundant_code_cpp
 from tools.cmcleaner.src.comments_cleaner import cpp, python
 
 
@@ -110,43 +111,9 @@ def remove_comments(src: str):
 def remove_redundant_codes(src: str):
     """clean useless codes in files, such as `#pragma` in C/C++ files"""
 
-    def __cpp(code: list[str]) -> list[str]:
-        new_code: list[str] = []
-
-        # remove #pragma
-        for column in code:
-            if re.match(r'^\s*#pragma', column):
-                continue
-            new_code.append(column)
-        code, new_code = new_code, []
-
-        # remove unused macro
-        has_unused_macros = True
-        while has_unused_macros:
-            has_unused_macros = False
-            code_content: str = '\n'.join(code)
-            skip_next_column: bool = False
-
-            for column in code:
-                if skip_next_column:
-                    skip_next_column = re.search(r'\\n*', column)
-                    continue
-
-                match_res = re.search(r'^\s*?#\s*?define\s+?(\w+)', column)
-                if match_res:
-                    if len(re.split(rf'\b{match_res.group(1)}\b', code_content)) == 2:
-                        has_unused_macros = True
-                        skip_next_column = re.search(r'\\n*', column)
-                        continue
-
-                new_code.append(column)
-            code, new_code = new_code, []
-
-        return code
-
     __commands = {
-        'c': __cpp,
-        'cpp': __cpp,
+        'c': clean_redundant_code_cpp,
+        'cpp': clean_redundant_code_cpp,
     }
 
     @log_default(get_all_files(src))
@@ -160,7 +127,7 @@ def remove_redundant_codes(src: str):
             f.writelines(code)
 
         now_size = os.path.getsize(full_filename)
-        if now_size!=prev_size:
+        if now_size != prev_size:
             logger.debug(
                 rf"'{full_filename}': {prev_size} B -> {now_size} B, {(prev_size - now_size) / prev_size * 100}% saved")
 
