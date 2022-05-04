@@ -14,7 +14,8 @@ from tools.cmcleaner.src.comments_cleaner import cpp, python
 
 
 @click.group()
-@click.option('-l', '--level', type=click.Choice(['CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG']), help='log level', default='INFO')
+@click.option('-l', '--level', type=click.Choice(['CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG']), help='log level',
+              default='INFO')
 def cli(level: str):
     logging.basicConfig(level=level, format='%(asctime)s [%(levelname)s] <%(name)s> %(message)s')
 
@@ -98,7 +99,8 @@ def remove_comments(src: str):
             f.write(code)
 
         now_size = os.path.getsize(full_filename)
-        logger.debug(rf"'{full_filename}': {prev_size} B -> {now_size} B, {(prev_size-now_size)/prev_size*100}% saved")
+        logger.debug(
+            rf"'{full_filename}': {prev_size} B -> {now_size} B, {(prev_size - now_size) / prev_size * 100}% saved")
 
     return remove_comments
 
@@ -109,14 +111,38 @@ def remove_redundant_codes(src: str):
     """clean useless codes in files, such as `#pragma` in C/C++ files"""
 
     def __cpp(code: list[str]) -> list[str]:
-        ret_list: list[str] = []
+        new_code: list[str] = []
+
+        # remove #pragma
         for column in code:
             if re.match(r'^\s*#pragma', column):
                 continue
+            new_code.append(column)
+        code, new_code = new_code, []
 
-            ret_list.append(column)
+        # remove unused macro
+        has_unused_macros = True
+        while has_unused_macros:
+            has_unused_macros = False
+            code_content: str = '\n'.join(code)
+            skip_next_column: bool = False
 
-        return ret_list
+            for column in code:
+                if skip_next_column:
+                    skip_next_column = re.search(r'\\n*', column)
+                    continue
+
+                match_res = re.search(r'^\s*?#\s*?define\s+?(\w+)', column)
+                if match_res:
+                    if len(re.split(rf'\b{match_res.group(1)}\b', code_content)) == 2:
+                        has_unused_macros = True
+                        skip_next_column = re.search(r'\\n*', column)
+                        continue
+
+                new_code.append(column)
+            code, new_code = new_code, []
+
+        return code
 
     __commands = {
         'c': __cpp,
@@ -128,13 +154,15 @@ def remove_redundant_codes(src: str):
         full_filename = os.path.join(filepath, filename)
         prev_size = os.path.getsize(full_filename)
         code = list(filter(bool, list(open(full_filename, 'r', encoding='utf8'))))
-        __commands.get(get_extname(filename), lambda _: None)(code)
+        code = __commands.get(get_extname(filename), lambda _: _)(code)
 
         with open(full_filename, 'w', encoding='utf8') as f:
             f.writelines(code)
 
         now_size = os.path.getsize(full_filename)
-        logger.debug(rf"'{full_filename}': {prev_size} B -> {now_size} B, {(prev_size-now_size)/prev_size*100}% saved")
+        if now_size!=prev_size:
+            logger.debug(
+                rf"'{full_filename}': {prev_size} B -> {now_size} B, {(prev_size - now_size) / prev_size * 100}% saved")
 
     return remove_redundant_codes
 
@@ -229,16 +257,16 @@ def rename_all_files(src: str, max_int: int):
 
 @cli.command('n')
 @click.option('-o', '--oj', type=str, help='OJ name', required=True)
-@click.option('-i', '--id', type=str, help='problem ID', required=True)
+@click.option('-i', '--pid', type=str, help='problem ID', required=True)
 @click.option('-e', '--ext-name', type=str, help='extension name', default="cpp")
 @click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
-def add_new_file(oj: str, id: str, ext_name: str, max_int: int):
+def add_new_file(oj: str, pid: str, ext_name: str, max_int: int):
     """add new file, and copy content in clipboard to the new file"""
 
-    src: str = rf'.\src\{oj}\{id}'
+    src: str = rf'.\src\{oj}\{pid}'
     try:
         os.makedirs(src)
-    except:
+    except OSError as e:
         pass
 
     @log_default(get_filemap(src))
@@ -253,20 +281,20 @@ def add_new_file(oj: str, id: str, ext_name: str, max_int: int):
 
 @cli.command('d')
 @click.option('-o', '--oj', type=str, prompt='OJ name', help='OJ name')
-@click.option('-i', '--id', type=str, prompt='problem ID', help='problem ID')
+@click.option('-i', '--pid', type=str, prompt='problem ID', help='problem ID')
 @click.option('-e', '--ext-name', type=str, prompt='extension name', help='extension name', default="cpp")
 @click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
 @click.option('--git/--no-git', help='auto commit after process(default) / do nothing after process', default=True)
-def default_process(oj: str, id: str, ext_name: str, max_int: int, git: bool):
+def default_process(oj: str, pid: str, ext_name: str, max_int: int, git: bool):
     """default process"""
 
-    src: str = rf'.\src\{oj}\{id}'
+    src: str = rf'.\src\{oj}\{pid}'
     try:
         os.makedirs(src)
-    except:
+    except OSError as e:
         pass
 
-    add_new_file.callback(oj, id, ext_name, max_int)
+    add_new_file.callback(oj, pid, ext_name, max_int)
     unify_code_format.callback(src)
     remove_comments.callback(src)
     remove_blanks.callback(src)
