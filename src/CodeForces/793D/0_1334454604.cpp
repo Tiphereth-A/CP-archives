@@ -8,13 +8,7 @@ using f32 = float;
 using f64 = double;
 using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
-#define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
-#define _ins(a) std::inserter((a), (a).begin())
-#define _all(a) (a).begin(), (a).end()
-#define _set_nul(a) memset(a, 0, sizeof(a))
 #define _set_inf(a) memset(a, 0x3f, sizeof(a))
-#define _set_nul_n(a, n) memset(a, 0, sizeof(a[0]) * (n))
-#define _set_inf_n(a, n) memset(a, 0x3f, sizeof(a[0]) * (n))
 template <class T>
 bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 const uint32_t OFFSET = 5;

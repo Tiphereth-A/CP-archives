@@ -1,11 +1,5 @@
 #include <bits/stdc++.h>
-#define sstr stringstream
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
-#define mem(a) memset(a, 0, sizeof(a))
-#define memid(a) memset(a, 63, sizeof(a))
-#define memax(a) memset(a, 127, sizeof(a))
-#define gc getchar
 #define tpn typename
 typedef long long ll;
 typedef unsigned long long ull;

@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define gc getchar
 #define tpn typename
 template <tpn A>
 inline A Max(const A &x, const A &y) {

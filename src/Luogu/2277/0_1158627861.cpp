@@ -2,80 +2,11 @@
 using namespace std;
 using ll = long long;
 using ull = unsigned long long;
-#define _RM3(_1, _2, _3, ...) __VA_ARGS__
-#define RM3(...) _RM3(__VA_ARGS__)
-#define _RM4(_1, _2, _3, _4, ...) __VA_ARGS__
-#define RM4(...) _RM4(__VA_ARGS__)
 #define _SEL3(_1, _2, _3, ...) _1, _2, _3
 #define SEL3(...) _SEL3(__VA_ARGS__)
-#define _SEL4(_1, _2, _3, _4, ...) _1, _2, _3, _4
-#define SEL4(...) _SEL4(__VA_ARGS__)
 #define _CPROD1_4_HELPER(a, b, c, d, ...) a, __VA_ARGS__, b, __VA_ARGS__, c, __VA_ARGS__, d, __VA_ARGS__
 #define _CPROD2_4_HELPER(a, b, c, d, ...) _CPROD1_4_HELPER(a, b, c, d, a, __VA_ARGS__), _CPROD1_4_HELPER(a, b, c, d, b, __VA_ARGS__), _CPROD1_4_HELPER(a, b, c, d, c, __VA_ARGS__), _CPROD1_4_HELPER(a, b, c, d, d, __VA_ARGS__)
 #define CPROD3_4(a, b, c, d) _CPROD2_4_HELPER(a, b, c, d, a), _CPROD2_4_HELPER(a, b, c, d, b), _CPROD2_4_HELPER(a, b, c, d, c), _CPROD2_4_HELPER(a, b, c, d, d)
-#define _RM_1(func, ...) func(__VA_ARGS__)
-#define _RM_2(func, ...) _RM_1(func, _RM_1(func, __VA_ARGS__))
-#define _RM_3(func, ...) _RM_2(func, _RM_1(func, __VA_ARGS__))
-#define _RM_4(func, ...) _RM_2(func, _RM_2(func, __VA_ARGS__))
-#define _RM_5(func, ...) _RM_4(func, _RM_1(func, __VA_ARGS__))
-#define _RM_6(func, ...) _RM_4(func, _RM_2(func, __VA_ARGS__))
-#define _RM_7(func, ...) _RM_4(func, _RM_2(func, _RM_1(func, __VA_ARGS__)))
-#define _RM_8(func, ...) _RM_4(func, _RM_4(func, __VA_ARGS__))
-#define _RM_9(func, ...) _RM_8(func, _RM_1(func, __VA_ARGS__))
-#define _RM_10(func, ...) _RM_8(func, _RM_2(func, __VA_ARGS__))
-#define _RM_11(func, ...) _RM_8(func, _RM_2(func, _RM_1(func, __VA_ARGS__)))
-#define _RM_12(func, ...) _RM_8(func, _RM_4(func, __VA_ARGS__))
-#define _RM_13(func, ...) _RM_8(func, _RM_4(func, _RM_1(func, __VA_ARGS__)))
-#define _RM_14(func, ...) _RM_8(func, _RM_4(func, _RM_2(func, __VA_ARGS__)))
-#define _RM_15(func, ...) _RM_8(func, _RM_4(func, _RM_2(func, _RM_1(func, __VA_ARGS__))))
-#define _RM_16(func, ...) _RM_8(func, _RM_8(func, __VA_ARGS__))
-#define _RM_17(func, ...) _RM_16(func, _RM_1(func, __VA_ARGS__))
-#define _RM_18(func, ...) _RM_16(func, _RM_2(func, __VA_ARGS__))
-#define _RM_19(func, ...) _RM_16(func, _RM_2(func, _RM_1(func, __VA_ARGS__)))
-#define _RM_20(func, ...) _RM_16(func, _RM_4(func, __VA_ARGS__))
-#define _RM_21(func, ...) _RM_16(func, _RM_4(func, _RM_1(func, __VA_ARGS__)))
-#define _RM_22(func, ...) _RM_16(func, _RM_4(func, _RM_2(func, __VA_ARGS__)))
-#define _RM_23(func, ...) _RM_16(func, _RM_4(func, _RM_2(func, _RM_1(func, __VA_ARGS__))))
-#define _RM_24(func, ...) _RM_16(func, _RM_8(func, __VA_ARGS__))
-#define _RM_25(func, ...) _RM_16(func, _RM_8(func, _RM_1(func, __VA_ARGS__)))
-#define _RM_26(func, ...) _RM_16(func, _RM_8(func, _RM_2(func, __VA_ARGS__)))
-#define _RM_27(func, ...) _RM_16(func, _RM_8(func, _RM_2(func, _RM_1(func, __VA_ARGS__))))
-#define _RM_28(func, ...) _RM_16(func, _RM_8(func, _RM_4(func, __VA_ARGS__)))
-#define _RM_29(func, ...) _RM_16(func, _RM_8(func, _RM_4(func, _RM_1(func, __VA_ARGS__))))
-#define _RM_30(func, ...) _RM_16(func, _RM_8(func, _RM_4(func, _RM_2(func, __VA_ARGS__))))
-#define _RM_31(func, ...) _RM_16(func, _RM_8(func, _RM_4(func, _RM_2(func, _RM_1(func, __VA_ARGS__)))))
-#define _RM_32(func, ...) _RM_16(func, _RM_16(func, __VA_ARGS__))
-#define _RM_33(func, ...) _RM_32(func, _RM_1(func, __VA_ARGS__))
-#define _RM_34(func, ...) _RM_32(func, _RM_2(func, __VA_ARGS__))
-#define _RM_35(func, ...) _RM_32(func, _RM_2(func, _RM_1(func, __VA_ARGS__)))
-#define _RM_36(func, ...) _RM_32(func, _RM_4(func, __VA_ARGS__))
-#define _RM_37(func, ...) _RM_32(func, _RM_4(func, _RM_1(func, __VA_ARGS__)))
-#define _RM_38(func, ...) _RM_32(func, _RM_4(func, _RM_2(func, __VA_ARGS__)))
-#define _RM_39(func, ...) _RM_32(func, _RM_4(func, _RM_2(func, _RM_1(func, __VA_ARGS__))))
-#define _RM_40(func, ...) _RM_32(func, _RM_8(func, __VA_ARGS__))
-#define _RM_41(func, ...) _RM_32(func, _RM_8(func, _RM_1(func, __VA_ARGS__)))
-#define _RM_42(func, ...) _RM_32(func, _RM_8(func, _RM_2(func, __VA_ARGS__)))
-#define _RM_43(func, ...) _RM_32(func, _RM_8(func, _RM_2(func, _RM_1(func, __VA_ARGS__))))
-#define _RM_44(func, ...) _RM_32(func, _RM_8(func, _RM_4(func, __VA_ARGS__)))
-#define _RM_45(func, ...) _RM_32(func, _RM_8(func, _RM_4(func, _RM_1(func, __VA_ARGS__))))
-#define _RM_46(func, ...) _RM_32(func, _RM_8(func, _RM_4(func, _RM_2(func, __VA_ARGS__))))
-#define _RM_47(func, ...) _RM_32(func, _RM_8(func, _RM_4(func, _RM_2(func, _RM_1(func, __VA_ARGS__)))))
-#define _RM_48(func, ...) _RM_32(func, _RM_16(func, __VA_ARGS__))
-#define _RM_49(func, ...) _RM_32(func, _RM_16(func, _RM_1(func, __VA_ARGS__)))
-#define _RM_50(func, ...) _RM_32(func, _RM_16(func, _RM_2(func, __VA_ARGS__)))
-#define _RM_51(func, ...) _RM_32(func, _RM_16(func, _RM_2(func, _RM_1(func, __VA_ARGS__))))
-#define _RM_52(func, ...) _RM_32(func, _RM_16(func, _RM_4(func, __VA_ARGS__)))
-#define _RM_53(func, ...) _RM_32(func, _RM_16(func, _RM_4(func, _RM_1(func, __VA_ARGS__))))
-#define _RM_54(func, ...) _RM_32(func, _RM_16(func, _RM_4(func, _RM_2(func, __VA_ARGS__))))
-#define _RM_55(func, ...) _RM_32(func, _RM_16(func, _RM_4(func, _RM_2(func, _RM_1(func, __VA_ARGS__)))))
-#define _RM_56(func, ...) _RM_32(func, _RM_16(func, _RM_8(func, __VA_ARGS__)))
-#define _RM_57(func, ...) _RM_32(func, _RM_16(func, _RM_8(func, _RM_1(func, __VA_ARGS__))))
-#define _RM_58(func, ...) _RM_32(func, _RM_16(func, _RM_8(func, _RM_2(func, __VA_ARGS__))))
-#define _RM_59(func, ...) _RM_32(func, _RM_16(func, _RM_8(func, _RM_2(func, _RM_1(func, __VA_ARGS__)))))
-#define _RM_60(func, ...) _RM_32(func, _RM_16(func, _RM_8(func, _RM_4(func, __VA_ARGS__))))
-#define _RM_61(func, ...) _RM_32(func, _RM_16(func, _RM_8(func, _RM_4(func, _RM_1(func, __VA_ARGS__)))))
-#define _RM_62(func, ...) _RM_32(func, _RM_16(func, _RM_8(func, _RM_4(func, _RM_2(func, __VA_ARGS__)))))
-#define _RM_63(func, ...) _RM_32(func, _RM_16(func, _RM_8(func, _RM_4(func, _RM_2(func, _RM_1(func, __VA_ARGS__))))))
 #define RMAB(a, b, ...) _RM_##b(RM##a, __VA_ARGS__)
 #define OPANDS CPROD3_4(+, -, *, /)
 #define OPS0 SEL3(OPANDS)
@@ -151,58 +82,6 @@ using ull = unsigned long long;
 #define __CALC(...) ___CALC(__VA_ARGS__)
 #define _CALC(a, b, c, d) __CALC(a, b, c, d, OPS0), __CALC(a, b, c, d, OPS1), __CALC(a, b, c, d, OPS2), __CALC(a, b, c, d, OPS3), __CALC(a, b, c, d, OPS4), __CALC(a, b, c, d, OPS5), __CALC(a, b, c, d, OPS6), __CALC(a, b, c, d, OPS7), __CALC(a, b, c, d, OPS8), __CALC(a, b, c, d, OPS9), __CALC(a, b, c, d, OPS10), __CALC(a, b, c, d, OPS11), __CALC(a, b, c, d, OPS12), __CALC(a, b, c, d, OPS13), __CALC(a, b, c, d, OPS14), __CALC(a, b, c, d, OPS15), __CALC(a, b, c, d, OPS16), __CALC(a, b, c, d, OPS17), __CALC(a, b, c, d, OPS18), __CALC(a, b, c, d, OPS19), __CALC(a, b, c, d, OPS20), __CALC(a, b, c, d, OPS21), __CALC(a, b, c, d, OPS22), __CALC(a, b, c, d, OPS23), __CALC(a, b, c, d, OPS24), __CALC(a, b, c, d, OPS25), __CALC(a, b, c, d, OPS26), __CALC(a, b, c, d, OPS27), __CALC(a, b, c, d, OPS28), __CALC(a, b, c, d, OPS29), __CALC(a, b, c, d, OPS30), __CALC(a, b, c, d, OPS31), __CALC(a, b, c, d, OPS32), __CALC(a, b, c, d, OPS33), __CALC(a, b, c, d, OPS34), __CALC(a, b, c, d, OPS35), __CALC(a, b, c, d, OPS36), __CALC(a, b, c, d, OPS37), __CALC(a, b, c, d, OPS38), __CALC(a, b, c, d, OPS39), __CALC(a, b, c, d, OPS40), __CALC(a, b, c, d, OPS41), __CALC(a, b, c, d, OPS42), __CALC(a, b, c, d, OPS43), __CALC(a, b, c, d, OPS44), __CALC(a, b, c, d, OPS45), __CALC(a, b, c, d, OPS46), __CALC(a, b, c, d, OPS47), __CALC(a, b, c, d, OPS48), __CALC(a, b, c, d, OPS49), __CALC(a, b, c, d, OPS50), __CALC(a, b, c, d, OPS51), __CALC(a, b, c, d, OPS52), __CALC(a, b, c, d, OPS53), __CALC(a, b, c, d, OPS54), __CALC(a, b, c, d, OPS55), __CALC(a, b, c, d, OPS56), __CALC(a, b, c, d, OPS57), __CALC(a, b, c, d, OPS58), __CALC(a, b, c, d, OPS59), __CALC(a, b, c, d, OPS60), __CALC(a, b, c, d, OPS61), __CALC(a, b, c, d, OPS62), __CALC(a, b, c, d, OPS63),
 #define CALC(...) _CALC(__VA_ARGS__)
-#define _P2_HELPER(a, b, ...) a, b, __VA_ARGS__, b, a, __VA_ARGS__
-#define _P3_HELPER(a, b, c, ...) _P2_HELPER(a, b, c, __VA_ARGS__), _P2_HELPER(b, c, a, __VA_ARGS__), _P2_HELPER(c, a, b, __VA_ARGS__)
-#define P4 _P3_HELPER(a, b, c, d), _P3_HELPER(b, c, d, a), _P3_HELPER(c, d, a, b), _P3_HELPER(d, a, b, c)
-#define PERM0 SEL4(P4)
-#define PERM1 SEL4(RMAB(4, 1, P4))
-#define PERM2 SEL4(RMAB(4, 2, P4))
-#define PERM3 SEL4(RMAB(4, 3, P4))
-#define PERM4 SEL4(RMAB(4, 4, P4))
-#define PERM5 SEL4(RMAB(4, 5, P4))
-#define PERM6 SEL4(RMAB(4, 6, P4))
-#define PERM7 SEL4(RMAB(4, 7, P4))
-#define PERM8 SEL4(RMAB(4, 8, P4))
-#define PERM9 SEL4(RMAB(4, 9, P4))
-#define PERM10 SEL4(RMAB(4, 10, P4))
-#define PERM11 SEL4(RMAB(4, 11, P4))
-#define PERM12 SEL4(RMAB(4, 12, P4))
-#define PERM13 SEL4(RMAB(4, 13, P4))
-#define PERM14 SEL4(RMAB(4, 14, P4))
-#define PERM15 SEL4(RMAB(4, 15, P4))
-#define PERM16 SEL4(RMAB(4, 16, P4))
-#define PERM17 SEL4(RMAB(4, 17, P4))
-#define PERM18 SEL4(RMAB(4, 18, P4))
-#define PERM19 SEL4(RMAB(4, 19, P4))
-#define PERM20 SEL4(RMAB(4, 20, P4))
-#define PERM21 SEL4(RMAB(4, 21, P4))
-#define PERM22 SEL4(RMAB(4, 22, P4))
-#define PERM23 RMAB(4, 23, P4)
-#define MERGE                           \
-    s.merge(decltype(s){CALC(PERM0)});  \
-    s.merge(decltype(s){CALC(PERM1)});  \
-    s.merge(decltype(s){CALC(PERM2)});  \
-    s.merge(decltype(s){CALC(PERM3)});  \
-    s.merge(decltype(s){CALC(PERM4)});  \
-    s.merge(decltype(s){CALC(PERM5)});  \
-    s.merge(decltype(s){CALC(PERM6)});  \
-    s.merge(decltype(s){CALC(PERM7)});  \
-    s.merge(decltype(s){CALC(PERM8)});  \
-    s.merge(decltype(s){CALC(PERM9)});  \
-    s.merge(decltype(s){CALC(PERM10)}); \
-    s.merge(decltype(s){CALC(PERM11)}); \
-    s.merge(decltype(s){CALC(PERM12)}); \
-    s.merge(decltype(s){CALC(PERM13)}); \
-    s.merge(decltype(s){CALC(PERM14)}); \
-    s.merge(decltype(s){CALC(PERM15)}); \
-    s.merge(decltype(s){CALC(PERM16)}); \
-    s.merge(decltype(s){CALC(PERM17)}); \
-    s.merge(decltype(s){CALC(PERM18)}); \
-    s.merge(decltype(s){CALC(PERM19)}); \
-    s.merge(decltype(s){CALC(PERM20)}); \
-    s.merge(decltype(s){CALC(PERM21)}); \
-    s.merge(decltype(s){CALC(PERM22)}); \
-    s.merge(decltype(s){CALC(PERM23)})
 int dict[256];
 const auto _STATIC_ = []() {
     dict['+'] = 0;
@@ -224,8 +103,6 @@ struct Node {
          const char *opcd,
          const double &_data):
         data(_data) {
-#define _minmax(a, b) \
-    if (auto _a = a, _b = b; !(dict[*op##a##b] & 1)) tie(a, b) = tie(min(_a, _b), max(_a, _b))
         switch (type) {
             case 0:
                 break;

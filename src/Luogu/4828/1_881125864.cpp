@@ -1,21 +1,6 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
-#define rep(i, l, r) for (int i = (l); i < (r); ++i)
-#define INF 0x3f3f3f3f
-#define EPS 1e-5
-#define pc putchar
-#define mem(a) memset(a, 0, sizeof(a))
-#define gc getchar
-#define fst first
-#define snd second
-#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
-#define memid(a) memset(a, 0x3f, sizeof(a))
-#define memax(a) memset(a, 0x7f, sizeof(a))
-#define ls rt << 1
-#define rs rt << 1 | 1
-#define Mid int m = ((r - l) >> 1) + l
-#define sstr stringstream
 typedef unsigned int u32;
 typedef unsigned long long ull;
 typedef long long ll;

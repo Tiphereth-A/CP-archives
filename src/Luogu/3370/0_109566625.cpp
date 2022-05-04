@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 typedef unsigned int uint;
 #define M 1505
 struct trie {

@@ -4,22 +4,6 @@ using i64 = int64_t;
 using u64 = uint64_t;
 using i128 = __int128_t;
 using u128 = __uint128_t;
-#define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
-#define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
-#define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto &i : container)
-#define _foreach_cref(i, container) for (const auto &i : container)
-#define _foreach_rref(i, container) for (auto &&i : container)
-#define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
-#define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
-#define _for_graph(head, e, i, now) for (int i = head[now], to = e[i].to; i; to = e[i = e[i].next].to)
-#define _ins(a) std::inserter((a), (a).begin())
-#define _all(a) (a).begin(), (a).end()
-#define _set_nul(a) memset(a, 0, sizeof(a))
-#define _set_inf(a) memset(a, 0x3f, sizeof(a))
-#define _set_nul_n(a, n) memset(a, 0, sizeof(a[0]) * (n))
-#define _set_inf_n(a, n) memset(a, 0x3f, sizeof(a[0]) * (n))
-#define _fin goto FINISHED
 u64 p;
 struct Mat {
     u128 data[2][2];

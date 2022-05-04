@@ -11,7 +11,6 @@ using pii = pair<int, int>;
 const int OFFSET = 5;
 const int N = 5e5 + OFFSET;
 #define _dis(a, b) cout << "dis " << a << " " << b << endl
-#define _dfn(a) cout << "dfn " << a << endl
 #define _del cout << "del" << endl
 #define _ans(a)                    \
     {                              \

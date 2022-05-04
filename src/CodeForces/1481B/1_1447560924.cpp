@@ -6,11 +6,6 @@ using namespace std;
         expressions;            \
         break;                  \
     }
-#define _run_continue(expressions) \
-    {                              \
-        expressions;               \
-        continue;                  \
-    }
 const int OFFSET = 5;
 const int N = 100 + OFFSET, M = 2e5 + OFFSET, K = 21;
 int h[N];

@@ -3,13 +3,6 @@ using namespace std;
 using i64 = int64_t;
 using u64 = uint64_t;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
-#define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
-#define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto &i : container)
-#define _foreach_cref(i, container) for (const auto &i : container)
-#define _foreach_rref(i, container) for (auto &&i : container)
-#define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
-#define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 const int N = 500 + 5;
 int f[N][N];
 inline auto solve() -> void {

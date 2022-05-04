@@ -2,7 +2,6 @@
 using namespace std;
 using ll = long long;
 using ull = unsigned long long;
-#define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 const int MOD = 1e8;
 template <class Tp, std::size_t row, std::size_t col>
 class matrix {
@@ -74,7 +73,6 @@ class mod_i64 {
     self operator*(const self &rhs) { return this->calc(rhs, std::multiplies<i64>()); }
     self operator/(const self &rhs) { return this->calc(rhs, std::divides<i64>()); }
 };
-#define MULTI_CASES
 matrix<mod_i64<>, 2ull, 2ull> fib_trans, e;
 matrix<mod_i64<>, 2ull, 1ull> fib;
 auto __STATIC__ = []() {

@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 #define max(a, b) (((a) > (b)) ? (a) : (b))
-#define min(a, b) (((a) < (b)) ? (a) : (b))
-#define swap(a, b) (a) ^= (b) ^= (a) ^= (b)
 int r, c, f[105][105], g[105][105], MAXN, t, ans;
 short dx[4] = {-1, 0, 1, 0}, dy[4] = {
                                  0, 1, 0, -1};

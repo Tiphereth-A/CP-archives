@@ -6,13 +6,6 @@ using i128 = __int128_t;
 using u128 = __uint128_t;
 using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
-#define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
-#define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto &i : container)
-#define _foreach_cref(i, container) for (const auto &i : container)
-#define _foreach_rref(i, container) for (auto &&i : container)
-#define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
-#define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 namespace FastIO {
 char buf[1 << 21], *p1 = buf, *p2 = buf;
 inline char getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++; }

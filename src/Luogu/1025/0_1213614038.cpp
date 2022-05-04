@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 typedef unsigned long long ull;
-#define MAXN 105
 using namespace std;
 int n, k, ans;
 void dfs(int rn, int rk, int sum) {

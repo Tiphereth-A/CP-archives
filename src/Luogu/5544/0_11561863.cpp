@@ -15,12 +15,6 @@ struct Result {
     int score = 1;
 } ans;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
-#define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), ##vals; i >= (l); --i)
-#define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto &i : container)
-#define _foreach_cref(i, container) for (const auto &i : container)
-#define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
-#define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 namespace Simulated_annealing {
 using data_type = int;
 using fit_type = int;

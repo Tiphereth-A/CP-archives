@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 typedef long long ll;
-#define MAXN 20010;
 using namespace std;
 int main() {
     double h, s, v, l, k, n;

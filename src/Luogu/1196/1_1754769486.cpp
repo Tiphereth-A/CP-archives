@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#define _getch(ch) while (((ch) = getchar()) != '\n' && (ch) != ' ' && (ch) != '\r')
-const int N = 3e4 + 1;
 int fa[N], sum[N], num[N];
 namespace fastIO {
 #define tpn typename

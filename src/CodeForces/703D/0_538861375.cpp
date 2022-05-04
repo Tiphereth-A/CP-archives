@@ -1,12 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
-#define _rfor(i, r, l, vals...) for (decltype(r - l) i = (r), ##vals; i >= (l); --i)
-#define _foreach_val(i, container) for (auto i : container)
 #define _foreach_ref(i, container) for (auto &i : container)
 #define _foreach_cref(i, container) for (const auto &i : container)
-#define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
-#define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 using data_t = uint32_t;
 using query_type = tuple<data_t, data_t, data_t>;
 template <typename _T, const std::size_t _N>

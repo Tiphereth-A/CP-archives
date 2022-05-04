@@ -2,7 +2,6 @@
 using namespace std;
 using ll = long long;
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
-#define _rfor(i, r, l) for (auto i = (r); i >= (l); --i)
 const int OFFSET = 5;
 const int N = 5e6 + OFFSET;
 map<i64, i64> sum_mu;

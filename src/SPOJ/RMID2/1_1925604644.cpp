@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <queue>
 using namespace std;
-#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 int main() {
     int kase;
     scanf("%d", &kase);

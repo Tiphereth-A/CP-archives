@@ -2,8 +2,6 @@
 typedef long long ll;
 #define MAXN 405
 typedef unsigned long long ull;
-#define _for(i, m, n) for (int i = m; i <= n; i++)
-#define _rfor(i, m, n) for (int i = m; i >= n; i--)
 using namespace std;
 int f[MAXN][MAXN];
 int m, n;

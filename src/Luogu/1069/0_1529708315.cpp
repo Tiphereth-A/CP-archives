@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#define N 10005
 #define M 30005
 const int prime[] = {
     0,

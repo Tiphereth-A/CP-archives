@@ -3,7 +3,6 @@
 using namespace std;
 typedef long long ll;
 typedef pair<i64, i64> point;
-#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define x first
 #define y second
 const i64 mod = 10007;

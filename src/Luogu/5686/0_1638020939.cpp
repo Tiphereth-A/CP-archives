@@ -5,7 +5,6 @@ using ull = unsigned long long;
 using db = double;
 using ldb = long double;
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
-#define _rfor(i, r, l) for (auto i = (r); i >= (l); --i)
 const int N = 5e5 + 5;
 const i64 MOD = 1e9 + 7;
 i64 a[N], b;

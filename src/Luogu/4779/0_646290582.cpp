@@ -13,13 +13,6 @@
 #endif
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-#define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
-#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (int i = (r); i > (l); --i)
-#define _gc getchar
-#define _pc putchar
-#define tpn typename
 typedef long long ll;
 typedef unsigned long long ull;
 #endif

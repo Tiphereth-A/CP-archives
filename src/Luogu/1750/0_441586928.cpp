@@ -3,17 +3,9 @@
 #include <bits/stdc++.h>
 #endif
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define tpn typename
 #if 0
-#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
-#define mem(a) memset(a, 0, sizeof(a))
-#define memid(a) memset(a, 63, sizeof(a))
-#define memax(a) memset(a, 127, sizeof(a))
-#define gc getchar
-#define sstr stringstream
 #endif
 #define M 10005
-#define N 1005
 const int INF = 0x7fffffff;
 int num[M], n, c, m, slen, pos = 1;
 std::stack<int> sta;

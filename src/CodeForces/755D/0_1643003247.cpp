@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _lowbit(x) ((x) & (-x))
 typedef long long ll;
 namespace FastIO {

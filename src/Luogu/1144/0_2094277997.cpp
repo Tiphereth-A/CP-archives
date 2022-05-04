@@ -4,7 +4,6 @@ using i64 = int64_t;
 using u64 = uint64_t;
 using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
-#define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
 const uint32_t OFFSET = 5;
 const uint32_t N = 1e6 + OFFSET, M = 4e6 + OFFSET;
 const uint32_t MOD = 1e5 + 3;
@@ -21,7 +20,6 @@ void addEdge(int x, int y, int w = 1) {
     ++in[y];
     ++out[x];
 }
-#define _for_graph(head, e, i, now) for (int i = head[now], to = e[i].to; i; to = e[i = e[i].next].to)
 int dis[N], cnt[N];
 void dijkstra(int s) {
     priority_queue<pii, vector<pii>, greater<pii>> q;

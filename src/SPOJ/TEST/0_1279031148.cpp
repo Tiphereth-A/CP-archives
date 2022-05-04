@@ -9,7 +9,6 @@
 #include <string>
 typedef long long ll;
 typedef unsigned long long ull;
-#define MAXN 210
 using namespace std;
 int main() {
     int n;

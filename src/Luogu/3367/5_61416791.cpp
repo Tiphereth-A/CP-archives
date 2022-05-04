@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #define M 10005
 #define _for(i, l, r) for (int i = (l); i <= (r); i++)
-#define max(a, b) (((a) > (b)) ? (a) : (b))
 #define gi getint
 #define gc getchar
 using namespace std;

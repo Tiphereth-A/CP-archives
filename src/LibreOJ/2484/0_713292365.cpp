@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 const int OFFSET = 5;
 const int N = 1e6 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const long long MOD = 344493229;

@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
-#define rep(i, l, r) for (int i = (l); i < (r); ++i)
-#define gc getchar
 typedef unsigned int u32;
 typedef unsigned long long ull;
 typedef long long ll;

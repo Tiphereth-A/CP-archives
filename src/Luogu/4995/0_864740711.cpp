@@ -22,28 +22,10 @@
 #include <bits/stdc++.h>
 #endif
 #ifdef __DEF__
-#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-#define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
-#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (int i = (r); i > (l); --i)
-#define _gc getchar
-#define _pc putchar
 #define tpn typename
-#define _ins(a) std::inserter((a), (a).begin())
-#define _all(a) (a).begin(), (a).end()
-#define sstream std::stringstream
-#define _getch(ch) while (((ch) = gc()) != '\n' && (ch) != ' ' && (ch) != '\r')
-#define _err puts("No Solution")
-#define _lch(p) ((p) << 1)
-#define _rch(p) ((p) << 1 | 1)
-#define _mid(l, r) (((l) + (r)) >> 1)
 #ifdef __C_LIB__
-#define _mem(a) memset(a, 0, sizeof(a))
-#define _meminf(a) memset(a, 0x3f, sizeof(a))
 #endif
 #ifdef __CPP_STYLE__
-#define SYNC std::ios::sync_with_stdio(false)
 #define _debug(x) std::cout << #x << " = " << x << std::endl
 #else
 #define _debug(type, x) printf(#x "=%" type "\n", (x))
@@ -138,8 +120,6 @@ inline void print(Type x, char text = '\n') {
 }  // namespace fastIO
 #endif
 #endif
-#define INF_I32 0x7fffffff
-#define INF_I64 0x7FFFFFFFFFFFFFFFll
 const int M = 500005;
 const int N = 305;
 const int MOD = 1000003;

@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 typedef unsigned long long ull;
-#define MAXN 20010;
 using namespace std;
 char key[26];
 int main() {

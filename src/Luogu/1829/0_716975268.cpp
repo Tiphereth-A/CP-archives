@@ -2,7 +2,6 @@
 using namespace std;
 using ll = long long;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
-#define _rfor(i, r, l) for (decltype(l + r) i = (r); i >= (l); --i)
 const int OFFSET = 5;
 const int N = 1e7, mod = 20101009;
 int prime[N / 10 + OFFSET], cnt_prime;

@@ -1,28 +1,5 @@
 #include <bits/stdc++.h>
-#define SYNC std::ios::sync_with_stdio(false)
-#define UNTIE std::cin::tie(0), std::cout::tie(0)
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
-#define _rep(i, l, r) for (auto i = (l); i < (r); ++i)
-#define _rfor(i, r, l) for (auto i = (r); i >= (l); --i)
-#define _repr(i, r, l) for (auto i = (r); i > (l); --i)
-#define _gc getchar
-#define _pc putchar
-#define _ins(a) std::inserter((a), (a).begin())
-#define _all(a) (a).begin(), (a).end()
-#define _err puts("This puzzle has no final configuration.")
-#define _lch ((p) << 1)
-#define _rch ((p) << 1 | 1)
-#define _mid(l, r) ((l) + (((r) - (l)) >> 1))
-#define _len(l, r) ((r) - (l) + 1)
-#define _lowbit(x) (1 << __builtin_ctz(x))
-#define _lowbit_64(x) (1 << __builtin_ctzll(x))
-#define _set_nul(a) memset(a, 0, sizeof(a))
-#define _set_inf(a) memset(a, 0x3f, sizeof(a))
-#define _set_nul_n(a, n) memset(a, 0, sizeof(a[0]) * (n))
-#define _set_inf_n(a, n) memset(a, 0x3f, sizeof(a[0]) * (n))
-#define _debug_cpp(x) std::cerr << #x << " = " << x << std::endl
-#define _debug_c(type, x) fprintf(stderr, "#" #x "=%" type "\n", (x))
-#define _fin goto FINISHED
 typedef long long ll;
 typedef unsigned long long ull;
 typedef __int128_t i128;

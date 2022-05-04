@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 typedef unsigned long long ull;
-#define MAXN 100010
 using namespace std;
 ll f[21][21] = {1};
 bool mark[21][21];

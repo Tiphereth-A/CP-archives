@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
-#define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto &i : container)
 #define _foreach_cref(i, container) for (const auto &i : container)
 #define _set_nul(a) memset(a, 0, sizeof(a))
 char c[15];

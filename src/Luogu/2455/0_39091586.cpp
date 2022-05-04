@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
-#define _rfor(i, r, l, vals...) for (decltype(r - l) i = (r), ##vals; i >= (l); --i)
 #define _double_equ(x, y) (abs((x) - (y)) <= EPS)
 const double EPS = 1e-8;
 int n;

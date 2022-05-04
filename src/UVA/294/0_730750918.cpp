@@ -3,12 +3,6 @@ using namespace std;
 using i64 = int64_t;
 using u64 = uint64_t;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
-#define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), ##vals; i >= (l); --i)
-#define _foreach_val(i, container) for (auto i : container)
-#define _foreach_ref(i, container) for (auto &i : container)
-#define _foreach_cref(i, container) for (const auto &i : container)
-#define _foreach_iter(it, container) for (auto it = (container).begin(); it != (container).end(); ++it)
-#define _foreach_iter_range(it, container, l, r) for (auto it = (container).begin() + l; it != (container).begin() + r; ++it)
 const int N = 1e5 + 5, P = 1e4 + 5;
 bool vis[N];
 int prime[P], cnt_prime;

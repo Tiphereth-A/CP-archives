@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 typedef unsigned long long ull;
-#define MAXN 1010;
 using namespace std;
 ll b, p, k;
 ll ksm(ll num, ll a) {

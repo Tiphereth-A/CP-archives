@@ -1,9 +1,4 @@
 #include <bits/stdc++.h>
-#define debug print("%d %s\n", __LINE__, __FUNCTION__)
-#define fi first
-#define se second
-#define pb push_back
-#define mk make_pair
 using ll = long long;
 using ld = long double;
 using pii = std::pair<int, int>;

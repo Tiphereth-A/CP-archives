@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
-#define ctn continue
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define memn(a) memset(a, 0xff, sizeof(a))
 #define meminf(a) memset(a, 0x7f, sizeof(a))
-#define gc getchar
 #define tpn typename
 template <tpn A>
 inline void read(A &x) {

@@ -2,10 +2,7 @@
 typedef long long ll;
 typedef unsigned long long ull;
 #define MAXN 1005
-#define _for(i, l, r) for (int i = (l); i <= (r); i++)
-#define _rfor(i, r, l) for (int i = (r); i >= (l); i--)
 #define max(a, b) (((a) > (b)) ? (a) : (b))
-#define min(a, b) (((a) < (b)) ? (a) : (b))
 using namespace std;
 ll f[MAXN][MAXN];
 int main() {

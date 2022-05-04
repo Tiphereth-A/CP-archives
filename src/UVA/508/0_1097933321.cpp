@@ -38,19 +38,9 @@
 using namespace std;
 #endif
 #ifdef __DEF__
-#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define REP(i, l, r) for (int i = (l); i < (r); ++i)
-#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
-#define REPR(i, r, l) for (int i = (r); i > (l); --i)
-#define gc getchar
 #define tpn typename
-#define INS(a) std::inserter((a), (a).begin())
-#define ALL(a) (a).begin(), (a).end()
-#define sstream std::stringstream
 #ifdef __C_LIB__
-#define MEM(a) memset(a, 0, sizeof(a))
-#define MEMID(a) memset(a, 0x3f, sizeof(a))
-#define MEMNG(a) memset(a, 0xff, sizeof(a))
 #endif
 #ifdef __CPP_STYLE__
 #define DEBUG(x) std::cout << #x << " = " << x << std::endl
@@ -81,9 +71,7 @@ template <tpn A>
 inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
-#define M 310
 #define INF 0x3f3f3f3f
-#define INF_I64 0x7FFFFFFFFFFFFFFFll
 const int N = 1e6 + 5;
 map<char, string> morse;
 map<string, string> dict;

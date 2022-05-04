@@ -21,18 +21,10 @@
 using namespace std;
 #endif
 #ifdef __DEF__
-#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define rep(i, l, r) for (int i = (l); i < (r); ++i)
-#define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
-#define gc getchar
 #define tpn typename
 #ifdef __C_LIB__
-#define mem(a) memset(a, 0, sizeof(a))
-#define memid(a) memset(a, 0x3f, sizeof(a))
-#define memng(a) memset(a, 0xff, sizeof(a))
 #endif
 #ifdef __CPP_STYLE__
-#define dbg(x) cout << #x << " = " << x << endl
 #endif
 typedef long long ll;
 typedef unsigned long long ull;
@@ -58,10 +50,6 @@ template <tpn A>
 inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
-#define M 310
-#define N 20
-#define INF 0x3f3f3f3f
-#define INF_I64 0x7FFFFFFFFFFFFFFFll
 const int MOD = 1e9 + 7;
 u64 ans;
 i64 n;

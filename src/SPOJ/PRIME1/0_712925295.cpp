@@ -10,7 +10,6 @@
 #include <string>
 typedef long long ll;
 typedef unsigned long long ull;
-#define MAXN 1000000010
 using namespace std;
 inline bool isprime(int x) {
     if (x == 1) return false;

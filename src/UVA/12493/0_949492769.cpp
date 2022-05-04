@@ -11,16 +11,8 @@
 #include <stack>
 #include <string>
 #include <vector>
-#define SZ(x) ((int)(x).size())
-#define ALL(v) (v).begin(), (v).end()
-#define foreach(i, v) for (__typeof((v).begin()) i = (v).begin(); i != (v).end(); ++i)
-#define reveach(i, v) for (__typeof((v).rbegin()) i = (v).rbegin(); i != (v).rend(); ++i)
-#define REP(i, n) for (int i = 1; i <= int(n); i++)
-#define rep(i, n) for (int i = 0; i < int(n); i++)
 using namespace std;
 typedef long long ll;
-#define X first
-#define Y second
 typedef pair<int, int> pii;
 typedef pair<pii, pii> PII;
 template <class T>

@@ -2,8 +2,6 @@
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define mem(a) memset(a, 0, sizeof(a))
-#define memp(a) memset(a, 1, sizeof(a))
-#define memn(a) memset(a, -1, sizeof(a))
 #define tpn typename
 template <tpn A>
 inline A Max(const A &x, const A &y) {
