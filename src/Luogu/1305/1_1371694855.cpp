@@ -1,20 +1,19 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define tpn typename
 #if 0
-template <tpn A> inline A Max(const A &x,const A &y){
+template <typename A> inline A Max(const A &x,const A &y){
     return x>y?x:y;
 }
-template <tpn A> inline A Min(const A &x,const A &y){
+template <typename A> inline A Min(const A &x,const A &y){
     return x<y?x:y;
 }
-template <tpn A> inline void Swap(A &x,A &y){
+template <typename A> inline void Swap(A &x,A &y){
     x^=y,y^=x,x^=y;
 }
-template <tpn A> inline A Abs(const A &x){
+template <typename A> inline A Abs(const A &x){
     return x>0?x:-x;
 }
-template <tpn A> inline void read(A &x){
+template <typename A> inline void read(A &x){
     char c;
     A neg=1;
     do{
@@ -28,11 +27,11 @@ template <tpn A> inline void read(A &x){
     }while (c>='0'&&c<='9');
     x*=neg;
 }
-template <tpn A,tpn B> inline void read(A &a,B &b){
+template <typename A,typename B> inline void read(A &a,B &b){
 read(a),read(b);}
-template <tpn A,tpn B,tpn C> inline void read(A &a,B &b,C &c){
+template <typename A,typename B,typename C> inline void read(A &a,B &b,C &c){
 read(a),read(b),read(c);}
-template <tpn A,tpn B,tpn C,tpn D> inline void read(A &a,B &b,C &c,D &d){
+template <typename A,typename B,typename C,typename D> inline void read(A &a,B &b,C &c,D &d){
 read(a),read(b),read(c),read(d);}
 #endif
 using namespace std;

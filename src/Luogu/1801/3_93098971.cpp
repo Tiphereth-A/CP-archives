@@ -1,12 +1,11 @@
 #include <bits/stdc++.h>
 #define N 200005
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define tpn typename
 std::priority_queue<int, std::vector<int>, std::greater<int>> h_max;
 std::priority_queue<int> h_min;
 int n, m;
 int a[N];
-template <tpn A>
+template <typename A>
 inline void read(A &x) {
     char c;
     A neg = 1;

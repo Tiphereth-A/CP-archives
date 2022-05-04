@@ -1,13 +1,12 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-#define tpn typename
 #define _err puts("No Solution")
 #define _memng(a) memset(a, 0xff, sizeof(a))
-template <tpn A>
+template <typename A>
 A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 namespace fastIO {
-template <tpn A>
+template <typename A>
 inline void read(A &x) {
     char c;
     A neg = 1;
@@ -22,15 +21,15 @@ inline void read(A &x) {
     } while (c >= '0' && c <= '9');
     x *= neg;
 }
-template <tpn A, tpn B>
+template <typename A, typename B>
 inline void read(A &a, B &b) {
     read(a), read(b);
 }
-template <tpn A, tpn B, tpn C>
+template <typename A, typename B, typename C>
 inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
-template <tpn A, tpn B, tpn C, tpn D>
+template <typename A, typename B, typename C, typename D>
 inline void read(A &a, B &b, C &c, D &d) {
     read(a), read(b), read(c), read(d);
 }

@@ -1,15 +1,14 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define tpn typename
-template <tpn A>
+template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
-template <tpn A>
+template <typename A>
 inline A Min(const A &x, const A &y) {
     return x < y ? x : y;
 }
-template <tpn A>
+template <typename A>
 inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
@@ -18,7 +17,7 @@ inline char gc() {
     static char buf[MAXBUF], *p1 = buf, *p2 = buf;
     return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
 }
-template <tpn A>
+template <typename A>
 inline void read(A &x) {
     char c;
     do {
@@ -30,11 +29,11 @@ inline void read(A &x) {
         c = gc();
     } while (isdigit(c));
 }
-template <tpn A, tpn B>
+template <typename A, typename B>
 inline void read(A &a, B &b) {
     read(a), read(b);
 }
-template <tpn A, tpn B, tpn C>
+template <typename A, typename B, typename C>
 inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }

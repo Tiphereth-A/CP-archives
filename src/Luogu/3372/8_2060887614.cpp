@@ -1,11 +1,10 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define tpn typename
 #define ls rt << 1
 #define rs rt << 1 | 1
 #define Mid int m = ((r - l) >> 1) + l
 typedef long long ll;
-template <tpn A>
+template <typename A>
 inline void read(A &x) {
     char c;
     A neg = 1;
@@ -20,11 +19,11 @@ inline void read(A &x) {
     } while (c >= '0' && c <= '9');
     x *= neg;
 }
-template <tpn A, tpn B>
+template <typename A, typename B>
 inline void read(A &a, B &b) {
     read(a), read(b);
 }
-template <tpn A, tpn B, tpn C>
+template <typename A, typename B, typename C>
 inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }

@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 #define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
-#define tpn typename
 typedef long double ldb;
-template <tpn A>
+template <typename A>
 inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }

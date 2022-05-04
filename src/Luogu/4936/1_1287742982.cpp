@@ -21,28 +21,26 @@
 using namespace std;
 #endif
 #ifdef __DEF__
-#define tpn typename
 #ifdef __C_LIB__
 #endif
 #ifdef __CPP_STYLE__
 #endif
 #endif
-#ifndef tpn
-#define tpn typename
+#ifndef typename
 #endif
-template <tpn A>
+template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
-template <tpn A>
+template <typename A>
 inline A Min(const A &x, const A &y) {
     return x < y ? x : y;
 }
-template <tpn A>
+template <typename A>
 inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;
 }
-template <tpn A>
+template <typename A>
 inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }

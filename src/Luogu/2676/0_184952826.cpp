@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define tpn typename
-template <tpn A>
+template <typename A>
 inline void read(A &x) {
     char c;
     A neg = 1;
@@ -16,7 +15,7 @@ inline void read(A &x) {
     } while (c >= '0' && c <= '9');
     x *= neg;
 }
-template <tpn A, tpn B>
+template <typename A, typename B>
 inline void read(A &a, B &b) {
     read(a), read(b);
 }

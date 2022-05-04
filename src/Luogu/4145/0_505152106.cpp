@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define tpn typename
 #define _lowbit(x) (1 << __builtin_ctz(x))
-template <tpn A>
+template <typename A>
 inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 const int N = 1e5 + 5;
 int n, m;

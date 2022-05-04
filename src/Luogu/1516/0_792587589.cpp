@@ -1,21 +1,20 @@
 #include <bits/stdc++.h>
-#define tpn typename
 typedef long long ll;
-template <tpn A>
+template <typename A>
 inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;
 }
-template <tpn A>
+template <typename A>
 inline A Gcd(const A &x, const A &y) {
     return y ? Gcd(y, x % y) : x;
 }
-template <tpn A>
+template <typename A>
 inline void ExGcd(const A &a, const A &b, A &x, A &y) {
     if (!b) return (void)(x = 1, y = 0);
     ExGcd(b, a % b, y, x);
     y -= a / b * x;
 }
-template <tpn A>
+template <typename A>
 inline void read(A &x) {
     char c;
     A neg = 1;
@@ -30,7 +29,7 @@ inline void read(A &x) {
     } while (c >= '0' && c <= '9');
     x *= neg;
 }
-template <tpn A, tpn B, tpn C, tpn D, tpn E>
+template <typename A, typename B, typename C, typename D, typename E>
 inline void read(A &a, B &b, C &c, D &d, E &e) {
     read(a), read(b), read(c), read(d), read(e);
 }

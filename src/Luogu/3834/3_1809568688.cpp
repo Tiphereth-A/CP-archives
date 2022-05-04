@@ -11,26 +11,25 @@
 #ifdef __O_MAGIC__
 #endif
 #ifdef __DEF__
-#define tpn typename
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _mid(l, r) (((l) + (r)) >> 1)
 typedef double db;
-template <tpn A>
+template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
-template <tpn A>
+template <typename A>
 inline A Min(const A &x, const A &y) { return x < y ? x : y; }
-template <tpn A>
+template <typename A>
 inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
-template <tpn A>
+template <typename A>
 inline A Abs(const A &x) { return x > 0 ? x : -x; }
-template <tpn A>
+template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;
 inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++; }
-template <tpn Type>
+template <typename Type>
 inline void read_digit(Type &x) {
     int ret = 0, f = 0;
     char ch = getc();
@@ -44,14 +43,14 @@ inline void read_digit(Type &x) {
     }
     x = f ? -ret : ret;
 }
-template <tpn A, tpn B>
+template <typename A, typename B>
 inline void read_digit(A &a, B &b) { read_digit(a), read_digit(b); }
-template <tpn A, tpn B, tpn C>
+template <typename A, typename B, typename C>
 inline void read_digit(A &a, B &b, C &c) { read_digit(a), read_digit(b), read_digit(c); }
-template <tpn A, tpn B, tpn C, tpn D>
+template <typename A, typename B, typename C, typename D>
 inline void read_digit(A &a, B &b, C &c, D &d) { read_digit(a), read_digit(b), read_digit(c), read_digit(d); }
 inline void flush() { fwrite(buf2, 1, p3 + 1, stdout), p3 = -1; }
-template <tpn Type>
+template <typename Type>
 inline void print_digit(Type x) {
     if (p3 > 1 << 20) flush();
     if (x < 0) buf2[++p3] = 45, x = -x;

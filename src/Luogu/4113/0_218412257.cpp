@@ -1,26 +1,25 @@
 #include <bits/stdc++.h>
-#define tpn typename
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define _lowbit(x) (1 << __builtin_ctz(x))
 typedef double db;
-template <tpn A>
+template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
-template <tpn A>
+template <typename A>
 inline A Min(const A &x, const A &y) {
     return x < y ? x : y;
 }
-template <tpn A>
+template <typename A>
 inline void Swap(A &x, A &y) {
     x ^= y ^= x ^= y;
 }
-template <tpn A>
+template <typename A>
 inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
-template <tpn A>
+template <typename A>
 inline A Gcd(A x, A y) {
     return !y ? x : Gcd(y, x % y);
 }

@@ -22,7 +22,6 @@
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-#define tpn typename
 #ifdef __C_LIB__
 #endif
 #ifdef __CPP_STYLE__
@@ -32,35 +31,33 @@
 #endif
 #endif
 #ifdef __FUNC__
-#ifndef tpn
-#define tpn typename
+#ifndef typename
 #endif
-template <tpn A>
+template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
-template <tpn A>
+template <typename A>
 inline A Min(const A &x, const A &y) {
     return x < y ? x : y;
 }
-template <tpn A>
+template <typename A>
 inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;
 }
-template <tpn A>
+template <typename A>
 inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
-template <tpn A>
+template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 #ifdef __FASTIO__
 #if 1
-#ifndef tpn
-#define tpn typename
+#ifndef typename
 #endif
 namespace fastIO {
-template <tpn A>
+template <typename A>
 inline void read(A &x) {
     char c;
     A neg = 1;
@@ -75,15 +72,15 @@ inline void read(A &x) {
     } while (c >= '0' && c <= '9');
     x *= neg;
 }
-template <tpn A, tpn B>
+template <typename A, typename B>
 inline void read(A &a, B &b) {
     read(a), read(b);
 }
-template <tpn A, tpn B, tpn C>
+template <typename A, typename B, typename C>
 inline void read(A &a, B &b, C &c) {
     read(a), read(b), read(c);
 }
-template <tpn A, tpn B, tpn C, tpn D>
+template <typename A, typename B, typename C, typename D>
 inline void read(A &a, B &b, C &c, D &d) {
     read(a), read(b), read(c), read(d);
 }

@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
-#define tpn typename
 typedef long long ll;
-template <tpn A>
+template <typename A>
 inline void read(A &x) {
     char c;
     A neg = 1;
@@ -16,7 +15,7 @@ inline void read(A &x) {
     } while (c >= '0' && c <= '9');
     x *= neg;
 }
-template <tpn A, tpn B, tpn C, tpn D>
+template <typename A, typename B, typename C, typename D>
 inline void read(A &a, B &b, C &c, D &d) {
     read(a), read(b), read(c), read(d);
 }

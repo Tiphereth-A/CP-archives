@@ -1,12 +1,11 @@
 #include <bits/stdc++.h>
 #define ctn continue
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#define tpn typename
-template <tpn A>
+template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
 }
-template <tpn A>
+template <typename A>
 inline A Min(const A &x, const A &y) {
     return x < y ? x : y;
 }
