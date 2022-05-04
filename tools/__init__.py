@@ -93,11 +93,9 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
 
             # capture `#define macros`
             match_res = re.search(r'^\s*?#\s*?define\s+?(\w+)', column)
-
             # capture `using Tp = type;`
             if not match_res:
                 match_res = re.search(r'^\s*?using\s+?(\w+)\s*?(?==)', column)
-
             # capture `typedef type Tp`
             if not match_res:
                 match_res = re.search(r'(?<=typedef) (?:[ \w]+) (\w+)', column)
