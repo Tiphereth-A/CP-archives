@@ -7,7 +7,6 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/Tiphereth-A/CP-archives)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Tiphereth-A/CP-archives)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Tiphereth-A/CP-archives)
-![GitHub Repo stars](https://img.shields.io/github/stars/Tiphereth-A/CP-archives?style=social)
 
 ![](https://img.shields.io/badge/work-on--my--machine-success)
 
@@ -39,5 +38,5 @@ python manager.py [options] command [args]
 See more info by
 
 ```shell
-python manager.py [options] [command] --help
+python manager.py [command] --help
 ```
