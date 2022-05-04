@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef __int128_t i128;
-typedef long long ll;
 const int N = 15;
 i64 a[N], b[N];
 i128 exgcd(i128 a, i128 b, i128 &x, i128 &y) {

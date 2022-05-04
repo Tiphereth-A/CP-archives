@@ -3,10 +3,7 @@
 #ifdef __DEF__
 #define tpn typename
 #define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
-typedef unsigned long long ull;
-typedef __int128 i128;
 typedef double db;
-typedef long double ldb;
 template <tpn A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <tpn A>

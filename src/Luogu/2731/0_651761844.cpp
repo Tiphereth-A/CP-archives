@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 const uint32_t OFFSET = 5;
 const uint32_t N = 500 + OFFSET, M = 2048 + OFFSET;

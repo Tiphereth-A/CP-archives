@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
-typedef unsigned long long ull;
 using namespace std;
 string s1, s2, a1, a2;
 int cnt[3];

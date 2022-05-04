@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-using ull = unsigned long long;
 const u64 mod = 1e9 + 7;
 u64 f(u64 n) {
     n %= mod;

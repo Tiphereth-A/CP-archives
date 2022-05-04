@@ -5,10 +5,6 @@
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #if 0
 #endif
-typedef long long ll;
-typedef unsigned long long ull;
-typedef double db;
-typedef long double ldb;
 #define M 105
 const int INF = 0x3f3f3f3f;
 const int MOD = 1000007;

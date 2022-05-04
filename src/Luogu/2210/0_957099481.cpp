@@ -13,7 +13,6 @@ using temperature_type = double;
 template <class Tp>
 using seq_type = std::vector<Tp>;
 using data_seq_type = seq_type<data_type>;
-using fit_seq_type = seq_type<fit_type>;
 default_random_engine g(time(nullptr));
 uniform_int_distribution<data_type> data_gen;
 uniform_int_distribution<index_type> idx_gen;

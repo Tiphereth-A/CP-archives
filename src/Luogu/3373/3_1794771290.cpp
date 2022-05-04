@@ -3,7 +3,6 @@
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define _mid int m = ((r - l) >> 1) + l
-typedef long long ll;
 const int N = 1e6 + 5;
 int n;
 i64 a[N], mod;

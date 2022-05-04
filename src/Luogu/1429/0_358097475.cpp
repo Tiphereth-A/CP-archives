@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 const i64 INF = INT64_MAX;
 template <class Tp>

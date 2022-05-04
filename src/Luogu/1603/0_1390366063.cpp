@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 typedef unsigned long long ull;
 using namespace std;
 const string s[27] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "a", "both", "another", "first", "second", "third"};

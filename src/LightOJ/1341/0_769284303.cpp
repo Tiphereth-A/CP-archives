@@ -1,5 +1,4 @@
 #include <cstdio>
-typedef long long ll;
 const int N = 1e6 + 5;
 int pri[N], cnt_pri;
 bool vis[N];

@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <utility>
 using namespace std;
-typedef long long ll;
 typedef pair<i64, i64> point;
 #define x first
 #define y second

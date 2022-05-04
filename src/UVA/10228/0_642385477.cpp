@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
 const int N = 100 + 5;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 struct Node {

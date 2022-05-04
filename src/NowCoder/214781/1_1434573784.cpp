@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 typedef __int128_t i128;
 const int MOD = 998244353, inv2 = (MOD + 1) / 2;
 i64 calc(i64 l, i64 r) {

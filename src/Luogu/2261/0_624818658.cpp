@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef unsigned long long ull;
 inline u64 min(u64 a, u64 b) {
     return a < b ? a : b;
 }

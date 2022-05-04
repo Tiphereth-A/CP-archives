@@ -5,10 +5,7 @@
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _lch ((p) << 1)
 #define _rch ((p) << 1 | 1)
-typedef unsigned long long ull;
-typedef __int128 i128;
 typedef double db;
-typedef long double ldb;
 template <tpn A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <tpn A>

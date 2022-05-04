@@ -1,15 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-using ull = unsigned long long;
 using db = double;
-using ldb = long double;
 using pii = pair<i64, i64>;
-using vi = vector<int>;
-using qi = queue<int>;
-using dqi = deque<int>;
-using pqi = priority_queue<int>;
-using si = set<int>;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 template <class T>
 bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }

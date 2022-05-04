@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 const int N = 1e6 + 5;
 int phi[N];
 int prime[N / 10], cnt_prime;

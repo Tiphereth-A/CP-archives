@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 typedef pair<int, int> pii;
 const int N = 3.6e4, K = 4;
 const int MOD = 999911659, mods[K] = {2, 3, 4679, 35617};

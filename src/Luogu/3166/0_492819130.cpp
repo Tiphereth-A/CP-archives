@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 const int OFFSET = 5;
 const int N = 1e3 + OFFSET;
 bool vis[N];

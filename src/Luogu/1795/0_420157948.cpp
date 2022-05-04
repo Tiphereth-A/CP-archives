@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 typedef long long ll;
-typedef unsigned long long ull;
 #define MAXN 44725
 using namespace std;
 ll d[MAXN];

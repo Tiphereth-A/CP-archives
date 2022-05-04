@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-using u64 = uint64_t;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 i64 a[33];
 set<i64> s[65];

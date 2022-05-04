@@ -13,8 +13,6 @@
 #endif
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-typedef long long ll;
-typedef unsigned long long ull;
 #endif
 #define INF_I32 0x7fffffff
 const int M = 500005;

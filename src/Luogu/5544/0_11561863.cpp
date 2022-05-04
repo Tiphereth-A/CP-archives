@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
-using u64 = uint64_t;
 const int N = 11, M = 1005;
 int n, m, r;
 struct Allay {
@@ -16,14 +14,10 @@ struct Result {
 } ans;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 namespace Simulated_annealing {
-using data_type = int;
 using fit_type = int;
 using index_type = size_t;
 using temperature_type = double;
 template <class Tp>
-using seq_type = std::vector<Tp>;
-using data_seq_type = seq_type<data_type>;
-using fit_seq_type = seq_type<fit_type>;
 default_random_engine g(time(nullptr));
 uniform_real_distribution<double> data_gen(-RAND_MAX, RAND_MAX);
 uniform_int_distribution<index_type> idx_gen;

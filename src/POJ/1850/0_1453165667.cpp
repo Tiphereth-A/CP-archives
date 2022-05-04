@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 using namespace std;
-typedef long long ll;
 const int N = 26 + 1;
 i64 c[N][N] = {{1}, {1, 1}};
 int main() {

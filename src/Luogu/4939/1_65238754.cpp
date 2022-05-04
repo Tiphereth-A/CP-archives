@@ -29,10 +29,6 @@ using namespace std;
 #endif
 #ifdef __CPP_STYLE__
 #endif
-typedef long long ll;
-typedef unsigned long long ull;
-typedef double db;
-typedef long double ldb;
 #endif
 #ifndef tpn
 #define tpn typename

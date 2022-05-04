@@ -1,5 +1,4 @@
 #include <cstdio>
-typedef long long ll;
 int s[21][21][21];
 int w(i64 a, i64 b, i64 c) {
     if (a <= 0 || b <= 0 || c <= 0)

@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 const int M = 20005;
 #define _for(i, l, r) for (int i = (l); i <= (r); i++)
 #define _for(i, r, l) for (int i = (r); i >= (l); i--)

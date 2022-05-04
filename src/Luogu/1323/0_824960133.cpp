@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
-typedef unsigned long long ull;
 using namespace std;
 priority_queue<int, vector<int>, greater<int>> q;
 string ans, s1;

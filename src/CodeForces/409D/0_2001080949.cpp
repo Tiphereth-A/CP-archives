@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
-typedef unsigned long long ull;
 using namespace std;
 char s[] = "1001010111001010";
 int main() {

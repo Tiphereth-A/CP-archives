@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 const int MOD = 9901;
 i64 qpow(i64 a, i64 b = MOD - 2, i64 mod = MOD) {
     i64 res = 1;

@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 const int N = 2e5 + 5;
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-typedef long long ll;
 i64 id[N], win[N], lose[N];
 i64 rank[N], data[N];
 int n, r, q, cnt_win, cnt_lose;

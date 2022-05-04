@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
-typedef unsigned long long ull;
 using namespace std;
 const string key[3] = {"qwertyuiop", "asdfghjkl;", "zxcvbnm,./"};
 string ans;

@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 const int N = 35;
 i64 n, a[N], dp[N][N][N];
 i64 f(int l, int r, int root) {

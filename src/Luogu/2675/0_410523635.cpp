@@ -1,10 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 using i64 = int64_t;
-using u64 = uint64_t;
-using i128 = __int128_t;
-using u128 = __uint128_t;
-using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 #define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
 template <class T>

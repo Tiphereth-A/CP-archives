@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 const int N = 1e6 + 5, M = 2e6 + 5, MOD = 1e9 + 7;
 struct Edge {
     i64 w;

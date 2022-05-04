@@ -1,12 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-using ull = unsigned long long;
-using i128 = __int128_t;
-using u128 = __uint128_t;
 using db = double;
-using ldb = long double;
-using pii = pair<int, int>;
 #define _rfor(i, r, l, vals...) for (decltype(r - l) i = (r), ##vals; i >= (l); --i)
 template <class T>
 bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }

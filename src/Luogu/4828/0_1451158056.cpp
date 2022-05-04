@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define tpn typename
-typedef unsigned int u32;
-typedef unsigned long long ull;
-typedef long long ll;
 template <tpn A>
 inline void Swap(A &x, A &y) {
     x ^= y, y ^= x, x ^= y;

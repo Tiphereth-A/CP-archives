@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-typedef long long ll;
 std::priority_queue<i64> a, b;
 int main() {
     i64 t, tmp, tmpa, tmpb;

@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _mid(l, r) ((l) + (((r) - (l)) >> 1))
-typedef long long ll;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;

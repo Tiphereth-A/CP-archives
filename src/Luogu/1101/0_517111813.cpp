@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
-typedef unsigned long long ull;
 #define MAXN 105
 char f[MAXN][MAXN];
 bool flag[MAXN][MAXN];

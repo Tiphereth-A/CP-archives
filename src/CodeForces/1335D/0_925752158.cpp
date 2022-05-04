@@ -2,10 +2,6 @@
 using namespace std;
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _set_nul(a) memset(a, 0, sizeof(a))
-typedef long long ll;
-typedef unsigned long long ull;
-typedef double db;
-typedef long double ldb;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;

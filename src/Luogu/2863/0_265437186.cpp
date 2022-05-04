@@ -1,15 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-using ull = unsigned long long;
 using db = double;
-using ldb = long double;
-using pii = pair<int, int>;
-using vi = vector<int>;
-using qi = queue<int>;
-using dqi = deque<int>;
-using pqi = priority_queue<int>;
-using si = set<int>;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 #define _for_graph(head, e, i, now) for (int i = head[now], to = e[i].to; i; to = e[i = e[i].next].to)
 template <class T>

@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-using ull = unsigned long long;
 #define _SEL3(_1, _2, _3, ...) _1, _2, _3
 #define SEL3(...) _SEL3(__VA_ARGS__)
 #define _CPROD1_4_HELPER(a, b, c, d, ...) a, __VA_ARGS__, b, __VA_ARGS__, c, __VA_ARGS__, d, __VA_ARGS__

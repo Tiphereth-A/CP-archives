@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
-typedef unsigned long long ull;
 #define M 5005
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define gi getint

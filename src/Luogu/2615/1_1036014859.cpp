@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 const int MAXN = 2000 + 10;
 int a[45][45];
 using namespace std;

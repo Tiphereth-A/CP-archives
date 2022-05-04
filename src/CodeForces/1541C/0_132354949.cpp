@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 const int N = 1e5 + 5;
 i64 d[N];

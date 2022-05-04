@@ -3,7 +3,6 @@
 #define ls (p << 1)
 #define rs (p << 1 | 1)
 #define Mid int m = ((r - l) >> 1) + l
-typedef long long ll;
 const int N = 1e6 + 5;
 i64 sum[N << 2], add[N << 2], mul[N << 2], a[N], mod;
 namespace fastIO {

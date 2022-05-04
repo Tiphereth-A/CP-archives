@@ -1,6 +1,5 @@
 #include <cstdio>
 #include <set>
-typedef long long ll;
 std::set<i64> subtrees;
 void dfs(i64 n) {
     if (n < 2) return;

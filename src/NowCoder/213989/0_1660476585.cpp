@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 const int N = 1e5 + 5, BLOCK_N = 4e2 + 5;
 i64 n, a[N];
 i64 block_len, block_cnt;

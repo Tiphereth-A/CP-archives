@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
-typedef long long ll;
 namespace FastIO {
 char buf[1 << 21], *p1 = buf, *p2 = buf;
 int getc() {

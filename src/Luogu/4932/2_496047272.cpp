@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef unsigned long long ull;
 int In, Ia, Ib, Ic, Id;
 u64 pre, cnt[2];
 namespace fastIO {

@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
-typedef unsigned long long ull;
 #define MAXN 35
 #define g 6.67408e-11
 #define t0 0.01

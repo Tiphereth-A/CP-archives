@@ -5,7 +5,6 @@
 #define tpn typename
 #define _mem(a) memset(a, 0, sizeof(a))
 #define _lowbit(x) ((x) & -(x))
-typedef long long ll;
 template <tpn A>
 inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
 const int N = 1e5 + 5;

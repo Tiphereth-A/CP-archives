@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-typedef long long ll;
 #define N 100005
 const int MOD = 99999997;
 struct node {

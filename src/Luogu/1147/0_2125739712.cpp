@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 const int MAXN = 2000 + 10;
 using namespace std;
 inline int gcd(int x, int y) {

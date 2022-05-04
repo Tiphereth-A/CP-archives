@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 #define MAXN 10000010
 using namespace std;
 bool noprime[MAXN];

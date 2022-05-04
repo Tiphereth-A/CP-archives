@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 const int OFFSET = 5, N = 1e5 + OFFSET;
 const int MOD = 1e9 + 7;
 int f[N] = {1, 1};

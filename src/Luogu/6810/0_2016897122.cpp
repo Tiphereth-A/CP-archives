@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 const int N = 2e6 + 5;
 int tau[N] = {0, 1}, pfac_num[N];
 int prime[N], cnt;

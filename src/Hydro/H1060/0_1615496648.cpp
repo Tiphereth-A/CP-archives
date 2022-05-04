@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
 using i128 = __int128_t;
 const int OFFSET = 1;
 const int N = 5e7 + OFFSET, P = 6002268 + OFFSET;

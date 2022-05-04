@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
 namespace Primetest_miller_rabin {
 using data_type = uint64_t;
 using signed_data_t = make_signed_t<data_type>;

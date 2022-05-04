@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
-typedef unsigned long long ull;
 #define _rfor(i, r, l) for (int i = (r); i >= (l); i--)
 using namespace std;
 string str;

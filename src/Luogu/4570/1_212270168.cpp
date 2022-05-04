@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
 using u64 = uint64_t;
 template <std::size_t _N = 64, std::enable_if_t<0 < _N && _N <= 64> * = nullptr>
 class Xor_base {

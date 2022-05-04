@@ -2,12 +2,6 @@
 using namespace std;
 using i64 = int64_t;
 using u64 = uint64_t;
-using i128 = __int128_t;
-using u128 = __uint128_t;
-using f32 = float;
-using f64 = double;
-using f128 = long double;
-using pii = pair<int, int>;
 template <class T>
 bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>

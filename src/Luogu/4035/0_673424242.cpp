@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 namespace Matrix {
 #define _TRAITS(expression, __...) std::enable_if_t<expression, ##__> * = nullptr
 #define _CONVERTIBLE(Tp, Up) std::is_convertible<Tp, Up>::value

@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 const int N = 1e4 + 5;
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 using std::cin;

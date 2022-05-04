@@ -10,7 +10,6 @@ class mod_integer {
     using mod_t = Tp;
     using common_t = std::common_type_t<data_t, mod_t>;
     using signed_common_t = std::make_signed_t<common_t>;
-    using unsigned_common_t = std::make_unsigned_t<common_t>;
 
   protected:
     data_t num;

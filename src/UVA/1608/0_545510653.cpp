@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
 #define _for(i, l, r, vals...) for (int i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 #define _rfor(i, r, l, vals...) for (int i = (r), i##end = (l), ##vals; i >= i##end; --i)
 const uint32_t OFFSET = 5;

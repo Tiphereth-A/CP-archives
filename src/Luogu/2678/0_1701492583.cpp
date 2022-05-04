@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-typedef long long ll;
 i64 l, m, n;
 i64 d[50005];
 bool inline solve(const i64 &len) {

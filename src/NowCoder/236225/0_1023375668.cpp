@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 using i64 = int64_t;
-using u64 = uint64_t;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 const int N = 500 + 5;
 int f[N][N];

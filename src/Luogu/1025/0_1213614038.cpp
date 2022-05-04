@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
-typedef unsigned long long ull;
 using namespace std;
 int n, k, ans;
 void dfs(int rn, int rk, int sum) {

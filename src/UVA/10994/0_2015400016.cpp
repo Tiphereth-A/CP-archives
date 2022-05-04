@@ -1,5 +1,4 @@
 #include <cstdio>
-typedef long long ll;
 i64 s(i64 n) {
     i64 ans = 0;
     while (n) {

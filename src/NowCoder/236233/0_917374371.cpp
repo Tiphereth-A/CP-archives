@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 using i64 = int64_t;
-using u64 = uint64_t;
 inline int f(i64 x) {
     if (!x) return 1;
     int ans = 0;

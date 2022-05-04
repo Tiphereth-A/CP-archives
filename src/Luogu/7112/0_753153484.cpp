@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 namespace ModInteger {
 #define _TRAITS(expression, __...) std::enable_if_t<expression, ##__> * = nullptr
 template <typename Tp>
@@ -9,9 +8,6 @@ class mod_integer {
     using self = mod_integer<Tp>;
     using data_t = Tp;
     using mod_t = Tp;
-    using common_t = std::common_type_t<data_t, mod_t>;
-    using signed_common_t = std::make_signed_t<common_t>;
-    using unsigned_common_t = std::make_unsigned_t<common_t>;
 
   protected:
     data_t num;

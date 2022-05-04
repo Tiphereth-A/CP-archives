@@ -3,7 +3,6 @@
 #include <iostream>
 using namespace std;
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
-typedef long long ll;
 template <typename T>
 T qpow(T a, T b, T mod) {
     T res = 1;

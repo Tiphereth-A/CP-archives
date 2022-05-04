@@ -1,11 +1,7 @@
 #include <bits/stdc++.h>
 #define tpn typename
 #define _lowbit(x) (1 << __builtin_ctz(x))
-typedef long long ll;
-typedef unsigned long long ull;
-typedef __int128 i128;
 typedef double db;
-typedef long double ldb;
 template <tpn A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;

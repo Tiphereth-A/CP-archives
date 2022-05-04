@@ -3,7 +3,6 @@
 #define ls rt << 1
 #define rs rt << 1 | 1
 #define Mid unsigned long long m = ((r - l) >> 1) + l
-typedef unsigned long long ull;
 #define MAXN 100005
 u64 sum[MAXN << 2], add[MAXN << 2], a[MAXN];
 inline void PushUp(const u64 &rt) {

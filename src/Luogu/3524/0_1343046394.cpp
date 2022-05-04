@@ -1,7 +1,4 @@
 #include <bits/stdc++.h>
-using ll = long long;
-using ld = long double;
-using pii = std::pair<int, int>;
 const int INF = 0x3f3f3f3f;
 const long long INFLL = 0x3f3f3f3f3f3f3f3fLL;
 int _w, _t;

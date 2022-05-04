@@ -1,15 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-using ull = unsigned long long;
 using db = double;
-using ldb = long double;
 using pii = pair<int, int>;
-using vi = vector<int>;
-using qi = queue<int>;
-using dqi = deque<int>;
-using pqi = priority_queue<int>;
-using si = set<int>;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 #define _run_exit(expressions) _run_return(expressions, 0)
 #define _run_return(expressions, val) return (expressions), val

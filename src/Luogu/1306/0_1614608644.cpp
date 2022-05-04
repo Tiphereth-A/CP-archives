@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-using ull = unsigned long long;
 const int MOD = 1e8;
 template <class Tp, std::size_t row, std::size_t col>
 class matrix {

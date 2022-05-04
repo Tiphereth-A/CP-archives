@@ -1,6 +1,5 @@
 #include <cmath>
 #include <cstdio>
-typedef long long ll;
 i64 phi(i64 n) {
     i64 ans = n, sqn = sqrt(n + 0.5);
     for (i64 i = 2; i <= sqn; ++i) {

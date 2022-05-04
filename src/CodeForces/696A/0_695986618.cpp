@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 map<i64, i64> m;
 int main() {
     ios::sync_with_stdio(false);

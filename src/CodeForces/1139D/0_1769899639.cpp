@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 const int OFFSET = 5;
 const int N = 5e6 + OFFSET;

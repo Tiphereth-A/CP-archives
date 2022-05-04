@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 int main() {
     i64 a, b;
     cin >> a >> b;

@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 using namespace std;
 int main() {
     double h, s, v, l, k, n;

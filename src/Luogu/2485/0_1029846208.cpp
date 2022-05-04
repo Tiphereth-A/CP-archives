@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 std::map<int, int> list;
 int mod;
 inline void err() { puts("Orz, I cannot find x!"); }

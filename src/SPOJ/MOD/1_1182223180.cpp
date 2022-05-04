@@ -6,7 +6,6 @@
 #define tpn typename
 #define _err puts("No Solution")
 #define _memng(a) memset(a, 0xff, sizeof(a))
-typedef long long ll;
 template <tpn A>
 A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 namespace fastIO {

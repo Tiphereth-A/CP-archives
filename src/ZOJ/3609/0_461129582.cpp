@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <iostream>
 using namespace std;
-typedef long long ll;
 template <typename T>
 void exgcd(T a, T b, T &gcd, T &x, T &y) {
     if (!b) {

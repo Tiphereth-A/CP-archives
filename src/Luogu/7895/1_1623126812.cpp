@@ -1,11 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-using ull = unsigned long long;
-using i128 = __int128_t;
-using u128 = __uint128_t;
-using db = double;
-using ldb = long double;
 using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 #define _all(a) (a).begin(), (a).end()

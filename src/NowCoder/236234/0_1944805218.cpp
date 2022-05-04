@@ -1,10 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
-using u64 = uint64_t;
-using i128 = __int128_t;
-using u128 = __uint128_t;
-using pii = pair<int, int>;
 const int N = 1e7 + 5;
 const int ans[5][11] = {
     {},

@@ -1,10 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 using i64 = int64_t;
-using u64 = uint64_t;
-using i128 = __int128_t;
-using u128 = __uint128_t;
-using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 namespace FastIO {
 char buf[1 << 21], *p1 = buf, *p2 = buf;

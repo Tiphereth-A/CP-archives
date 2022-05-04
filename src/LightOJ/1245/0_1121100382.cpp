@@ -1,5 +1,4 @@
 #include <cstdio>
-typedef long long ll;
 int main() {
     int kase;
     scanf("%d", &kase);

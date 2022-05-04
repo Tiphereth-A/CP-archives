@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 const int N = 40, M = (1 << (N / 2)), OFS = 5;
 int a[N + OFS];
 i64 b[M + OFS];

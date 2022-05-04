@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
 using u64 = uint64_t;
-using i128 = __int128_t;
 using u128 = __uint128_t;
 u64 p;
 struct Mat {

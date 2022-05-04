@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-using i128 = __int128_t;
 namespace FastIO {
 char buf[1 << 21], *p1 = buf, *p2 = buf;
 inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++; }

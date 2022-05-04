@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 #define MAXN 33
-typedef unsigned long long ull;
 #define _for(i, m, n) for (int i = m; i <= n; i++)
 using namespace std;
 int f[MAXN][MAXN], n;

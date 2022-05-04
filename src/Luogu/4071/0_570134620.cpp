@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 const int N = 1e6 + 5, MOD = 1e9 + 7;
 i64 frac[N] = {1}, inv[N], d[N];
 i64 qpow(i64 a, i64 b = MOD - 2, i64 mod = MOD) {

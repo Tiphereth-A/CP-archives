@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _lowbit(x) (1 << __builtin_ctz(x))
-typedef long long ll;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;

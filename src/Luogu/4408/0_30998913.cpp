@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 #define _set_nul(a) memset(a, 0, sizeof(a))
 const int OFFSET = 5;

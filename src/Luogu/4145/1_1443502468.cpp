@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef unsigned long long ull;
 const int N = 2e5 + 5;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';

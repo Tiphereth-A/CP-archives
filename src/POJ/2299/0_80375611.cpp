@@ -2,7 +2,6 @@
 #include <cstdio>
 #include <cstring>
 using namespace std;
-typedef long long ll;
 const int N = 5e5 + 50;
 i64 a[N], b[N], c[N];
 i64 lowbit(i64 x) { return x & (-x); }

@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 const int N = 1e5 + 5;
 unordered_map<int, int> phi;
 int calc_phi(int p) {

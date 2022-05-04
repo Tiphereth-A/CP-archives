@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
-typedef long long ll;
 #define MAXN 405
-typedef unsigned long long ull;
 using namespace std;
 int f[MAXN][MAXN];
 int m, n;

@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 namespace atcoder {
 namespace internal {
 int ceil_pow2(int n) {
@@ -199,13 +198,10 @@ using is_signed_int_t = std::enable_if_t<is_signed_int<T>::value>;
 template <class T>
 using is_unsigned_int_t = std::enable_if_t<is_unsigned_int<T>::value>;
 template <class T>
-using to_unsigned_t = typename to_unsigned<T>::type;
 struct modint_base {};
 struct static_modint_base: modint_base {};
 template <class T>
-using is_modint = std::is_base_of<modint_base, T>;
 template <class T>
-using is_modint_t = std::enable_if_t<is_modint<T>::value>;
 }  // namespace internal
 template <int m, std::enable_if_t<(1 <= m)> * = nullptr>
 struct static_modint: internal::static_modint_base {
@@ -420,9 +416,6 @@ struct dynamic_modint: internal::modint_base {
 };
 template <int id>
 internal::barrett dynamic_modint<id>::bt = 998244353;
-using modint998244353 = static_modint<998244353>;
-using modint1000000007 = static_modint<1000000007>;
-using modint = dynamic_modint<-1>;
 namespace internal {
 template <class T>
 using is_static_modint = std::is_base_of<internal::static_modint_base, T>;
@@ -433,7 +426,6 @@ struct is_dynamic_modint: public std::false_type {};
 template <int id>
 struct is_dynamic_modint<dynamic_modint<id>>: public std::true_type {};
 template <class T>
-using is_dynamic_modint_t = std::enable_if_t<is_dynamic_modint<T>::value>;
 template <class mint, internal::is_static_modint_t<mint> * = nullptr>
 void butterfly(std::vector<mint> &a) {
     static constexpr int g = internal::primitive_root<mint::mod()>;

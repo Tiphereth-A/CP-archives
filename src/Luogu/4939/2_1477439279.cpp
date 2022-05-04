@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-typedef long long ll;
 template <typename A>
 inline void read(A &x) {
     char c;

@@ -29,11 +29,6 @@
 #else
 #define _debug(type, x) printf(#x "=%" type "\n", (x))
 #endif
-typedef long long ll;
-typedef unsigned long long ull;
-typedef __int128 i128;
-typedef double db;
-typedef long double ldb;
 #endif
 #ifdef __FUNC__
 #ifndef tpn

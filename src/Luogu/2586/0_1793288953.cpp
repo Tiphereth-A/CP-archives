@@ -4,7 +4,6 @@
 const int MAX_TURRET = 25, MAX_ANT = 11;
 const int MAX_N = 9, MAX_M = 9;
 const int dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0};
-typedef long long ll;
 int has_taken[MAX_N][MAX_M];
 int msg[MAX_N][MAX_M];
 bool cake_disappeared;

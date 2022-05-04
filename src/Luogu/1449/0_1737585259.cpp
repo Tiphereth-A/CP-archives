@@ -1,10 +1,6 @@
 #include <bits/stdc++.h>
 #define gc getchar
 #define tpn typename
-typedef long long ll;
-typedef unsigned long long ull;
-typedef double db;
-typedef long double ldb;
 template <tpn A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;

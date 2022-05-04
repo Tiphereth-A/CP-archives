@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 const int N = 1e6 + 25, MOD = 666623333;
 i64 prime[N], cnt;
 bool vis[N];

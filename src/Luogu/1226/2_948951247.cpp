@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 const int N = 1e5 + 5;
 template <typename Tp>
 class rpow {

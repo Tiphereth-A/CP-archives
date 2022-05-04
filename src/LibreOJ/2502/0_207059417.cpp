@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 using pii = pair<int, int>;
 using qi = queue<int>;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)

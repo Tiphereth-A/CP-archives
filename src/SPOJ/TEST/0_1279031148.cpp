@@ -7,8 +7,6 @@
 #include <queue>
 #include <sstream>
 #include <string>
-typedef long long ll;
-typedef unsigned long long ull;
 using namespace std;
 int main() {
     int n;

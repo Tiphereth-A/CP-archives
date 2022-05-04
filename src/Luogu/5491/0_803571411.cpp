@@ -1,13 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
-using u64 = uint64_t;
-using i128 = __int128_t;
-using u128 = __uint128_t;
-using f32 = float;
-using f64 = double;
-using f128 = long double;
-using pii = pair<int, int>;
 template <typename Tp = int64_t, typename Up = uint64_t, std::enable_if_t<(std::is_same_v<typename std::remove_cv<Tp>::type, int64_t> || std::is_same_v<typename std::remove_cv<Tp>::type, uint64_t>)&&std::is_unsigned_v<Up>> * = nullptr>
 constexpr Tp mul_mod(Tp a, Tp b, const Up &mod) {
     Tp d = floorl(1.0l * a * b / mod + 0.5l), ret = a * b - d * mod;
@@ -33,7 +25,6 @@ constexpr int32_t legendre_symbol(uint64_t a, uint64_t p) noexcept {
 }
 namespace quad_r {
 using data_type = int64_t;
-using signed_data_t = std::make_signed_t<data_type>;
 using unsigned_data_t = std::make_unsigned_t<data_type>;
 std::default_random_engine e(time(nullptr));
 std::optional<data_type> quad_residue(const data_type &n, const unsigned_data_t &p) {

@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 #define max(a, b) (((a) > (b)) ? (a) : (b))
 using namespace std;
 LL T, N;

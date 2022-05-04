@@ -1,14 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
-using u64 = uint64_t;
 template <std::size_t _N = 64, std::enable_if_t<0 < _N && _N <= 64> * = nullptr>
 class Xor_base {
   public:
     using self = Xor_base<_N>;
     using data_type = std::uint64_t;
     using size_type = std::size_t;
-    using reference = self &;
     using iterator = data_type *;
     using const_iterator = data_type *;
     using reverse_iterator = std::reverse_iterator<iterator>;

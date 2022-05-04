@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 int main() {
     i64 ans = 0, _;
     while (cin >> _) ans += _;

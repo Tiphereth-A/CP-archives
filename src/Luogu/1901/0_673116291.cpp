@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
 #define _for(i, l, r) for (int i = (l), i##end = (r); i <= i##end; ++i)
 #define _rfor(i, r, l) for (int i = (r), i##end = (l); i >= i##end; --i)
 const unsigned N = 1e6 + 1;

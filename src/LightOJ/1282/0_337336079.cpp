@@ -1,6 +1,5 @@
 #include <cmath>
 #include <cstdio>
-typedef long long ll;
 const int MOD = 1000;
 template <typename T>
 T qpow(T a, T b, T mod = MOD) {

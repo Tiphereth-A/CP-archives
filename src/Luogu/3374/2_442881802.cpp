@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _lowbit(x) (1 << __builtin_ctz(x))
-typedef long long ll;
 const int N = 5e5 + 5;
 i64 a[N];
 int m, n;

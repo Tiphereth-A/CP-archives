@@ -34,10 +34,6 @@ using namespace std;
 #else
 #define DEBUG(type, x) printf(#x "=%" #type "\n", (x))
 #endif
-typedef long long ll;
-typedef unsigned long long ull;
-typedef double db;
-typedef long double ldb;
 #endif
 #ifndef tpn
 #define tpn typename

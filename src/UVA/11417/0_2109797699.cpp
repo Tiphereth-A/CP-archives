@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 const int N = 4e6 + 5;
 bool vis[N];
 int prime[N], cnt_prime;

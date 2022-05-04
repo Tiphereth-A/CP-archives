@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 2e5 + 5;
-typedef long long ll;
 i64 a[N];
 int main() {
     int kase;

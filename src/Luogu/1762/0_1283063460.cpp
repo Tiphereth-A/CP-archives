@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
 typedef __int128_t i128;
 const i64 MOD = 1e6 + 3;
 int main() {

@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 typedef long long ll;
-typedef unsigned long long ull;
 using namespace std;
 ll f[21][21] = {1};
 bool mark[21][21];

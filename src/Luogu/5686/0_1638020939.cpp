@@ -1,9 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
-using ull = unsigned long long;
-using db = double;
-using ldb = long double;
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 const int N = 5e5 + 5;
 const i64 MOD = 1e9 + 7;
