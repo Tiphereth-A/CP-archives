@@ -203,17 +203,23 @@ def remove_empty_folder(src: str):
 
 @cli.command('rn')
 @click.option('-s', '--src', type=str, help='src folder', default='src')
-@click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
-def rename_all_files(src: str, max_int: int):
+def rename_all_files(src: str):
     """rename all files"""
 
     @log_default(get_filemap(src))
     def rename_all_files(filepath: str, filenames: list[str], logger: logging.Logger) -> None:
-        filenames.sort()
-        cnt: int = 0
-        for filename in filenames:
+        tmp_filenames = [rf"{i}_{random.randint(0, max(2147483647,len(filenames)))}.{get_extname(filenames[i])}" for i in range(0, len(filenames))]
+        for (filename, tmp_filename) in zip(filenames, tmp_filenames):
             pre_name = os.path.join(filepath, filename)
-            new_name = os.path.join(filepath, rf"{cnt}_{random.randint(0, max_int)}.{get_extname(filename)}")
+            new_name = os.path.join(filepath, tmp_filename)
+            os.rename(pre_name, new_name)
+
+            logger.debug(rf"'{pre_name}' -> '{new_name}'")
+
+        cnt: int = 0
+        for filename in tmp_filenames:
+            pre_name = os.path.join(filepath, filename)
+            new_name = os.path.join(filepath, rf"{cnt}.{get_extname(filename)}")
             os.rename(pre_name, new_name)
             cnt += 1
 
@@ -226,8 +232,7 @@ def rename_all_files(src: str, max_int: int):
 @click.option('-o', '--oj', type=str, help='OJ name', required=True)
 @click.option('-i', '--pid', type=str, help='problem ID', required=True)
 @click.option('-e', '--ext-name', type=str, help='extension name', default="cpp")
-@click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
-def add_new_file(oj: str, pid: str, ext_name: str, max_int: int):
+def add_new_file(oj: str, pid: str, ext_name: str):
     """add new file, and copy content in clipboard to the new file"""
 
     src: str = rf'.\src\{oj}\{pid}'
@@ -238,7 +243,7 @@ def add_new_file(oj: str, pid: str, ext_name: str, max_int: int):
 
     @log_default(get_filemap(src))
     def add_new_file(filepath: str, filenames: list[str], logger: logging.Logger) -> None:
-        full_filename = os.path.join(filepath, rf"{len(filenames)}_{random.randint(0, max_int)}.{ext_name}")
+        full_filename = os.path.join(filepath, rf"{len(filenames)}.{ext_name}")
         with open(full_filename, 'w', encoding='utf8') as f:
             f.write(get_clipboard_text())
             logger.info(rf"'{full_filename}' created")
@@ -250,9 +255,8 @@ def add_new_file(oj: str, pid: str, ext_name: str, max_int: int):
 @click.option('-o', '--oj', type=str, prompt='OJ name', help='OJ name')
 @click.option('-i', '--pid', type=str, prompt='problem ID', help='problem ID')
 @click.option('-e', '--ext-name', type=str, prompt='extension name', help='extension name', default="cpp")
-@click.option('-m', '--max-int', help='maximum of rand', type=int, default=2147483647)
 @click.option('--git/--no-git', help='auto commit after process(default) / do nothing after process', default=True)
-def default_process(oj: str, pid: str, ext_name: str, max_int: int, git: bool):
+def default_process(oj: str, pid: str, ext_name: str, git: bool):
     """default process"""
 
     src: str = rf'.\src\{oj}\{pid}'
@@ -261,7 +265,7 @@ def default_process(oj: str, pid: str, ext_name: str, max_int: int, git: bool):
     except OSError as e:
         pass
 
-    add_new_file.callback(oj, pid, ext_name, max_int)
+    add_new_file.callback(oj, pid, ext_name)
     unify_code_format.callback(src)
     remove_comments.callback(src)
     remove_blanks.callback(src)
@@ -274,7 +278,7 @@ def default_process(oj: str, pid: str, ext_name: str, max_int: int, git: bool):
     remove_duplicate_files.callback(src)
     next_cnt = len(get_all_files(src))
     if prev_cnt != next_cnt:
-        rename_all_files.callback(src, max_int)
+        rename_all_files.callback(src)
 
     if not git:
         return
