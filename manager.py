@@ -284,7 +284,7 @@ def default_process(oj: str, pid: str, ext_name: str, git: bool):
         return
 
     subprocess.run(['git', 'add', r'src/\*'], encoding='utf8', check=True)
-    subprocess.run(['git', 'commit', '--message', rf'feat: add {oj} {id}'], encoding='utf8', check=True)
+    subprocess.run(['git', 'commit', '--message', rf'feat: add {oj} {pid}'], encoding='utf8', check=True)
     # subprocess.run(['git', 'push', 'origin', 'main'], encoding='utf8', check=True)
 
 
