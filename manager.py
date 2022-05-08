@@ -140,7 +140,9 @@ def unify_code_format(src: str):
     """format all files"""
 
     __commands = {
+        'c': lambda filepath, filename: ['clang-format', '-style=file', '-i', os.path.join(filepath, filename)],
         'cpp': lambda filepath, filename: ['clang-format', '-style=file', '-i', os.path.join(filepath, filename)],
+        'hpp': lambda filepath, filename: ['clang-format', '-style=file', '-i', os.path.join(filepath, filename)],
         'py': lambda filepath, filename: ['autopep8', '-i', os.path.join(filepath, filename)]
     }
 
