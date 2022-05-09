@@ -2,7 +2,9 @@ import hashlib
 import logging
 import os
 import re
+import sys
 import tkinter as tk
+import traceback
 from typing import Any
 
 
@@ -55,6 +57,7 @@ def log_default(files: list[tuple[str, Any]]):
                 logger.debug(rf"({filepath}, {filename}) succeed")
             except Exception as e:
                 logger.warning(rf"({filepath}, {filename}) failed with exception '{e}'")
+                traceback.print_exc()
                 fail_cnt += 1
         if fail_cnt:
             logger.warning(f'{fail_cnt} file(s) failed')
@@ -110,3 +113,19 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
         code, new_code = new_code, []
 
     return code
+
+
+__TOOL_BIN_ = r"./tools/bin/{_folder}/{_name}"
+__PLATFORM_ = sys.platform
+
+
+def get_file_in_toolbin(folder: str, names: list[tuple[str, str]]):
+    name: str = ''
+    for k,v in names:
+        if __PLATFORM_.startswith(k):
+            name = v
+            break
+    if not name:
+        raise KeyError()
+
+    return __TOOL_BIN_.format(_folder=folder, _name=name)

@@ -14,13 +14,14 @@ My code about Competitive Programming in daily practice
 
 ## Feature of `manager.py`
 
-- Remove useless files (empty files, duplicate files, files with no extension name, ...)
-- Clean content of files (comments, blanks, ...)
-- Add new file
-- Reformat files
-- Rename files
+-   Remove useless files (empty files, duplicate files, files with no extension name, ...)
+-   Clean content of files (comments, blanks, ...)
+-   Add new file
+-   Reformat files
+-   Rename files
 
 ## Usage of `manager.py`
+
 ### Simple usage
 
 ```shell
@@ -40,3 +41,12 @@ See more info by
 ```text
 python manager.py [command] --help
 ```
+
+### About formatting
+
+| code type         | formatter                                                    |
+| ----------------- | ------------------------------------------------------------ |
+| `c`, `cpp`, `hpp` | [clang-format](https://clang.llvm.org/docs/ClangFormat.html) |
+| `kt`              | [ktlint](https://github.com/pinterest/ktlint)                |
+| `py`              | [autopep8](https://github.com/hhatto/autopep8)               |
+| `pas`             | [jcf-cli](https://github.com/git-bee/jcf-cli)                |

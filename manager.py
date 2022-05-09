@@ -9,8 +9,7 @@ import subprocess
 
 import click
 
-from tools import get_clipboard_text, get_filemap, get_all_files, md5sum, get_extname, log_default, remove_file, \
-    clean_redundant_code_cpp
+from tools import *
 from tools.cmcleaner.src.comments_cleaner import cpp, python
 
 
@@ -143,11 +142,22 @@ def unify_code_format(src: str):
         'c': lambda filepath, filename: ['clang-format', '-style=file', '-i', os.path.join(filepath, filename)],
         'cpp': lambda filepath, filename: ['clang-format', '-style=file', '-i', os.path.join(filepath, filename)],
         'hpp': lambda filepath, filename: ['clang-format', '-style=file', '-i', os.path.join(filepath, filename)],
+        'kt': lambda filepath, filename: ['ktlint', '-F', os.path.join(filepath, filename)],
+        'pas': lambda filepath, filename: [get_file_in_toolbin('jcf',
+                                                               [['win32', 'jcf-win-64.exe'],
+                                                                ['darwin', 'jcf-osx-64'],
+                                                                ['cygwin', 'jcf-linux-64'],
+                                                                ['linux', 'jcf-linux-64']]),
+                                           os.path.join(filepath, filename),
+                                           '-clarify',
+                                           '-inplace',
+                                           rf"-config=jcf.xml"],
         'py': lambda filepath, filename: ['autopep8', '-i', os.path.join(filepath, filename)]
     }
 
     @log_default(get_all_files(src))
     def unify_code_format(filepath: str, filename: str, logger: logging.Logger) -> None:
+
         full_filename = os.path.join(filepath, filename)
         prev_size = os.path.getsize(full_filename)
 
