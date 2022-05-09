@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import logging
-import os
 import random
-import re
 import subprocess
 
 import click
@@ -157,7 +154,6 @@ def unify_code_format(src: str):
 
     @log_default(get_all_files(src))
     def unify_code_format(filepath: str, filename: str, logger: logging.Logger) -> None:
-
         full_filename = os.path.join(filepath, filename)
         prev_size = os.path.getsize(full_filename)
 
@@ -220,7 +216,8 @@ def rename_all_files(src: str):
 
     @log_default(get_filemap(src))
     def rename_all_files(filepath: str, filenames: list[str], logger: logging.Logger) -> None:
-        tmp_filenames = [rf"{i}_{random.randint(0, max(2147483647,len(filenames)))}.{get_extname(filenames[i])}" for i in range(0, len(filenames))]
+        tmp_filenames = [rf"{i}_{random.randint(0, max(2147483647, len(filenames)))}.{get_extname(filenames[i])}" for i
+                         in range(0, len(filenames))]
         for (filename, tmp_filename) in zip(filenames, tmp_filenames):
             pre_name = os.path.join(filepath, filename)
             new_name = os.path.join(filepath, tmp_filename)

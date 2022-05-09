@@ -121,7 +121,7 @@ __PLATFORM_ = sys.platform
 
 def get_file_in_toolbin(folder: str, names: list[tuple[str, str]]):
     name: str = ''
-    for k,v in names:
+    for k, v in names:
         if __PLATFORM_.startswith(k):
             name = v
             break
