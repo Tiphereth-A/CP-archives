@@ -49,4 +49,6 @@ python manager.py [command] --help
 | `c`, `cpp`, `hpp` | [clang-format](https://clang.llvm.org/docs/ClangFormat.html) |
 | `kt`              | [ktlint](https://github.com/pinterest/ktlint)                |
 | `py`              | [autopep8](https://github.com/hhatto/autopep8)               |
-| `pas`             | [jcf-cli](https://github.com/git-bee/jcf-cli)                |
+| `pas`             | [jcf-cli](https://github.com/git-bee/jcf-cli) [^1]           |
+
+[^1]: You should copy bin files into `.\tools\bin\jcf`
