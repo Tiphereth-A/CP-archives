@@ -1,3 +1,8 @@
+#include <algorithm>
+#include <iostream>
+using namespace std;
+#define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
+#define _set_nul_n(a, n) memset(a, 0, sizeof(a[0]) * (n))
 const uint32_t N = 1e5 + 5;
 struct ptree {
     int val, l, r;
