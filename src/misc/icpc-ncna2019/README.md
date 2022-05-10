@@ -1,1 +1,0 @@
-ICPC North Central NA Regional Contest 2019
