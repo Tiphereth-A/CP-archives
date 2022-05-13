@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+import click
+import coloredlogs
 import random
 import subprocess
-
-import click
 
 from tools import *
 from tools.cmcleaner.src.comments_cleaner import cpp, python
@@ -14,7 +14,7 @@ from tools.cmcleaner.src.comments_cleaner import cpp, python
 @click.option('-l', '--level', type=click.Choice(['CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG']), help='log level',
               default='INFO')
 def cli(level: str):
-    logging.basicConfig(level=level, format='%(asctime)s [%(levelname)s] <%(name)s> %(message)s')
+    coloredlogs.install(level=level, fmt='%(asctime)s <%(name)s:%(process)d> %(levelname)s %(message)s')
 
 
 @cli.command('rne')
