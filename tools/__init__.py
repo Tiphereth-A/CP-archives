@@ -72,12 +72,19 @@ def remove_file(full_filename: str, logger: logging.Logger) -> None:
     logger.debug(rf"'{full_filename}' removed")
 
 
+RE_PRAGMA = re.compile(r'^\s*#pragma')
+RE_DEFINE = re.compile(r'^\s*?#\s*?define\s+?(\w+)')
+RE_USING_TYPEDEF = re.compile(r'^\s*?using\s+?(\w+)\s*?(?==)')
+RE_TYPEDEF = re.compile(r'(?<=typedef)\s(?:[ \w]+)\s(\w+)')
+RE_CONST = re.compile(r'(?<=const)\s(?:\S+)\s(\w+)(?=(?:\[\w+\])*\s?=\s?(?:\w*?\(.+?\))*?(?:\{.+?\})*?[^,]*?)')
+
+
 def clean_redundant_code_cpp(code: list[str]) -> list[str]:
     new_code: list[str] = []
 
     # remove #pragma
     for column in code:
-        if re.search(r'^\s*#pragma', column):
+        if re.search(RE_PRAGMA, column):
             continue
         new_code.append(column)
     code, new_code = new_code, []
@@ -95,16 +102,16 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
                 continue
 
             # capture `#define macros`
-            match_res = re.search(r'^\s*?#\s*?define\s+?(\w+)', column)
+            match_res = re.search(RE_DEFINE, column)
             # capture `using Tp = type;`
             if not match_res:
-                match_res = re.search(r'^\s*?using\s+?(\w+)\s*?(?==)', column)
+                match_res = re.search(RE_USING_TYPEDEF, column)
             # capture `typedef type Tp`
             if not match_res:
-                match_res = re.search(r'(?<=typedef)\s(?:[ \w]+)\s(\w+)', column)
+                match_res = re.search(RE_TYPEDEF, column)
             # capture `const type N = x;`, `const type N = f(x, y);`, `const type N[xxx] = {yyy, zzz};`
             if not match_res:
-                match_res = re.search(r'(?<=const)\s(?:\S+)\s(\w+)(?=(?:\[\w+\])*\s?=\s?(?:\w*?\(.+?\))*?(?:\{.+?\})*?[^,]*?)', column)
+                match_res = re.search(RE_CONST, column)
 
             if match_res:
                 if len(re.split(rf'\b{match_res.group(1)}\b', code_content)) == 2:
