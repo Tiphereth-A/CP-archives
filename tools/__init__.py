@@ -104,7 +104,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
                 match_res = re.search(r'(?<=typedef)\s(?:[ \w]+)\s(\w+)', column)
             # capture `const type N = x;`, `const type N = f(x, y);`, `const type N[xxx] = {yyy, zzz};`
             if not match_res:
-                match_res = re.search(r'(?<=const)\s(?:\S+)\s(\w+)(?=(?:\[\w+\])*\s?=\s?(?:\(.+?\))*?(?:\{.+?\})*?[^,]*?)', column)
+                match_res = re.search(r'(?<=const)\s(?:\S+)\s(\w+)(?=(?:\[\w+\])*\s?=\s?(?:\w*?\(.+?\))*?(?:\{.+?\})*?[^,]*?)', column)
 
             if match_res:
                 if len(re.split(rf'\b{match_res.group(1)}\b', code_content)) == 2:
