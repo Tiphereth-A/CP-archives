@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _lowbit(x) (1 << __builtin_ctz(x))
-typedef double db;
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -88,8 +87,6 @@ using FastIO::print_h;
 using FastIO::read;
 const int M = 1e2 + 5;
 const int N = 3e2 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 int n, m, tr[M][N][N], a[N][N];
 void modify(int color, int x, int y, int k) {
     for (int i = x; i <= n; i += _lowbit(i))

@@ -6,7 +6,6 @@
 #if 0
 #endif
 #define M 105
-const int INF = 0x3f3f3f3f;
 const int MOD = 1000007;
 int n, m, f[M][M];
 int main() {

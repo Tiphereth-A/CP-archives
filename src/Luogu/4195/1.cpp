@@ -118,7 +118,6 @@ inline void print(Type x, char text = '\n') {
 }  // namespace fastIO
 #endif
 #endif
-const int N = 1e7 + 5;
 std::map<int, int> set;
 inline int qpow(i64 a, i64 b, int mod) {
     int ans = 1;

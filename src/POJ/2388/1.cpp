@@ -2,8 +2,6 @@
 #include <queue>
 using namespace std;
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-const int OFFSET = 5;
-const int N = 5e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 priority_queue<int> dq;
 priority_queue<int, vector<int>, greater<int>> uq;
 int main() {

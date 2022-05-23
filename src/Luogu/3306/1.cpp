@@ -111,7 +111,6 @@ inline void print(Type x, char text = '\n') {
 }  // namespace fastIO
 #endif
 #endif
-const int M = 500005;
 const int N = 1000015;
 const int MOD = 1000003;
 int p;

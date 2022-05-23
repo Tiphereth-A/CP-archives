@@ -14,7 +14,6 @@ inline void init_prime(const int &n = N - 1) {
         }
     }
 }
-const auto __STATIC__ = []() {
     init_prime();
     return 0;
 }();

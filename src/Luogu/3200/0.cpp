@@ -20,7 +20,6 @@ i64 qpow(i64 a, i64 b, const i64 &mod) {
         if (b & 1) (res *= a) %= mod;
     return res;
 }
-const auto __STATIC__ = []() { init_prime(); return 0.0; }();
 int factor[N];
 int main() {
     ios::sync_with_stdio(false);

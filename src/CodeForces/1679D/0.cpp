@@ -6,7 +6,6 @@ using i64 = int64_t;
 #define _set_nul_n(a, n) memset(a, 0, sizeof(*(a)) * (n))
 const uint32_t OFFSET = 5;
 const uint32_t N = 2e5 + OFFSET, M = 2e5 + OFFSET;
-const int INF = 0x3f3f3f3f;
 struct Edge {
     int to, next;
     Edge(int _to = 0, int _next = 0):

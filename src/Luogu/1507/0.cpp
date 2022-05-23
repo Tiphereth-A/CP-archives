@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
 #define _rfor(i, r, l) for (auto i = (r); i >= (l); --i)
-typedef double db;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;
@@ -69,8 +68,6 @@ using FastIO::print_h;
 using FastIO::read;
 const int M = 50 + 5;
 const int N = 400 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 int V, Mass, n;
 int f[N][N];
 struct Food {

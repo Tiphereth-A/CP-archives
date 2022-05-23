@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int OFFSET = 5;
-const int N = 1e6 + OFFSET, M = 2e5 + OFFSET, K = 21;
 const long long MOD = 344493229;
 template <const unsigned long long _P, const unsigned long long _MOD, const char _start = 'a'>
 class Hash_substr {

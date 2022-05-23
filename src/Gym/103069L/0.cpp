@@ -2,7 +2,6 @@
 using namespace std;
 using i64 = int64_t;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
-const int N = 1e5 + 5, M = 1e3 + 5;
 const int MOD = 1000000007;
 bool vis[M];
 int prime[M];

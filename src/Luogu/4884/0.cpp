@@ -107,7 +107,6 @@ inline void print(Type x, char text = '\n') {
 }  // namespace fastIO
 #endif
 #endif
-const int N = 1e7 + 5;
 i128 k, mod;
 std::map<i128, int> set;
 inline i128 qpow(i128 a, i128 b) {

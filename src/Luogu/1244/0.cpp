@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-typedef double db;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 int p, p3 = -1;
@@ -65,10 +64,6 @@ inline void putchar(char a) {
 using FastIO::print;
 using FastIO::print_h;
 using FastIO::read;
-const int M = 5e5 + 5;
-const int N = 2e5 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 int main(int argc, char const *argv[]) {
 #ifdef _LOCAL_
     clock_t c1 = clock();

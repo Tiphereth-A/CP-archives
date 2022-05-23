@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-const int INF = 0x3f3f3f3f;
 const long long INFLL = 0x3f3f3f3f3f3f3f3fLL;
 int _w, _t;
 using namespace std;

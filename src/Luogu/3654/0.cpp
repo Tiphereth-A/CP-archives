@@ -2,9 +2,7 @@
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define gc getchar
 using namespace std;
-const int M = 100005;
 const int N = 105;
-const int INF = 0x7fffffff;
 int r, c, k, ans;
 char g[N][N];
 int main() {

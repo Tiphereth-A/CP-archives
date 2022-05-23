@@ -6,9 +6,6 @@ template <class T>
 bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
 bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
-const uint32_t OFFSET = 5;
-const uint32_t N = 1e7 + OFFSET;
-const uint32_t MOD = 1e9 + 7;
 inline auto solve() -> void {
     i64 n;
     cin >> n;

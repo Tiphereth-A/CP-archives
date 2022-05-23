@@ -20,9 +20,7 @@ inline void read(A &x) {
     } while (c >= '0' && c <= '9');
     x *= neg;
 }
-const int M = 100005;
 const int N = 105;
-const int INF = 0x7fffffff;
 int n, a[N], f[N], g[N], MAXN;
 inline int lis(int f, int l) {
     int g[N] = {0};

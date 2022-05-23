@@ -14,7 +14,6 @@
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _mid(l, r) (((l) + (r)) >> 1)
-typedef double db;
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>
@@ -62,10 +61,7 @@ inline void print_digit(Type x) {
 }  // namespace FastIO
 #define read FastIO::read_digit
 #define print FastIO::print_digit
-const int M = 5e5 + 5;
 const int N = 2e5 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 int n, m;
 int a[N], b[N], b_len;
 struct chman_tree {

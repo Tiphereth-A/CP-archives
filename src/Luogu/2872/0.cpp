@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using db = double;
 using pii = pair<i64, i64>;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 template <class T>
@@ -9,11 +8,6 @@ template <class T>
 bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1e3 + OFFSET, M = 2e6 + OFFSET, K = 21;
-const int MOD = 1e9 + 7;
-const db EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
-const i64 INFLL = 0x3f3f3f3f3f3f3f3f;
-const db PI = acos(-1.0);
 struct Edge {
     double w;
     int from, to;

@@ -35,7 +35,6 @@ void init(const int k = N - OFS) {
     inv[k + 2] = qpow(fac[k + 2]);
     _rfor(i, k + 1, 1) inv[i] = inv[i + 1] * (i + 1) % MOD;
 }
-const auto __STATIC__ = []() {
     init();
     return 0;
 }();

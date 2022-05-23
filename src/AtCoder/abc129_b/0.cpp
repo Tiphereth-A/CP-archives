@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int OFFSET = 5, N = 1e4 + OFFSET;
-const int MOD = 1e9 + 7;
 int a[N], sum[N];
 int main() {
     int n;

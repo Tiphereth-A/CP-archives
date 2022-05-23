@@ -51,9 +51,6 @@ inline void write(A &x) {
     putchar(x % 10 + '0');
     return;
 }
-const int M = 200005;
-const int N = 20000;
-const int INF = 0x7fffffff;
 struct bign {
     int n[50000];
     bign() { memset(n, 0, sizeof(n)); }

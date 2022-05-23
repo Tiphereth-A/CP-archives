@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
-const int N = 1e4 + 5;
 uint32_t cnt[32];
 #define MULTI_CASES
 inline auto solve() -> void {

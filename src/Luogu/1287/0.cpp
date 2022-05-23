@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
-const int N = 1e5 + 5;
 int f[100][100] = {1};
 const int frac[] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800};
 int main() {

@@ -3,7 +3,6 @@ using namespace std;
 using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 const int N = 1e3 + 5;
-const double EPS = 1e-6;
 const pii DIR8[8] = {{-1, -2}, {-1, 2}, {1, 2}, {1, -2}, {2, 1}, {2, -1}, {-2, 1}, {-2, -1}};
 int vis[N][N];
 bool target[N][N];

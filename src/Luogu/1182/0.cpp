@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
-typedef double db;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 i64 p, p3 = -1;
@@ -66,10 +65,7 @@ inline void putchar(char a) {
 using FastIO::print;
 using FastIO::print_h;
 using FastIO::read;
-const i64 M = 5e5 + 5;
 const i64 N = 1e5 + 5;
-const i64 MOD = 998244353;
-const db EPS = 1e-6;
 i64 n, m, a[N];
 bool judge(i64 max) {
     i64 seg = 0, now_sum = 0;

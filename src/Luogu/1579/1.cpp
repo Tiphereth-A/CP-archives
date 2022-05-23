@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-const int N = 2e4 + 5;
 inline bool prime(int n) {
     int i = 2;
     while (i <= sqrt(n))

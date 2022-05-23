@@ -23,7 +23,6 @@ inline void read(A &a, B &b, C &c) {
 }
 const int M = 500005;
 const int N = 100005;
-const int INF = 0x7fffffff;
 int n, m, s, head[N], cnt, ans[N];
 bool vis[N];
 struct edge {

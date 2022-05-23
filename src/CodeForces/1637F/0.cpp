@@ -8,11 +8,6 @@ template <class T>
 bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const uint32_t OFFSET = 5;
 const uint32_t N = 2e5 + OFFSET, M = 4e5 + OFFSET, K = 21;
-const uint32_t MOD = 1e9 + 7;
-const double EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
-const i64 INFLL = 0x3f3f3f3f3f3f3f3f;
-const double PI = acos(-1.0);
 auto __STATIC__ = []() { return 0.0; }();
 struct Edge {
     int to, next;

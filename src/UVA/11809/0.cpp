@@ -57,9 +57,7 @@ inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
-const int M = 5e5 + 5;
 const int N = 200;
-const int MOD = 998244353;
 const db EPS = 1e-6;
 char num[N];
 int main() {

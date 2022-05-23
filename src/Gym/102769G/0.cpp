@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 233, K = 30;
 void print(int kase, int res) { cout << "Case #" << kase << ": " << res << endl; }
 int qpow(int a, int b) {
     int res = 1;

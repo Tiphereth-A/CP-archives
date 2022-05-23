@@ -50,10 +50,7 @@ inline void putchar(char a) { buf2[++p3] = a; }
 }  // namespace FastIO
 #define read FastIO::read
 #define print FastIO::print
-const int M = 5e5 + 5;
 const int N = 1e4 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 db a[N], b[N];
 int main(int argc, char const *argv[]) {
 #ifdef _LOCAL_

@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using db = double;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 #define _run_exit(expressions) _run_return(expressions, 0)
 #define _run_return(expressions, val) return (expressions), val
@@ -15,11 +14,6 @@ template <class T>
 bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1 << 8, M = N * N + OFFSET, K = 21;
-const int MOD = 1e9 + 7;
-const db EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
-const i64 INFLL = 0x3f3f3f3f3f3f3f3f;
-const db PI = acos(-1.0);
 bool g[N][N];
 char ans[M];
 int n;

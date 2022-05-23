@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using std::cin;
 using std::cout;
-const int N = 1e4 + 5;
 int a, b;
 std::pair<long long, long long> exgcd(int a, int b) {
     if (b == 0)

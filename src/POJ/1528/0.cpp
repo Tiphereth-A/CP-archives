@@ -1,7 +1,6 @@
 #include <cmath>
 #include <cstdio>
 const char status[][15] = {"DEFICIENT", "PERFECT", "ABUNDANT"};
-const int N = 105;
 int main() {
     puts("PERFECTION OUTPUT");
     int n;

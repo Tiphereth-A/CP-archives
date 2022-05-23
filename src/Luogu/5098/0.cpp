@@ -10,7 +10,6 @@
 #endif
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-typedef double db;
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>
@@ -58,10 +57,6 @@ inline void print(T x, T2... oth) {
 #define read FastIO::read
 #define print FastIO::print
 #define INF_I32 0x7FFFFFFF
-const int M = 5e5 + 5;
-const int N = 2e5 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 int x, y, mina = INF_I32, minb = INF_I32, maxa, maxb, n;
 int main(int argc, char const *argv[]) {
 #ifdef _LOCAL_

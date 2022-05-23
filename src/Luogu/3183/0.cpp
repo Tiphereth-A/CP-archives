@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (auto i = (l); i <= (r); ++i)
-typedef double db;
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
 i64 p, p3 = -1;
@@ -68,8 +67,6 @@ using FastIO::print_h;
 using FastIO::read;
 const i64 M = 2e6 + 5;
 const i64 N = 1e6 + 5;
-const i64 MOD = 998244353;
-const db EPS = 1e-6;
 i64 n, m;
 struct edge {
     i64 to, next;

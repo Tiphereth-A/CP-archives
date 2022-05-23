@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-const int MAXN = 2000 + 10;
 using namespace std;
 inline int gcd(int x, int y) {
     return x % y == 0 ? y : gcd(y, x % y);

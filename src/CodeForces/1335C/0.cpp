@@ -67,7 +67,6 @@ inline void putchar(char a) {
 using FastIO::print;
 using FastIO::print_h;
 using FastIO::read;
-const int M = 5e5 + 5, N = 2e5 + 5, MOD = 998244353;
 int cnt[N];
 int main() {
 #ifdef _LOCAL_

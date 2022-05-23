@@ -1,11 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-using ll = int64_t;
 using vi = vector<int>;
 #define pb push_back
-const int INF = 0x3f3f3f3f;
-const ll INFLL = 0x3f3f3f3f3f3f3f3f;
-const double PI = acos(-1.0);
 int _w, _t;
 FILE *_f;
 #define MULTI_CASES

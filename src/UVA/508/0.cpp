@@ -66,7 +66,6 @@ inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
 #define INF 0x3f3f3f3f
-const int N = 1e6 + 5;
 map<char, string> morse;
 map<string, string> dict;
 int cmp(const string &a, const string &b) {

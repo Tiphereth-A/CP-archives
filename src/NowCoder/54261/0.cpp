@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-const int N = 1e5 + 5;
-const int M = 2e5 + 5;
 int read() {
     int x = 0, f = 1;
     char c = getchar();

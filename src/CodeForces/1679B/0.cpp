@@ -2,10 +2,6 @@
 using namespace std;
 using i64 = int64_t;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
-const uint32_t OFFSET = 5;
-const uint32_t N = 2e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
-const uint32_t MOD = 1e9 + 7;
-const double EPS = 1e-6;
 constexpr auto __STATIC__ = []() { return 0.0; }();
 struct Query {
     int l, r;

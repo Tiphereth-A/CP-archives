@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 1e7 + 5;
 const int ans[5][11] = {
     {},
     {0, 7, 42, 252, 1512, 9072, 54432, 326592, 1959552, 11757312, 70543872},

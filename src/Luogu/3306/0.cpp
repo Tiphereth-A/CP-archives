@@ -110,8 +110,6 @@ inline void print(Type x, char text = '\n') {
 }  // namespace fastIO
 #endif
 #endif
-const int M = 500005;
-const int N = 100005;
 int p;
 std::map<int, int> list;
 inline int qpow(i64 a, i64 b) {

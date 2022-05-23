@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
 using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 #define _all(a) (a).begin(), (a).end()
@@ -20,12 +19,6 @@ template <class T>
 bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const uint32_t OFFSET = 5;
 const uint32_t N = 1000 + OFFSET, M = 2e5 + OFFSET, K = 21;
-const uint32_t MOD = 1e9 + 7;
-const double EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
-const i64 INFLL = 0x3f3f3f3f3f3f3f3f;
-const double PI = acos(-1.0);
-const pii DIR4[4] = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
 const pii DIR8[8] = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 auto __STATIC__ = []() { return 0.0; }();
 int maps[N][N];

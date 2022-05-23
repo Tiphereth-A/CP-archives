@@ -2,7 +2,6 @@
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rfor(i, r, l) for (int i = (r); i >= (l); --i)
 #define _lowbit(x) (1 << __builtin_ctz(x))
-typedef double db;
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -88,10 +87,7 @@ inline void putchar(char a) {
 using FastIO::print;
 using FastIO::print_h;
 using FastIO::read;
-const int M = 5e5 + 5;
 const int N = 2e6 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 int n, m, c;
 i64 a[N], tr[N];
 struct node {

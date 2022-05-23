@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int N = 5e5 + 5;
-const int MOD = 1e9 + 7;
 int main() {
 #ifndef ONLINE_JUDGE
     clock_t _CLOCK_ST = clock();

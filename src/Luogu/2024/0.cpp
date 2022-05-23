@@ -2,7 +2,6 @@
 #include <bits/stdc++.h>
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-typedef double db;
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>
@@ -73,10 +72,7 @@ inline void putchar(char a) { buf2[++p3] = a; }
 #define read FastIO::read
 #define print FastIO::print
 #define print_h FastIO::print_h
-const int M = 5e5 + 5;
 const int N = 5e4 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 int n, k, ans;
 int fa[N * 3];
 int find(int x) { return x == fa[x] ? x : fa[x] = find(fa[x]); }

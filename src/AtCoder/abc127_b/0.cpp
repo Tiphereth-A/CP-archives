@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int OFFSET = 5, N = 2e3 + OFFSET;
-const int MOD = 1e9 + 7;
 int main() {
     i64 r, d, x;
     cin >> r >> d >> x;

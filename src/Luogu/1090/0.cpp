@@ -2,7 +2,6 @@
 using std::cin;
 using std::cout;
 using std::endl;
-const int N = 1e4 + 5;
 int n;
 std::priority_queue<u64, std::vector<u64>, std::greater<u64>> q;
 int main() {

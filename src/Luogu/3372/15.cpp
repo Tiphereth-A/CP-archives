@@ -6,7 +6,6 @@
 #define _rch ((p) << 1 | 1)
 #define _mid(l, r) ((l) + (((r) - (l)) >> 1))
 #define _line(l, r) ((r) - (l) + 1)
-typedef double db;
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>
@@ -77,10 +76,7 @@ inline void putchar(char a) { buf2[++p3] = a; }
 #define read FastIO::read
 #define print FastIO::print
 #define print_h FastIO::print_h
-const int M = 1e6 + 5;
 const int N = 1e6 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 int n, m;
 i64 a[N];
 struct node {

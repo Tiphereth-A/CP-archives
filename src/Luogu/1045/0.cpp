@@ -51,8 +51,6 @@ inline void write(A &x) {
     return;
 }
 const int M = 100005;
-const int N = 20000;
-const int INF = 0x7fffffff;
 struct bign {
     int n[M];
     bign() { memset(n, 0, sizeof(n)); }

@@ -58,9 +58,6 @@ inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
-const int M = 500005;
-const int N = 1e3 + 5;
-const int MOD = 998244353;
 char map[7][7];
 inline bool legel(int i, int j) { return i > 0 && i < 6 && j > 0 && j < 6; }
 inline void output() {

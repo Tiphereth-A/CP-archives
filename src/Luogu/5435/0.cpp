@@ -35,7 +35,6 @@ inline void init() {
         for (idx_type j = 1; j < i; ++j) _gcd[i][j] = _gcd[j][i] = _gcd[j][i % j];
     }
 }
-const auto __STATIC__ = []() {
     init();
     return 0;
 }();

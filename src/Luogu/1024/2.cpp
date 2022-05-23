@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-const int MAXN = 2000 + 10;
 double x[4];
 using namespace std;
 int main() {

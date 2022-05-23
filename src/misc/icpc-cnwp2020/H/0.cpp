@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using ll = long long;
-const int INF = 0x3f3f3f3f;
 const long long INFLL = 0x3f3f3f3f3f3f3f3fLL;
 int _w, _t;
 ll a, b, c;

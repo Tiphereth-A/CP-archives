@@ -67,8 +67,6 @@ inline void putchar(char a) {
 using FastIO::print;
 using FastIO::print_h;
 using FastIO::read;
-const int M = 5e5 + 5, N = 2e5 + 5, MOD = 998244353;
-const double EPS = 1e-6;
 int main() {
 #ifndef ONLINE_JUDGE
     clock_t _CLOCK_ST = clock();

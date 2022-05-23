@@ -82,7 +82,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
         new_code.append(column)
     code, new_code = new_code, []
 
-    # remove unused macro and typedef
+    # remove unused macro, typedef and const
     has_unused_macros = True
     while has_unused_macros:
         has_unused_macros = False
@@ -101,7 +101,10 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
                 match_res = re.search(r'^\s*?using\s+?(\w+)\s*?(?==)', column)
             # capture `typedef type Tp`
             if not match_res:
-                match_res = re.search(r'(?<=typedef) (?:[ \w]+) (\w+)', column)
+                match_res = re.search(r'(?<=typedef)\s(?:[ \w]+)\s(\w+)', column)
+            # capture `const type N = x;`
+            if not match_res:
+                match_res = re.search(r'(?<=const)\s(?:\S+)\s(\w+)(?=(?:\[\w+\])*\s?=\s?(?:\(.+?\))*?(?:\{.+?\})*?[^,]*?)', column)
 
             if match_res:
                 if len(re.split(rf'\b{match_res.group(1)}\b', code_content)) == 2:

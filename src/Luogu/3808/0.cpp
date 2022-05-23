@@ -1,17 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
-using db = double;
 template <class T>
 bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
 bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 1e6 + OFFSET, M = 2e5 + OFFSET, K = 21;
-const int MOD = 1e9 + 7;
-const db EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
-const i64 INFLL = 0x3f3f3f3f3f3f3f3f;
-const db PI = acos(-1.0);
 template <typename _T = std::ptrdiff_t, const char _str_begin = 'a', const char _str_end = 'z' + 1, std::size_t _N = N, bool _clear = false>
 class ACAM {
   private:

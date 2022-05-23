@@ -1,18 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
-using pii = pair<int, int>;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 const uint32_t OFFSET = 5;
 const uint32_t N = 1e5 + OFFSET;
-const double EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
-const i64 INFLL = 0x3f3f3f3f3f3f3f3f;
-const double PI = acos(-1.0);
-const pii DIR4[4] = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
-const pii DIR8[8] = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
-const int EXP10[10] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
-const int FACT[11] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800};
 template <typename Tp>
 class BIT {
   public:

@@ -37,7 +37,6 @@ inline void print(Type x, char text = '\n') {
     out();
 }
 }  // namespace fastIO
-const int M = 500005;
 const int N = 1000015;
 const int MOD = 1000003;
 int p;

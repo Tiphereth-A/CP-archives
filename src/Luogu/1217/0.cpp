@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-const int MAXN = 5000 + 10;
 using namespace std;
 int p[] = {
     5,

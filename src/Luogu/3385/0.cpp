@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using db = double;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 #define _set_nul_n(a, n) memset(a, 0, sizeof(a[0]) * (n))
 #define _set_inf_n(a, n) memset(a, 0x3f, sizeof(a[0]) * (n))
@@ -10,11 +9,6 @@ template <class T>
 bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const int OFFSET = 5;
 const int N = 2e3 + OFFSET, M = 2e5 + OFFSET, K = 21;
-const int MOD = 1e9 + 7;
-const db EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
-const i64 INFLL = 0x3f3f3f3f3f3f3f3f;
-const db PI = acos(-1.0);
 struct Edge {
     i64 w;
     int to, next;

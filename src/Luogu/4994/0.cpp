@@ -113,9 +113,6 @@ inline void print(Type x, char text = '\n') {
 #endif
 #endif
 #define B 0
-const int M = 500005;
-const int N = 1e5 + 5;
-const int MOD = 998244353;
 int n, a, b = 1, c;
 int main() {
     scanf("%d", &n);

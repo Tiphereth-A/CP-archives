@@ -6,8 +6,6 @@ inline A Max(const A &x, const A &y) {
 }
 using namespace std;
 const int M = 100005;
-const int N = 105;
-const int INF = 0x7fffffff;
 int l1, l2, n, a[M], f[M], g[M];
 int main() {
     while (scanf("%d", &a[++n]) != EOF) continue;

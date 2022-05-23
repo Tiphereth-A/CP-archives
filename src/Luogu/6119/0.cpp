@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-using i64 = int64_t;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 template <class T>
 bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
@@ -8,11 +7,6 @@ template <class T>
 bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const uint32_t OFFSET = 5;
 const uint32_t N = 1e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
-const uint32_t MOD = 1e9 + 7;
-const double EPS = 1e-6;
-const int INF = 0x3f3f3f3f;
-const i64 INFLL = 0x3f3f3f3f3f3f3f3f;
-const double PI = acos(-1.0);
 template <size_t N, typename Tp, bool _clear = false>
 class BIT {
   protected:

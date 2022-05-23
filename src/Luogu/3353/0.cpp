@@ -4,7 +4,6 @@
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _lch ((p) << 1)
 #define _rch ((p) << 1 | 1)
-typedef double db;
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>
@@ -51,10 +50,7 @@ inline void print(T x, T2... oth) {
 }  // namespace FastIO
 #define read FastIO::read
 #define print FastIO::print
-const int M = 5e5 + 5;
 const int N = 1e5 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 int n, w, a[N], final[N];
 int tr[N << 2];
 void build(int p, int l, int r) {

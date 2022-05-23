@@ -3,7 +3,6 @@
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-typedef double db;
 template <typename A>
 inline A Max(const A &x, const A &y) { return x < y ? y : x; }
 template <typename A>
@@ -50,10 +49,7 @@ inline void print(T x, T2... oth) {
 }  // namespace FastIO
 #define read FastIO::read
 #define print FastIO::print
-const int M = 5e5 + 5;
 const int N = 1e5 + 5;
-const int MOD = 998244353;
-const db EPS = 1e-6;
 namespace Seg {
 #define _now tree[p]
 #define _lch tree[p].l

@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 const int OFFSET = 5, N = 2e3 + OFFSET, M = 8e6 + OFFSET;
-const int MOD = 1e9 + 7;
 char maps[N][N];
 int cnt, num[M], idxa[N][N], idxb[N][N];
 int main() {

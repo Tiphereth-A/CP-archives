@@ -45,7 +45,6 @@ inline constexpr bool is_prime(uint64_t n) {
 }
 }  // namespace Primetest_miller_rabin
 using Primetest_miller_rabin::is_prime;
-const int64_t pr_998244353 = 3,
               pr_13123111 = 6,
               pr_1515343657 = 5;
 const int64_t pf_998244352[] = {2, 7, 17},

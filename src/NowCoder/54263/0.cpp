@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-const int N = 1e5 + 5;
-const int M = 2e5 + 5;
 #define _for(i, a, b) for (int i = (a); i <= (b); ++i)
 int read() {
     int x = 0, f = 1;
