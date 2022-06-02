@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-#define _for(i, l, r) for (unsigned long long i = (l); i <= (r); ++i)
-#define lowbit(x) ((x) & -(x))
+#define _for(i, l, r) for (unsigned long long(i) = (l); (i) <= (r); (i)++)
+#define _rfor(i, l, r) for (unsigned long long i = l; i >= r; --i)
 #define MAXN 100005
 #define MAXBUF 140000000
 inline char gc() {
@@ -21,44 +21,75 @@ inline void read(A &x) {
 }
 template <typename A, typename B>
 inline void read(A &a, B &b) {
-    read(a);
-    read(b);
+    read(a), read(b);
 }
 template <typename A, typename B, typename C>
 inline void read(A &a, B &b, C &c) {
-    read(a);
-    read(b);
-    read(c);
+    read(a), read(b), read(c);
 }
-u64 n, m, c1[MAXN], c2[MAXN], num[MAXN];
-void inline add(u64 *r, u64 pos, const u64 &v) {
-    for (; pos <= n; pos += lowbit(pos)) r[pos] += v;
+u64 tree[MAXN << 2], add[MAXN << 2];
+u64 n, N = 1, m;
+inline void build() {
+    read(n, m);
+    for (; N <= n + 1; N <<= 1)
+        ;
+    _for(i, N + 1, N + n) read(tree[i]);
+    _rfor(i, N - 1, 1) tree[i] = tree[i << 1] + tree[i << 1 | 1];
 }
-u64 inline query(u64 *r, u64 pos) {
-    u64 ans(0);
-    for (; pos; pos -= lowbit(pos)) ans += r[pos];
+inline void update(u64 &s, u64 &t, u64 &k) {
+    u64 lNum = 0, rNum = 0, nNum = 1;
+    for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
+        tree[s] += k * lNum;
+        tree[t] += k * rNum;
+        if (~s & 1) {
+            add[s ^ 1] += k;
+            tree[s ^ 1] += k * nNum;
+            lNum += nNum;
+        }
+        if (t & 1) {
+            add[t ^ 1] += k;
+            tree[t ^ 1] += k * nNum;
+            rNum += nNum;
+        }
+    }
+    for (; s; s >>= 1, t >>= 1) {
+        tree[s] += k * lNum;
+        tree[t] += k * rNum;
+    }
+}
+inline u64 query(u64 &s, u64 &t) {
+    u64 lNum = 0, rNum = 0, nNum = 1;
+    u64 ans = 0;
+    for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
+        if (add[s]) ans += add[s] * lNum;
+        if (add[t]) ans += add[t] * rNum;
+        if (~s & 1) {
+            ans += tree[s ^ 1];
+            lNum += nNum;
+        }
+        if (t & 1) {
+            ans += tree[t ^ 1];
+            rNum += nNum;
+        }
+    }
+    for (; s; s >>= 1, t >>= 1) {
+        ans += add[s] * lNum;
+        ans += add[t] * rNum;
+    }
     return ans;
 }
 int main() {
-    u64 op, x, y, k, sum1, sum2;
-    read(n, m);
-    _for(i, 1, n) {
-        read(num[i]);
-        add(c1, i, num[i] - num[i - 1]);
-        add(c2, i, (i - 1) * (num[i] - num[i - 1]));
-    }
+    build();
+    char c = 0;
+    u64 x = 0, y = 0, k = 0;
     while (m--) {
-        read(op, x, y);
-        if (op & 1) {
+        read(c, x, y);
+        if (c & 2)
+            printf("%llu\n", query(x, y));
+        else {
+            u64 k;
             read(k);
-            add(c1, x, k);
-            add(c1, y + 1, -k);
-            add(c2, x, k * (x - 1));
-            add(c2, y + 1, -k * y);
-        } else {
-            sum1 = (x - 1) * query(c1, x - 1) - query(c2, x - 1);
-            sum2 = y * query(c1, y) - query(c2, y);
-            printf("%llu\n", sum2 - sum1);
+            update(x, y, k);
         }
     }
     return 0;

@@ -9,7 +9,6 @@
 #endif
 #endif
 #ifdef __FUNC__
-
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>

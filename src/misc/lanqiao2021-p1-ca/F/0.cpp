@@ -1,19 +1,11 @@
-/*
- * @Author: Tifa
- * @LastEditTime: 2021-04-19 19:21:54
- * @Description:
- */
 #include <cstring>
 #include <iostream>
-
 using namespace std;
 #define _for(i, l, r) for (int i = l; i <= r; ++i)
 #define _rfor(i, r, l) for (int i = r; i >= l; --i)
-
 const int N = 105, W = 1e5 + 5;
 int w[N];
 bool f[W];
-
 int main() {
     f[0] = 1;
     int n;

@@ -4,36 +4,6 @@
 #define rs rt << 1 | 1
 #define Mid unsigned long long m = ((r - l) >> 1) + l
 #define MAXN 100005
-#define MAXBUF 140000000
-inline char gc() {
-    static char buf[MAXBUF], *p1 = buf, *p2 = buf;
-    return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
-}
-template <typename A>
-inline void read(A &x) {
-    char c;
-    do {
-        c = getchar();
-    } while (c < '0' || c > '9');
-    x = 0;
-    do {
-        x = (x << 3) + (x << 1) + (c ^ 48);
-        c = getchar();
-    } while (c >= '0' && c <= '9');
-}
-template <typename A, typename B>
-inline void read(A &a, B &b) {
-    read(a), read(b);
-}
-template <typename A, typename B, typename C>
-inline void read(A &a, B &b, C &c) {
-    read(a), read(b), read(c);
-}
-template <typename A>
-void print(A x) {
-    if (x > 9) _print(x / 10);
-    putchar(x % 10 + '0');
-}
 u64 sum[MAXN << 2], add[MAXN << 2], a[MAXN];
 inline void PushUp(const u64 &rt) {
     sum[rt] = sum[ls] + sum[rs];
@@ -83,17 +53,19 @@ u64 Query(const u64 &L, const u64 &R, const u64 &l, const u64 &r, const u64 &rt)
 }
 int main() {
     u64 n = 0, m = 0;
-    read(n, m);
-    _for(i, 1, n) read(a[i]);
+    scanf("%lld%lld", &n, &m);
+    _for(i, 1, n) scanf("%lld", &a[i]);
     Build(1, n, 1);
     u64 o = 0, x = 0, y = 0, k = 0;
     while (m--) {
-        read(o, x, y);
+        scanf("%lld", &o);
         if (o & 1) {
-            read(k);
+            scanf("%lld%lld%lld", &x, &y, &k);
             Update(x, y, k, 1, n, 1);
-        } else
-            printf("%llu\n", Query(x, y, 1, n, 1));
+        } else {
+            scanf("%lld%lld", &x, &y);
+            printf("%lld\n", Query(x, y, 1, n, 1));
+        }
     }
     return 0;
 }

@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 using std::numbers::pi;
-// const double pi = acos(-1.0);
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 int main() {
     ios::sync_with_stdio(false);

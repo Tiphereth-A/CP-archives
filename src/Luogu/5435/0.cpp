@@ -49,7 +49,7 @@ inline data_type main(data_type x, data_type y) {
     }
     return ans;
 }
-}  // namespace Qgcd
+}
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), ##vals; i <= (r); ++i)
 const int N = 5e3 + 5, MOD = 998244353;
 int a[N], b[N];

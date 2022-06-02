@@ -5,10 +5,8 @@
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
 #endif
-
 typedef __int128 i128;
 #endif
-
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;

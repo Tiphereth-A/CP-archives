@@ -7,7 +7,6 @@
 #ifdef __C_LIB__
 #define _memng(a) memset(a, 0xff, sizeof(a))
 #endif
-
 #endif
 #ifdef __FASTIO__
 #if 0

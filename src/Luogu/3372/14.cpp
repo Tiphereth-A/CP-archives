@@ -11,7 +11,7 @@ inline void build() {
     _for(i, N + 1, N + n) scanf("%lld", tree + i);
     _rfor(i, N - 1, 1) tree[i] = tree[i << 1] + tree[i << 1 | 1];
 }
-inline void update(u64 &s, u64 &t, u64 &k) {
+inline void update(u64 s, u64 t, u64 k) {
     u64 lNum = 0, rNum = 0, nNum = 1;
     for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
         tree[s] += k * lNum;
@@ -32,7 +32,7 @@ inline void update(u64 &s, u64 &t, u64 &k) {
         tree[t] += k * rNum;
     }
 }
-inline u64 query(u64 &s, u64 &t) {
+inline u64 query(u64 s, u64 t) {
     u64 lNum = 0, rNum = 0, nNum = 1;
     u64 ans = 0;
     for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {

@@ -3,7 +3,6 @@
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-
 #endif
 #ifdef __FASTIO__
 #if 0

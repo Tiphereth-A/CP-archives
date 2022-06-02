@@ -26,9 +26,6 @@ int main() {
     read(Ic);
     read(Id);
     read(pre);
-    Ia %= Id;
-    Ib %= Id;
-    Ic %= Id;
     _for(i, 1, In) (Id > 875000000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
     printf("%llu", cnt[0] * cnt[1]);
     return 0;

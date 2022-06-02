@@ -31,7 +31,7 @@ inline void read(A &a, B &b, C &c) {
 }
 template <typename A>
 void print(A x) {
-    if (x > 9) print(x / 10);
+    if (x > 9) _print(x / 10);
     putchar(x % 10 + '0');
 }
 u64 sum[MAXN << 2], add[MAXN << 2], a[MAXN];
@@ -92,10 +92,8 @@ int main() {
         if (o & 1) {
             read(k);
             Update(x, y, k, 1, n, 1);
-        } else {
-            print(Query(x, y, 1, n, 1));
-            putchar('\n');
-        }
+        } else
+            printf("%llu\n", Query(x, y, 1, n, 1));
     }
     return 0;
 }

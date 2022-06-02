@@ -3,10 +3,8 @@
 #define __FUNC__
 #include <bits/stdc++.h>
 #ifdef __DEF__
-
 #endif
 #ifdef __FUNC__
-
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;

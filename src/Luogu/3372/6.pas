@@ -2,89 +2,94 @@ program main;
 
 var
     a: array[1..100005] of int64;
-    tree, tag: array[1..400005] of int64;
-    n, m, i, x, y, op, k: int64;
+    sum, lazy: array[1..400005] of int64;
+    n, m, i, b, x, y, z: int64;
 
-    procedure pushup(p: int64);
+    procedure pushup(rt: int64);//子节点更新，父节点也要更新
     begin
-        tree[p] := tree[p shl 1] + tree[(p shl 1) or 1];
+        sum[rt] := sum[rt shl 1] + sum[(rt shl 1) or 1];
     end;
 
-    procedure init(p, l, r: int64);
+    procedure build(l, r, rt: int64);//基础的建树
     var
         mid: int64;
     begin
-        if (l = r) then
+        if l = r then
         begin
-            tree[p] := a[l];
+            sum[rt] := a[l];
             exit;
         end;
         mid := (l + r) shr 1;
-        init(p shl 1, l, mid);
-        init((p shl 1) or 1, mid + 1, r);
-        pushup(p);
+        build(l, mid, rt shl 1);
+        build(mid + 1, r, (rt shl 1) or 1);
+        pushup(rt);
     end;
 
-    procedure pushdown(p, ln, rn: int64);
+    procedure pushdown(rt, ln, rn: int64);//懒标记的下放
     begin
-        if (tag[p] <> 0) then
+        if (lazy[rt] <> 0) then
         begin
-            tag[p shl 1] := tag[p shl 1] + tag[p];
-            tag[(p shl 1) or 1] := tag[(p shl 1) or 1] + tag[p];
-            tree[p shl 1] := tree[p shl 1] + tag[p] * ln;
-            tree[(p shl 1) or 1] := tree[(p shl 1) or 1] + tag[p] * rn;
-            tag[p] := 0;
+            lazy[rt shl 1] := lazy[rt shl 1] + lazy[rt];
+            lazy[(rt shl 1) or 1] := lazy[(rt shl 1) or 1] + lazy[rt];
+            sum[rt shl 1] := sum[rt shl 1] + lazy[rt] * ln;
+            sum[(rt shl 1) or 1] := sum[(rt shl 1) or 1] + lazy[rt] * rn;
+            lazy[rt] := 0;
         end;
     end;
 
-    procedure update(p, l, r, ul, ur, k: int64);
+    procedure update(x, y, c, l, r, rt: int64);//区间更新
     var
         mid: int64;
     begin
-        if ((ul <= l) and (r <= ur)) then
+        if (x <= l) and (r <= y) then
         begin
-            tree[p] := tree[p] + k * (r - l + 1);
-            tag[p]  := tag[p] + k;
+            sum[rt]  := sum[rt] + c * (r - l + 1);
+            lazy[rt] := lazy[rt] + c;
             exit;
         end;
         mid := (l + r) shr 1;
-        pushdown(p, mid - l + 1, r - mid);
-        if (ul <= mid) then
-            update(p shl 1, l, mid, ul, ur, k);
-        if (mid < ur) then
-            update((p shl 1) or 1, mid + 1, r, ul, ur, k);
-        pushup(p);
+        pushdown(rt, mid - l + 1, r - mid);
+        if x <= mid then
+            update(x, y, c, l, mid, rt shl 1);
+        if y > mid then
+            update(x, y, c, mid + 1, r, (rt shl 1) or 1);
+        pushup(rt);
     end;
 
-    function query(p, l, r, ul, ur: int64): int64;
+    function query(x, y, l, r, rt: int64): int64;//查询函数
     var
-        ans, mid: int64;
+        mid, ans: int64;
     begin
-        if ((ul <= l) and (r <= ur)) then
-            exit(tree[p]);
+        if (x <= l) and (r <= y) then
+            exit(sum[rt]);
         ans := 0;
         mid := (l + r) shr 1;
-        pushdown(p, mid - l + 1, r - mid);
-        if (ul <= mid) then
-            ans := ans + query(p shl 1, l, mid, ul, ur);
-        if (mid < ur) then
-            ans := ans + query((p shl 1) or 1, mid + 1, r, ul, ur);
+        pushdown(rt, mid - l + 1, r - mid);
+        if (x <= mid) then
+            ans := ans + query(x, y, l, mid, rt shl 1);
+        if (y > mid) then
+            ans := ans + query(x, y, mid + 1, r, (rt shl 1) or 1);
         exit(ans);
+        //这里的shr,shl,or 都是位运算，相当于div 2,*2,+1
     end;
 
 begin
-    Read(n, m);
+    readln(n, m);
     for i := 1 to n do
         Read(a[i]);
-    init(1, 1, n);
+    build(1, n, 1);
     for i := 1 to m do
     begin
-        Read(op, x, y);
-        if (op = 1) then
+        Read(b);
+        if b = 1 then
         begin
-            Read(k);
-            update(1, 1, n, x, y, k);
-        end else
-            writeln(query(1, 1, n, x, y));
+            readln(x, y, z);
+            update(x, y, z, 1, n, 1);
+        end
+        else
+        begin
+            Read(x, y);
+            writeln(query(x, y, 1, n, 1));
+        end;
     end;
 end.

@@ -5,10 +5,8 @@
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-
 #endif
 #ifdef __FUNC__
-
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -30,7 +28,6 @@ inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 #ifdef __FASTIO__
 #if 1
-
 namespace fastIO {
 template <typename A>
 inline void read(A &x) {

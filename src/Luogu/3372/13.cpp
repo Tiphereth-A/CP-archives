@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 #define MAXN 100005
-#define _for(i, l, r) for (unsigned long long(i) = (l); (i) <= (r); (i)++)
-#define _rfor(i, l, r) for (unsigned long long i = l; i >= r; --i)
-u64 tree[MAXN << 2], add[MAXN << 2];
-u64 n, N = 1, m;
+#define _for(i, l, r) for (long long(i) = (l); (i) <= (r); (i)++)
+#define _rfor(i, l, r) for (long long i = l; i >= r; --i)
+long long tree[MAXN << 2], add[MAXN << 2];
+long long n, N = 1, m;
 inline void build() {
     scanf("%lld%lld", &n, &m);
     for (; N <= n + 1; N <<= 1)
@@ -11,8 +11,8 @@ inline void build() {
     _for(i, N + 1, N + n) scanf("%lld", tree + i);
     _rfor(i, N - 1, 1) tree[i] = tree[i << 1] + tree[i << 1 | 1];
 }
-inline void update(u64 s, u64 t, u64 k) {
-    u64 lNum = 0, rNum = 0, nNum = 1;
+inline void update(long long s, long long t, long long k) {
+    long long lNum = 0, rNum = 0, nNum = 1;
     for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
         tree[s] += k * lNum;
         tree[t] += k * rNum;
@@ -32,9 +32,9 @@ inline void update(u64 s, u64 t, u64 k) {
         tree[t] += k * rNum;
     }
 }
-inline u64 query(u64 s, u64 t) {
-    u64 lNum = 0, rNum = 0, nNum = 1;
-    u64 ans = 0;
+inline long long query(long long s, long long t) {
+    long long lNum = 0, rNum = 0, nNum = 1;
+    long long ans = 0;
     for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
         if (add[s]) ans += add[s] * lNum;
         if (add[t]) ans += add[t] * rNum;
@@ -55,14 +55,14 @@ inline u64 query(u64 s, u64 t) {
 }
 int main() {
     build();
-    char c = 0;
-    u64 x = 0, y = 0, k = 0;
     while (m--) {
+        char c;
+        long long x, y;
         scanf("%lld%lld%lld", &c, &x, &y);
-        if (c & 2)
+        if (c == 2)
             printf("%lld\n", query(x, y));
         else {
-            u64 k;
+            long long k;
             scanf("%lld", &k);
             update(x, y, k);
         }

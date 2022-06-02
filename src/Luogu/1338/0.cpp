@@ -3,9 +3,7 @@
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #endif
-
 #endif
-
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -24,7 +22,6 @@ inline A Abs(const A &x) {
 }
 #ifdef __FASTIO__
 #if 1
-
 template <typename A>
 inline void read(A &x) {
     char c;

@@ -1,19 +1,36 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-int n, a, b, c, d;
-u64 pre, eve, odd;
-const bool x[1 << 8] = {0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0};
-const int a1 = 0x000000ff, a2 = 0x0000ff00, a3 = 0x00ff0000, a4 = 0xff000000;
-inline u64 mod(u64 a, int m) { return (a < m) ? a : (a % m); }
+int In, Ia, Ib, Ic, Id;
+u64 pre, cnt[2];
+namespace fastIO {
+#define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
+const int SIZ = 1 << 21 | 1;
+char *iS, *iT, ibuff[SIZ], c;
+int fr;
+template <class Type>
+inline void read(Type &x) {
+    Type y = 1;
+    for (c = gc(); (c > '9' || c < '0') && c != '-'; c = gc())
+        ;
+    c == '-' ? y = -1 : x = (c & 15);
+    for (c = gc(); c >= '0' && c <= '9'; c = gc())
+        x = x * 10 + (c & 15);
+    x *= y;
+}
+}  // namespace fastIO
+using namespace fastIO;
 int main() {
-    scanf("%d%d%d%d%d%llu", &n, &a, &b, &c, &d, &pre);
-    a %= d;
-    b %= d;
-    c %= d;
-    _for(i, 1, n) {
-        pre = mod(mod(mod(pre * pre, d) * a, d) + mod(pre * b, d) + c, d);
-        ((x[pre & a1] + x[(pre & a2) >> 8] + x[(pre & a3) >> 16] + x[(pre & a4) >> 24]) & 1) ? ++eve : ++odd;
-    }
-    printf("%llu", eve * odd);
+    read(In);
+    read(Ia);
+    read(Ib);
+    read(Ic);
+    read(Id);
+    read(pre);
+    Ia %= Id;
+    Ib %= Id;
+    Ic %= Id;
+    pre %= Id;
+    _for(i, 1, In) (Id > 937500000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
+    printf("%llu", cnt[0] * cnt[1]);
     return 0;
 }

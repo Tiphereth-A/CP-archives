@@ -40,7 +40,6 @@ using namespace std;
 #ifdef __DEF__
 #define REP(i, l, r) for (int i = (l); i < (r); ++i)
 #endif
-
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;

@@ -13,12 +13,12 @@ template <typename A>
 inline void read(A &x) {
     char c;
     do {
-        c = gc();
+        c = getchar();
     } while (c < '0' || c > '9');
     x = 0;
     do {
         x = (x << 3) + (x << 1) + (c ^ 48);
-        c = gc();
+        c = getchar();
     } while (c >= '0' && c <= '9');
 }
 template <typename A, typename B>

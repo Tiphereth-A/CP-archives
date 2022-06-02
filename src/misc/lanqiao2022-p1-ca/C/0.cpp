@@ -1,11 +1,8 @@
 #include <iostream>
 using namespace std;
-
 const int N = 2e5 + 5;
-
 int a[N];
 long long s[N];
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);

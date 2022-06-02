@@ -3,10 +3,8 @@
 #include <bits/stdc++.h>
 #ifdef __DEF__
 #define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
-
 #endif
 #ifdef __FUNC__
-
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;

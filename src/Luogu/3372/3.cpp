@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 #define _for(i, l, r) for (unsigned long long i = (l); i <= (r); ++i)
-#define ls rt << 1
-#define rs rt << 1 | 1
-#define Mid unsigned long long m = ((r - l) >> 1) + l
+#define lowbit(x) ((x) & -(x))
 #define MAXN 100005
 #define MAXBUF 140000000
 inline char gc() {
@@ -23,72 +21,45 @@ inline void read(A &x) {
 }
 template <typename A, typename B>
 inline void read(A &a, B &b) {
-    read(a), read(b);
+    read(a);
+    read(b);
 }
 template <typename A, typename B, typename C>
 inline void read(A &a, B &b, C &c) {
-    read(a), read(b), read(c);
+    read(a);
+    read(b);
+    read(c);
 }
-u64 sum[MAXN << 2], add[MAXN << 2], a[MAXN];
-inline void PushUp(const u64 &rt) {
-    sum[rt] = sum[ls] + sum[rs];
+u64 n, m, c1[MAXN], c2[MAXN], num[MAXN];
+void inline add(u64 *r, u64 pos, const u64 &v) {
+    for (; pos <= n; pos += lowbit(pos)) r[pos] += v;
 }
-inline void PushDown(const u64 &rt, const u64 &ln, const u64 &rn) {
-    add[ls] += add[rt];
-    sum[ls] += add[rt] * ln;
-    add[rs] += add[rt];
-    sum[rs] += add[rt] * rn;
-    add[rt] = 0;
-}
-void Build(const u64 &l, const u64 &r, const u64 &rt) {
-    if (l == r) {
-        sum[rt] = a[l];
-        return;
-    }
-    Mid;
-    Build(l, m, ls);
-    Build(m + 1, r, rs);
-    PushUp(rt);
-}
-void Update(const u64 &L, const u64 &R, const u64 &c, const u64 &l, const u64 &r, const u64 &rt) {
-    if (L <= l && r <= R) {
-        sum[rt] += c * (r - l + 1);
-        add[rt] += c;
-        return;
-    }
-    Mid;
-    PushDown(rt, m - l + 1, r - m);
-    if (L <= m)
-        Update(L, R, c, l, m, ls);
-    if (R > m)
-        Update(L, R, c, m + 1, r, rs);
-    PushUp(rt);
-}
-u64 Query(const u64 &L, const u64 &R, const u64 &l, const u64 &r, const u64 &rt) {
-    u64 ans = 0;
-    if (L <= l && r <= R)
-        return sum[rt];
-    Mid;
-    PushDown(rt, m - l + 1, r - m);
-    if (L <= m)
-        ans += Query(L, R, l, m, ls);
-    if (R > m)
-        ans += Query(L, R, m + 1, r, rs);
+u64 inline query(u64 *r, u64 pos) {
+    u64 ans(0);
+    for (; pos; pos -= lowbit(pos)) ans += r[pos];
     return ans;
 }
 int main() {
-    u64 n = 0, m = 0;
+    u64 op, x, y, k, sum1, sum2;
     read(n, m);
-    _for(i, 1, n) read(a[i]);
-    Build(1, n, 1);
-    u64 o = 0, x = 0, y = 0, k = 0;
+    _for(i, 1, n) {
+        read(num[i]);
+        add(c1, i, num[i] - num[i - 1]);
+        add(c2, i, (i - 1) * (num[i] - num[i - 1]));
+    }
     while (m--) {
-        read(o, x, y);
-        if (o & 1) {
+        read(op, x, y);
+        if (op & 1) {
             read(k);
-            Update(x, y, k, 1, n, 1);
-        } else
-            printf("%llu\n", Query(x, y, 1, n, 1));
+            add(c1, x, k);
+            add(c1, y + 1, -k);
+            add(c2, x, k * (x - 1));
+            add(c2, y + 1, -k * y);
+        } else {
+            sum1 = (x - 1) * query(c1, x - 1) - query(c2, x - 1);
+            sum2 = y * query(c1, y) - query(c2, y);
+            printf("%llu\n", sum2 - sum1);
+        }
     }
     return 0;
 }

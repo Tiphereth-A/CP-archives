@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 int In, Ia, Ib, Ic, Id;
 u64 pre, cnt[2];
 namespace fastIO {
@@ -26,7 +25,10 @@ int main() {
     read(Ic);
     read(Id);
     read(pre);
-    _for(i, 1, In) (Id > 500000000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
+    Ia %= Id;
+    Ib %= Id;
+    Ic %= Id;
+    while (In--) (Id > 750000000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
     printf("%llu", cnt[0] * cnt[1]);
     return 0;
 }

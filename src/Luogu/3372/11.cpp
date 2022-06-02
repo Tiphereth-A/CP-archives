@@ -1,70 +1,81 @@
 #include <bits/stdc++.h>
-#define MAXN 200005
-#define _for(i, l, r) for (long long(i) = (l); (i) <= (r); (i)++)
-#define _rfor(i, l, r) for (long long i = l; i >= r; --i)
-long long tree[MAXN << 2], add[MAXN << 2];
-long long n, N = 1, m;
-inline void build() {
-    scanf("%lld%lld", &n, &m);
-    for (; N <= n + 1; N <<= 1)
-        ;
-    _for(i, N + 1, N + n) scanf("%lld", tree + i);
-    _rfor(i, N - 1, 1) tree[i] = tree[i << 1] + tree[i << 1 | 1];
+#define MAXN 1000001
+typedef long long ll;
+using namespace std;
+unsigned ll n, m, a[MAXN], ans[MAXN << 2], tag[MAXN << 2];
+inline ll ls(ll x) {
+    return x << 1;
 }
-void update(long long s, long long t, long long k) {
-    long long lNum = 0, rNum = 0, nNum = 1;
-    for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
-        tree[s] += k * lNum;
-        tree[t] += k * rNum;
-        if (~s & 1) {
-            add[s ^ 1] += k;
-            tree[s ^ 1] += k * nNum;
-            lNum += nNum;
-        }
-        if (t & 1) {
-            add[t ^ 1] += k;
-            tree[t ^ 1] += k * nNum;
-            rNum += nNum;
-        }
-    }
-    for (; s; s >>= 1, t >>= 1) {
-        tree[s] += k * lNum;
-        tree[t] += k * rNum;
-    }
+inline ll rs(ll x) {
+    return x << 1 | 1;
 }
-long long query(long long s, long long t) {
-    long long lNum = 0, rNum = 0, nNum = 1;
-    long long ans = 0;
-    for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
-        if (add[s]) ans += add[s] * lNum;
-        if (add[t]) ans += add[t] * rNum;
-        if (~s & 1) {
-            ans += tree[s ^ 1];
-            lNum += nNum;
-        }
-        if (t & 1) {
-            ans += tree[t ^ 1];
-            rNum += nNum;
-        }
+void scan() {
+    cin >> n >> m;
+    for (ll i = 1; i <= n; i++)
+        scanf("%lld", &a[i]);
+}
+inline void push_up(ll p) {
+    ans[p] = ans[ls(p)] + ans[rs(p)];
+}
+void build(ll p, ll l, ll r) {
+    tag[p] = 0;
+    if (l == r) {
+        ans[p] = a[l];
+        return;
     }
-    for (; s; s >>= 1, t >>= 1) {
-        ans += add[s] * lNum;
-        ans += add[t] * rNum;
+    ll mid = (l + r) >> 1;
+    build(ls(p), l, mid);
+    build(rs(p), mid + 1, r);
+    push_up(p);
+}
+inline void f(ll p, ll l, ll r, ll k) {
+    tag[p] = tag[p] + k;
+    ans[p] = ans[p] + k * (r - l + 1);
+}
+inline void push_down(ll p, ll l, ll r) {
+    ll mid = (l + r) >> 1;
+    f(ls(p), l, mid, tag[p]);
+    f(rs(p), mid + 1, r, tag[p]);
+    tag[p] = 0;
+}
+inline void update(ll nl, ll nr, ll l, ll r, ll p, ll k) {
+    if (nl <= l && r <= nr) {
+        ans[p] += k * (r - l + 1);
+        tag[p] += k;
+        return;
     }
-    return ans;
+    push_down(p, l, r);
+    ll mid = (l + r) >> 1;
+    if (nl <= mid) update(nl, nr, l, mid, ls(p), k);
+    if (nr > mid) update(nl, nr, mid + 1, r, rs(p), k);
+    push_up(p);
+}
+ll query(ll q_x, ll q_y, ll l, ll r, ll p) {
+    ll res = 0;
+    if (q_x <= l && r <= q_y) return ans[p];
+    ll mid = (l + r) >> 1;
+    push_down(p, l, r);
+    if (q_x <= mid) res += query(q_x, q_y, l, mid, ls(p));
+    if (q_y > mid) res += query(q_x, q_y, mid + 1, r, rs(p));
+    return res;
 }
 int main() {
-    build();
+    ll a1, b, c, d, e, f;
+    scan();
+    build(1, 1, n);
     while (m--) {
-        char c;
-        long long x, y;
-        scanf("%lld%lld%lld", &c, &x, &y);
-        if (c == 2)
-            printf("%lld\n", query(x, y));
-        else {
-            long long k;
-            scanf("%lld", &k);
-            update(x, y, k);
+        scanf("%lld", &a1);
+        switch (a1) {
+            case 1: {
+                scanf("%lld%lld%lld", &b, &c, &d);
+                update(b, c, 1, n, 1, d);
+                break;
+            }
+            case 2: {
+                scanf("%lld%lld", &e, &f);
+                printf("%lld\n", query(e, f, 1, n, 1));
+                break;
+            }
         }
     }
     return 0;

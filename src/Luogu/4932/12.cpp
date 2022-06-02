@@ -9,10 +9,10 @@ int fr;
 template <class Type>
 inline void read(Type &x) {
     Type y = 1;
-    for (c = gc(); (c > '9' || c < '0') && c != '-'; c = gc())
+    for (c = gc(); !isdigit(c) && c != '-'; c = gc())
         ;
     c == '-' ? y = -1 : x = (c & 15);
-    for (c = gc(); c >= '0' && c <= '9'; c = gc())
+    for (c = gc(); isdigit(c); c = gc())
         x = x * 10 + (c & 15);
     x *= y;
 }

@@ -1,17 +1,10 @@
-/*
- * @Author: Tifa
- * @LastEditTime: 2021-04-19 19:21:54
- * @Description:
- */
 #include <bits/stdc++.h>
 using namespace std;
 using i64 = int64_t;
 #define _for(i, l, r) for (register int i = (l); i < (r); ++i)
 const int K = 21;
-
 bool g[K][K];
 i64 f[K][1 << K];
-
 int main() {
     _for(i, 0, K)
         _for(j, i + 1, K) g[i][j] = g[j][i] = (__gcd(i + 1, j + 1) == 1);

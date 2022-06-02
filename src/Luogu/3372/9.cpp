@@ -4,29 +4,6 @@
 #define rs rt << 1 | 1
 #define Mid int m = ((r - l) >> 1) + l
 typedef long long ll;
-template <typename A>
-inline void read(A &x) {
-    char c;
-    A neg = 1;
-    do {
-        c = getchar();
-    } while ((c < '0' || c > '9') && c != '-');
-    if (c == '-') neg = -1, c = getchar();
-    x = 0;
-    do {
-        x = (x << 3) + (x << 1) + (c - 48);
-        c = getchar();
-    } while (c >= '0' && c <= '9');
-    x *= neg;
-}
-template <typename A, typename B>
-inline void read(A &a, B &b) {
-    read(a), read(b);
-}
-template <typename A, typename B, typename C>
-inline void read(A &a, B &b, C &c) {
-    read(a), read(b), read(c);
-}
 #define MAXN 1000005
 ll sum[MAXN << 2], add[MAXN << 2], a[MAXN];
 inline void PushUp(ll rt) {
@@ -77,18 +54,18 @@ ll Query(ll L, ll R, ll l, ll r, ll rt) {
 }
 int main() {
     ll n, m;
-    read(n, m);
-    _for(i, 1, n) read(a[i]);
+    scanf("%lld%lld", &n, &m);
+    _for(i, 1, n) scanf("%lld", &a[i]);
     Build(1, n, 1);
     while (m--) {
         ll o, x, y;
-        read(o);
+        scanf("%lld", &o);
         if (o == 1) {
             ll k;
-            read(x, y, k);
+            scanf("%lld%lld%lld", &x, &y, &k);
             Update(x, y, k, 1, n, 1);
         } else if (o == 2) {
-            read(x, y);
+            scanf("%lld%lld", &x, &y);
             printf("%lld\n", Query(x, y, 1, n, 1));
         }
     }
