@@ -87,6 +87,7 @@ RE_ELSE = re.compile(r'^\s*#\s*else')
 RE_ENDIF = re.compile(r'^\s*#\s*endif')
 RE_DEFINE_FLAG = re.compile(r'^\s*#\s*define\s+(\w+)\n')
 RE_UNDEF_FLAG = re.compile(r'^\s*#\s*undef\s+(\w+)\n')
+RE_EMPTY_DEFINE_BLOCK = re.compile(r'#ifn?def\s+\w+\n+(?:#else\n+)?#endif\n+')
 
 
 def clean_redundant_code_cpp(code: list[str]) -> list[str]:
@@ -205,6 +206,8 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
                 continue
         new_code.append(column)
     code, new_code = new_code, []
+
+    code = [i if i.endswith('\n') else i + '\n' for i in re.sub(RE_EMPTY_DEFINE_BLOCK, '\n', ''.join(code)).split('\n')]
 
     for column in code:
         if column == f"#ifdef ALWAYS_TRUE_{rand_token}\n":

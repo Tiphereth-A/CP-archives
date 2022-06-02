@@ -1,7 +1,4 @@
-#define __DEF__
 #include <bits/stdc++.h>
-#ifdef __DEF__
-#endif
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
