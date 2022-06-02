@@ -120,10 +120,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
         new_code.append(column)
     code, new_code = new_code, []
 
-    print("---1")
-    print(''.join(code))
-
-    defined_flag: set[str] = {'ONLINE_JUDGE', f"#ifdef ALWAYS_TRUE_{rand_token}"}
+    defined_flag: set[str] = {'ONLINE_JUDGE', f"ALWAYS_TRUE_{rand_token}"}
     stack_index: list[int] = []
     stack_else_index: list[int] = [0]
     stack_status: list[DefineBlockState] = [DefineBlockState.plaintext]
@@ -141,6 +138,17 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
         if match_res:
             if match_res.group(1) in defined_flag:
                 defined_flag.remove(match_res.group(1))
+            continue
+
+        match_res = re.search(RE_IFDEF, column)
+        if match_res:
+            stack_index.append(line_num)
+            stack_status.append(DefineBlockState.in_ifdef)
+            continue
+        match_res = re.search(RE_IFNDEF, column)
+        if match_res:
+            stack_index.append(line_num)
+            stack_status.append(DefineBlockState.in_ifndef)
             continue
 
         if stack_status[-1] != DefineBlockState.plaintext:
@@ -179,17 +187,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
                 would_be_deleted_range.append(delete_tuple)
 
             stack_status.pop()
-        else:
-            match_res = re.search(RE_IFDEF, column)
-            if match_res:
-                stack_index.append(line_num)
-                stack_status.append(DefineBlockState.in_ifdef)
-                continue
-            match_res = re.search(RE_IFNDEF, column)
-            if match_res:
-                stack_index.append(line_num)
-                stack_status.append(DefineBlockState.in_ifndef)
-                continue
+            continue
 
     line_num = 0
     now_del_range: tuple[int, int, int, DeleteState] = (0, 0, 0, DeleteState.skip)
@@ -209,9 +207,6 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
         new_code.append(column)
     code, new_code = new_code, []
 
-    print("---2")
-    print(''.join(code))
-
     for column in code:
         if column == f"#ifdef ALWAYS_TRUE_{rand_token}\n":
             column = '#if 1\n'
@@ -219,9 +214,6 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
             column = '#if 0\n'
         new_code.append(column)
     code, new_code = new_code, []
-
-    print("---3")
-    print(''.join(code))
 
     # remove unused macro, typedef and const
     has_unused_macros = True
