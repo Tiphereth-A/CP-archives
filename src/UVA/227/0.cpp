@@ -19,13 +19,10 @@
 #ifdef __C_LIB__
 #define _mem(a) memset(a, 0, sizeof(a))
 #endif
-#ifdef __CPP_STYLE__
-#else
-#endif
+
 #endif
 #ifdef __FUNC__
-#ifndef typename
-#endif
+
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>

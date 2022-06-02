@@ -1,30 +1,14 @@
-#define __C_STYLE__
-#define __C_LIB__
-#define __STL__
 #define __DEF__
 #define __FASTIO__
 #define __FUNC__
-#ifdef __C_STYLE__
 #include <bits/stdc++.h>
-#endif
-#ifdef __C_LIB__
-#include <bits/stdc++.h>
-#endif
-#ifdef __STL__
-#include <bits/stdc++.h>
-#endif
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-#ifdef __C_LIB__
-#endif
-#ifdef __CPP_STYLE__
-#else
-#endif
+
 #endif
 #ifdef __FUNC__
-#ifndef typename
-#endif
+
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -46,8 +30,7 @@ inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 #ifdef __FASTIO__
 #if 1
-#ifndef typename
-#endif
+
 namespace fastIO {
 template <typename A>
 inline void read(A &x) {

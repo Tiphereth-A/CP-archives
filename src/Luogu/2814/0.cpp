@@ -1,32 +1,15 @@
-#define __C_LIB__
 #define __CPP_STYLE__
-#define __CPP_LIB__
-#define __STL__
 #define __DEF__
 #define __FUNC__
-#ifdef __C_LIB__
 #include <bits/stdc++.h>
-#endif
-#ifdef __CPP_STYLE__
-#include <bits/stdc++.h>
-#endif
-#ifdef __CPP_LIB__
-#include <bits/stdc++.h>
-#endif
-#ifdef __STL__
-#include <bits/stdc++.h>
-#endif
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#ifdef __C_LIB__
-#endif
 #ifdef __CPP_STYLE__
 #define SYNC std::ios::sync_with_stdio(false)
 #endif
 #endif
 #ifdef __FUNC__
-#ifndef typename
-#endif
+
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>

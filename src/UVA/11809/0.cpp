@@ -17,17 +17,12 @@
 #endif
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#ifdef __C_LIB__
-#endif
-#ifdef __CPP_STYLE__
-#else
-#endif
+
 typedef double db;
 typedef long double ldb;
 #endif
 #ifdef __FUNC__
-#ifndef typename
-#endif
+
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>

@@ -1,25 +1,7 @@
-#define __C_STYLE__
-#define __C_LIB__
 #define __CPP_STYLE__
-#define __CPP_LIB__
-#define __STL__
 #define __DEF__
 #define __STD__
-#ifdef __C_STYLE__
 #include <bits/stdc++.h>
-#endif
-#ifdef __C_LIB__
-#include <bits/stdc++.h>
-#endif
-#ifdef __CPP_STYLE__
-#include <bits/stdc++.h>
-#endif
-#ifdef __CPP_LIB__
-#include <bits/stdc++.h>
-#endif
-#ifdef __STL__
-#include <bits/stdc++.h>
-#endif
 #ifdef __STD__
 using namespace std;
 #endif
@@ -30,8 +12,7 @@ using namespace std;
 #define SYNC std::ios::sync_with_stdio(false)
 #endif
 #endif
-#ifndef typename
-#endif
+
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -50,8 +31,7 @@ inline A Abs(const A &x) {
 }
 #ifdef __FASTIO__
 #if 1
-#ifndef typename
-#endif
+
 template <typename A>
 inline void read(A &x) {
     char c;

@@ -44,8 +44,7 @@ using namespace std;
 #define SYNC std::ios::sync_with_stdio(false)
 #endif
 #endif
-#ifndef typename
-#endif
+
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -64,8 +63,7 @@ inline A Abs(const A &x) {
 }
 #ifdef __FASTIO__
 #if 1
-#ifndef typename
-#endif
+
 template <typename A>
 inline void read(A &x) {
     char c;

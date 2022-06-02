@@ -1,22 +1,8 @@
-#define __C_STYLE__
-#define __C_LIB__
-#define __STL__
 #define __DEF__
-#ifdef __C_STYLE__
 #include <bits/stdc++.h>
-#endif
-#ifdef __C_LIB__
-#include <bits/stdc++.h>
-#endif
-#ifdef __STL__
-#include <bits/stdc++.h>
-#endif
 #ifdef __DEF__
-#ifdef __C_LIB__
 #endif
-#endif
-#ifndef typename
-#endif
+
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;

@@ -1,25 +1,13 @@
-#define __C_STYLE__
 #define __C_LIB__
-#define __STL__
 #define __DEF__
-#ifdef __C_STYLE__
 #include <bits/stdc++.h>
-#endif
-#ifdef __C_LIB__
-#include <bits/stdc++.h>
-#endif
-#ifdef __STL__
-#include <bits/stdc++.h>
-#endif
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
 #ifdef __C_LIB__
 #define _memng(a) memset(a, 0xff, sizeof(a))
 #endif
-#ifdef __CPP_STYLE__
-#else
-#endif
+
 #endif
 #ifdef __FASTIO__
 #if 0

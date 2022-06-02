@@ -1,13 +1,5 @@
-#define __C_EX__
-#define __CPP_EX__
 #define __DEF__
 #include <bits/stdc++.h>
-#ifdef __C_EX__
-#include <bits/stdc++.h>
-#endif
-#ifdef __CPP_EX__
-#include <bits/stdc++.h>
-#endif
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 template <typename A>
