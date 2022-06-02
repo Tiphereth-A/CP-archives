@@ -88,11 +88,6 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
-    int _t;
-    cin >> _t;
-    while (_t--)
-#endif
-        solve();
+    solve();
     return 0;
 }

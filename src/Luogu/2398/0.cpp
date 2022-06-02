@@ -17,18 +17,11 @@ void init(int n = N - 1) {
     }
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     i64 n;
     cin >> n;
     init(n);
     i64 ans = 0;
     for (int i = 1; i <= n; ++i) ans += phi[i] * (n / i) * (n / i);
     cout << ans;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

@@ -6,9 +6,6 @@ const int N = 100 + 5;
 const int M = 1e4 + 5;
 int n, m, a[N], f[N][M];
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> n >> m;
     for (int i = 1; i <= n; ++i)
         cin >> a[i];
@@ -17,9 +14,5 @@ int main() {
             f[i][j] =
                 f[i - 1][j] + ((j == a[i]) ? 1 : ((j > a[i]) ? f[i - 1][j - a[i]] : 0));
     cout << f[n][m];
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

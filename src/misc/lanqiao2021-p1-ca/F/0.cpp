@@ -1,8 +1,8 @@
 /*
-* @Author: Tifa
-* @LastEditTime: 2021-04-19 19:21:54
-* @Description:
-*/
+ * @Author: Tifa
+ * @LastEditTime: 2021-04-19 19:21:54
+ * @Description:
+ */
 #include <cstring>
 #include <iostream>
 
@@ -24,10 +24,11 @@ int main() {
         sum += w[i];
     }
     int ans = 0;
-    _for(i, 1, n) _rfor(j, sum, w[i]) f[j] |= f[j - w[i]];
-    _for(i, 1, n) _for(j, 1, sum - w[i]) f[j] |= f[j + w[i]];
+    _for(i, 1, n)
+        _rfor(j, sum, w[i]) f[j] |= f[j - w[i]];
+    _for(i, 1, n)
+        _for(j, 1, sum - w[i]) f[j] |= f[j + w[i]];
     _for(i, 1, sum) ans += f[i];
     cout << ans;
     return 0;
 }
-

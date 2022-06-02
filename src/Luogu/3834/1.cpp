@@ -68,8 +68,6 @@ int query(int l, int r, int L, int R, int k) {
         return query(m + 1, r, hjt[L].r, hjt[R].r, k - tmp);
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-#endif
     clock_t c1 = clock();
     int n = read(), m = read();
     for (int i = 1; i <= n; i++)

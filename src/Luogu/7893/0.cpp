@@ -66,9 +66,6 @@ void solve() {
     printf("%lld\n", ans);
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
 #ifdef MULTI_CASES
     int _t;
     read(_t);
@@ -77,9 +74,5 @@ int main() {
         solve();
 FINISHED:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

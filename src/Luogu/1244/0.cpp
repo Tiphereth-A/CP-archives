@@ -65,17 +65,10 @@ using FastIO::print;
 using FastIO::print_h;
 using FastIO::read;
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     u64 h, k;
     read(h, k);
     print((1ull << h) * (k + 1));
 ex:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

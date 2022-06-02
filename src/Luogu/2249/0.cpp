@@ -49,9 +49,6 @@ using FastIO::print;
 using FastIO::read;
 int a[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     int n, m;
     read(n, m);
     int _;
@@ -63,9 +60,5 @@ int main() {
     }
 FINISHED:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n--------\n"
-              << "Time used:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

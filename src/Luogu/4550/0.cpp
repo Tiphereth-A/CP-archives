@@ -53,9 +53,6 @@ inline void putchar(char a) { buf2[++p3] = a; }
 const int N = 1e4 + 5;
 db a[N], b[N];
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     int n;
     read(n);
     _rfor(i, n - 1, 0) {
@@ -64,8 +61,5 @@ int main(int argc, char const *argv[]) {
     }
     printf("%.2lf", (a[0] + b[0]) / 2);
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

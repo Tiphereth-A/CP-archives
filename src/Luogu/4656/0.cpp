@@ -18,9 +18,6 @@ class Hash_substr {
     unsigned long long operator()(std::size_t l, std::size_t r) const { return ((long long)hash[r] - (long long)hash[l] * p[r - l] % _MOD + _MOD) % _MOD; }
 };
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
@@ -43,9 +40,5 @@ int main() {
     __end_kase:;
     }
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

@@ -9,9 +9,6 @@ T qpow(T a, T b, T mod) {
     return res;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     i64 a, m;
     cin >> a >> m >> str;
     i64 mod = m, _ = m;
@@ -32,9 +29,5 @@ int main() {
         }
     }
     cout << qpow(a, b + flag * mod, m);
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

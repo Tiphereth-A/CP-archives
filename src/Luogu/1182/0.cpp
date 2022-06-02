@@ -83,9 +83,6 @@ bool judge(i64 max) {
     return seg <= m;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n, m);
     i64 l = 0, r = 0, mid;
     _for(i, 1, n) {
@@ -103,9 +100,5 @@ int main() {
     print(r);
 ex:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

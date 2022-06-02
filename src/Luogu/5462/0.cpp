@@ -106,15 +106,6 @@ void modify(int p, int l, int r, int target, const node &a) {
         modify(_rch, mid + 1, r, target, a);
     push_up(p);
 }
-#ifdef _LOCAL_
-void debug(int p) {
-    if (!p) return;
-    std::cerr << p << ":{" << tree[p].val.first << ", " << tree[p].val.second << ", " << tree[p].val.pos << "}, ";
-    std::cerr << tree[p].l << ", " << tree[p].r << '\n';
-    debug(tree[p].l);
-    debug(tree[p].r);
-}
-#endif
 }  // namespace Seg
 struct list {
     int pre, suc;
@@ -150,9 +141,6 @@ inline void del(const int &p, const int &pre, const int &suc) {
     id[p].suc = id[suc].suc;
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n);
     _for(i, 1, n) read(a[i]);
     --n;
@@ -179,8 +167,5 @@ int main(int argc, char const *argv[]) {
     Seg::tree[1].pt();
     --FastIO::p3;
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

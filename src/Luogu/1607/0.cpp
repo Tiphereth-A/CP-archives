@@ -119,9 +119,6 @@ int query(int L, int R, int p = 1, int l = 1, int r = n) {
     return ans;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(k, n, c);
     _for(i, 1, k) read(line[i].l, line[i].r, line[i].m);
     std::sort(line + 1, line + k + 1);
@@ -136,9 +133,5 @@ int main() {
     }
     print(ans);
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

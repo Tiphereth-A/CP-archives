@@ -116,18 +116,11 @@ ostream &operator<<(ostream &out, const bign &x) {
 }
 int n;
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> n;
     bign b(2);
     for (int i = 1; i <= n; ++i)
         b = b * 2;
     b = b - 2;
     cout << b;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

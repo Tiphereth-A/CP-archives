@@ -26,10 +26,6 @@ void solve() {
 }
 int main() {
 #ifdef MULTI
-    _w = scanf("%d", &_t);
-    while (_t--) {
-        solve();
-    }
 #else
     solve();
 #endif

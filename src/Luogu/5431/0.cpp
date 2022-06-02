@@ -48,9 +48,6 @@ i64 n, p, k;
 i64 a[N];
 i64 s[N], v[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     read(n, p, k);
     for (int i = 1; i <= n; ++i) read(a[i]);
     s[0] = 1;
@@ -61,9 +58,5 @@ int main() {
     for (int i = 1; i <= n; ++i) (ans += ((_ *= k) %= p) * v[i] % p * s[i - 1] % p) %= p;
     print(ans);
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

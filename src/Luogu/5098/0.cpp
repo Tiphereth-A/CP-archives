@@ -59,8 +59,6 @@ inline void print(T x, T2... oth) {
 #define INF_I32 0x7FFFFFFF
 int x, y, mina = INF_I32, minb = INF_I32, maxa, maxb, n;
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-#endif
     clock_t c1 = clock();
     read(n);
     _for(i, 1, n) {

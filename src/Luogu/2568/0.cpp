@@ -18,9 +18,6 @@ void init(int n = N - 1) {
 }
 i64 sum[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     i64 n;
     cin >> n;
     init(n);
@@ -28,9 +25,5 @@ int main() {
     i64 ans = 0;
     for (int i = 1; i <= cnt_prime; ++i) ans += sum[n / prime[i]] * 2 - 1;
     cout << ans;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

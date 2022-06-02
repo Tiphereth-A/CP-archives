@@ -51,18 +51,11 @@ using EXCRT::excrt;
 const int N = 1e5 + 5;
 i64 b[N], m[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n;
     cin >> n;
     for (int i = 1; i <= n; ++i) cin >> m[i] >> b[i];
     i64 ans;
     excrt(b, m, n, ans);
     cout << ans;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

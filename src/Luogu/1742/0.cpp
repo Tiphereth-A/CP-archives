@@ -80,18 +80,11 @@ Circle minimum_coverage(int n, Point_2D a[]) {
 using namespace _Circle;
 Point_2D a[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n;
     cin >> n;
     for (int i = 1; i <= n; ++i) cin >> a[i].x >> a[i].y;
     random_shuffle(a + 1, a + n + 1);
     Circle ans = minimum_coverage(n, a);
     printf("%.10lf\n%.10lf %.10lf", ans.d, ans.c.x, ans.c.y);
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

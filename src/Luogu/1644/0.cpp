@@ -17,15 +17,8 @@ void dfs(int now_x, int now_y) {
     }
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> n >> m;
     dfs(0, 0);
     std::cout << ans;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

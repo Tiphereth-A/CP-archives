@@ -5,9 +5,6 @@ using std::endl;
 int n;
 std::priority_queue<u64, std::vector<u64>, std::greater<u64>> q;
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> n;
     for (int a, i = 1; i <= n; i++) {
         cin >> a;
@@ -23,9 +20,5 @@ int main() {
         q.push(a + b);
     }
     cout << ans;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

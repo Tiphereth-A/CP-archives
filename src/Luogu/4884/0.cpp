@@ -9,12 +9,6 @@
 #ifdef __C_LIB__
 #include <bits/stdc++.h>
 #endif
-#ifdef __CPP_STYLE__
-#include <bits/stdc++.h>
-#endif
-#ifdef __CPP_LIB__
-#include <bits/stdc++.h>
-#endif
 #ifdef __STL__
 #include <bits/stdc++.h>
 #endif
@@ -23,9 +17,7 @@
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
 #endif
 #ifdef __CPP_STYLE__
-#define _debug(x) std::cout << #x << " = " << x << std::endl
 #else
-#define _debug(type, x) printf(#x "=%" #type "\n", (x))
 #endif
 typedef __int128 i128;
 #endif
@@ -49,28 +41,6 @@ inline A Abs(const A &x) {
 }
 #ifdef __FASTIO__
 #if 0
-#ifndef typename
-#endif
-    template <typename A> inline void read(A &x){
-        char c;
-        A neg=1;
-        do{
-            c=getchar();
-        }while ((c<'0'||c>'9')&&c!='-');
-        if (c=='-') neg=-1,c=getchar();
-        x=0;
-        do{
-            x=(x<<3)+(x<<1)+(c^48);
-            c=getchar();
-        }while (c>='0'&&c<='9');
-        x*=neg;
-    }
-    template <typename A,typename B> inline void read(A &a,B &b){
-    read(a),read(b);}
-    template <typename A,typename B,typename C> inline void read(A &a,B &b,C &c){
-    read(a),read(b),read(c);}
-    template <typename A,typename B,typename C,typename D> inline void read(A &a,B &b,C &c,D &d){
-    read(a),read(b),read(c),read(d);}
 #else
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)

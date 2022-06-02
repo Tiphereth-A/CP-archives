@@ -197,6 +197,6 @@ inline auto solve() -> void {
     fast_out.write(s);
 }
 int main() {
-        solve();
+    solve();
     return 0;
 }

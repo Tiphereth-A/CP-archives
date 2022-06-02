@@ -4,9 +4,6 @@ using std::cout;
 using std::endl;
 std::string data;
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     for (char c; cin >> c, c != 'E';)
         data += c;
     int w = 0, l = 0;
@@ -34,9 +31,5 @@ int main() {
         }
     }
     cout << w << ':' << l << endl;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

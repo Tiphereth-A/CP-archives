@@ -10,9 +10,6 @@ struct node {
 } task[N];
 int f[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> n >> k;
     for (int i = 1; i <= k; ++i)
         cin >> task[i].l >> task[i].time;
@@ -26,9 +23,5 @@ int main() {
                 f[i] = std::max(f[i], f[i + task[j++].time]);
     }
     cout << f[1];
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

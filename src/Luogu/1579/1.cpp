@@ -7,9 +7,6 @@ inline bool prime(int n) {
     return true;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     int n;
     std::cin >> n;
     for (int i = 2; i <= sqrt(n); ++i) {
@@ -21,8 +18,5 @@ int main() {
             }
         }
     }
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

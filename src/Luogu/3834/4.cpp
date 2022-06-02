@@ -90,8 +90,6 @@ int query(int L, int R, int l, int r, int k) {
         return query(PREL.r, PRER.r, mid + 1, r, k - tmp);
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-#endif
     clock_t c1 = clock();
     read(n, m);
     _for(i, 1, n) {

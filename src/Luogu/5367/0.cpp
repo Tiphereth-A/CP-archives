@@ -41,18 +41,11 @@ size_t main(size_t n, const size_t a[]) {
 const size_t N = 1e6 + 5;
 size_t n, a[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
     cin >> n;
     for (size_t i = 1; i <= n; ++i) cin >> a[i];
     cout << Cantor_expansion::main(n, a);
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

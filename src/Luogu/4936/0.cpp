@@ -8,22 +8,11 @@
 #ifdef __C_LIB__
 #include <bits/stdc++.h>
 #endif
-#ifdef __CPP_STYLE__
-#include <bits/stdc++.h>
-#endif
-#ifdef __CPP_LIB__
-#include <bits/stdc++.h>
-#endif
 #ifdef __STL__
 #include <bits/stdc++.h>
 #endif
-#ifdef __STD__
-using namespace std;
-#endif
 #ifdef __DEF__
 #ifdef __C_LIB__
-#endif
-#ifdef __CPP_STYLE__
 #endif
 #endif
 #ifndef typename

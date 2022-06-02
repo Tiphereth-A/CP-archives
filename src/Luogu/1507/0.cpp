@@ -74,9 +74,6 @@ struct Food {
     int v, m, cal;
 } a[M];
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(V, Mass, n);
     _for(i, 1, n) read(a[i].v, a[i].m, a[i].cal);
     _for(i, 1, n)
@@ -90,9 +87,5 @@ int main(int argc, char const *argv[]) {
     print(f[V][Mass]);
 ex:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

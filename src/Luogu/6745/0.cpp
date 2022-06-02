@@ -46,9 +46,6 @@ inline void putchar(char a) {
 using FastIO::print;
 using FastIO::read;
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     __uint128_t k, x;
     read(k, x);
     if (k <= 20) {
@@ -66,9 +63,5 @@ int main() {
         if (x) print(x);
     }
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

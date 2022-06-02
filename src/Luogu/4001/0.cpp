@@ -59,9 +59,6 @@ void init(int n, int m) {
         }
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     int n, m;
     ios::sync_with_stdio(false);
     cin.tie(0);
@@ -71,9 +68,5 @@ int main() {
     int s = 0, t = 2 * (n - 1) * (m - 1) + 1;
     dijkstra(s);
     cout << dis[t];
-#ifdef _LOCAL_
-    std::cerr << "\n--------\n"
-              << "Time used:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

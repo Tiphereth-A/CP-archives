@@ -95,9 +95,6 @@ void merge_alay(int x, int y) {
     fa[find(x + n * 2)] = find(y + n * 2);
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n, k);
     _for(i, 1, n * 3) fa[i] = i;
     for (int op, x, y, i = 1; i <= k; ++i) {
@@ -126,8 +123,5 @@ int main(int argc, char const *argv[]) {
     }
     std::cout << ans;
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

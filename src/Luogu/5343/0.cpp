@@ -86,9 +86,6 @@ inline void pow(mat a, i64 b, col_vector &ret) {
         if (b & 1) ret *= a;
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     int k, p;
     read(n);
     read(k);
@@ -125,8 +122,5 @@ int main(int argc, char const *argv[]) {
         print(dp.num[100]);
     }
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

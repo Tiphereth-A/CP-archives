@@ -129,9 +129,6 @@ i64 query(int L, int R, int p = 1, int l = 1, int r = n) {
     return ans;
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n, m);
     _for(i, 1, n) read(a[i]);
     build();
@@ -146,8 +143,5 @@ int main(int argc, char const *argv[]) {
             print(query(x, y));
     }
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

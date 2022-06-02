@@ -35,9 +35,6 @@ void insert(int data, __ID_T_Hod pos, bool p) {
     }
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> n;
     l[head = id[1] = ++cnt] = {1, 0, 0};
     for (int k, p, i = 2; i <= n; i++) {
@@ -53,9 +50,5 @@ int main() {
         if (!del[l[i].val])
             cout << l[i].val << ' ';
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

@@ -27,9 +27,6 @@ void dfs(int now) {
 }
 int d[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
@@ -54,9 +51,5 @@ int main() {
     dfs(start);
     cout << ans << '\n';
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

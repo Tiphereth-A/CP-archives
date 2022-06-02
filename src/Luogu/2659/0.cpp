@@ -54,8 +54,6 @@ struct node {
 } stack[N];
 i64 top, ans = 0x8000000000000000;
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-#endif
     read(n);
     _for(i, 1, n) {
         int tmp;

@@ -50,6 +50,6 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
     init_prime();
-        solve();
+    solve();
     return 0;
 }

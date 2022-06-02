@@ -42,9 +42,6 @@ using namespace std;
 #ifdef __C_LIB__
 #endif
 #ifdef __CPP_STYLE__
-#define DEBUG(x) std::cout << #x << " = " << x << std::endl
-#else
-#define DEBUG(type, x) printf(#x "=%" #type "\n", (x))
 #endif
 #endif
 #ifndef typename

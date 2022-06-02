@@ -59,17 +59,11 @@ void dfs(int dep) {
     dfs(dep + 1);
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n);
     dfs(0);
     for (int i = (1 << n) - 1; i >= 0; --i) {
         for (int j = (1 << n) - 1; j >= 0; --j) printf("%d ", map[i][j]);
         _pc('\n');
     }
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

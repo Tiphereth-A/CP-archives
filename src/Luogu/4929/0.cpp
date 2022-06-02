@@ -55,17 +55,7 @@ class DLX {
         restore_col(now_r);
         return false;
     }
-#ifdef _LOCAL_
-  public:
-    void debug() {
-        cerr << "w: " << width << ", h: " << height << ", cnt: " << cnt_node << endl;
-        cerr << "cnt_col: ";
-        for (std::size_t i = 1; i <= width; ++i) cerr << cnt_col[i] << " ";
-        cerr << endl;
-        for (std::size_t i = 0; i <= cnt_node; ++i) cerr << "id: " << i << "; |" << node[i].l << "|" << node[i].r << "|" << node[i].u << "|" << node[i].d << "|" << node[i].row << "|" << node[i].col << "|" << endl;
-        cerr << endl;
-    }
-#endif
+
   public:
     void clear() {
         memset(node, 0, sizeof(node));

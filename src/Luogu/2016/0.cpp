@@ -27,9 +27,6 @@ void dfs(int pos, int fa = -1) {
     }
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> n;
     for (int i = 1, x, k; i <= n; ++i) {
         cin >> x >> k;
@@ -41,9 +38,5 @@ int main() {
     }
     dfs(0);
     cout << min(f[0][0], f[0][1]);
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

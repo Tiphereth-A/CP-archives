@@ -35,9 +35,10 @@ inline void init() {
         for (idx_type j = 1; j < i; ++j) _gcd[i][j] = _gcd[j][i] = _gcd[j][i % j];
     }
 }
-    init();
-    return 0;
-}();
+init();
+return 0;
+}
+();
 inline data_type main(data_type x, data_type y) {
     if (x <= SQRT_N && y <= SQRT_N) return _gcd[x][y];
     data_type ans = 1, _;

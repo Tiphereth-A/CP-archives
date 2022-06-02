@@ -73,9 +73,6 @@ struct line {
     bool operator<(const line &other) const { return cost > other.cost; }
 } a[N];
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n, m);
     _rep(i, 1, n) {
         read(a[i].cost);
@@ -99,9 +96,5 @@ int main(int argc, char const *argv[]) {
     print(ans);
 ex:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

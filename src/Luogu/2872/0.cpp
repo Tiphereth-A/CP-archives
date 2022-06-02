@@ -38,9 +38,6 @@ pii point[N];
 double dis(int x, int y) { return sqrt((point[x].first - point[y].first) * (point[x].first - point[y].first) + (point[x].second - point[y].second) * (point[x].second - point[y].second)); }
 bool vis[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n, m;
     scanf("%d%d", &n, &m);
     _for(i, 1, n) scanf("%d%d", &point[i].first, &point[i].second);
@@ -62,9 +59,5 @@ int main() {
         }
     printf("%.2lf", kruskal(n));
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

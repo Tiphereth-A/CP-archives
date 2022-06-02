@@ -7,9 +7,6 @@ const int N = 20;
 int n;
 int map[N][N], f[1 << N][N];
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     memset(f, 0x3f, sizeof f);
     f[1][0] = 0;
     cin >> n;
@@ -31,9 +28,5 @@ int main() {
         ans = min(ans, f[(1 << n) - 1][i] + map[i][0]);
     }
     cout << ans;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

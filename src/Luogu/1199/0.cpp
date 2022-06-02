@@ -6,9 +6,6 @@ const int N = 505;
 int n, a[N][N];
 bool chosen[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> n;
     int ans = 0;
     for (int i = 1; i < n; ++i)
@@ -23,9 +20,5 @@ int main() {
     }
     cout << 1 << endl
          << ans;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

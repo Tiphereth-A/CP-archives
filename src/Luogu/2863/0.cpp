@@ -44,9 +44,6 @@ void tarjan(int now) {
     }
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n, m;
     scanf("%d%d", &n, &m);
     int x, y;
@@ -60,9 +57,5 @@ int main() {
     _for(i, 1, cnt_scc) ans += scc_size[i] > 1;
     printf("%d", ans);
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

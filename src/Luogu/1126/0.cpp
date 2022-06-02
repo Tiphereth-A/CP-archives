@@ -21,9 +21,6 @@ point start, end;
 char dir;
 std::queue<node> queue;
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> n >> m;
     for (int __m, i = 0; i < n; i++)
         for (int j = 0; j < m; j++) {
@@ -60,9 +57,5 @@ int main() {
             }
     }
     cout << (map[end.x][end.y] > 0 ? map[end.x][end.y] : -1);
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

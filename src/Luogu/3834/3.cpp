@@ -8,8 +8,6 @@
 #ifdef __CPP_EX__
 #include <bits/stdc++.h>
 #endif
-#ifdef __O_MAGIC__
-#endif
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _mid(l, r) (((l) + (r)) >> 1)
@@ -89,8 +87,6 @@ int query(int L, int R, int l, int r, int k) {
         return query(PREL.r, PRER.r, mid + 1, r, k - tmp);
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-#endif
     clock_t c1 = clock();
     read(n, m);
     _for(i, 1, n) {

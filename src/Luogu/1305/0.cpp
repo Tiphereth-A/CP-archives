@@ -22,9 +22,6 @@ void f_i(int pos) {
     f_i(t[pos].r);
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     int n;
     std::cin >> n;
     char str[4];
@@ -44,9 +41,5 @@ int main() {
         }
     }
     f_i(id[r]);
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

@@ -64,9 +64,6 @@ void build(int p, int l, int r) {
     tr[p] = Max(tr[_lch], tr[_rch]);
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n, w);
     if (w == 0) {
         print(0);
@@ -83,8 +80,5 @@ int main(int argc, char const *argv[]) {
     print(tr[1]);
 end:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

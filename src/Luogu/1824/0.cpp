@@ -74,9 +74,6 @@ bool judge(int dis) {
     return tot >= b;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(a, b);
     if (b == 1) {
         print(0);
@@ -96,9 +93,5 @@ int main() {
     }
     print(ans);
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

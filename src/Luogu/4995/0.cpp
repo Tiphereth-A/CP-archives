@@ -4,18 +4,10 @@
 #define __DEF__
 #define __FASTIO__
 #define __FUNC__
-#ifdef __OPTMIZE__
-#endif
 #ifdef __C_STYLE__
 #include <bits/stdc++.h>
 #endif
 #ifdef __C_LIB__
-#include <bits/stdc++.h>
-#endif
-#ifdef __CPP_STYLE__
-#include <bits/stdc++.h>
-#endif
-#ifdef __CPP_LIB__
 #include <bits/stdc++.h>
 #endif
 #ifdef __STL__
@@ -25,9 +17,7 @@
 #ifdef __C_LIB__
 #endif
 #ifdef __CPP_STYLE__
-#define _debug(x) std::cout << #x << " = " << x << std::endl
 #else
-#define _debug(type, x) printf(#x "=%" type "\n", (x))
 #endif
 #endif
 #ifdef __FUNC__
@@ -54,26 +44,6 @@ inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
 #endif
 #ifdef __FASTIO__
 #if 0
-#ifndef typename
-#endif
-    namespace fastIO {
-        template <typename A> inline void read(A &x){
-            char c;
-            A neg=1;
-            do{
-                c=getchar();
-            }while ((c<'0'||c>'9')&&c!='-');
-            if (c=='-') neg=-1,c=getchar();
-            x=0;
-            do{
-                x=(x<<3)+(x<<1)+(c^48);
-                c=getchar();
-            }while (c>='0'&&c<='9');
-            x*=neg;
-        }
-        template <typename A,typename... B> inline void read(A &a,B&... b){
-        read(a),read(b...);}
-    }
 #else
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)

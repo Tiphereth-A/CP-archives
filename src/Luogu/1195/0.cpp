@@ -28,9 +28,6 @@ long long kruskal(int n, int k = 1) {
     return ans;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n, m, k;
     scanf("%d%d%d", &n, &m, &k);
     for (int i = 1, u, v, w; i <= m; ++i) {
@@ -40,10 +37,5 @@ int main() {
     try {
         printf("%lld", kruskal(n, k));
     } catch (const char *str) { puts(str); }
-#ifdef _LOCAL_
-    std::cerr
-        << "\n---\n"
-        << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

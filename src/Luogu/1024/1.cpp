@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using std::cin;
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     double a, b, c, d;
     cin >> a >> b >> c >> d;
     double as = b * b - 3 * a * c,
@@ -14,9 +11,5 @@ int main() {
            x2 = (-b + sqrt(as) * (cos(si / 3) + sqrt(3) * sin(si / 3))) / (3 * a),
            x3 = (-b + sqrt(as) * (cos(si / 3) - sqrt(3) * sin(si / 3))) / (3 * a);
     printf("%.2f %.2f %.2f", x1, x3, x2);
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

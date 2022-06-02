@@ -9,9 +9,6 @@ int ceil_pow2(int n) {
 }
 int bsf(unsigned int n) {
 #ifdef _MSC_VER
-    unsigned long index;
-    _BitScanForward(&index, n);
-    return index;
 #else
     return __builtin_ctz(n);
 #endif
@@ -31,8 +28,6 @@ struct barrett {
         unsigned long long z = a;
         z *= b;
 #ifdef _MSC_VER
-        unsigned long long x;
-        _umul128(z, im, &x);
 #else
         unsigned long long x =
             (unsigned long long)(((unsigned __int128)(z)*im) >> 64);
@@ -167,31 +162,6 @@ using is_unsigned_int =
                                   is_unsigned_int128<T>::value,
                               std::true_type,
                               std::false_type>::type;
-template <class T>
-using to_unsigned = typename std::conditional<
-    is_signed_int128<T>::value,
-    make_unsigned_int128<T>,
-    typename std::conditional<std::is_signed<T>::value,
-                              std::make_unsigned<T>,
-                              std::common_type<T>>::type>::type;
-#else
-template <class T>
-using is_integral = typename std::is_integral<T>;
-template <class T>
-using is_signed_int =
-    typename std::conditional<is_integral<T>::value && std::is_signed<T>::value,
-                              std::true_type,
-                              std::false_type>::type;
-template <class T>
-using is_unsigned_int =
-    typename std::conditional<is_integral<T>::value &&
-                                  std::is_unsigned<T>::value,
-                              std::true_type,
-                              std::false_type>::type;
-template <class T>
-using to_unsigned = typename std::conditional<is_signed_int<T>::value,
-                                              std::make_unsigned<T>,
-                                              std::common_type<T>>::type;
 #endif
 template <class T>
 using is_signed_int_t = std::enable_if_t<is_signed_int<T>::value>;

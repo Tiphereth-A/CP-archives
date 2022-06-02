@@ -19,9 +19,6 @@ void init_prime(int n = N - 1) {
     }
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     init_prime();
     int x, kase;
     cin >> x >> kase;
@@ -59,9 +56,5 @@ int main() {
         }
     __end_kase:;
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

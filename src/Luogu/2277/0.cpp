@@ -81,12 +81,13 @@ using namespace std;
 #define _CALC(a, b, c, d) __CALC(a, b, c, d, OPS0), __CALC(a, b, c, d, OPS1), __CALC(a, b, c, d, OPS2), __CALC(a, b, c, d, OPS3), __CALC(a, b, c, d, OPS4), __CALC(a, b, c, d, OPS5), __CALC(a, b, c, d, OPS6), __CALC(a, b, c, d, OPS7), __CALC(a, b, c, d, OPS8), __CALC(a, b, c, d, OPS9), __CALC(a, b, c, d, OPS10), __CALC(a, b, c, d, OPS11), __CALC(a, b, c, d, OPS12), __CALC(a, b, c, d, OPS13), __CALC(a, b, c, d, OPS14), __CALC(a, b, c, d, OPS15), __CALC(a, b, c, d, OPS16), __CALC(a, b, c, d, OPS17), __CALC(a, b, c, d, OPS18), __CALC(a, b, c, d, OPS19), __CALC(a, b, c, d, OPS20), __CALC(a, b, c, d, OPS21), __CALC(a, b, c, d, OPS22), __CALC(a, b, c, d, OPS23), __CALC(a, b, c, d, OPS24), __CALC(a, b, c, d, OPS25), __CALC(a, b, c, d, OPS26), __CALC(a, b, c, d, OPS27), __CALC(a, b, c, d, OPS28), __CALC(a, b, c, d, OPS29), __CALC(a, b, c, d, OPS30), __CALC(a, b, c, d, OPS31), __CALC(a, b, c, d, OPS32), __CALC(a, b, c, d, OPS33), __CALC(a, b, c, d, OPS34), __CALC(a, b, c, d, OPS35), __CALC(a, b, c, d, OPS36), __CALC(a, b, c, d, OPS37), __CALC(a, b, c, d, OPS38), __CALC(a, b, c, d, OPS39), __CALC(a, b, c, d, OPS40), __CALC(a, b, c, d, OPS41), __CALC(a, b, c, d, OPS42), __CALC(a, b, c, d, OPS43), __CALC(a, b, c, d, OPS44), __CALC(a, b, c, d, OPS45), __CALC(a, b, c, d, OPS46), __CALC(a, b, c, d, OPS47), __CALC(a, b, c, d, OPS48), __CALC(a, b, c, d, OPS49), __CALC(a, b, c, d, OPS50), __CALC(a, b, c, d, OPS51), __CALC(a, b, c, d, OPS52), __CALC(a, b, c, d, OPS53), __CALC(a, b, c, d, OPS54), __CALC(a, b, c, d, OPS55), __CALC(a, b, c, d, OPS56), __CALC(a, b, c, d, OPS57), __CALC(a, b, c, d, OPS58), __CALC(a, b, c, d, OPS59), __CALC(a, b, c, d, OPS60), __CALC(a, b, c, d, OPS61), __CALC(a, b, c, d, OPS62), __CALC(a, b, c, d, OPS63),
 #define CALC(...) _CALC(__VA_ARGS__)
 int dict[256];
-    dict['+'] = 0;
-    dict['-'] = 1;
-    dict['*'] = 2;
-    dict['/'] = 3;
-    return 0;
-}();
+dict['+'] = 0;
+dict['-'] = 1;
+dict['*'] = 2;
+dict['/'] = 3;
+return 0;
+}
+();
 struct Node {
     u64 hash;
     double data;

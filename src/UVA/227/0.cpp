@@ -12,25 +12,6 @@
 #include <cstdlib>
 #include <cstring>
 #endif
-#ifdef __CPP_STYLE__
-#include <iostream>
-#endif
-#ifdef __CPP_LIB__
-#include <fstream>
-#include <iomanip>
-#include <string>
-#endif
-#ifdef __STL__
-#include <algorithm>
-#include <deque>
-#include <iterator>
-#include <list>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <vector>
-#endif
 #ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _gc getchar
@@ -39,9 +20,7 @@
 #define _mem(a) memset(a, 0, sizeof(a))
 #endif
 #ifdef __CPP_STYLE__
-#define _debug(x) std::cout << #x << " = " << x << std::endl
 #else
-#define _debug(type, x) printf(#x "=%" type "\n", (x))
 #endif
 #endif
 #ifdef __FUNC__

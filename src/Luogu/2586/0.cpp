@@ -55,17 +55,11 @@ struct ANT {
     void add_age() { ++age; }
     void leave_msg() { msg[x_now][y_now] += taking_cake ? 5 : 2; }
     void move() {
-#ifdef _LOCAL_
-        puts("-----");
-#endif
         int msg_max = -1;
         int x_final = 0, y_final = 0;
         int dir_final = 0;
         for (int i = 0; i <= 3; ++i) {
             int x_tmp = x_now + dx[i], y_tmp = y_now + dy[i];
-#ifdef _LOCAL_
-            printf("%d %d\n", x_tmp, y_tmp);
-#endif
             if (!check_block_valid(x_tmp, y_tmp))
                 continue;
             if (msg_max < msg[x_tmp][y_tmp] && (x_tmp != x_pre || y_tmp != y_pre)) {
@@ -82,9 +76,6 @@ struct ANT {
                 if (dir_tmp < 0)
                     dir_tmp += 4;
                 int x_tmp = x_now + dx[dir_tmp], y_tmp = y_now + dy[dir_tmp];
-#ifdef _LOCAL_
-                printf("%d %d\n", x_tmp, y_tmp);
-#endif
                 if (!check_block_valid(x_tmp, y_tmp))
                     continue;
                 if (msg_max < msg[x_tmp][y_tmp] && (x_tmp != x_pre || y_tmp != y_pre)) {
@@ -225,8 +216,6 @@ void debug() {
     puts("");
 }
 int main() {
-#ifdef _LOCAL_
-#endif
     scanf("%d%d%d%d%d", &n, &m, &s, &d, &r);
     r_sqr = 1ll * r * r;
     _T_TURRET(i) {
@@ -259,10 +248,6 @@ int main() {
         }
         _T_ANT(i) { ant[i].add_age(); }
         dec_msg();
-#ifdef _LOCAL_
-        printf("#%d\n", time_passed);
-        debug();
-#endif
     }
     puts(game_over ? "" : "The game is going on");
     printf("%d\n", ant_alive);

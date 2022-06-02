@@ -69,9 +69,6 @@ const int M = 1 << 16;
 const int N = 17;
 i64 f[M][N], s[N], n, delta;
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n, delta);
     _rep(i, 0, n) read(s[i]);
     _rep(i, 0, n) f[1 << i][i] = 1;
@@ -92,9 +89,5 @@ int main(int argc, char const *argv[]) {
     print(ans);
 ex:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

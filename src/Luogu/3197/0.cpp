@@ -13,16 +13,9 @@ T qpow(T a, T b, T mod = MOD) {
     return res;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     i64 m, n;
     cin >> m >> n;
     cout << (qpow(m, n) - qpow(m - 1, n - 1) * m % MOD + MOD) % MOD;
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

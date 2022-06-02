@@ -53,9 +53,6 @@ inline void putchar(char a) { buf2[++p3] = a; }
 const int N = 1e5 + 5;
 db a[N], b[N], c[N], p[N];
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     int n;
     scanf("%d", &n);
     _for(i, 1, n) {
@@ -66,8 +63,5 @@ int main(int argc, char const *argv[]) {
     }
     printf("%.1lf", c[n]);
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

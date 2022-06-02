@@ -20,9 +20,6 @@ void push_state_in_queue(const node &now) {
     }
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     state_t tmp;
     for (int a, i = 0; i < 9; ++i) {
         cin >> a;
@@ -39,9 +36,5 @@ int main() {
         }
         push_state_in_queue(now);
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

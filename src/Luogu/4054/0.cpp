@@ -101,9 +101,6 @@ int query(int color, int x, int y) {
     return ans;
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n, m);
     for (int i = 1, tmp; i <= n; ++i)
         for (int j = 1; j <= m; ++j) {
@@ -126,9 +123,5 @@ int main(int argc, char const *argv[]) {
     }
 ex:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

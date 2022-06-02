@@ -19,9 +19,6 @@ void solve() {
     cout << ((a + b) * 2 + 4 <= m ? "Good" : "Miss") << '\n';
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -32,9 +29,5 @@ int main() {
 #endif
         solve();
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

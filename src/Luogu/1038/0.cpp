@@ -18,9 +18,6 @@ void addEdge(int x, int y, int w = 1) {
 int in[N], out[N];
 i64 neu[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n, p;
     scanf("%d%d", &n, &p);
     queue<int> q;
@@ -58,9 +55,5 @@ int main() {
         }
     if (f) puts("NULL");
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

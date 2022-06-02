@@ -26,9 +26,6 @@ bool chk(int l, int r) {
     return 0;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n;
     scanf("%d", &n);
     _for(i, 1, n) scanf("%d", v + i);
@@ -44,9 +41,5 @@ int main() {
         if (chk(son[i].l, son[i].r)) ans = max(ans, sz[i]);
     printf("%d", ans);
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

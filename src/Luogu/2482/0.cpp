@@ -140,13 +140,6 @@ void dead(int now_player, int from_player) {
     if (now->dead)
         return;
     if (now->health <= 0) {
-#ifdef _LOCAL_
-        if (now->health < 0) {
-            std::cerr << "the health of player " << now_player
-                      << " is less than 0 ("
-                      << pigs[now_player].health << ')' << std::endl;
-        }
-#endif
         int i = -1;
         while (~(i = find_card(now_player, 'P'))) {
             ++now->health;
@@ -380,9 +373,6 @@ void debug() {
 }  // namespace main_action
 using namespace main_action;
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> n >> m;
     card_group_head = 1;
     card_group_rear = m + 1;
@@ -416,18 +406,9 @@ int main() {
     for (int i = MP_pos; 1; i = pigs[i].next_player) {
         get_cards(i, 2);
         action(i);
-#ifdef _LOCAL_
-        if (i == MP_pos)
-            std::cerr << "\nRound " << ++cnt << ":";
-        std::cerr << "\nTime for " << i << ":\n";
-        debug();
-#endif
         if (game_over())
             break;
     }
     print_result();
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

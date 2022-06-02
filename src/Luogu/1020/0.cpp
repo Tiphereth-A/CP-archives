@@ -4,9 +4,6 @@ using std::cout;
 const int N = 1e5 + 5;
 int f1[N], f2[N], cnt1 = 1, cnt2 = 1;
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     int tmp;
     scanf("%d", &tmp);
     f1[1] = f2[1] = tmp;
@@ -28,9 +25,5 @@ int main() {
                f2] = tmp;
     }
     printf("%d\n%d", cnt1, cnt2);
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

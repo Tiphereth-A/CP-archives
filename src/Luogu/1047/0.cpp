@@ -3,9 +3,6 @@ const int N = 1e4 + 5;
 bool sum[N];
 int n, m;
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     std::cin >> n >> m;
     memset(sum, 1, sizeof(bool) * (n + 1));
     while (m--) {
@@ -18,8 +15,5 @@ int main() {
         ans += sum[i];
     }
     std::cout << ans;
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

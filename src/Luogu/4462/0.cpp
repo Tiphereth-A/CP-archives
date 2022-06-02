@@ -91,8 +91,6 @@ i64 del(int p) {
 using mo::add;
 using mo::del;
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-#endif
     read(n, m, k);
     sqrt_n = sqrt(n);
     _for(i, 1, n) blocks[i] = (i - 1) / sqrt_n + 1;

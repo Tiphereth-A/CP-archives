@@ -75,9 +75,6 @@ class ACAM {
 ACAM<> acam;
 int e[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n;
     cin >> n;
     string str;
@@ -88,9 +85,5 @@ int main() {
     cin >> str;
     cout << acam.query(str);
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

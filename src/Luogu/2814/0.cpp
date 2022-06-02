@@ -4,9 +4,6 @@
 #define __STL__
 #define __DEF__
 #define __FUNC__
-#ifdef __C_STYLE__
-#include <bits/stdc++.h>
-#endif
 #ifdef __C_LIB__
 #include <bits/stdc++.h>
 #endif
@@ -25,9 +22,6 @@
 #endif
 #ifdef __CPP_STYLE__
 #define SYNC std::ios::sync_with_stdio(false)
-#define _debug(x) std::cout << #x << " = " << x << std::endl
-#else
-#define _debug(type, x) printf(#x "=%" type "\n", (x))
 #endif
 #endif
 #ifdef __FUNC__

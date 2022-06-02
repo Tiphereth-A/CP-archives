@@ -9,9 +9,6 @@ int total_map;
 std::queue<node> queue;
 std::map<std::string, int> mm;
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> a >> b;
     for (total_map = 1; cin >> map[total_map].first >> map[total_map].second; ++total_map) {
         if (total_map > 7)
@@ -43,9 +40,5 @@ int main() {
         }
     }
     cout << "NO ANSWER!";
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

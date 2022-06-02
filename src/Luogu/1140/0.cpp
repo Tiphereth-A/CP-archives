@@ -22,9 +22,6 @@ std::string a(" "), b(" ");
 int len_a, len_b;
 int f[N][N];
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     std::string tmp_a, tmp_b;
     cin >> len_a >> tmp_a >> len_b >> tmp_b;
     a += tmp_a;
@@ -43,9 +40,5 @@ int main() {
                                   f[now_a][now_b - 1] + get_sim(0, b[now_b])));
         }
     cout << f[len_a][len_b];
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

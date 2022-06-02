@@ -14,9 +14,10 @@ inline void init_prime(const int &n = N - 1) {
         }
     }
 }
-    init_prime();
-    return 0;
-}();
+init_prime();
+return 0;
+}
+();
 i64 tau(i64 x) {
     i64 ret = 1;
     _for(i, 1ll, cnt_prime, cnt) {

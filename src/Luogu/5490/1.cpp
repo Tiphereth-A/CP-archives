@@ -109,9 +109,6 @@ void modify(int len_p, int p = 1) {
     push_up(p);
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n);
     for (int i = 1, x1, x2, y1, y2; i <= n; ++i) {
         read(x1, y1, x2, y2);
@@ -131,9 +128,5 @@ int main(int argc, char const *argv[]) {
     print(ans);
 ex:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

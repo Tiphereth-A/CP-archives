@@ -83,9 +83,6 @@ int fa[N], enemy[N];
 int find(int x) { return x == fa[x] ? x : fa[x] = find(fa[x]); }
 void merge(int x, int y) { fa[find(x)] = find(y); }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n, m);
     _for(i, 1, m) read(e[i].a, e[i].b, e[i].c);
     _for(i, 1, n) fa[i] = i;
@@ -107,8 +104,5 @@ int main(int argc, char const *argv[]) {
             merge(enemy[fa[x]], fa[y]);
     }
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

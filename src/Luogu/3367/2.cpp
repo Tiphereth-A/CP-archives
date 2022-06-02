@@ -59,8 +59,6 @@ inline void merge(int x, int y) {
     fa[find(x)] = find(y);
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-#endif
     int n, m, opt, x, y;
     read(n, m);
     for (int i = 1; i <= n; i++)

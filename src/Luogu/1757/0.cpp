@@ -10,9 +10,6 @@ struct node {
 } a[N][M];
 int f[M], cnt_a[M];
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     cin >> m >> n;
     int max_k = 0;
     for (int i = 1, v, w, k; i <= n; ++i) {
@@ -27,9 +24,5 @@ int main() {
                 if (j >= a[k][i].weight)
                     f[j] = std::max(f[j], f[j - a[k][i].weight] + a[k][i].value);
     cout << f[m];
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

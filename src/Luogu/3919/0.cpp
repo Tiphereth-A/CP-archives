@@ -87,9 +87,6 @@ int query(int now, int l, int r, int pos) {
         return query(NOW.r, mid + 1, r, pos);
 }
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n, m);
     _for(i, 1, n) read(a[i]);
     init(1, n, root[0]);
@@ -103,8 +100,5 @@ int main(int argc, char const *argv[]) {
             print(query(root[i] = root[v], 1, n, loc));
     }
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

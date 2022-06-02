@@ -19,9 +19,6 @@ bool g[N][N];
 bool vis[N], valid[N];
 int d[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n, m;
     scanf("%d%d", &n, &m);
     int x, y;
@@ -61,9 +58,5 @@ int main() {
     }
     puts("-1");
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

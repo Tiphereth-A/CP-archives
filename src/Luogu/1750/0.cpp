@@ -1,10 +1,5 @@
 #include <bits/stdc++.h>
-#if 0
-#include <bits/stdc++.h>
-#endif
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#if 0
-#endif
 #define M 10005
 const int INF = 0x7fffffff;
 int num[M], n, c, m, slen, pos = 1;

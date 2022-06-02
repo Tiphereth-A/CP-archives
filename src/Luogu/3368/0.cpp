@@ -79,9 +79,6 @@ i64 query(int pos) {
 }
 i64 b[N];
 int main(int argc, char const *argv[]) {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n, m);
     for (int i = 1; i <= n; ++i)
         read(b[i]);
@@ -99,9 +96,5 @@ int main(int argc, char const *argv[]) {
     }
 ex:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

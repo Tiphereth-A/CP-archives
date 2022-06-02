@@ -82,9 +82,6 @@ u64 query(int x) {
 }  // namespace BIT
 using namespace BIT;
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n);
     for (int i = 1; i <= n; ++i) {
         fa[i] = i;
@@ -109,9 +106,5 @@ int main() {
     }
 ex:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

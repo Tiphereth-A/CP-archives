@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     long long a, b, c, d;
     cin >> a >> b >> c >> d;
     if (a == b) {
@@ -17,9 +14,5 @@ int main() {
         else
             cout << min(c + d, 2 * d);
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

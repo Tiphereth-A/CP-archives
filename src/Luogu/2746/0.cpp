@@ -45,9 +45,6 @@ void tarjan(int now) {
 }
 int in[N], out[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n;
     scanf("%d", &n);
     int x;
@@ -68,9 +65,5 @@ int main() {
     }
     printf("%d\n%d", cnt_in, cnt_scc == 1 ? 0 : max(cnt_in, cnt_out));
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

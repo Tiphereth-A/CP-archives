@@ -87,18 +87,11 @@ void merge_sort(int l = 1, int r = n) {
     memcpy(a + l, b + l, sizeof(int) * (r - l + 1));
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     read(n);
     for (int i = 1; i <= n; ++i)
         read(a[i]);
     merge_sort();
     print(cnt);
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }
