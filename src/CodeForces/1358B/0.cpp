@@ -68,9 +68,6 @@ using FastIO::print;
 using FastIO::print_h;
 using FastIO::read;
 int main() {
-#ifndef ONLINE_JUDGE
-    clock_t _CLOCK_ST = clock();
-#endif
     int kase;
     read(kase);
     while (kase--) {
@@ -102,9 +99,5 @@ int main() {
     }
 FINISHED:
     FastIO::flush();
-#ifndef ONLINE_JUDGE
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

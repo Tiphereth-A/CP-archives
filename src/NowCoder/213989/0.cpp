@@ -43,9 +43,6 @@ i64 query(i64 pos) {
     return l_len * r_len;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
@@ -63,9 +60,5 @@ int main() {
             cout << query(x) << endl;
         }
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

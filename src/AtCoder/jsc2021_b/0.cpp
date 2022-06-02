@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-#ifndef ONLINE_JUDGE
-    clock_t _CLOCK_ST = clock();
-#endif
     int m, n;
     cin >> m >> n;
     vector<int> a, ans;
@@ -24,10 +21,5 @@ int main() {
         ans.push_back(*it);
     }
     for (auto it = ans.begin(); it != ans.end(); ++it) cout << *it << " \n"[it == ans.end() - 1];
-#ifndef ONLINE_JUDGE
-    std::cerr
-        << "\n---\n"
-        << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

@@ -38,9 +38,6 @@ bool excrt(i64 n, i64 &res) {
 }
 multiset<i64> all_b;
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int kase;
     scanf("%d", &kase);
     while (kase--) {
@@ -72,9 +69,5 @@ int main() {
         mindmg = 0;
     }
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

@@ -13,21 +13,9 @@ inline auto solve() -> void {
         _for(j, 0, n - 1) cout << (((i >> 2) * (n >> 2) + (j >> 2)) << 4 | ((i & 3) << 2 | (j & 3))) << " \n"[j == n - 1];
 }
 int main() {
-#ifdef _LOCAL_
-    auto _CLOCK_ST = std::chrono::steady_clock::now();
-#endif
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
-    int _t;
-    cin >> _t;
-    while (_t--)
-#endif
         solve();
-#ifdef _LOCAL_
-    std::clog << "\n---\n"
-              << "Time used: " << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - _CLOCK_ST).count() << " ms" << std::endl;
-#endif
     return 0;
 }

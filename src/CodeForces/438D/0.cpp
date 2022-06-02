@@ -99,9 +99,6 @@ class SegTree {
 i64 a[N];
 SegTree<i64> st;
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n, m;
     scanf("%d%d", &n, &m);
     _for(i, 1, n) scanf("%lld", a + i);
@@ -119,9 +116,5 @@ int main() {
             st.modify(l, r);
     }
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

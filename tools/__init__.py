@@ -1,11 +1,15 @@
+from asyncio.log import logger
+from enum import IntEnum, auto
 import hashlib
 import logging
 import os
+from random import randint, random
 import re
 import sys
 import tkinter as tk
 import traceback
 from typing import Any
+from xmlrpc.client import Boolean, boolean
 
 
 def get_clipboard_text():
@@ -77,9 +81,27 @@ RE_DEFINE = re.compile(r'^\s*?#\s*?define\s+?(\w+)')
 RE_USING_TYPEDEF = re.compile(r'^\s*?using\s+?(\w+)\s*?(?==)')
 RE_TYPEDEF = re.compile(r'(?<=typedef)\s(?:[ \w]+)\s(\w+)')
 RE_CONST = re.compile(r'(?<=const)\s(?:\S+)\s(\w+)(?=(?:\[\w+\])*\s?=\s?(?:\w*?\(.+?\))*?(?:\{.+?\})*?[^,]*?)')
+RE_IF1 = re.compile(r'^ *# *if 1\n')
+RE_IF0 = re.compile(r'^ *# *if 0\n')
+RE_IFDEF = re.compile(r'^\s*#\s*ifdef\s+(\w+)')
+RE_IFNDEF = re.compile(r'^\s*#\s*ifndef\s+(\w+)')
+RE_ELSE = re.compile(r'^\s*#\s*else')
+RE_ENDIF = re.compile(r'^\s*#\s*endif')
+RE_DEFINE_FLAG = re.compile(r'^\s*#\s*define\s+(\w+)\n')
+RE_UNDEFINE_FLAG = re.compile(r'^\s*#\s*undef\s+(\w+)\n')
 
 
 def clean_redundant_code_cpp(code: list[str]) -> list[str]:
+    class DefblockState(IntEnum):
+        plaintext = auto()
+        in_ifdef = auto()
+        in_ifndef = auto()
+
+    class DeleteState(IntEnum):
+        skip = auto()
+        pre = auto()
+        suc = auto()
+
     new_code: list[str] = []
 
     # remove #pragma
@@ -88,6 +110,124 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
             continue
         new_code.append(column)
     code, new_code = new_code, []
+
+    # remove some skipped #ifdef and #ifndef block
+
+    rand_token = randint(114514, 1919810)
+    for column in code:
+        if re.search(RE_IF1, column):
+            column = f"#ifdef ALWAYS_TRUE_{rand_token}\n"
+        elif re.search(RE_IF0, column):
+            column = f"#ifdef ALWAYS_FALSE_{rand_token}\n"
+        new_code.append(column)
+    code, new_code = new_code, []
+
+    print("---1")
+    print(''.join(code))
+
+    defined_flag: set[str] = {'ONLINE_JUDGE', f"#ifdef ALWAYS_TRUE_{rand_token}"}
+    stack_index: list[int] = []
+    stack_else_index: list[int] = [0]
+    stack_status: list[DefblockState] = [DefblockState.plaintext]
+    line_num: int = 0
+    would_be_deleted_range: list[tuple[int, int, int]] = []
+
+    for column in code:
+        line_num += 1
+        match_res = re.search(RE_DEFINE_FLAG, column)
+        if match_res:
+            defined_flag.add(match_res.group(1))
+            continue
+
+        match_res = re.search(RE_UNDEFINE_FLAG, column)
+        if match_res:
+            if match_res.group(1) in defined_flag:
+                defined_flag.remove(match_res.group(1))
+            else:
+                logger.warning(f"flag '{match_res.group(1)}' not defined before #undef at line {line_num}")
+            continue
+
+        if stack_status[-1] != DefblockState.plaintext:
+            match_res = re.search(RE_ELSE, column)
+            if match_res:
+                stack_else_index.append(line_num)
+                continue
+            match_res = re.search(RE_ENDIF, column)
+            if not match_res:
+                continue
+            prev_idx: int = line_num
+            delete_tuple: tuple[int, int, int, DeleteState] = ()
+            if stack_status[-1] == DefblockState.in_ifdef:
+                prev_idx = stack_index.pop()
+                match_res = re.search(RE_IFDEF, code[prev_idx-1])
+                if match_res.group(1) not in defined_flag:
+                    if prev_idx < stack_else_index[-1] and stack_else_index[-1] < line_num:
+                        delete_tuple = (prev_idx, stack_else_index.pop(), line_num, DeleteState.pre)
+                    else:
+                        delete_tuple = (prev_idx, line_num, line_num, DeleteState.pre)
+                elif prev_idx <= stack_else_index[-1] and stack_else_index[-1] <= line_num:
+                    delete_tuple = (prev_idx, stack_else_index.pop(), line_num, DeleteState.suc)
+            elif stack_status[-1] == DefblockState.in_ifndef:
+                prev_idx = stack_index.pop()
+                match_res = re.search(RE_IFNDEF, code[prev_idx-1])
+                if match_res.group(1) in defined_flag:
+                    if prev_idx <= stack_else_index[-1] and stack_else_index[-1] <= line_num:
+                        delete_tuple = (prev_idx, stack_else_index.pop(), line_num, DeleteState.pre)
+                    else:
+                        delete_tuple = (prev_idx, line_num, line_num, DeleteState.pre)
+                elif prev_idx < stack_else_index[-1] and stack_else_index[-1] < line_num:
+                    delete_tuple = (prev_idx,  stack_else_index.pop(), line_num, DeleteState.suc)
+            else:
+                logger.error(f"Unknown status: {stack_status[-1]} at line {line_num}")
+                raise ValueError()
+
+            if delete_tuple:
+                would_be_deleted_range.append(delete_tuple)
+
+            stack_status.pop()
+        else:
+            match_res = re.search(RE_IFDEF, column)
+            if match_res:
+                stack_index.append(line_num)
+                stack_status.append(DefblockState.in_ifdef)
+                continue
+            match_res = re.search(RE_IFNDEF, column)
+            if match_res:
+                stack_index.append(line_num)
+                stack_status.append(DefblockState.in_ifndef)
+                continue
+
+    line_num = 0
+    now_del_range: tuple[int, int, int, DeleteState] = (0, 0, 0, DeleteState.skip)
+    for column in code:
+        line_num += 1
+        if line_num > now_del_range[2]:
+            if would_be_deleted_range:
+                now_del_range = would_be_deleted_range.pop(0)
+        if now_del_range[3] == DeleteState.pre:
+            if line_num > now_del_range[0] and line_num < now_del_range[1]:
+                continue
+            if now_del_range[1] == now_del_range[2] and (line_num == now_del_range[0] or line_num == now_del_range[1]):
+                continue
+        elif now_del_range[3] == DeleteState.suc:
+            if line_num >= now_del_range[1] and line_num < now_del_range[2]:
+                continue
+        new_code.append(column)
+    code, new_code = new_code, []
+
+    print("---2")
+    print(''.join(code))
+
+    for column in code:
+        if column == f"#ifdef ALWAYS_TRUE_{rand_token}\n":
+            column = '#if 1\n'
+        elif column == f"#ifdef ALWAYS_FALSE_{rand_token}\n":
+            column = '#if 0\n'
+        new_code.append(column)
+    code, new_code = new_code, []
+
+    print("---3")
+    print(''.join(code))
 
     # remove unused macro, typedef and const
     has_unused_macros = True
@@ -116,7 +256,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
             if match_res:
                 if len(re.split(rf'\b{match_res.group(1)}\b', code_content)) == 2:
                     has_unused_macros = True
-                    skip_next_column = bool(re.search(r'\\n*', column))
+                    skip_next_column = bool(re.search(r'\\\n', column))
                     continue
 
             new_code.append(column)

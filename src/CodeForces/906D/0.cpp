@@ -25,9 +25,6 @@ i64 dfs(int l, int r, int x, i64 p) {
     return qpow(w[x], dfs(l, r, x + 1, phi[p]), p);
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n, m;
     scanf("%d%d", &n, &m);
     for (int i = 1; i <= n; ++i) scanf("%d", w + i);
@@ -45,9 +42,5 @@ int main() {
         printf("%lld\n", dfs(l, r, l, m) % m);
     __end_kase:;
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

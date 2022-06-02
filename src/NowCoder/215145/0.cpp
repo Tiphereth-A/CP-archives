@@ -16,9 +16,6 @@ typedef pair<int, int> pii;
 vector<pii> ans;
 queue<int> tmp;
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     init_prime();
     int kase;
     scanf("%d", &kase);
@@ -53,9 +50,5 @@ int main() {
         for (auto it = ans.begin(); it != ans.end(); ++it) printf("%d %d%c", it->first, it->second, " \n"[it == ans.end() - 1]);
         ans.clear();
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

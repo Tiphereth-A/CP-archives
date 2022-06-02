@@ -6,9 +6,6 @@ typedef long long i64;
 const int N = 4e5 + 5;
 i64 d[N], sum[N];
 int main() {
-#ifndef ONLINE_JUDGE
-    clock_t _CLOCK_ST = clock();
-#endif
 #define _S(n) ((n) * ((n) + 1) / 2)
     ios::sync_with_stdio(false);
     cin.tie(0);
@@ -31,9 +28,5 @@ int main() {
         _ -= _S(d[r]) + _S(d[l]) - _S(diff);
     }
     cout << ans;
-#ifndef ONLINE_JUDGE
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

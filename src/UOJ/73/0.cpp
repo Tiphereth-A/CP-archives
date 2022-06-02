@@ -392,17 +392,10 @@ void main() {
 }
 }  // namespace Subtask10
 int main() {
-#ifdef _LOCAL_
-    std::chrono::steady_clock::time_point _CLOCK_ST = std::chrono::steady_clock::now();
-#endif
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     static void (*func[])(void) = {Subtask1::main, Subtask2::main, Subtask3::main, Subtask4::main, Subtask5::main, Subtask6::main, Subtask7::main, Subtask8::main, Subtask9::main, Subtask10::main};
     func[KASE - 1]();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - _CLOCK_ST).count() << "ms " << std::endl;
-#endif
     return 0;
 }

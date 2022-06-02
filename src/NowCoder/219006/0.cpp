@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n;
     scanf("%d", &n);
     for (int i = 1; i <= n; ++i) {
@@ -17,9 +14,5 @@ int main() {
         printf("Input value: %d\n%d\n", a, ans);
         if (i != n) puts("");
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

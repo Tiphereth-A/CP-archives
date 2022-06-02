@@ -33,9 +33,6 @@ bool judge(long long k, long long l, long long b) {
         return b >= 0;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int m, n;
     cin >> n >> m;
     f.resize(n);
@@ -61,9 +58,5 @@ int main() {
         }
         cout << k << endl;
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

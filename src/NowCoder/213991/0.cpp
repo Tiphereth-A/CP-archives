@@ -18,17 +18,10 @@ int f(int m, int n) {
         if (!vis[i]) return sg[m][n] = i;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int m, n;
     memset(sg, 0xff, sizeof(sg));
     sg[1][1] = sg[1][2] = sg[2][1] = sg[1][3] = sg[3][1] = 0;
     while (cin >> m >> n)
         cout << (f(m, n) ? "Alice" : "Bob") << endl;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

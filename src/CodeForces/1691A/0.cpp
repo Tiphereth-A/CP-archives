@@ -18,9 +18,6 @@ inline auto solve() -> void {
     cout << min(cnt0, cnt1) << '\n';
 }
 int main() {
-#ifdef _LOCAL_
-    auto _CLOCK_ST = std::chrono::steady_clock::now();
-#endif
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -30,9 +27,5 @@ int main() {
     while (_t--)
 #endif
         solve();
-#ifdef _LOCAL_
-    std::clog << "\n---\n"
-              << "Time used: " << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - _CLOCK_ST).count() << " ms" << std::endl;
-#endif
     return 0;
 }

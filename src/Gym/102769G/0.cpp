@@ -8,9 +8,6 @@ int qpow(int a, int b) {
     return res;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int _kase;
     cin >> _kase;
     for (int kase = 1; kase <= _kase; ++kase) {
@@ -28,9 +25,5 @@ int main() {
         }
         print(kase, cnt);
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

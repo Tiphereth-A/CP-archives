@@ -57,9 +57,6 @@ void dfs(int p = 1, int fa = 0, bool erase = true) {
     return;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t c1 = clock();
-#endif
     int n;
     cin >> n;
     for (int i = 1; i <= n; ++i) cin >> color[i];
@@ -71,9 +68,5 @@ int main() {
     init();
     dfs();
     for (int i = 1; i <= n; ++i) cout << ans[i] << " ";
-#ifdef _LOCAL_
-    std::cerr << "\n--------\n"
-              << "Time used:" << clock() - c1 << std::endl;
-#endif
     return 0;
 }

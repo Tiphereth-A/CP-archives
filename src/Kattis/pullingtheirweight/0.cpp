@@ -3,9 +3,6 @@ using namespace std;
 const int N = 2e4 + 5;
 long long cnt[N], sum[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n;
     cin >> n;
     int max_a = 0;
@@ -22,9 +19,5 @@ int main() {
             return 0;
         }
     }
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

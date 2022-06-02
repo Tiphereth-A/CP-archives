@@ -7,9 +7,6 @@ priority_queue<int, vector<int>, greater<int>> mins[N];
 long long gcd(long long a, long long b) { return b == 0 ? a : gcd(b, a % b); }
 long long lcm(long long a, long long b) { return a / gcd(a, b) * b; }
 int main() {
-#ifndef ONLINE_JUDGE
-    clock_t _CLOCK_ST = clock();
-#endif
     for (int i = 2; i < N; ++i) {
         if (!vis[i])
             prime[idx_p[i] = ++cnt_prime] = d[i] = i;
@@ -49,9 +46,5 @@ int main() {
         while (sec_min--) ans *= i;
     }
     cout << ans;
-#ifndef ONLINE_JUDGE
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

@@ -69,9 +69,6 @@ using FastIO::print_h;
 using FastIO::read;
 int cnt[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int kase;
     read(kase);
     while (kase--) {
@@ -92,8 +89,4 @@ int main() {
     }
 FINISHED:
     FastIO::flush();
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
 }

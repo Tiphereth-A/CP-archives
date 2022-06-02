@@ -92,9 +92,6 @@ class Huffman_tree {
 };
 Huffman_tree<i64> hf;
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n, k;
     scanf("%d%d", &n, &k);
     vector<i64> frq;
@@ -111,9 +108,5 @@ int main() {
     }
     printf("%lld\n%lld", len, maxd);
 FINISHED:
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

@@ -27,19 +27,11 @@ ostream &operator<<(ostream &os, i128 n) {
     return os;
 }
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     cin >> n;
     if (n > 139 || !dfs()) {
         cout << -1;
         return 0;
     }
     cout << max_ans;
-#ifdef _LOCAL_
-    std::cerr
-        << "\n---\n"
-        << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

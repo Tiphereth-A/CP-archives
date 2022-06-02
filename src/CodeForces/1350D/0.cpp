@@ -3,9 +3,6 @@ using namespace std;
 const int N = 1e5 + 5;
 int s[N];
 int main() {
-#ifndef ONLINE_JUDGE
-    clock_t _CLOCK_ST = clock();
-#endif
     int kase;
     cin >> kase;
     while (kase--) {
@@ -41,9 +38,5 @@ int main() {
         else
             cout << "no\n";
     }
-#ifndef ONLINE_JUDGE
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

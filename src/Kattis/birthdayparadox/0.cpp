@@ -3,9 +3,6 @@ using namespace std;
 const int N = 405;
 int c[N], f[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
 #define _(a)      \
     if (a[i] > 1) \
         for (int j = 2; j <= a[i]; ++j) ans -= log10(j);
@@ -25,9 +22,5 @@ int main() {
         _(f);
     }
     printf("%.12lf", ans);
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

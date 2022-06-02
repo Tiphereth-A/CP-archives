@@ -5,9 +5,6 @@ bool vis[N];
 int mu[N], prime[N], cnt;
 long long a[N], b[N], c[N];
 int main() {
-#ifdef _LOCAL_
-    clock_t _CLOCK_ST = clock();
-#endif
     int n;
     cin >> n;
     mu[1] = 1;
@@ -44,9 +41,5 @@ int main() {
     long long ans = 0;
     for (int i = 1; i <= n; ++i) ans += mu[i] * ((n / i + 1) * c[i] - b[i]);
     cout << ans;
-#ifdef _LOCAL_
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

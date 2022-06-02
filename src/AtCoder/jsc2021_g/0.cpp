@@ -24,9 +24,6 @@ i64 inv(i64 a, i64 mod = MOD) {
     return res;
 }
 int main() {
-#ifndef ONLINE_JUDGE
-    clock_t _CLOCK_ST = clock();
-#endif
     int n;
     cin >> n;
     _for(i, 1, n)
@@ -85,9 +82,5 @@ int main() {
     }
     cout << ans;
 FINISHED:
-#ifndef ONLINE_JUDGE
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }

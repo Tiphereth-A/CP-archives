@@ -24,9 +24,6 @@ bool legel(point p) { return p.x >= 1 && p.x <= n && p.y >= 1 && p.y <= m; }
 bool extended[N][N];
 i64 len_circ[N][N];
 int main() {
-#ifndef ONLINE_JUDGE
-    clock_t _CLOCK_ST = clock();
-#endif
     int t;
     cin >> n >> m >> t;
     string str;
@@ -71,9 +68,5 @@ int main() {
         cin >> u >> v >> k;
         cout << (k <= len_circ[u][v] ? g[u][v] : g[u][v] ^ ((k - len_circ[u][v]) & 1)) << endl;
     }
-#ifndef ONLINE_JUDGE
-    std::cerr << "\n---\n"
-              << "Time used: " << clock() - _CLOCK_ST << std::endl;
-#endif
     return 0;
 }
