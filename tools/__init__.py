@@ -110,7 +110,6 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
     code, new_code = new_code, []
 
     # remove some skipped #ifdef and #ifndef block
-
     rand_token = randint(114514, 1919810)
     for column in code:
         if re.search(RE_IF1, column):
