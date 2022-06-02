@@ -1,34 +1,22 @@
 #include <bits/stdc++.h>
-int In, Ia, Ib, Ic, Id;
-u64 pre, cnt[2];
-namespace fastIO {
-#define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
-const int SIZ = 1 << 21 | 1;
-char *iS, *iT, ibuff[SIZ], c;
-int fr;
-template <class Type>
-inline void read(Type &x) {
-    Type y = 1;
-    for (c = gc(); !isdigit(c) && c != '-'; c = gc())
-        ;
-    c == '-' ? y = -1 : x = (c & 15);
-    for (c = gc(); isdigit(c); c = gc())
-        x = x * 10 + (c & 15);
-    x *= y;
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+int n, a, b, c, d;
+u64 pre, eve, odd;
+inline bool even(int x) {
+    x ^= x >> 1;
+    x ^= x >> 2;
+    x ^= x >> 4;
+    x ^= x >> 8;
+    x ^= x >> 16;
+    return x & 1;
 }
-}  // namespace fastIO
-using namespace fastIO;
+inline u64 mod(u64 a, int m) { return (a < m) ? a : (a % m); }
 int main() {
-    read(In);
-    read(Ia);
-    read(Ib);
-    read(Ic);
-    read(Id);
-    read(pre);
-    Ia %= Id;
-    Ib %= Id;
-    Ic %= Id;
-    while (In--) (Id > 750000000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
-    printf("%llu", cnt[0] * cnt[1]);
+    scanf("%d%d%d%d%d%llu", &n, &a, &b, &c, &d, &pre);
+    a %= d;
+    b %= d;
+    c %= d;
+    _for(i, 1, n) even(pre = mod(mod((a * pre + b), d) * pre + c, d)) ? ++eve : ++odd;
+    printf("%llu", eve * odd);
     return 0;
 }

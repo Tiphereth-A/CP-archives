@@ -1,94 +1,71 @@
 #include <bits/stdc++.h>
-#define _for(i, l, r) for (unsigned long long i = (l); i <= (r); ++i)
-#define ls rt << 1
-#define rs rt << 1 | 1
-#define Mid unsigned long long m = ((r - l) >> 1) + l
 #define MAXN 100005
-#define MAXBUF 140000000
-inline char gc() {
-    static char buf[MAXBUF], *p1 = buf, *p2 = buf;
-    return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
+#define _for(i, l, r) for (long long(i) = (l); (i) <= (r); (i)++)
+#define _rfor(i, l, r) for (long long i = l; i >= r; --i)
+long long tree[MAXN << 2], add[MAXN << 2];
+long long n, N = 1, m;
+inline void build() {
+    scanf("%lld%lld", &n, &m);
+    for (; N <= n + 1; N <<= 1)
+        ;
+    _for(i, N + 1, N + n) scanf("%lld", tree + i);
+    _rfor(i, N - 1, 1) tree[i] = tree[i << 1] + tree[i << 1 | 1];
 }
-template <typename A>
-inline void read(A &x) {
-    char c;
-    do {
-        c = gc();
-    } while (c < '0' || c > '9');
-    x = 0;
-    do {
-        x = (x << 3) + (x << 1) + (c ^ 48);
-        c = gc();
-    } while (c >= '0' && c <= '9');
-}
-template <typename A, typename B>
-inline void read(A &a, B &b) {
-    read(a), read(b);
-}
-template <typename A, typename B, typename C>
-inline void read(A &a, B &b, C &c) {
-    read(a), read(b), read(c);
-}
-u64 sum[MAXN << 2], add[MAXN << 2], a[MAXN];
-inline void PushUp(const u64 &rt) {
-    sum[rt] = sum[ls] + sum[rs];
-}
-inline void PushDown(const u64 &rt, const u64 &ln, const u64 &rn) {
-    add[ls] += add[rt];
-    sum[ls] += add[rt] * ln;
-    add[rs] += add[rt];
-    sum[rs] += add[rt] * rn;
-    add[rt] = 0;
-}
-void Build(const u64 &l, const u64 &r, const u64 &rt) {
-    if (l == r) {
-        sum[rt] = a[l];
-        return;
+inline void update(long long s, long long t, long long k) {
+    long long lNum = 0, rNum = 0, nNum = 1;
+    for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
+        tree[s] += k * lNum;
+        tree[t] += k * rNum;
+        if (~s & 1) {
+            add[s ^ 1] += k;
+            tree[s ^ 1] += k * nNum;
+            lNum += nNum;
+        }
+        if (t & 1) {
+            add[t ^ 1] += k;
+            tree[t ^ 1] += k * nNum;
+            rNum += nNum;
+        }
     }
-    Mid;
-    Build(l, m, ls);
-    Build(m + 1, r, rs);
-    PushUp(rt);
-}
-void Update(const u64 &L, const u64 &R, const u64 &c, const u64 &l, const u64 &r, const u64 &rt) {
-    if (L <= l && r <= R) {
-        sum[rt] += c * (r - l + 1);
-        add[rt] += c;
-        return;
+    for (; s; s >>= 1, t >>= 1) {
+        tree[s] += k * lNum;
+        tree[t] += k * rNum;
     }
-    Mid;
-    PushDown(rt, m - l + 1, r - m);
-    if (L <= m)
-        Update(L, R, c, l, m, ls);
-    if (R > m)
-        Update(L, R, c, m + 1, r, rs);
-    PushUp(rt);
 }
-u64 Query(const u64 &L, const u64 &R, const u64 &l, const u64 &r, const u64 &rt) {
-    u64 ans = 0;
-    if (L <= l && r <= R)
-        return sum[rt];
-    Mid;
-    PushDown(rt, m - l + 1, r - m);
-    if (L <= m)
-        ans += Query(L, R, l, m, ls);
-    if (R > m)
-        ans += Query(L, R, m + 1, r, rs);
+inline long long query(long long s, long long t) {
+    long long lNum = 0, rNum = 0, nNum = 1;
+    long long ans = 0;
+    for (s = N + s - 1, t = N + t + 1; s ^ t ^ 1; s >>= 1, t >>= 1, nNum <<= 1) {
+        if (add[s]) ans += add[s] * lNum;
+        if (add[t]) ans += add[t] * rNum;
+        if (~s & 1) {
+            ans += tree[s ^ 1];
+            lNum += nNum;
+        }
+        if (t & 1) {
+            ans += tree[t ^ 1];
+            rNum += nNum;
+        }
+    }
+    for (; s; s >>= 1, t >>= 1) {
+        ans += add[s] * lNum;
+        ans += add[t] * rNum;
+    }
     return ans;
 }
 int main() {
-    u64 n = 0, m = 0;
-    read(n, m);
-    _for(i, 1, n) read(a[i]);
-    Build(1, n, 1);
-    u64 o = 0, x = 0, y = 0, k = 0;
+    build();
     while (m--) {
-        read(o, x, y);
-        if (o & 1) {
-            read(k);
-            Update(x, y, k, 1, n, 1);
-        } else
-            printf("%llu\n", Query(x, y, 1, n, 1));
+        char c;
+        long long x, y;
+        scanf("%lld%lld%lld", &c, &x, &y);
+        if (c == 2)
+            printf("%lld\n", query(x, y));
+        else {
+            long long k;
+            scanf("%lld", &k);
+            update(x, y, k);
+        }
     }
     return 0;
 }

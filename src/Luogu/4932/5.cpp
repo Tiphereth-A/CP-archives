@@ -5,8 +5,12 @@ u64 pre, cnt[2];
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
 const int SIZ = 1 << 21 | 1;
-char *iS, *iT, ibuff[SIZ], c;
+char *iS, *iT, ibuff[SIZ], obuff[SIZ], *oS = obuff, *oT = oS + SIZ - 1, fu[110], c;
 int fr;
+inline void out() {
+    fwrite(obuff, 1, oS - obuff, stdout);
+    oS = obuff;
+}
 template <class Type>
 inline void read(Type &x) {
     Type y = 1;
@@ -17,6 +21,19 @@ inline void read(Type &x) {
         x = x * 10 + (c & 15);
     x *= y;
 }
+template <class Type>
+inline void print(Type x, char text = '\n') {
+    if (x < 0)
+        *oS++ = '-', x *= -1;
+    if (x == 0)
+        *oS++ = '0';
+    while (x)
+        fu[++fr] = x % 10 + '0', x /= 10;
+    while (fr)
+        *oS++ = fu[fr--];
+    *oS++ = text;
+    out();
+}
 }  // namespace fastIO
 using namespace fastIO;
 int main() {
@@ -26,7 +43,10 @@ int main() {
     read(Ic);
     read(Id);
     read(pre);
-    _for(i, 1, In) (Id > 875000000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
-    printf("%llu", cnt[0] * cnt[1]);
+    Ia %= Id;
+    Ib %= Id;
+    Ic %= Id;
+    _for(i, 1, In) (Id > 10000000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
+    print(cnt[0] * cnt[1]);
     return 0;
 }
