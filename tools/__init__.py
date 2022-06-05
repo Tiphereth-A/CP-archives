@@ -76,7 +76,10 @@ def remove_file(full_filename: str, logger: logging.Logger) -> None:
 
 RE_PRAGMA = re.compile(r'^\s*#pragma')
 RE_DEFINE = re.compile(r'^\s*?#\s*?define\s+?(\w+)')
-RE_USING_TYPEDEF = re.compile(r'^\s*?using\s+?(\w+)\s*?(?==)')
+RE_TEMPLATE = re.compile(r'^\s*?template')
+STR_TEMPLATE_WITH_ARGS = r'template\s*<(?:\w+?\s*?\w*?(?:\(.+?\)|\{.+?}|\[.+?]|<.+?>)*?,?)+>'
+RE_TEMPLATE_WITH_ARGS = re.compile(STR_TEMPLATE_WITH_ARGS)
+RE_USING_TYPEDEF = re.compile(rf'^(?:\s*?{STR_TEMPLATE_WITH_ARGS}\s*)?\s*?using\s+?(\w+)\s*?(?==)')
 RE_TYPEDEF = re.compile(r'(?<=typedef)\s[ \w]+\s(\w+)')
 RE_CONST = re.compile(r'(?<=const)\s\S+\s(\w+)(?=(?:\[\w+])*\s?=\s?(?:\w*?\(.+?\))*?(?:\{.+?})*?[^,]*?)')
 RE_IF1 = re.compile(r'^ *# *if 1\n')
@@ -87,7 +90,6 @@ RE_ELSE = re.compile(r'^\s*#\s*else')
 RE_ENDIF = re.compile(r'^\s*#\s*endif')
 RE_DEFINE_FLAG = re.compile(r'^\s*#\s*define\s+(\w+)\n')
 RE_UNDEF_FLAG = re.compile(r'^\s*#\s*undef\s+(\w+)\n')
-RE_EMPTY_DEFINE_BLOCK = re.compile(r'#ifn?def\s+\w+\n+(?:#else\n+)?#endif\n+')
 
 
 def clean_redundant_code_cpp(code: list[str]) -> list[str]:
@@ -101,6 +103,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
         pre = auto()
         suc = auto()
 
+    code = [i if i.endswith('\n') else i + '\n' for i in code]
     new_code: list[str] = []
 
     # remove #pragma
@@ -108,6 +111,17 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
         if re.search(RE_PRAGMA, column):
             continue
         new_code.append(column)
+    code, new_code = new_code, []
+
+    # remove break of template declaration
+    past_col: str = ''
+    for column in code:
+        if re.search(RE_TEMPLATE, column):
+            past_col += column
+            past_col = past_col.removesuffix('\n') + ' '
+            continue
+        new_code.append(past_col + column)
+        past_col = ''
     code, new_code = new_code, []
 
     # remove some skipped #ifdef and #ifndef block
@@ -159,7 +173,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
             match_res = re.search(RE_ENDIF, column)
             if not match_res:
                 continue
-            delete_tuple: tuple[int, int, int, DeleteState] = ()
+            delete_tuple: tuple[int, int, int, DeleteState] = (0, 0, 0, DeleteState.skip)
             if stack_status[-1] == DefineBlockState.in_ifdef:
                 prev_idx: int = stack_index.pop()
                 match_res = re.search(RE_IFDEF, code[prev_idx - 1])
@@ -207,13 +221,17 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
         new_code.append(column)
     code, new_code = new_code, []
 
-    code = [i if i.endswith('\n') else i + '\n' for i in re.sub(RE_EMPTY_DEFINE_BLOCK, '\n', ''.join(code)).split('\n')]
-
     for column in code:
-        if column == f"#ifdef ALWAYS_TRUE_{rand_token}\n":
-            column = '#if 1\n'
-        elif column == f"#ifdef ALWAYS_FALSE_{rand_token}\n":
-            column = '#if 0\n'
+        match_res = re.search(RE_IFDEF, column)
+        if not match_res:
+            match_res = re.search(RE_IFNDEF, column)
+        if not match_res:
+            match_res = re.search(RE_ELSE, column)
+        if not match_res:
+            match_res = re.search(RE_ENDIF, column)
+
+        if match_res:
+            continue
         new_code.append(column)
     code, new_code = new_code, []
 
@@ -231,7 +249,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
 
             # capture `#define macros`
             match_res = re.search(RE_DEFINE, column)
-            # capture `using Tp = type;`
+            # capture `using Tp = type;`, `template <...> using Tp = type;`
             if not match_res:
                 match_res = re.search(RE_USING_TYPEDEF, column)
             # capture `typedef type Tp`
