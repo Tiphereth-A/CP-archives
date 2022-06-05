@@ -120,7 +120,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
         new_code.append(column)
     code, new_code = new_code, []
 
-    defined_flag: set[str] = {'ONLINE_JUDGE', f"ALWAYS_TRUE_{rand_token}"}
+    defined_flag: set[str] = {'ONLINE_JUDGE', f"ALWAYS_TRUE_{rand_token}", "DISABLE_PRAGMA_"}
     stack_index: list[int] = []
     stack_else_index: list[int] = [0]
     stack_status: list[DefineBlockState] = [DefineBlockState.plaintext]
