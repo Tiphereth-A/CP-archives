@@ -5,7 +5,6 @@ using i64 = int64_t;
 #define _rfor(i, r, l, vals...) for (make_signed_t<decltype(r - l)> i = (r), i##end = (l), ##vals; i >= i##end; --i)
 const uint32_t OFFSET = 5;
 const uint32_t N = 1e3 + OFFSET;
-#define MULTI_CASES
 template <typename T = i64>
 T exgcd(T a, T b, T &x, T &y) {
     if (b == 0) {
@@ -69,11 +68,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

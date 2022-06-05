@@ -43,7 +43,6 @@ inline void print(T x, T2... oth) {
 }  // namespace FastIO
 using FastIO::print;
 using FastIO::read;
-#define MULTI_CASES
 void solve() {
     i64 n, p;
     read(n, p);
@@ -66,11 +65,9 @@ void solve() {
     printf("%lld\n", ans);
 }
 int main() {
-#ifdef MULTI_CASES
     int _t;
     read(_t);
     while (_t--)
-#endif
         solve();
 FINISHED:
     FastIO::flush();

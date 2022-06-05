@@ -20,7 +20,6 @@ const uint32_t OFFSET = 5;
 const uint32_t N = 1e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 constexpr auto __STATIC__ = []() { return 0.0; }();
 i64 sum[N];
-#define MULTI_CASES
 inline auto solve() -> void {
     int n, k;
     cin >> n >> k;
@@ -60,11 +59,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

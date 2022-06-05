@@ -16,7 +16,6 @@ const uint32_t N = 2e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 int base[N];
 bool startswith_A[N];
 int f[N];
-#define MULTI_CASES
 inline auto solve() -> void {
     int a, b, ab, ba;
     cin >> a >> b >> ab >> ba;
@@ -79,11 +78,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

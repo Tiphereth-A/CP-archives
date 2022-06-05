@@ -2,7 +2,6 @@
 using namespace std;
 #define _for(i, l, r, vals...) for (decltype(l + r) i = (l), i##end = (r), ##vals; i <= i##end; ++i)
 uint32_t cnt[32];
-#define MULTI_CASES
 inline auto solve() -> void {
     uint32_t n;
     cin >> n;
@@ -20,11 +19,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

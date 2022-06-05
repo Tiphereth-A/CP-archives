@@ -1,11 +1,8 @@
-#define __DEF__
 #include <bits/stdc++.h>
-#ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
 template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
-#endif
 namespace FastIO {
 char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = ' ';
 int p, p3 = -1;

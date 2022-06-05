@@ -1,16 +1,7 @@
-#define __C_LIB__
-#define __DEF__
 #include <bits/stdc++.h>
-#ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-#ifdef __C_LIB__
 #define _memng(a) memset(a, 0xff, sizeof(a))
-#endif
-#endif
-#ifdef __FASTIO__
-#if 0
-#else
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
 const int SIZ = 1 << 21 | 1;
@@ -46,7 +37,6 @@ inline void print(Type x, char text = '\n') {
     out();
 }
 }  // namespace fastIO
-#endif
 const int N = 1000015;
 const int MOD = 1000003;
 int p;

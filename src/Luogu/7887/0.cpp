@@ -6,7 +6,6 @@ using pii = pair<i64, i64>;
 const int OFFSET = 5;
 const int N = 2e5 + OFFSET;
 const int MOD = 1e9 + 7;
-#define MULTI_CASES
 template <typename T = i64>
 T inverse(T a, T b = MOD - 2, T mod = MOD) {
     T res = 1;
@@ -51,11 +50,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
 FINISHED:
     return 0;

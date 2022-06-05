@@ -1,14 +1,6 @@
-#define __CPP_STYLE__
-#define __DEF__
-#define __FUNC__
 #include <bits/stdc++.h>
-#ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#ifdef __CPP_STYLE__
 #define SYNC std::ios::sync_with_stdio(false)
-#endif
-#endif
-#ifdef __FUNC__
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>
@@ -19,7 +11,6 @@ template <typename A>
 inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
-#endif
 const int N = 50005;
 std::string str;
 char op;

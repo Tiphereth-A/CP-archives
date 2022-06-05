@@ -24,7 +24,6 @@ inline i64 calc(i64 x, i64 y, i64 k2) {
     if ((k2 + y) % x) return 0;
     return i64(1) << prime_factor_cnt[(k2 + y) / x];
 }
-#define MULTI_CASES
 inline auto solve() -> void {
     i64 x, y, k;
     cin >> x >> y >> k;
@@ -45,11 +44,9 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
     init_prime();
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

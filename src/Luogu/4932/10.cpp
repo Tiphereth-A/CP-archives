@@ -29,7 +29,8 @@ int main() {
     Ia %= Id;
     Ib %= Id;
     Ic %= Id;
-    _for(i, 1, In) (Id > 500000000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
+    pre %= Id;
+    _for(i, 1, In) (Id > 937500000) ? ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) % Id * pre + Ic) % Id)) & 1] : ++cnt[__builtin_popcount(pre = (((Ia * pre + Ib) * pre + Ic) % Id)) & 1];
     printf("%llu", cnt[0] * cnt[1]);
     return 0;
 }

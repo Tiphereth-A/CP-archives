@@ -25,9 +25,6 @@ void solve() {
     for (int i = 1; i <= n / 3; ++i) printf("%d%c", ans[i], " \n"[i == n / 3]);
 }
 int main() {
-#ifdef MULTI
-#else
     solve();
-#endif
     return 0;
 }

@@ -1,12 +1,7 @@
-#define __DEF__
-#define __FASTIO__
 #include <bits/stdc++.h>
-#ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-#endif
 typedef __int128 i128;
-#endif
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -23,9 +18,6 @@ template <typename A>
 inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
-#ifdef __FASTIO__
-#if 0
-#else
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
 const int SIZ = 1 << 21 | 1;
@@ -59,8 +51,6 @@ inline void print(Type x, char text = '\n') {
     out();
 }
 }  // namespace fastIO
-#endif
-#endif
 i128 k, mod;
 std::map<i128, int> set;
 inline i128 qpow(i128 a, i128 b) {

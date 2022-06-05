@@ -1,45 +1,24 @@
-#define __C_STYLE__
-#define __C_LIB__
-#define __CPP_STYLE__
-#define __CPP_LIB__
-#define __STL__
-#define __DEF__
-#define __STD__
-#ifdef __C_STYLE__
-#include <cstdio>
-#endif
-#ifdef __C_LIB__
+#include <algorithm>
 #include <cctype>
 #include <climits>
 #include <cmath>
+#include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#endif
-#ifdef __CPP_STYLE__
-#include <iostream>
-#endif
-#ifdef __CPP_LIB__
+#include <deque>
 #include <fstream>
 #include <iomanip>
-#include <string>
-#endif
-#ifdef __STL__
-#include <algorithm>
-#include <deque>
+#include <iostream>
 #include <iterator>
 #include <list>
 #include <map>
 #include <queue>
 #include <set>
 #include <stack>
+#include <string>
 #include <vector>
-#endif
-#ifdef __STD__
 using namespace std;
-#endif
-#ifdef __DEF__
 #define REP(i, l, r) for (int i = (l); i < (r); ++i)
-#endif
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;

@@ -5,12 +5,12 @@ var
     sum, lazy: array[1..400005] of int64;
     n, m, i, b, x, y, z: int64;
 
-    procedure pushup(rt: int64);//子节点更新，父节点也要更新
+    procedure pushup(rt: int64);
     begin
         sum[rt] := sum[rt shl 1] + sum[(rt shl 1) or 1];
     end;
 
-    procedure build(l, r, rt: int64);//基础的建树
+    procedure build(l, r, rt: int64);
     var
         mid: int64;
     begin
@@ -25,7 +25,7 @@ var
         pushup(rt);
     end;
 
-    procedure pushdown(rt, ln, rn: int64);//懒标记的下放
+    procedure pushdown(rt, ln, rn: int64);
     begin
         if (lazy[rt] <> 0) then
         begin
@@ -37,7 +37,7 @@ var
         end;
     end;
 
-    procedure update(x, y, c, l, r, rt: int64);//区间更新
+    procedure update(x, y, c, l, r, rt: int64);
     var
         mid: int64;
     begin
@@ -56,7 +56,7 @@ var
         pushup(rt);
     end;
 
-    function query(x, y, l, r, rt: int64): int64;//查询函数
+    function query(x, y, l, r, rt: int64): int64;
     var
         mid, ans: int64;
     begin
@@ -70,7 +70,7 @@ var
         if (y > mid) then
             ans := ans + query(x, y, mid + 1, r, (rt shl 1) or 1);
         exit(ans);
-        //这里的shr,shl,or 都是位运算，相当于div 2,*2,+1
+        
     end;
 
 begin

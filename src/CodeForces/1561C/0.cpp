@@ -13,7 +13,6 @@ struct {
 } a[N];
 int k[N];
 bool judge(int x) {}
-#define MULTI_CASES
 inline auto solve() -> void {
     int n;
     cin >> n;
@@ -40,11 +39,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

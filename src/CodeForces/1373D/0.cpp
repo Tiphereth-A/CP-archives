@@ -8,7 +8,6 @@ bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 const uint32_t OFFSET = 5;
 const uint32_t N = 2e5 + OFFSET, M = 2e5 + OFFSET, K = 21;
 int a[N];
-#define MULTI_CASES
 inline auto solve() -> void {
     int n;
     cin >> n;
@@ -31,11 +30,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

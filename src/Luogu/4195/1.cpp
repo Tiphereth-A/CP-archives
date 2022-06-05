@@ -1,12 +1,6 @@
-#define __DEF__
-#define __FASTIO__
-#define __FUNC__
 #include <bits/stdc++.h>
-#ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-#endif
-#ifdef __FUNC__
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -25,9 +19,6 @@ inline A Abs(const A &x) {
 }
 template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
-#endif
-#ifdef __FASTIO__
-#if 1
 namespace fastIO {
 template <typename A>
 inline void read(A &x) {
@@ -57,8 +48,6 @@ inline void read(A &a, B &b, C &c, D &d) {
     read(a), read(b), read(c), read(d);
 }
 }  // namespace fastIO
-#endif
-#endif
 std::map<int, int> set;
 inline int qpow(i64 a, i64 b, int mod) {
     int ans = 1;

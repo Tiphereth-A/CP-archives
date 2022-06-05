@@ -1,8 +1,5 @@
-#define __DEF__
 #include <bits/stdc++.h>
-#ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#endif
 #define INF_I32 0x7fffffff
 const int M = 500005;
 const int N = 100005;

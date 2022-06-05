@@ -44,7 +44,6 @@ template <typename A, typename B, typename C, typename D>
 inline void read(A &a, B &b, C &c, D &d) {
     read(a), read(b), read(c), read(d);
 }
-#endif
 using namespace std;
 string in, af;
 void pre(string in, string af) {

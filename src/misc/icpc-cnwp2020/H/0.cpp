@@ -15,9 +15,6 @@ void solve() {
     printf("%lld\n", ans);
 }
 int main() {
-#ifdef MULTI
-#else
     solve();
-#endif
     return 0;
 }

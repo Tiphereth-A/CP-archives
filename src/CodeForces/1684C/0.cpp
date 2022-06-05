@@ -22,7 +22,6 @@ inline vector<int>::iterator _get(vector<int> &v, int x, int y) { return v.begin
 inline void _swap(int l, int r) {
     _for(i, 0, n - 1) iter_swap(_get(maps, i, l), _get(maps, i, r));
 }
-#define MULTI_CASES
 inline auto solve() -> void {
     cin >> n >> m;
     maps.clear();
@@ -61,11 +60,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

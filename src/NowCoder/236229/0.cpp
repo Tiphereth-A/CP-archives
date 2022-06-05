@@ -6,7 +6,6 @@ const double EPS = 1e-6;
 struct {
     int x, y;
 } points[N];
-#define MULTI_CASES
 inline auto solve() -> void {
     int a, b, n;
     double k;
@@ -37,11 +36,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

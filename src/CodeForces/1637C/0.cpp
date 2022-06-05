@@ -9,7 +9,6 @@ using namespace std;
 const uint32_t OFFSET = 5;
 const uint32_t N = 1e5 + OFFSET;
 int64_t a[N];
-#define MULTI_CASES
 inline void solve() {
     int n;
     cin >> n;
@@ -22,11 +21,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

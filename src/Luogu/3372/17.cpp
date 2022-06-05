@@ -1,99 +1,144 @@
 #include <bits/stdc++.h>
-#define _for(i, l, r) for (unsigned long long i = (l); i <= (r); ++i)
-#define ls rt << 1
-#define rs rt << 1 | 1
-#define Mid unsigned long long m = ((r - l) >> 1) + l
-#define MAXN 100005
-#define MAXBUF 140000000
-inline char gc() {
-    static char buf[MAXBUF], *p1 = buf, *p2 = buf;
-    return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
-}
+#define _for(i, l, r) for (int i = (l); i <= (r); ++i)
+#define _lch ((p) << 1)
+#define _rch ((p) << 1 | 1)
+#define _mid(l, r) ((l) + (((r) - (l)) >> 1))
+#define _line(l, r) ((r) - (l) + 1)
 template <typename A>
-inline void read(A &x) {
-    char c;
-    do {
-        c = getchar();
-    } while (c < '0' || c > '9');
+inline A Max(const A &x, const A &y) { return x > y ? x : y; }
+template <typename A>
+inline A Min(const A &x, const A &y) { return x < y ? x : y; }
+template <typename A>
+inline void Swap(A &x, A &y) { x ^= y ^= x ^= y; }
+template <typename A>
+inline A Abs(const A &x) { return x > 0 ? x : -x; }
+template <typename A>
+inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
+namespace FastIO {
+char buf[1 << 21], buf2[1 << 21], a[20], *p1 = buf, *p2 = buf, hh = '\n';
+int p, p3 = -1;
+inline int getc() { return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, 1 << 21, stdin), p1 == p2) ? EOF : *p1++; }
+void read() {}
+void print() {}
+template <typename T, typename... T2>
+inline void read(T &x, T2 &...oth) {
+    int f = 0;
     x = 0;
+    char ch = getc();
+    while (!isdigit(ch)) {
+        if (ch == '-')
+            f = 1;
+        ch = getc();
+    }
+    while (isdigit(ch)) {
+        x = x * 10 + ch - 48;
+        ch = getc();
+    }
+    if (f)
+        x = -x;
+    read(oth...);
+}
+inline void flush() { fwrite(buf2, 1, p3 + 1, stdout), p3 = -1; }
+template <typename T, typename... T2>
+inline void print(T x, T2... oth) {
+    if (p3 > 1 << 20)
+        flush();
+    if (x < 0)
+        buf2[++p3] = 45, x = -x;
     do {
-        x = (x << 3) + (x << 1) + (c ^ 48);
-        c = getchar();
-    } while (c >= '0' && c <= '9');
+        a[++p] = x % 10 + 48;
+    } while (x /= 10);
+    do {
+        buf2[++p3] = a[p];
+    } while (--p);
+    buf2[++p3] = hh;
+    print(oth...);
 }
-template <typename A, typename B>
-inline void read(A &a, B &b) {
-    read(a), read(b);
+template <typename T>
+inline void print_h(T x, char h) {
+    if (p3 > 1 << 20)
+        flush();
+    if (x < 0)
+        buf2[++p3] = 45, x = -x;
+    do {
+        a[++p] = x % 10 + 48;
+    } while (x /= 10);
+    do {
+        buf2[++p3] = a[p];
+    } while (--p);
+    buf2[++p3] = h;
 }
-template <typename A, typename B, typename C>
-inline void read(A &a, B &b, C &c) {
-    read(a), read(b), read(c);
+inline void putchar(char a) { buf2[++p3] = a; }
+}  // namespace FastIO
+#define read FastIO::read
+#define print FastIO::print
+#define print_h FastIO::print_h
+const int N = 1e6 + 5;
+int n, m;
+i64 a[N];
+struct node {
+    i64 sum, lazy;
+    node operator+=(node a) {
+        sum += a.sum;
+        lazy += a.lazy;
+        return *this;
+    }
+} t[N << 2];
+inline void push_up(int p) { t[p].sum = t[_lch].sum + t[_rch].sum; }
+inline void push_down(int p, int lenth_l, int lenth_r) {
+    t[_lch] += {t[p].lazy * lenth_l, t[p].lazy};
+    t[_rch] += {t[p].lazy * lenth_r, t[p].lazy};
+    t[p].lazy = 0;
 }
-template <typename A>
-void print(A x) {
-    if (x > 9) _print(x / 10);
-    putchar(x % 10 + '0');
-}
-u64 sum[MAXN << 2], add[MAXN << 2], a[MAXN];
-inline void PushUp(const u64 &rt) {
-    sum[rt] = sum[ls] + sum[rs];
-}
-inline void PushDown(const u64 &rt, const u64 &ln, const u64 &rn) {
-    add[ls] += add[rt];
-    sum[ls] += add[rt] * ln;
-    add[rs] += add[rt];
-    sum[rs] += add[rt] * rn;
-    add[rt] = 0;
-}
-void Build(const u64 &l, const u64 &r, const u64 &rt) {
+void build(int p = 1, int l = 1, int r = n) {
     if (l == r) {
-        sum[rt] = a[l];
+        t[p].sum = a[l];
         return;
     }
-    Mid;
-    Build(l, m, ls);
-    Build(m + 1, r, rs);
-    PushUp(rt);
+    int mid = _mid(l, r);
+    build(_lch, l, mid);
+    build(_rch, mid + 1, r);
+    push_up(p);
 }
-void Update(const u64 &L, const u64 &R, const u64 &c, const u64 &l, const u64 &r, const u64 &rt) {
+void update(int L, int R, i64 k, int p = 1, int l = 1, int r = n) {
     if (L <= l && r <= R) {
-        sum[rt] += c * (r - l + 1);
-        add[rt] += c;
+        t[p] += {k * _line(l, r), k};
         return;
     }
-    Mid;
-    PushDown(rt, m - l + 1, r - m);
-    if (L <= m)
-        Update(L, R, c, l, m, ls);
-    if (R > m)
-        Update(L, R, c, m + 1, r, rs);
-    PushUp(rt);
+    int mid = _mid(l, r);
+    push_down(p, _line(l, mid), _line(mid + 1, r));
+    if (mid >= L)
+        update(L, R, k, _lch, l, mid);
+    if (mid < R)
+        update(L, R, k, _rch, mid + 1, r);
+    push_up(p);
 }
-u64 Query(const u64 &L, const u64 &R, const u64 &l, const u64 &r, const u64 &rt) {
-    u64 ans = 0;
+i64 query(int L, int R, int p = 1, int l = 1, int r = n) {
     if (L <= l && r <= R)
-        return sum[rt];
-    Mid;
-    PushDown(rt, m - l + 1, r - m);
-    if (L <= m)
-        ans += Query(L, R, l, m, ls);
-    if (R > m)
-        ans += Query(L, R, m + 1, r, rs);
+        return t[p].sum;
+    int mid = _mid(l, r);
+    i64 ans = 0;
+    push_down(p, _line(l, mid), _line(mid + 1, r));
+    if (mid >= L)
+        ans += query(L, R, _lch, l, mid);
+    if (mid < R)
+        ans += query(L, R, _rch, mid + 1, r);
     return ans;
 }
-int main() {
-    u64 n = 0, m = 0;
+int main(int argc, char const *argv[]) {
     read(n, m);
     _for(i, 1, n) read(a[i]);
-    Build(1, n, 1);
-    u64 o = 0, x = 0, y = 0, k = 0;
-    while (m--) {
-        read(o, x, y);
-        if (o & 1) {
+    build();
+    int op, x, y;
+    i64 k;
+    _for(i, 1, m) {
+        read(op, x, y);
+        if (op & 1) {
             read(k);
-            Update(x, y, k, 1, n, 1);
+            update(x, y, k);
         } else
-            printf("%llu\n", Query(x, y, 1, n, 1));
+            print(query(x, y));
     }
+    FastIO::flush();
     return 0;
 }

@@ -1,51 +1,26 @@
-#define __C_STYLE__
-#define __C_LIB__
-#define __CPP_STYLE__
-#define __CPP_LIB__
-#define __STL__
-#define __DEF__
-#define __STD__
-#define __FASTIO__
-#ifdef __C_STYLE__
-#include <cstdio>
-#endif
-#ifdef __C_LIB__
+#include <algorithm>
 #include <cctype>
 #include <climits>
 #include <cmath>
+#include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#endif
-#ifdef __CPP_STYLE__
-#include <iostream>
-#endif
-#ifdef __CPP_LIB__
+#include <deque>
 #include <fstream>
 #include <iomanip>
-#include <string>
-#endif
-#ifdef __STL__
-#include <algorithm>
-#include <deque>
+#include <iostream>
 #include <iterator>
 #include <list>
 #include <map>
 #include <queue>
 #include <set>
 #include <stack>
+#include <string>
 #include <vector>
-#endif
-#ifdef __STD__
 using namespace std;
-#endif
-#ifdef __DEF__
 #define REP(i, l, r) for (int i = (l); i < (r); ++i)
 #define REPLU(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
-#endif
-#ifdef __CPP_STYLE__
 #define SYNC std::ios::sync_with_stdio(false)
-#endif
-#endif
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -62,8 +37,6 @@ template <typename A>
 inline A Abs(const A &x) {
     return x > 0 ? x : -x;
 }
-#ifdef __FASTIO__
-#if 1
 template <typename A>
 inline void read(A &x) {
     char c;
@@ -91,8 +64,6 @@ template <typename A, typename B, typename C, typename D>
 inline void read(A &a, B &b, C &c, D &d) {
     read(a), read(b), read(c), read(d);
 }
-#endif
-#endif
 const int N = 30;
 int n;
 vector<int> pile[N];

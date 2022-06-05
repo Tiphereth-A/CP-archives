@@ -4,7 +4,6 @@ using vi = vector<int>;
 #define pb push_back
 int _w, _t;
 FILE *_f;
-#define MULTI_CASES
 const int MOD = 1e9 + 7;
 int n, m, f[10][10], edge[2500][2500];
 int plu(int u, int v) {
@@ -184,10 +183,8 @@ void newinit() {
 }
 int main() {
     newinit();
-#ifdef MULTI_CASES
     _w = scanf("%d", &_t);
     while (_t--)
-#endif
         solve();
     return 0;
 }

@@ -1,12 +1,6 @@
-#define __DEF__
 #include <bits/stdc++.h>
-#ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-#endif
-#ifdef __FASTIO__
-#if 0
-#else
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
 const int SIZ = 1 << 21 | 1;
@@ -42,7 +36,6 @@ inline void print(Type x, char text = '\n') {
     out();
 }
 }  // namespace fastIO
-#endif
 int p;
 std::map<int, int> list;
 inline int qpow(i64 a, i64 b) {

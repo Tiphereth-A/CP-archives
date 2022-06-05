@@ -1,11 +1,5 @@
-#define __C_STYLE__
-#define __C_LIB__
-#ifdef __C_STYLE__
 #include <cstdio>
-#endif
-#ifdef __C_LIB__
 #include <cstring>
-#endif
 int find(bool &ans) {
     int wl, dl, wr, dr;
     scanf("%d%d%d%d", &wl, &dl, &wr, &dr);

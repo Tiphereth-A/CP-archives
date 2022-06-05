@@ -27,7 +27,6 @@ constexpr auto __2 = [](int x) -> i64 {
     return __0(x / 3 - 8) * 10 + 7;
 };
 const int __ub[10] = {N - 3, N - 3, N - 3, 79989, 9989, 2985, 989, 689, 291, 285};
-#define MULTI_CASES
 inline auto solve() -> void {
     int n, k;
     cin >> n >> k;
@@ -54,11 +53,9 @@ int main() {
             _i /= 10;
         }
     }
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

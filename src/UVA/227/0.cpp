@@ -1,26 +1,13 @@
-#define __C_STYLE__
-#define __C_LIB__
-#define __DEF__
-#define __FUNC__
-#ifdef __C_STYLE__
-#include <cstdio>
-#endif
-#ifdef __C_LIB__
 #include <cctype>
 #include <climits>
 #include <cmath>
+#include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#endif
-#ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _gc getchar
 #define _err puts("This puzzle has no final configuration.")
-#ifdef __C_LIB__
 #define _mem(a) memset(a, 0, sizeof(a))
-#endif
-#endif
-#ifdef __FUNC__
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>
@@ -31,7 +18,6 @@ template <typename A>
 inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
-#endif
 char map[7][7];
 inline bool legel(int i, int j) { return i > 0 && i < 6 && j > 0 && j < 6; }
 inline void output() {

@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #define N 1005
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
-#if 1
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -45,7 +44,6 @@ template <typename A, typename B, typename C, typename D>
 inline void read(A &a, B &b, C &c, D &d) {
     read(a), read(b), read(c), read(d);
 }
-#endif
 using namespace std;
 int n, a, b, k[N], ans[N];
 queue<int> q;

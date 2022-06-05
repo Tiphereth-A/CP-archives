@@ -13,7 +13,6 @@ bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>
 bool chkmax(T &a, T b) { return a < b ? a = b, true : false; }
 constexpr auto __STATIC__ = []() { return 0.0; }();
-#define MULTI_CASES
 inline auto solve() -> void {
     int n;
     cin >> n;
@@ -33,11 +32,9 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-#ifdef MULTI_CASES
     int _t;
     cin >> _t;
     while (_t--)
-#endif
         solve();
     return 0;
 }

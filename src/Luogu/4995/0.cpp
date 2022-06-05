@@ -1,7 +1,4 @@
-#define __FASTIO__
-#define __FUNC__
 #include <bits/stdc++.h>
-#ifdef __FUNC__
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -20,10 +17,6 @@ inline A Abs(const A &x) {
 }
 template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
-#endif
-#ifdef __FASTIO__
-#if 0
-#else
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
 const int SIZ = 1 << 21 | 1;
@@ -59,8 +52,6 @@ inline void print(Type x, char text = '\n') {
     out();
 }
 }  // namespace fastIO
-#endif
-#endif
 const int N = 305;
 int h[N];
 int n;

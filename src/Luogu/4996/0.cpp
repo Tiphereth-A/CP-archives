@@ -1,11 +1,6 @@
-#define __DEF__
-#define __FUNC__
 #include <bits/stdc++.h>
-#ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 #define _rep(i, l, r) for (int i = (l); i < (r); ++i)
-#endif
-#ifdef __FUNC__
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -24,10 +19,6 @@ inline A Abs(const A &x) {
 }
 template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
-#endif
-#ifdef __FASTIO__
-#if 0
-#else
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
 const int SIZ = 1 << 21 | 1;
@@ -63,7 +54,6 @@ inline void print(Type x, char text = '\n') {
     out();
 }
 }  // namespace fastIO
-#endif
 const int MOD = 998244353;
 const u64 s[] = {1, 1, 3, 13, 75, 541, 4683, 47293, 545835, 7087261, 102247563, 624388220, 140725711, 783574350, 58167463, 197672989, 507523296, 622140839, 604776563, 768918857, 809378366};
 u64 ans;

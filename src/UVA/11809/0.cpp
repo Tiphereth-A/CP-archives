@@ -1,26 +1,12 @@
-#define __C_STYLE__
-#define __C_LIB__
-#define __DEF__
-#define __FUNC__
-#ifdef __C_STYLE__
-#include <cstdio>
-#endif
-#ifdef __C_LIB__
 #include <cctype>
 #include <climits>
 #include <cmath>
+#include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#endif
-#endif
-#endif
-#endif
-#ifdef __DEF__
 #define _for(i, l, r) for (int i = (l); i <= (r); ++i)
 typedef double db;
 typedef long double ldb;
-#endif
-#ifdef __FUNC__
 template <typename A>
 inline A Max(const A &x, const A &y) { return x > y ? x : y; }
 template <typename A>
@@ -31,7 +17,6 @@ template <typename A>
 inline A Abs(const A &x) { return x > 0 ? x : -x; }
 template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
-#endif
 const int N = 200;
 const db EPS = 1e-6;
 char num[N];

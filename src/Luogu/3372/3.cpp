@@ -1,64 +1,81 @@
 #include <bits/stdc++.h>
-#define _for(i, l, r) for (unsigned long long i = (l); i <= (r); ++i)
-#define lowbit(x) ((x) & -(x))
-#define MAXN 100005
-#define MAXBUF 140000000
-inline char gc() {
-    static char buf[MAXBUF], *p1 = buf, *p2 = buf;
-    return p1 == p2 && (p2 = (p1 = buf) + fread(buf, 1, MAXBUF, stdin), p1 == p2) ? EOF : *p1++;
+#define MAXN 1000001
+typedef long long ll;
+using namespace std;
+unsigned ll n, m, a[MAXN], ans[MAXN << 2], tag[MAXN << 2];
+inline ll ls(ll x) {
+    return x << 1;
 }
-template <typename A>
-inline void read(A &x) {
-    char c;
-    do {
-        c = getchar();
-    } while (c < '0' || c > '9');
-    x = 0;
-    do {
-        x = (x << 3) + (x << 1) + (c ^ 48);
-        c = getchar();
-    } while (c >= '0' && c <= '9');
+inline ll rs(ll x) {
+    return x << 1 | 1;
 }
-template <typename A, typename B>
-inline void read(A &a, B &b) {
-    read(a);
-    read(b);
+void scan() {
+    cin >> n >> m;
+    for (ll i = 1; i <= n; i++)
+        scanf("%lld", &a[i]);
 }
-template <typename A, typename B, typename C>
-inline void read(A &a, B &b, C &c) {
-    read(a);
-    read(b);
-    read(c);
+inline void push_up(ll p) {
+    ans[p] = ans[ls(p)] + ans[rs(p)];
 }
-u64 n, m, c1[MAXN], c2[MAXN], num[MAXN];
-void inline add(u64 *r, u64 pos, const u64 &v) {
-    for (; pos <= n; pos += lowbit(pos)) r[pos] += v;
+void build(ll p, ll l, ll r) {
+    tag[p] = 0;
+    if (l == r) {
+        ans[p] = a[l];
+        return;
+    }
+    ll mid = (l + r) >> 1;
+    build(ls(p), l, mid);
+    build(rs(p), mid + 1, r);
+    push_up(p);
 }
-u64 inline query(u64 *r, u64 pos) {
-    u64 ans(0);
-    for (; pos; pos -= lowbit(pos)) ans += r[pos];
-    return ans;
+inline void f(ll p, ll l, ll r, ll k) {
+    tag[p] = tag[p] + k;
+    ans[p] = ans[p] + k * (r - l + 1);
+}
+inline void push_down(ll p, ll l, ll r) {
+    ll mid = (l + r) >> 1;
+    f(ls(p), l, mid, tag[p]);
+    f(rs(p), mid + 1, r, tag[p]);
+    tag[p] = 0;
+}
+inline void update(ll nl, ll nr, ll l, ll r, ll p, ll k) {
+    if (nl <= l && r <= nr) {
+        ans[p] += k * (r - l + 1);
+        tag[p] += k;
+        return;
+    }
+    push_down(p, l, r);
+    ll mid = (l + r) >> 1;
+    if (nl <= mid) update(nl, nr, l, mid, ls(p), k);
+    if (nr > mid) update(nl, nr, mid + 1, r, rs(p), k);
+    push_up(p);
+}
+ll query(ll q_x, ll q_y, ll l, ll r, ll p) {
+    ll res = 0;
+    if (q_x <= l && r <= q_y) return ans[p];
+    ll mid = (l + r) >> 1;
+    push_down(p, l, r);
+    if (q_x <= mid) res += query(q_x, q_y, l, mid, ls(p));
+    if (q_y > mid) res += query(q_x, q_y, mid + 1, r, rs(p));
+    return res;
 }
 int main() {
-    u64 op, x, y, k, sum1, sum2;
-    read(n, m);
-    _for(i, 1, n) {
-        read(num[i]);
-        add(c1, i, num[i] - num[i - 1]);
-        add(c2, i, (i - 1) * (num[i] - num[i - 1]));
-    }
+    ll a1, b, c, d, e, f;
+    scan();
+    build(1, 1, n);
     while (m--) {
-        read(op, x, y);
-        if (op & 1) {
-            read(k);
-            add(c1, x, k);
-            add(c1, y + 1, -k);
-            add(c2, x, k * (x - 1));
-            add(c2, y + 1, -k * y);
-        } else {
-            sum1 = (x - 1) * query(c1, x - 1) - query(c2, x - 1);
-            sum2 = y * query(c1, y) - query(c2, y);
-            printf("%llu\n", sum2 - sum1);
+        scanf("%lld", &a1);
+        switch (a1) {
+            case 1: {
+                scanf("%lld%lld%lld", &b, &c, &d);
+                update(b, c, 1, n, 1, d);
+                break;
+            }
+            case 2: {
+                scanf("%lld%lld", &e, &f);
+                printf("%lld\n", query(e, f, 1, n, 1));
+                break;
+            }
         }
     }
     return 0;

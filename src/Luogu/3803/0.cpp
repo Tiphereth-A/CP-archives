@@ -8,10 +8,7 @@ int ceil_pow2(int n) {
     return x;
 }
 int bsf(unsigned int n) {
-#ifdef _MSC_VER
-#else
     return __builtin_ctz(n);
-#endif
 }
 constexpr long long safe_mod(long long x, long long m) {
     x %= m;
@@ -27,11 +24,8 @@ struct barrett {
     unsigned int mul(unsigned int a, unsigned int b) const {
         unsigned long long z = a;
         z *= b;
-#ifdef _MSC_VER
-#else
         unsigned long long x =
             (unsigned long long)(((unsigned __int128)(z)*im) >> 64);
-#endif
         unsigned int v = (unsigned int)(z - x * _m);
         if (_m <= v) v += _m;
         return v;
@@ -125,7 +119,6 @@ constexpr int primitive_root_constexpr(int m) {
 }
 template <int m>
 constexpr int primitive_root = primitive_root_constexpr(m);
-#ifndef _MSC_VER
 template <class T>
 using is_signed_int128 =
     typename std::conditional<std::is_same<T, __int128_t>::value ||
@@ -161,7 +154,6 @@ using is_unsigned_int =
                                   is_unsigned_int128<T>::value,
                               std::true_type,
                               std::false_type>::type;
-#endif
 template <class T>
 using is_signed_int_t = std::enable_if_t<is_signed_int<T>::value>;
 template <class T>
@@ -507,9 +499,7 @@ std::vector<mint> convolution(std::vector<mint> a, std::vector<mint> b) {
     for (int i = 0; i < n + m - 1; i++) a[i] *= iz;
     return a;
 }
-template <unsigned int mod = 998244353,
-          class T,
-          std::enable_if_t<internal::is_integral<T>::value> * = nullptr>
+template <unsigned int mod = 998244353, class T, std::enable_if_t<internal::is_integral<T>::value> * = nullptr>
 std::vector<T> convolution(const std::vector<T> &a, const std::vector<T> &b) {
     int n = int(a.size()), m = int(b.size());
     if (!n || !m) return {};

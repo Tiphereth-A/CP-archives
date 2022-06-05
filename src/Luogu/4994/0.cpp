@@ -1,10 +1,5 @@
-#define __DEF__
-#define __FUNC__
 #include <bits/stdc++.h>
-#ifdef __DEF__
 #define _replu(i, l, r) for (long unsigned int i = (l); i < (r); ++i)
-#endif
-#ifdef __FUNC__
 template <typename A>
 inline A Max(const A &x, const A &y) {
     return x > y ? x : y;
@@ -23,10 +18,6 @@ inline A Abs(const A &x) {
 }
 template <typename A>
 inline A Gcd(A x, A y) { return !y ? x : Gcd(y, x % y); }
-#endif
-#ifdef __FASTIO__
-#if 0
-#else
 namespace fastIO {
 #define gc() (iS == iT ? (iT = (iS = ibuff) + fread(ibuff, 1, SIZ, stdin), (iS == iT ? EOF : *iS++)) : *iS++)
 const int SIZ = 1 << 21 | 1;
@@ -62,7 +53,6 @@ inline void print(Type x, char text = '\n') {
     out();
 }
 }  // namespace fastIO
-#endif
 int n, a, b = 1, c;
 int main() {
     scanf("%d", &n);
