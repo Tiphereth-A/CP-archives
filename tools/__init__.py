@@ -118,7 +118,7 @@ def clean_redundant_code_cpp(code: list[str]) -> list[str]:
     for column in code:
         if re.search(RE_TEMPLATE, column):
             past_col += column
-            past_col = past_col.removesuffix('\n') + ' '
+            past_col = past_col.removesuffix('\n').removesuffix('\\') + ' '
             continue
         new_code.append(past_col + column)
         past_col = ''
