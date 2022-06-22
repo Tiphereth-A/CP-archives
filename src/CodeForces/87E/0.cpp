@@ -1,12 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define OPERATOR_OVERRIED_PAIR_(oper)                                                                                                                                                                             \
-    template <typename Tp, typename Up>                                                                   \ constexpr std::pair<Tp, Up> &operator oper##=(std::pair<Tp, Up> &lhs, const std::pair<Tp, Up> &rhs) { \
-        lhs.first oper## = rhs.first;                                                                                                                                                                             \
-        lhs.second oper## = rhs.second;                                                                                                                                                                           \
-        return lhs;                                                                                                                                                                                               \
-    }                                                                                                                                                                                                             \
-    template <typename Tp, typename Up>                                                                   \ constexpr std::pair<Tp, Up> operator oper(std::pair<Tp, Up> lhs, const std::pair<Tp, Up> &rhs) { return lhs oper## = rhs; }
+#define OPERATOR_OVERRIED_PAIR_(oper)                                                                     \
+    template <typename Tp, typename Up>                                                                   \
+    constexpr std::pair<Tp, Up> &operator oper##=(std::pair<Tp, Up> &lhs, const std::pair<Tp, Up> &rhs) { \
+        lhs.first oper## = rhs.first;                                                                     \
+        lhs.second oper## = rhs.second;                                                                   \
+        return lhs;                                                                                       \
+    }                                                                                                     \
+    template <typename Tp, typename Up>                                                                   \
+    constexpr std::pair<Tp, Up> operator oper(std::pair<Tp, Up> lhs, const std::pair<Tp, Up> &rhs) { return lhs oper## = rhs; }
 OPERATOR_OVERRIED_PAIR_(+)
 OPERATOR_OVERRIED_PAIR_(-)
 OPERATOR_OVERRIED_PAIR_(*)
