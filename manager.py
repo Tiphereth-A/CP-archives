@@ -178,6 +178,7 @@ def unify_code_format(src: str):
                 r"-config=formatter-config\jcf.xml"]
 
     def ktlint_cmd(filepath, filename): return ['ktlint', '-F', os.path.join(filepath, filename)]
+    def rustfmt_cmd(filepath, filename): return ['rustfmt', os.path.join(filepath, filename), os.path.join(filepath, filename)]
 
     __commands = {
         'c': clangformat_cmd,
@@ -195,7 +196,8 @@ def unify_code_format(src: str):
         'm': clangformat_cmd,
         'mm': clangformat_cmd,
         'pas': jcf_cmd,
-        'py': autopep8_cmd
+        'py': autopep8_cmd,
+        'rs': rustfmt_cmd
     }
 
     @log_default(get_all_files(src))
