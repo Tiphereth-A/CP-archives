@@ -168,6 +168,8 @@ def unify_code_format(src: str):
     def clangformat_cmd(filepath, filename):
         return ['clang-format', r"-style=file:formatter-config\.clang-format", '-i', os.path.join(filepath, filename)]
 
+    def gofmt_cmd(filepath, filename): return ['gofmt', '-s', '-w', os.path.join(filepath, filename)]
+
     def jcf_cmd(filepath, filename):
         return [get_file_in_toolbin('jcf',
                                     [('win32', 'jcf-win-64.exe'), ('darwin', 'jcf-osx-64'), ('cygwin', 'jcf-linux-64'),
@@ -184,6 +186,7 @@ def unify_code_format(src: str):
         'cpp': clangformat_cmd,
         'cs': clangformat_cmd,
         'cxx': clangformat_cmd,
+        'go': gofmt_cmd,
         'h': clangformat_cmd,
         'hpp': clangformat_cmd,
         'java': clangformat_cmd,
