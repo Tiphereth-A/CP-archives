@@ -153,19 +153,19 @@ def unify_code_format(src: str):
     """format all files"""
 
     __commands = {
-        'c': lambda filepath, filename: ['clang-format', '-style=file', '-i', os.path.join(filepath, filename)],
-        'cpp': lambda filepath, filename: ['clang-format', '-style=file', '-i', os.path.join(filepath, filename)],
-        'hpp': lambda filepath, filename: ['clang-format', '-style=file', '-i', os.path.join(filepath, filename)],
+        'c': lambda filepath, filename: ['clang-format', '-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
+        'cpp': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
+        'hpp': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
         'kt': lambda filepath, filename: ['ktlint', '-F', os.path.join(filepath, filename)],
         'pas': lambda filepath, filename: [get_file_in_toolbin('jcf',
                                                                [('win32', 'jcf-win-64.exe'),
                                                                 ('darwin', 'jcf-osx-64'),
-                                                                ('cygwin', 'jcf-linux-64'),
-                                                                ('linux', 'jcf-linux-64')]),
+                                                                   ('cygwin', 'jcf-linux-64'),
+                                                                   ('linux', 'jcf-linux-64')]),
                                            os.path.join(filepath, filename),
                                            '-clarify',
                                            '-inplace',
-                                           rf"-config=jcf.xml"],
+                                           rf"-config=formatter-config\jcf.xml"],
         'py': lambda filepath, filename: ['autopep8', '-i', os.path.join(filepath, filename)]
     }
 
@@ -291,6 +291,7 @@ def default_process(oj: str, pid: str, ext_name: str, git: bool):
     except OSError as e:
         pass
 
+    rename_all_files.callback(src)
     add_new_file.callback(oj, pid, ext_name)
     unify_code_format.callback(src)
     remove_comments.callback(src)
