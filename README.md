@@ -44,11 +44,13 @@ python manager.py [command] --help
 
 ### About formatting
 
-| code type         | formatter                                                    |
-| ----------------- | ------------------------------------------------------------ |
-| `c`, `cpp`, `hpp` | [clang-format](https://clang.llvm.org/docs/ClangFormat.html) |
-| `kt`              | [ktlint](https://github.com/pinterest/ktlint)                |
-| `py`              | [autopep8](https://github.com/hhatto/autopep8)               |
-| `pas`             | [jcf-cli](https://github.com/git-bee/jcf-cli) [^1]           |
+| code type         | formatter                                                              |
+| ----------------- | ---------------------------------------------------------------------- |
+| `c`, `cpp`, `hpp` | [clang-format](https://clang.llvm.org/docs/ClangFormat.html)           |
+| `java`            | [google-java-format](https://github.com/google/google-java-format)[^1] |
+| `kt`              | [ktlint](https://github.com/pinterest/ktlint)                          |
+| `py`              | [autopep8](https://github.com/hhatto/autopep8)                         |
+| `pas`             | [jcf-cli](https://github.com/git-bee/jcf-cli) [^2]                     |
 
-[^1]: You should copy bin files into `.\tools\bin\jcf`
+[^1]: You should `google-java-format-<version>-all-deps.jar` into `.\tools\bin\jcf` and rename it to `google-java-format-all-deps.jar`
+[^2]: You should copy bin files into `.\tools\bin\jcf`

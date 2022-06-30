@@ -156,6 +156,11 @@ def unify_code_format(src: str):
         'c': lambda filepath, filename: ['clang-format', '-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
         'cpp': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
         'hpp': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
+        'java': lambda filepath, filename: ['java', '-jar', get_file_in_toolbin('google-java-format',
+                                                                                [('', 'google-java-format-all-deps.jar')]),
+                                            '--aosp',
+                                            '--replace',
+                                            os.path.join(filepath, filename)],
         'kt': lambda filepath, filename: ['ktlint', '-F', os.path.join(filepath, filename)],
         'pas': lambda filepath, filename: [get_file_in_toolbin('jcf',
                                                                [('win32', 'jcf-win-64.exe'),
@@ -165,7 +170,7 @@ def unify_code_format(src: str):
                                            os.path.join(filepath, filename),
                                            '-clarify',
                                            '-inplace',
-                                           rf"-config=formatter-config\jcf.xml"],
+                                           r"-config=formatter-config\jcf.xml"],
         'py': lambda filepath, filename: ['autopep8', '-i', os.path.join(filepath, filename)]
     }
 
