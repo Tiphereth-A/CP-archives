@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-import click
-import coloredlogs
 import random
 import subprocess
+
+import click
+import coloredlogs
 
 from tools import *
 from tools.cmcleaner.src.comments_cleaner import cpp, python
@@ -155,25 +156,31 @@ def remove_redundant_codes(src: str):
 def unify_code_format(src: str):
     """format all files"""
 
+    AUTOPEP8_ARGS: list[str] = ['autopep8', '-i']
+    CLANGFORMAT_ARGS: list[str] = ['clang-format', '-style=file:formatter-config\.clang-format', '-i']
+    JCF_ARGS_PRE: list[str] = [get_file_in_toolbin('jcf', [('win32', 'jcf-win-64.exe'),
+                                                           ('darwin', 'jcf-osx-64'),
+                                                           ('cygwin', 'jcf-linux-64'),
+                                                           ('linux', 'jcf-linux-64')])]
+    JCF_ARGS_SUF: list[str] = ['-clarify', '-inplace', r"-config=formatter-config\jcf.xml"]
+    KTLINT_ARGS: list[str] = ['ktlint', '-F']
+
     __commands = {
-        'c': lambda filepath, filename: ['clang-format', '-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
-        'cpp': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
-        'cs': lambda filepath, filename: ['clang-format', '-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
-        'h': lambda filepath, filename: ['clang-format', '-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
-        'hpp': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
-        'java': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
-        'js': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
-        'kt': lambda filepath, filename: ['ktlint', '-F', os.path.join(filepath, filename)],
-        'pas': lambda filepath, filename: [get_file_in_toolbin('jcf',
-                                                               [('win32', 'jcf-win-64.exe'),
-                                                                ('darwin', 'jcf-osx-64'),
-                                                                   ('cygwin', 'jcf-linux-64'),
-                                                                   ('linux', 'jcf-linux-64')]),
-                                           os.path.join(filepath, filename),
-                                           '-clarify',
-                                           '-inplace',
-                                           r"-config=formatter-config\jcf.xml"],
-        'py': lambda filepath, filename: ['autopep8', '-i', os.path.join(filepath, filename)]
+        'c': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'cc': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'c++': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'cpp': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'cs': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'cxx': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'h': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'hpp': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'java': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'js': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'kt': lambda filepath, filename: KTLINT_ARGS + [os.path.join(filepath, filename)],
+        'm': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'mm': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
+        'pas': lambda filepath, filename: JCF_ARGS_PRE + [os.path.join(filepath, filename)] + JCF_ARGS_SUF,
+        'py': lambda filepath, filename: AUTOPEP8_ARGS + [os.path.join(filepath, filename)]
     }
 
     @log_default(get_all_files(src))
