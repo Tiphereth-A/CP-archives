@@ -47,8 +47,10 @@ python manager.py [command] --help
 | code type                                                                             | formatter                                                    |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | `c`, `cc`, `c`, `cpp`, `cs`, `cxx`, `h`, `hpp`, `java`, `js`, `m` (Objective-C), `mm` | [clang-format](https://clang.llvm.org/docs/ClangFormat.html) |
+| `go`                                                                                  | [gofmt](https://golang.org/cmd/gofmt)                        |
 | `kt`                                                                                  | [ktlint](https://github.com/pinterest/ktlint)                |
 | `py`                                                                                  | [autopep8](https://github.com/hhatto/autopep8)               |
 | `pas`                                                                                 | [jcf-cli](https://github.com/git-bee/jcf-cli) [^1]           |
+| `rs`                                                                                  | [rustfmt](https://github.com/rust-lang/rustfmt)              |
 
 [^1]: You should copy bin files into `.\tools\bin\jcf`
