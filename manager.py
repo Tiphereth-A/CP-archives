@@ -156,31 +156,36 @@ def remove_redundant_codes(src: str):
 def unify_code_format(src: str):
     """format all files"""
 
-    AUTOPEP8_ARGS: list[str] = ['autopep8', '-i']
-    CLANGFORMAT_ARGS: list[str] = ['clang-format', '-style=file:formatter-config\.clang-format', '-i']
-    JCF_ARGS_PRE: list[str] = [get_file_in_toolbin('jcf', [('win32', 'jcf-win-64.exe'),
-                                                           ('darwin', 'jcf-osx-64'),
-                                                           ('cygwin', 'jcf-linux-64'),
-                                                           ('linux', 'jcf-linux-64')])]
-    JCF_ARGS_SUF: list[str] = ['-clarify', '-inplace', r"-config=formatter-config\jcf.xml"]
-    KTLINT_ARGS: list[str] = ['ktlint', '-F']
+    def autopep8_cmd(filepath, filename): return ['autopep8', '-i', os.path.join(filepath, filename)]
+
+    def clangformat_cmd(filepath, filename):
+        return ['clang-format', r"-style=file:formatter-config\.clang-format", '-i', os.path.join(filepath, filename)]
+
+    def jcf_cmd(filepath, filename):
+        return [get_file_in_toolbin('jcf',
+                                    [('win32', 'jcf-win-64.exe'), ('darwin', 'jcf-osx-64'), ('cygwin', 'jcf-linux-64'),
+                                     ('linux', 'jcf-linux-64')]),
+                os.path.join(filepath, filename), '-clarify', '-inplace',
+                r"-config=formatter-config\jcf.xml"]
+
+    def ktlint_cmd(filepath, filename): return ['ktlint', '-F', os.path.join(filepath, filename)]
 
     __commands = {
-        'c': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'cc': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'c++': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'cpp': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'cs': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'cxx': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'h': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'hpp': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'java': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'js': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'kt': lambda filepath, filename: KTLINT_ARGS + [os.path.join(filepath, filename)],
-        'm': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'mm': lambda filepath, filename: CLANGFORMAT_ARGS + [os.path.join(filepath, filename)],
-        'pas': lambda filepath, filename: JCF_ARGS_PRE + [os.path.join(filepath, filename)] + JCF_ARGS_SUF,
-        'py': lambda filepath, filename: AUTOPEP8_ARGS + [os.path.join(filepath, filename)]
+        'c': clangformat_cmd,
+        'cc': clangformat_cmd,
+        'c++': clangformat_cmd,
+        'cpp': clangformat_cmd,
+        'cs': clangformat_cmd,
+        'cxx': clangformat_cmd,
+        'h': clangformat_cmd,
+        'hpp': clangformat_cmd,
+        'java': clangformat_cmd,
+        'js': clangformat_cmd,
+        'kt': ktlint_cmd,
+        'm': clangformat_cmd,
+        'mm': clangformat_cmd,
+        'pas': jcf_cmd,
+        'py': autopep8_cmd
     }
 
     @log_default(get_all_files(src))
@@ -326,7 +331,6 @@ def default_process(oj: str, pid: str, ext_name: str, git: bool):
 
     subprocess.run(['git', 'add', r'src/\*'], encoding='utf8', check=True)
     subprocess.run(['git', 'commit', '--message', rf'feat: add {oj} {pid}'], encoding='utf8', check=True)
-    # subprocess.run(['git', 'push', 'origin', 'main'], encoding='utf8', check=True)
 
 
 if __name__ == '__main__':
