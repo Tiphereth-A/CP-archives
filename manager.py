@@ -93,10 +93,17 @@ def remove_comments(src: str):
     """clean comments in files"""
     __commands = {
         'c': cpp.clean,
+        'cc': cpp.clean,
+        'c++': cpp.clean,
         'cpp': cpp.clean,
         'cs': cpp.clean,
+        'cxx': cpp.clean,
+        'h': cpp.clean,
+        'hpp': cpp.clean,
         'java': cpp.clean,
         'js': cpp.clean,
+        'm': cpp.clean,
+        'mm': cpp.clean,
         'py': python.clean
     }
 
