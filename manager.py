@@ -93,6 +93,9 @@ def remove_comments(src: str):
     __commands = {
         'c': cpp.clean,
         'cpp': cpp.clean,
+        'cs': cpp.clean,
+        'java': cpp.clean,
+        'js': cpp.clean,
         'py': python.clean
     }
 
@@ -155,12 +158,11 @@ def unify_code_format(src: str):
     __commands = {
         'c': lambda filepath, filename: ['clang-format', '-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
         'cpp': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
+        'cs': lambda filepath, filename: ['clang-format', '-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
+        'h': lambda filepath, filename: ['clang-format', '-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
         'hpp': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
-        'java': lambda filepath, filename: ['java', '-jar', get_file_in_toolbin('google-java-format',
-                                                                                [('', 'google-java-format-all-deps.jar')]),
-                                            '--aosp',
-                                            '--replace',
-                                            os.path.join(filepath, filename)],
+        'java': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
+        'js': lambda filepath, filename: ['clang-format', r'-style=file:formatter-config\.clang-format', '-i', os.path.join(filepath, filename)],
         'kt': lambda filepath, filename: ['ktlint', '-F', os.path.join(filepath, filename)],
         'pas': lambda filepath, filename: [get_file_in_toolbin('jcf',
                                                                [('win32', 'jcf-win-64.exe'),
