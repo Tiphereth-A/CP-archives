@@ -391,20 +391,21 @@ inline auto solve([[maybe_unused]] int t_) -> void {
     for_(i, 0, n - 1)
         for_(j, i + 1, n - 1)
             for_(k, j + 1, n - 1) {
-        if (is_on_same_L(vp[i], vp[j], vp[k])) continue;
-        Triangle t{vp[i], vp[j], vp[k]};
-        if (t.is_obtuse()) continue;
-        if (t.is_right()) {
-            if (is_zero(dot(vp[i], vp[j], vp[k])) && !exists.count(reflect({vp[j], vp[k]}, vp[i]))) continue;
-            if (is_zero(dot(vp[j], vp[k], vp[i])) && !exists.count(reflect({vp[k], vp[i]}, vp[j]))) continue;
-            if (is_zero(dot(vp[k], vp[i], vp[j])) && !exists.count(reflect({vp[i], vp[j]}, vp[k]))) continue;
-        }
-        circles.emplace(t.center_O(), t.radius_O());
-    }
+                if (is_on_same_L(vp[i], vp[j], vp[k])) continue;
+                Triangle t{vp[i], vp[j], vp[k]};
+                if (t.is_obtuse()) continue;
+                if (t.is_right()) {
+                    if (is_zero(dot(vp[i], vp[j], vp[k])) && !exists.count(reflect({vp[j], vp[k]}, vp[i]))) continue;
+                    if (is_zero(dot(vp[j], vp[k], vp[i])) && !exists.count(reflect({vp[k], vp[i]}, vp[j]))) continue;
+                    if (is_zero(dot(vp[k], vp[i], vp[j])) && !exists.count(reflect({vp[i], vp[j]}, vp[k]))) continue;
+                }
+                circles.emplace(t.center_O(), t.radius_O());
+            }
     double ans = -1;
     foreach_binding_(circles, o, r) {
         bool f = 0;
-        foreach_cref_(p, vp) if (f |= is_less(dist_PP(p, o), r)) break;
+        foreach_cref_(p, vp)
+            if (f |= is_less(dist_PP(p, o), r)) break;
         if (f) continue;
         chkmax(ans, r);
     }

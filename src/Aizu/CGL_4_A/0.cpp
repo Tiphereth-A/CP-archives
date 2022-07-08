@@ -505,7 +505,8 @@ inline auto solve([[maybe_unused]] int t_) -> void {
     cvh.init_nonstrict();
     cout << cvh.vs.size() << '\n';
     size_t now = 0;
-    for_(i, 1, cvh.vs.size() - 1) if (is_less(cvh[i].y, cvh[now].y) || (is_equal(cvh[i].y, cvh[now].y) && is_less(cvh[i].x, cvh[now].x))) now = i;
+    for_(i, 1, cvh.vs.size() - 1)
+        if (is_less(cvh[i].y, cvh[now].y) || (is_equal(cvh[i].y, cvh[now].y) && is_less(cvh[i].x, cvh[now].x))) now = i;
     for_(i, now, cvh.vs.size() - 1) cout << cvh[i] << '\n';
     if (now)
         for_(i, 0, now - 1) cout << cvh[i] << '\n';

@@ -501,7 +501,8 @@ inline auto solve([[maybe_unused]] int t_) -> void {
     cout << poly.vertice.size() + 1 << '\n';
     size_t start = 0;
     auto &&now = poly.vertice;
-    for_(i, 0, now.size() - 1) if (now[i].y < now[start].y || (now[i].y == now[start].y && now[i].x == now[start].x)) start = i;
+    for_(i, 0, now.size() - 1)
+        if (now[i].y < now[start].y || (now[i].y == now[start].y && now[i].x == now[start].x)) start = i;
     for_(i, start, now.size() - 1) cout << now[i] << '\n';
     for_(i, 0, start) cout << now[i] << '\n';
     if (t_ > 1) cout << "-1\n";

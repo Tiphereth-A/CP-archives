@@ -437,7 +437,8 @@ inline void solve(int t_) {
     vec.erase(unique(all_(vec)), vec.end());
     vec2.clear();
     if (vec.empty()) run_return_void_(cout << "0\n");
-    for_(i, 0, vec.size() - 1) if (!(vec[i].is_include(ic1.o) ^ vec[i].is_include(ic2.o)) && !(vec[i].is_include(ic1.o) ^ vec[i].is_include(p))) vec2.push_back(vec[i]);
+    for_(i, 0, vec.size() - 1)
+        if (!(vec[i].is_include(ic1.o) ^ vec[i].is_include(ic2.o)) && !(vec[i].is_include(ic1.o) ^ vec[i].is_include(p))) vec2.push_back(vec[i]);
     cout << vec2.size() << '\n';
     for_(i, 0, vec2.size() - 1) cout << inv_L2C(invc, vec2[i]) << '\n';
 }

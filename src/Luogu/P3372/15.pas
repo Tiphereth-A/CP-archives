@@ -70,7 +70,7 @@ var
         if (y > mid) then
             ans := ans + query(x, y, mid + 1, r, (rt shl 1) or 1);
         exit(ans);
-        
+
     end;
 
 begin

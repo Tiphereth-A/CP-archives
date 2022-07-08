@@ -5,7 +5,9 @@ template <class Tp, std::size_t row, std::size_t col>
 class matrix {
 #define _for_row(i) for (std::size_t i = 0; i < row; ++i)
 #define _for_col(i) for (std::size_t i = 0; i < col; ++i)
-#define _for_each(i, j) _for_row(i) _for_col(j)
+#define _for_each(i, j) \
+    _for_row(i)         \
+        _for_col(j)
 #define _perfect(Tp) template <typename Tp, std::enable_if_t<std::is_convertible_v<self, Tp>> * = nullptr>
 #define _forward_self std::forward<self>
   public:
@@ -16,7 +18,9 @@ class matrix {
 
   public:
     matrix() = default;
-    matrix(const self &rhs) { _for_each(i, j) this->mat[i][j] = rhs.data(i, j); }
+    matrix(const self &rhs) {
+        _for_each(i, j) this->mat[i][j] = rhs.data(i, j);
+    }
     self &operator=(const self &rhs) {
         _for_each(i, j) this->mat[i][j] = rhs.data(i, j);
         return *this;
@@ -31,8 +35,10 @@ class matrix {
     template <std::size_t row2>
     matrix<Tp, row, row2> operator*(const matrix<Tp, col, row2> &rhs) {
         matrix<Tp, row, row2> ret;
-        _for_row(i) _for_col(k) for (std::size_t j = 0; j < row2; ++j)
-            ret.data(i, j) = ret.data(i, j) + this->mat[i][k] * rhs.data(k, j);
+        _for_row(i)
+            _for_col(k)
+                for (std::size_t j = 0; j < row2; ++j)
+                    ret.data(i, j) = ret.data(i, j) + this->mat[i][k] * rhs.data(k, j);
         return ret;
     }
 #undef _for_row

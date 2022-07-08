@@ -83,7 +83,9 @@ class matrix {
 #define _for(i, begin, end, vals...) for (std::size_t i = (begin), ##vals; i < (end); ++i)
 #define _for_row(i, vals...) _for(i, 0, this->get_row(), ##vals)
 #define _for_col(i, vals...) _for(i, 0, this->get_col(), ##vals)
-#define _for_each(i, j) _for_row(i) _for_col(j)
+#define _for_each(i, j) \
+    _for_row(i)         \
+        _for_col(j)
   public:
     using self = matrix<Tp, Equal>;
     using data_t = Tp;
@@ -101,7 +103,9 @@ class matrix {
         row(_row), col(_col), mat(_row, std::vector<data_t>(_col, scalar)), equ(_equal) {}
     template <typename Up, _TRAITS(_CONVERTIBLE(Up, self &))>
     matrix(Up &&rhs):
-        row(std::forward<self>(rhs).get_row()), col(std::forward<self>(rhs).get_col()), mat(row), equ(std::forward<self>(rhs).equ) { _for_row(i) this->mat[i] = std::forward<self>(rhs).mat[i]; }
+        row(std::forward<self>(rhs).get_row()), col(std::forward<self>(rhs).get_col()), mat(row), equ(std::forward<self>(rhs).equ) {
+        _for_row(i) this->mat[i] = std::forward<self>(rhs).mat[i];
+    }
     template <typename Up, _TRAITS(_CONVERTIBLE(Up, self))>
     self &operator=(Up &&rhs) {
         _for_row(i) this->mat[i] = std::forward<self>(rhs).mat[i];

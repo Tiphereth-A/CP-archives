@@ -927,9 +927,9 @@ inline auto solve([[maybe_unused]] int t_) -> void {
     vc<Node> vl;
     for_(i, 0, n - 1)
         for_(j, 0, n - 1) {
-        if (i == j) continue;
-        vl.emplace_back(i, j, vp[i], vp[j]);
-    }
+            if (i == j) continue;
+            vl.emplace_back(i, j, vp[i], vp[j]);
+        }
     sort(all_(vl));
     vi f(n + 1);
     int ans = 0;

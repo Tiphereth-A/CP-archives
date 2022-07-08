@@ -298,9 +298,7 @@ inline auto solve([[maybe_unused]] int t_) -> void {
     poly.do_convex_hull_nonstrict();
     auto &&u = poly.vertice;
     cout << u.size() << '\n';
-    foreach_cref_(i, u)
-            cout
-        << i << '\n';
+    foreach_cref_(i, u) cout << i << '\n';
 }
 int main() {
     ios::sync_with_stdio(false);

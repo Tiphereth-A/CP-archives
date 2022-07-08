@@ -403,10 +403,11 @@ inline auto solve([[maybe_unused]] int t_) -> void {
     data_t destroied_area = 0;
     Point2 missile;
     while (cin >> missile) {
-        for_(i, 0, sz - 1) if (!destroied[i] && vpolys[i].is_containing_cvh(missile)) {
-            destroied[i] = true;
-            destroied_area += vpolys[i].area();
-        }
+        for_(i, 0, sz - 1)
+            if (!destroied[i] && vpolys[i].is_containing_cvh(missile)) {
+                destroied[i] = true;
+                destroied_area += vpolys[i].area();
+            }
     }
     cout << destroied_area << '\n';
 }

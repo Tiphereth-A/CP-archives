@@ -73,14 +73,16 @@ inline auto solve([[maybe_unused]] int t_) -> void {
     for_(i, 1, n) cin >> x[i] >> radius[i];
     iota(l, l + n + 1, 0);
     iota(r, r + n + 1, 0);
-    for_(i, 2, n) while (l[i] > 1 && x[i] - x[l[i] - 1] <= radius[i]) {
-        chkmax(radius[i], radius[l[i] - 1] - (x[i] - x[l[i] - 1]));
-        l[i] = l[l[i] - 1];
-    }
-    rfor_(i, n - 1, 1) while (r[i] < n && x[r[i] + 1] - x[i] <= radius[i]) {
-        chkmin(l[i], l[r[i] + 1]);
-        r[i] = r[r[i] + 1];
-    }
+    for_(i, 2, n)
+        while (l[i] > 1 && x[i] - x[l[i] - 1] <= radius[i]) {
+            chkmax(radius[i], radius[l[i] - 1] - (x[i] - x[l[i] - 1]));
+            l[i] = l[l[i] - 1];
+        }
+    rfor_(i, n - 1, 1)
+        while (r[i] < n && x[r[i] + 1] - x[i] <= radius[i]) {
+            chkmin(l[i], l[r[i] + 1]);
+            r[i] = r[r[i] + 1];
+        }
     i64 ans = 0;
     for_(i, 1, n) ans += i * (r[i] - l[i] + 1) % MOD;
     cout << ans % MOD;

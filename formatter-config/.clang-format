@@ -82,6 +82,18 @@ ForEachMacros:
   - _foreach_rref
   - _foreach_val
   - _for_graph
+  - _for_row
+  - _for_col
+  - _for_each
+  - for_
+  - rfor_
+  - foreach_cref_
+  - foreach_iter_
+  - foreach_iter_range_
+  - foreach_ref_
+  - foreach_rref_
+  - foreach_val_
+  - for_graph_
 IfMacros:
   - KJ_IF_MAYBE
 IncludeBlocks: Preserve

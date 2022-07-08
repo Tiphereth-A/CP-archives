@@ -568,8 +568,10 @@ inline auto solve([[maybe_unused]] int t_) -> void {
         cin >> poly1 >> poly2;
         poly1.do_convex_hull();
         poly2.do_convex_hull();
-        foreach_cref_(i, poly1.vertice) if (poly2.is_containing_cvh(i)) run_exec_(cout << RES_Yn[0] << '\n', goto fin__);
-        foreach_cref_(i, poly2.vertice) if (poly1.is_containing_cvh(i)) run_exec_(cout << RES_Yn[0] << '\n', goto fin__);
+        foreach_cref_(i, poly1.vertice)
+            if (poly2.is_containing_cvh(i)) run_exec_(cout << RES_Yn[0] << '\n', goto fin__);
+        foreach_cref_(i, poly2.vertice)
+            if (poly1.is_containing_cvh(i)) run_exec_(cout << RES_Yn[0] << '\n', goto fin__);
         if (poly1.vertice.size() > 1 && poly2.vertice.size() > 1) {
             for (auto it = poly1.vertice.begin(), itn = it + 1; it != poly1.vertice.end(); ++it, ++itn) {
                 if (itn == poly1.vertice.end()) itn = poly1.vertice.begin();

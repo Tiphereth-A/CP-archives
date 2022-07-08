@@ -60,15 +60,16 @@ bool valid(const vvc<string> &s, const vc<int> &p, int n) {
     for_(i, 1, n - 1)
         for_(j, 1, n - 1) table[s[0][i] + s[0][j]] = table[s[0][i]] * (n - 1) + table[s[0][j]];
     for_(i, 1, n - 1)
-        for_(j, 1, n - 1) if (table[s[i][j]] != table[s[0][i]] + table[s[j][0]]) return false;
+        for_(j, 1, n - 1)
+            if (table[s[i][j]] != table[s[0][i]] + table[s[j][0]]) return false;
     return true;
 }
 inline auto solve([[maybe_unused]] int t_) -> void {
     read_var_(int, n);
     vvc<string> s(n, vc<string>(n));
     for_(i, 0, n - 1)
-            for_(j, 0, n - 1) cin >>
-        s[i][j];
+        for_(j, 0, n - 1) cin >>
+                              s[i][j];
     vc<int> p(n);
     iota(all_(p), 0);
     bool f = 0;

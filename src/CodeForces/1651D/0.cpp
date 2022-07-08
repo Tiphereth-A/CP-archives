@@ -222,14 +222,16 @@ inline auto solve([[maybe_unused]] int t_) -> void {
     queue<pii> q;
     pii _;
     foreach_rref_(i, vp)
-        foreach_rref_(dir, DIR4) if (~f[_ = make_pair(i.first + dir.first, i.second + dir.second)]) q.push(ans[_] = _);
+        foreach_rref_(dir, DIR4)
+            if (~f[_ = make_pair(i.first + dir.first, i.second + dir.second)]) q.push(ans[_] = _);
     while (!q.empty()) {
         auto &&nowp = q.front();
-        foreach_rref_(dir, DIR4) if (!~f[_ = make_pair(nowp.first + dir.first, nowp.second + dir.second)]) {
-            f[_] = 1;
-            ans[_] = ans[nowp];
-            q.push(_);
-        }
+        foreach_rref_(dir, DIR4)
+            if (!~f[_ = make_pair(nowp.first + dir.first, nowp.second + dir.second)]) {
+                f[_] = 1;
+                ans[_] = ans[nowp];
+                q.push(_);
+            }
         q.pop();
     }
     foreach_rref_(i, vp) fast_out.write(ans[i].first).space().write(ans[i].second).linebreak();

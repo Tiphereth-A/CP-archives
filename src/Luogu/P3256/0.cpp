@@ -833,11 +833,11 @@ inline auto solve([[maybe_unused]] int t_) -> void {
     vc<bool> vis(n + 4);
     foreach_cref_(p, cvh.vs)
         for_(i, 0, n - 1) {
-        if (!vis[i] && vl[i].passes_through(p)) {
-            vis[i] = 1;
-            ans.push_back(i + 1);
+            if (!vis[i] && vl[i].passes_through(p)) {
+                vis[i] = 1;
+                ans.push_back(i + 1);
+            }
         }
-    }
     sort(all_(ans));
     cout << ans.size() << '\n';
     cout << ans;

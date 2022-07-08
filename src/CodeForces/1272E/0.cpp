@@ -64,15 +64,17 @@ inline auto solve([[maybe_unused]] int t_) -> void {
     transform(all_(v), odd.begin(), [](const int &x) -> int { return x % 2 - 1; });
     transform(all_(v), even.begin(), [](const int &x) -> int { return -(x % 2); });
     queue<int> q;
-#define __(type)                                                             \
-    for_(i, 0, n - 1) if (~type[i]) q.push(i);                               \
-    while (!q.empty()) {                                                     \
-        auto &&now = q.front();                                              \
-        foreach_cref_(v, g[now]) if (!~type[v] || type[v] > type[now] + 1) { \
-            type[v] = type[now] + 1;                                         \
-            q.push(v);                                                       \
-        }                                                                    \
-        q.pop();                                                             \
+#define __(type)                                        \
+    for_(i, 0, n - 1)                                   \
+        if (~type[i]) q.push(i);                        \
+    while (!q.empty()) {                                \
+        auto &&now = q.front();                         \
+        foreach_cref_(v, g[now])                        \
+            if (!~type[v] || type[v] > type[now] + 1) { \
+                type[v] = type[now] + 1;                \
+                q.push(v);                              \
+            }                                           \
+        q.pop();                                        \
     }
     __(odd)
     __(even)

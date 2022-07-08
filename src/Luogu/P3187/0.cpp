@@ -758,7 +758,8 @@ inline auto solve([[maybe_unused]] int t_) -> void {
         if (is_zero(rect[i].x)) rect[i].x = 0;
         if (is_zero(rect[i].y)) rect[i].y = 0;
     }
-    for_(i, 0, 3) if (is_less(rect[i].y, rect[start].y) || (is_equal(rect[i].y, rect[start].y) && is_less(rect[i].x, rect[start].x))) start = i;
+    for_(i, 0, 3)
+        if (is_less(rect[i].y, rect[start].y) || (is_equal(rect[i].y, rect[start].y) && is_less(rect[i].x, rect[start].x))) start = i;
     for (size_t i = start; i < 4; ++i) cout << rect[i] << '\n';
     for (size_t i = 0; i < start; ++i) cout << rect[i] << '\n';
 }

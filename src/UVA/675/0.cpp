@@ -488,16 +488,18 @@ inline string get_s1(char var, double val) {
 inline void f(const vc<Point2> vp) {
     map<Point2, int> id;
     int cnt = 0;
-    foreach_cref_(p, vp) if (!id[p]) id[p] = ++cnt;
+    foreach_cref_(p, vp)
+        if (!id[p]) id[p] = ++cnt;
     Polynomial2 poly{vp};
     poly.do_convex_hull();
     auto &&now = poly.vertice;
     size_t start = 0;
     int start_id = id[now[0]];
-    for_(i, 1, now.size() - 1) if (id[now[i]] < start_id) {
-        start = i;
-        start_id = id[now[i]];
-    }
+    for_(i, 1, now.size() - 1)
+        if (id[now[i]] < start_id) {
+            start = i;
+            start_id = id[now[i]];
+        }
     for_(i, start, now.size() - 1) cout << now[i].x << ", " << now[i].y << '\n';
     for_(i, 0, start) cout << now[i].x << ", " << now[i].y << '\n';
 }

@@ -156,7 +156,9 @@ class matrix {
 #define _for(i, begin, end, vals...) for (std::size_t i = (begin), ##vals; i < (end); ++i)
 #define _for_row(i, vals...) _for(i, 0, this->get_row(), ##vals)
 #define _for_col(i, vals...) _for(i, 0, this->get_col(), ##vals)
-#define _for_each(i, j) _for_row(i) _for_col(j)
+#define _for_each(i, j) \
+    _for_row(i)         \
+        _for_col(j)
 #define _square_matrix_needed \
     if (this->get_row() != this->get_col()) throw std::runtime_error("The matrix is not square matrix")
   public:
@@ -181,7 +183,9 @@ class matrix {
         _for_row(i) this->mat[i] = std::forward<self>(rhs).mat[i];
         return *this;
     }
-    inline void clear() { _for_each(i, j) this->data(i, j) = 0; }
+    inline void clear() {
+        _for_each(i, j) this->data(i, j) = 0;
+    }
     inline constexpr const std::size_t &get_row() const { return this->row; }
     inline constexpr const std::size_t &get_col() const { return this->col; }
     inline constexpr Tp &data(const size_t &r, const size_t &c) const { return const_cast<self * const>(this)->mat[r][c]; }
@@ -251,7 +255,9 @@ class matrix {
     self operator*(const self &rhs) {
         if (this->get_col() != rhs.get_row()) throw std::logic_error("you can not multiple (" + std::to_string(this->get_row()) + "x" + std::to_string(this->get_col()) + ") matrix and (" + std::to_string(rhs.get_row()) + "x" + std::to_string(rhs.get_col()) + ") matrix");
         self ret(this->get_row(), rhs.get_col(), 0, this->equ);
-        _for_row(i) _for_col(k) _for(j, 0, rhs.get_col()) ret.data(i, j) += this->data(i, k) * rhs.data(k, j);
+        _for_row(i)
+            _for_col(k)
+                _for(j, 0, rhs.get_col()) ret.data(i, j) += this->data(i, k) * rhs.data(k, j);
         return ret;
     }
     Tp &operator()(const std::size_t &r, const std::size_t &c) { return this->data(r, c); }
@@ -265,7 +271,8 @@ class matrix {
     self operator-(const self &rhs) { return self(*this) -= rhs; }
     self operator/(const self &rhs) { return self(*this) /= rhs; }
     bool operator==(const self &rhs) const {
-        _for_each(i, j) if (!this->equ(this->data(i, j), rhs.data(i, j))) return false;
+        _for_each(i, j)
+            if (!this->equ(this->data(i, j), rhs.data(i, j))) return false;
         return true;
     }
     bool operator!=(const self &rhs) const { return !(*this == rhs); }
