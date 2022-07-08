@@ -205,7 +205,7 @@ def unify_code_format(src: str):
         full_filename = os.path.join(filepath, filename)
         prev_size = os.path.getsize(full_filename)
 
-        subprocess.run(__commands.get(get_extname(filename), lambda _, __: [])(filepath, filename), encoding='utf8',
+        subprocess.run(__commands.get(get_extname(filename), lambda _, __: ['echo', rf"Format: unknown type: ({_}, {__})"])(filepath, filename), encoding='utf8',
                        check=True)
 
         now_size = os.path.getsize(full_filename)
