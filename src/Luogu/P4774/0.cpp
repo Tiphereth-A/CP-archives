@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using i64 = int64_t;
 using i128 = __int128_t;
 #define _for(i, l, r) for (decltype(l + r) i = (l); i <= (r); ++i)
 template <class _T>
