@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using i64 = int64_t;
 template <class T>
 bool chkmin(T &a, T b) { return b < a ? a = b, true : false; }
 template <class T>

@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using i64 = int64_t;
 const int MOD = 1e5 + 3;
 i64 qpow(i64 a, i64 b, i64 mod = MOD) {
     i64 res = 1;
