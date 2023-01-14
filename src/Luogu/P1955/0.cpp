@@ -1,0 +1,224 @@
+#include <bits/stdc++.h>
+using u32 = uint32_t;
+#define run_exec_(expressions, post_process) \
+  {                                          \
+    expressions;                             \
+    post_process;                            \
+  }
+#define run_break_(expressions) run_exec_(expressions, break)
+#define run_continue_(expressions) run_exec_(expressions, continue)
+template <class Tp>
+constexpr auto chkmin(Tp &a, Tp b) -> bool {
+  return b < a ? a = b, true : false;
+};
+template <class Tp>
+constexpr auto chkmax(Tp &a, Tp b) -> bool {
+  return a < b ? a = b, true : false;
+};
+template <class Tp, class Pred>
+Tp binary_search(Pred check, Tp ok, Tp ng) {
+  assert(check(ok));
+  while (std::abs(ok - ng) > 1) {
+    Tp x = (ng + ok) / 2;
+    (check(x) ? ok : ng) = x;
+  }
+  return ok;
+}
+template <class Tp,
+          class Pred,
+          std::enable_if_t<std::is_floating_point_v<Tp>> * = nullptr>
+Tp binary_search_real(Pred check, Tp ok, Tp ng, Tp eps) {
+  assert(check(ok));
+  while (std::abs(ok - ng) > eps) {
+    Tp x = (ng + ok) / 2;
+    (check(x) ? ok : ng) = x;
+  }
+  return (ng + ok) / 2;
+}
+template <class Tp>
+auto discretization(Tp &var) -> Tp {
+  Tp d__(var);
+  std::sort(d__.begin(), d__.end());
+  d__.erase(std::unique(d__.begin(), d__.end()), d__.end());
+  for (auto &i : var)
+    i = std::distance(d__.begin(), std::lower_bound(d__.begin(), d__.end(), i));
+  return d__;
+};
+template <class Tp>
+constexpr auto ispow2(Tp i) -> bool {
+  return i && (i & -i) == i;
+}
+#define TPL_SIZE_(Tuple) std::tuple_size_v<std::remove_reference_t<Tuple>>
+namespace tuple_deta_ {
+template <std::size_t Begin, class Tuple, std::size_t... Is>
+constexpr auto subtuple_impl_(Tuple &&t, std::index_sequence<Is...>) {
+  return std::make_tuple(std::get<Is + Begin>(t)...);
+}
+template <class Tuple, class BinOp, std::size_t... Is>
+constexpr auto
+apply2_impl_(BinOp &&f, Tuple &&lhs, Tuple &&rhs, std::index_sequence<Is...>) {
+  return std::make_tuple(
+    std::forward<BinOp>(f)(std::get<Is>(lhs), std::get<Is>(rhs))...);
+}
+}  // namespace tuple_deta_
+template <std::size_t Begin, std::size_t Len, class Tuple>
+constexpr auto subtuple(Tuple &&t) {
+  static_assert(Begin <= TPL_SIZE_(Tuple) && Len <= TPL_SIZE_(Tuple) &&
+                  Begin + Len <= TPL_SIZE_(Tuple),
+                "Out of range");
+  return tuple_deta_::subtuple_impl_<Begin>(t, std::make_index_sequence<Len>());
+}
+template <std::size_t Pos, class Tp, class Tuple>
+constexpr auto tuple_push(Tp &&v, Tuple &&t) {
+  static_assert(TPL_SIZE_(Tuple) > 0, "Pop from empty tuple");
+  return std::tuple_cat(subtuple<0, Pos>(t),
+                        std::make_tuple(v),
+                        subtuple<Pos, TPL_SIZE_(Tuple) - Pos>(t));
+}
+template <class Tp, class Tuple>
+constexpr auto tuple_push_front(Tp &&v, Tuple &&t) {
+  return tuple_push<0>(v, t);
+}
+template <class Tp, class Tuple>
+constexpr auto tuple_push_back(Tp &&v, Tuple &&t) {
+  return tuple_push<TPL_SIZE_(Tuple)>(v, t);
+}
+template <std::size_t Pos, class Tuple>
+constexpr auto tuple_pop(Tuple &&t) {
+  static_assert(TPL_SIZE_(Tuple) > 0, "Pop from empty tuple");
+  return std::tuple_cat(subtuple<0, Pos>(t),
+                        subtuple<Pos + 1, TPL_SIZE_(Tuple) - Pos - 1>(t));
+}
+template <class Tuple>
+constexpr auto tuple_pop_front(Tuple &&t) {
+  return tuple_pop<0>(t);
+}
+template <class Tuple>
+constexpr auto tuple_pop_back(Tuple &&t) {
+  return tuple_pop<TPL_SIZE_(Tuple) - 1>(t);
+}
+template <class Tuple, class BinOp>
+constexpr auto apply2(BinOp &&f, Tuple &&lhs, Tuple &&rhs) {
+  return tuple_deta_::apply2_impl_(
+    f, lhs, rhs, std::make_index_sequence<TPL_SIZE_(Tuple)>());
+}
+#define OO_PTEQ_(op)                                                          \
+  template <class Tp, class Up>                                               \
+  constexpr auto operator op(std::pair<Tp, Up> lhs,                           \
+                             const std::pair<Tp, Up> &rhs) {                  \
+    return {lhs.first op rhs.first, lhs.second op rhs.second};                \
+  }                                                                           \
+  template <class... Ts>                                                      \
+  constexpr auto operator op(std::tuple<Ts...> const &lhs,                    \
+                             std::tuple<Ts...> const &rhs) {                  \
+    return apply2([](auto &&l, auto &&r) { return l op r; }, lhs, rhs);       \
+  }                                                                           \
+  template <class Tp, class Up>                                               \
+  constexpr std::pair<Tp, Up> &operator op##=(std::pair<Tp, Up> &lhs,         \
+                                              const std::pair<Tp, Up> &rhs) { \
+    lhs.first op## = rhs.first;                                               \
+    lhs.second op## = rhs.second;                                             \
+    return lhs;                                                               \
+  }                                                                           \
+  template <class... Ts>                                                      \
+  constexpr auto operator op##=(std::tuple<Ts...> &lhs,                       \
+                                const std::tuple<Ts...> &rhs) {               \
+    return lhs = lhs op rhs;                                                  \
+  }
+OO_PTEQ_(+)
+OO_PTEQ_(-)
+OO_PTEQ_(*)
+OO_PTEQ_(/)
+OO_PTEQ_(%)
+OO_PTEQ_(&)
+OO_PTEQ_(|)
+OO_PTEQ_(^)
+OO_PTEQ_(<<)
+OO_PTEQ_(>>)
+#undef OO_PTEQ_
+#undef TPL_SIZE_
+template <class Tp, class Up>
+std::istream &operator>>(std::istream &is, std::pair<Tp, Up> &p) {
+  return is >> p.first >> p.second;
+}
+template <class Tp, class Up>
+std::ostream &operator<<(std::ostream &os, const std::pair<Tp, Up> &p) {
+  return os << p.first << ' ' << p.second;
+}
+template <typename... Ts>
+std::istream &operator>>(std::istream &is, std::tuple<Ts...> &p) {
+  std::apply([&](Ts &...targs) { ((is >> targs), ...); }, p);
+  return is;
+}
+template <typename... Ts>
+std::ostream &operator<<(std::ostream &os, const std::tuple<Ts...> &p) {
+  std::apply(
+    [&](Ts const &...targs) {
+      std::size_t n{0};
+      ((os << targs << (++n != sizeof...(Ts) ? " " : "")), ...);
+    },
+    p);
+  return os;
+}
+template <class Ch,
+          class Tr,
+          class Ct,
+          std::enable_if_t<std::is_same_v<decltype(std::declval<Ct>().begin()),
+                                          typename Ct::iterator> &&
+                           std::is_same_v<decltype(std::declval<Ct>().end()),
+                                          typename Ct::iterator>> * = nullptr>
+std::basic_ostream<Ch, Tr> &operator<<(std::basic_ostream<Ch, Tr> &os,
+                                       const Ct &x) {
+  for (auto it = x.begin(); it != x.end() - 1; ++it) os << *it << ' ';
+  os << x.back();
+  return os;
+}
+const u32 OFFSET = 5;
+const u32 N = 5e5 + OFFSET;
+const std::string RES_YN[2] = {"NO", "YES"};
+using namespace std;
+struct Node {
+  int x, y, op;
+  Node(int x, int y, int op): x(x), y(y), op(op) {}
+  friend bool operator<(const Node &lhs, const Node &rhs) {
+    return lhs.op > rhs.op;
+  }
+};
+int fa[N];
+int find(int x) { return fa[x] == x ? x : fa[x] = find(fa[x]); }
+auto solve([[maybe_unused]] int t_ = 0) -> void {
+  int n;
+  cin >> n;
+  vector<Node> a;
+  a.reserve(n);
+  vector<int> b;
+  b.reserve(n * 2);
+  for (int i = 1, x, y, op; i <= n; ++i) {
+    cin >> x >> y >> op;
+    a.emplace_back(x, y, op);
+    b.push_back(x);
+    b.push_back(y);
+  }
+  sort(a.begin(), a.end());
+  sort(b.begin(), b.end());
+  b.erase(unique(b.begin(), b.end()), b.end());
+  iota(fa, fa + b.size() + 1, 0);
+  bool f = 1;
+  for (auto &&[x, y, op] : a) {
+    auto &&fx = find(lower_bound(b.begin(), b.end(), x) - b.begin()),
+         fy = find(lower_bound(b.begin(), b.end(), y) - b.begin());
+    if (op == 1) run_continue_(fa[fx] = fy);
+    if (fx == fy) run_break_(f = 0);
+  }
+  cout << RES_YN[f] << '\n';
+}
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+  int i_ = 0;
+  int t_ = 0;
+  std::cin >> t_;
+  for (i_ = 1; i_ <= t_; ++i_) solve(i_);
+  return 0;
+}
