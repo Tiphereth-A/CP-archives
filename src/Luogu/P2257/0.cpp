@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+const int N = 1e7 + 5;
+int prime[N], cnt;
+bool vis[N];
+i64 sf[N], mu[N];
+void seive(int n = N - 5) {
+  mu[1] = 1;
+  for (int i = 2; i <= n; ++i) {
+    if (!vis[i]) {
+      prime[++cnt] = i;
+      mu[i] = -1;
+      sf[i] = 1;
+    }
+    for (int j = 1; j <= cnt && i * prime[j] <= n; ++j) {
+      vis[i * prime[j]] = 1;
+      if (i % prime[j] == 0) {
+        sf[i * prime[j]] = mu[i];
+        break;
+      }
+      sf[i * prime[j]] = -sf[i] + mu[i];
+      mu[i * prime[j]] = -mu[i];
+    }
+  }
+  for (int i = 2; i <= n; ++i) sf[i] += sf[i - 1];
+}
+int main() {
+  seive();
+  int _t;
+  cin >> _t;
+  while (_t--) {
+    i64 m, n;
+    cin >> m >> n;
+    if (m > n) swap(m, n);
+    i64 ans = 0;
+    for (i64 l = 1, r; l <= m; l = r + 1) {
+      r = min(n / (n / l), m / (m / l));
+      ans += (n / l) * (m / l) * (sf[r] - sf[l - 1]);
+    }
+    cout << ans << endl;
+  }
+}

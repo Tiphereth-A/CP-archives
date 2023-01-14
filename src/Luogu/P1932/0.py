@@ -1,0 +1,7 @@
+valuea = int(input())
+valueb = int(input())
+print(valuea + valueb)
+print(valuea - valueb)
+print(valuea * valueb)
+print(valuea // valueb)
+print(valuea % valueb)
