@@ -1,0 +1,11 @@
+*.out
+/*.exe
+
+.idea/
+
+__pycache__
+
+env/
+venv/
+
+/tools/bin/*/
